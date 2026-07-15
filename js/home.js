@@ -6,10 +6,9 @@
   const items = SF.ticker.map(t => `<span><b>⚠ ALERT</b> &nbsp;${t}</span>`).join("");
   document.getElementById("ticker-rail").innerHTML = items + items;
 
-  /* stats */
+  /* stats — editorial hairline band */
   document.getElementById("stat-grid").innerHTML = SF.stats.map(s => `
-    <div class="card card3d stat rv">
-      <div class="ico">${s.ico}</div>
+    <div class="stat rv">
       <div class="num" data-count data-end="${s.end}" data-fmt="${s.fmt}">0</div>
       <div class="lbl">${s.lbl}</div>
       <span class="delta ${s.dir}">${s.delta}</span>
@@ -56,14 +55,37 @@
     </a>`;
   }).join("");
 
-  /* hero shield parallax */
-  const shield = document.getElementById("hero-shield");
-  if (shield && !matchMedia("(hover: none)").matches) {
-    addEventListener("pointermove", (e) => {
-      const rx = (e.clientY / innerHeight - 0.5) * -16;
-      const ry = (e.clientX / innerWidth - 0.5) * 20;
-      shield.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+  /* hero entrance: masked line reveal after the veil clears */
+  setTimeout(() => document.body.classList.add("hero-in"), 350);
+
+  /* seamless scroll parallax: headline, watermark and orbs drift at different depths */
+  const mega = document.querySelector(".mega");
+  const mark = document.getElementById("hero-mark");
+  const lede = document.querySelector(".hero2 .lede");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) {
+    let ticking = false;
+    addEventListener("scroll", () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = scrollY;
+        if (y < innerHeight * 1.2) {
+          if (mega) mega.style.transform = `translateY(${y * 0.18}px)`;
+          if (mark) mark.style.transform = `translateY(${y * -0.12}px)`;
+          if (lede) lede.style.opacity = String(Math.max(0, 1 - y / (innerHeight * 0.55)));
+        }
+        ticking = false;
+      });
     }, { passive: true });
+
+    /* subtle pointer drift on the watermark for depth */
+    if (!matchMedia("(hover: none)").matches && mark) {
+      addEventListener("pointermove", (e) => {
+        const dx = (e.clientX / innerWidth - 0.5) * -18;
+        mark.style.translate = `${dx}px 0`;
+      }, { passive: true });
+    }
   }
 
   SFX.reveal(); SFX.addGlares(); SFX.watchCounters();

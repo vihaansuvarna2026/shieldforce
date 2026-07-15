@@ -15,10 +15,14 @@
 <main>
 
   <!-- ================= HERO ================= -->
-  <section class="wrap hero">
-    <div class="hero-copy">
+  <section class="hero2">
+    <div class="wrap" id="hero-inner">
       <span class="kicker">For the Indian Military &amp; their Families</span>
-      <h1>Your <span class="grad-text">Shield</span> against every scam aimed at the fauj.</h1>
+      <h1 class="mega" aria-label="Your shield against every scam.">
+        <span class="mline"><span style="transition-delay:.15s">Your shield</span></span>
+        <span class="mline"><span style="transition-delay:.27s">against</span></span>
+        <span class="mline"><span style="transition-delay:.39s">every <em class="outline" style="font-style:normal">scam.</em></span></span>
+      </h1>
       <p class="lede">
         Shield Force exists to <b>protect and educate the Indian Armed Forces community</b> —
         serving personnel, veterans, veer naris and families — against the financial frauds
@@ -27,47 +31,18 @@
       </p>
       <div class="hero-cta">
         <a class="btn btn-gold" href="scam-intel.html">Explore Scam Intel ⟶</a>
-        <a class="btn btn-ghost" href="ai-analyzer.html">🤖 Analyze a Message</a>
-        <a class="btn btn-red" href="emergency.html">🚨 I've Been Scammed</a>
+        <a class="btn btn-ghost" href="ai-analyzer.html">Analyze a Message</a>
+        <a class="btn btn-red" href="emergency.html">I've Been Scammed</a>
       </div>
-      <div class="hero-trust">
-        <span><b>1930</b> National helpline, first 60 min matter</span>
-        <span><b>8</b> scam families decoded</span>
-        <span><b>6</b> training modules</span>
-      </div>
-    </div>
-
-    <div class="shield-stage">
-      <div class="shield-rig">
-        <div class="ring"><i></i></div>
-        <div class="ring r2"><i></i></div>
-        <div class="shield-3d" id="hero-shield">
-          <svg viewBox="0 0 200 220" aria-hidden="true">
-            <defs>
-              <linearGradient id="hsG" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#ffc36b"/><stop offset="1" stop-color="#ff8a1e"/>
-              </linearGradient>
-              <linearGradient id="hsB" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#16294e"/><stop offset="1" stop-color="#081020"/>
-              </linearGradient>
-            </defs>
-            <path d="M100 6 L184 38 V104 C184 156 148 196 100 214 C52 196 16 156 16 104 V38 Z"
-                  fill="url(#hsG)" opacity=".95"/>
-            <path d="M100 20 L170 47 V104 C170 148 140 182 100 198 C60 182 30 148 30 104 V47 Z"
-                  fill="url(#hsB)" stroke="rgba(125,165,255,.35)"/>
-            <path d="M112 52 L74 118 h24 L88 172 L130 100 h-25 Z" fill="#2ee6a8">
-              <animate attributeName="opacity" values="1;.55;1" dur="2.6s" repeatCount="indefinite"/>
-            </path>
-            <circle cx="100" cy="110" r="62" fill="none" stroke="rgba(46,230,168,.25)" stroke-dasharray="6 10">
-              <animateTransform attributeName="transform" type="rotate" from="0 100 110" to="360 100 110" dur="14s" repeatCount="indefinite"/>
-            </circle>
-          </svg>
-        </div>
-        <div class="sat sat-1"><i></i> THREAT BLOCKED · QR FRAUD</div>
-        <div class="sat sat-2"><i></i> GRID STATUS · ACTIVE</div>
-        <div class="sat sat-3"><i></i> 1930 · GOLDEN WINDOW</div>
+      <div class="hero-meta">
+        <span><b>1930</b> — national helpline · first 60 min matter</span>
+        <span><b>08</b> scam families decoded</span>
+        <span><b>06</b> training modules</span>
+        <span><b>05</b> field documents</span>
       </div>
     </div>
+    <div class="scroll-cue"><i></i>Scroll</div>
+    <div class="hero-mark" id="hero-mark" aria-hidden="true">SF</div>
   </section>
 
   <!-- ================= ALERT TICKER ================= -->

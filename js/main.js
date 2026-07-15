@@ -21,15 +21,7 @@
 
   const page = document.body.dataset.page || "";
 
-  const LOGO_SVG = `
-    <svg class="logo-badge" viewBox="0 0 48 48" aria-hidden="true">
-      <defs><linearGradient id="lgG" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#ffc36b"/><stop offset="1" stop-color="#ff8a1e"/>
-      </linearGradient></defs>
-      <path d="M24 3 L42 10 V24 C42 35 34 42.5 24 46 C14 42.5 6 35 6 24 V10 Z" fill="url(#lgG)"/>
-      <path d="M24 7 L38 12.5 V24 C38 32.8 31.7 39 24 41.8 C16.3 39 10 32.8 10 24 V12.5 Z" fill="#081020"/>
-      <path d="M26.5 12 L18 26 h5.4 L21 36 L30 21.5 h-5.6 Z" fill="#2ee6a8"/>
-    </svg>`;
+  const LOGO_SVG = `<span class="wordmark" aria-label="Shield Force"><b>SHIELD</b><em>FORCE</em><i>®</i></span>`;
 
   /* ---------------- scaffolding injection ---------------- */
   function inject() {
@@ -45,10 +37,7 @@
 
     document.body.insertAdjacentHTML("afterbegin", `
       <header id="navbar">
-        <a class="nav-logo" href="index.html">
-          ${LOGO_SVG}
-          <span><b>SHIELD</b> FORCE<small>SCAM DEFENCE GRID</small></span>
-        </a>
+        <a class="nav-logo" href="index.html">${LOGO_SVG}</a>
         <nav class="nav-links" aria-label="Primary">${links}</nav>
         <button id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </header>
@@ -59,7 +48,7 @@
         <div class="wrap">
           <div class="foot-grid">
             <div class="foot-brand">
-              <a class="nav-logo" href="index.html">${LOGO_SVG}<span><b>SHIELD</b> FORCE<small>SCAM DEFENCE GRID</small></span></a>
+              <a class="nav-logo" href="index.html">${LOGO_SVG}</a>
               <p>Protecting the Indian Armed Forces community — serving personnel, veterans and their families — from financial fraud through intelligence, training and rapid response.</p>
             </div>
             <div>
