@@ -1,0 +1,39 @@
+{
+  "name": "Shield Force — Scam Defence Grid",
+  "short_name": "Shield Force",
+  "description": "Protecting the Indian Armed Forces community — serving personnel, veterans and their families — from financial fraud through intelligence, training and rapid response.",
+  "id": "/",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#081020",
+  "theme_color": "#081020",
+  "lang": "en-IN",
+  "categories": ["education", "security", "utilities"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency — Report Fraud",
+      "short_name": "Emergency",
+      "url": "emergency.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Shield AI Analyzer",
+      "short_name": "Shield AI",
+      "url": "ai-analyzer.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Training Modules",
+      "short_name": "Training",
+      "url": "training.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

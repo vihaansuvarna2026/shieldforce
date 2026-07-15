@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Fraud Anatomy — Shield Force</title>
+  <meta name="description" content="Interactive step-by-step anatomy of how financial frauds against military families actually unfold.">
+  <meta name="theme-color" content="#081020">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="anatomy">
+<main>
+  <header class="page-head wrap">
+    <span class="kicker">Know the Machine</span>
+    <h1 class="page-title">Fraud <span class="grad-text">Anatomy</span></h1>
+    <p class="page-sub">
+      Every financial fraud — from QR traps to digital arrest — runs the same six-phase engine.
+      Tap each phase to open it up, and learn the counter-move that breaks the chain right there.
+    </p>
+  </header>
+
+  <section class="section" style="padding-top:26px">
+    <div class="wrap">
+      <div class="anat-diagram card rv" style="padding:34px 26px">
+        <div class="anat-track" id="anat-track"></div>
+        <div class="anat-prog" id="anat-prog"></div>
+        <div class="card anat-detail" id="anat-detail" style="background:rgba(6,11,22,.55)"></div>
+        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm" id="anat-prev">⟵ Previous phase</button>
+          <button class="btn btn-gold btn-sm" id="anat-next">Next phase ⟶</button>
+          <button class="btn btn-ghost btn-sm" id="anat-auto">▶ Auto-play the fraud</button>
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:30px">
+        <div class="card card3d rv">
+          <h3 style="font-size:1rem;margin-bottom:8px">⛓️ One break stops everything</h3>
+          <p style="font-size:.85rem;color:var(--mut)">The engine needs every phase to succeed. Refusing one OTP, one QR scan or one 'fee' collapses the whole chain — you don't need to win six battles, just one.</p>
+        </div>
+        <div class="card card3d rv">
+          <h3 style="font-size:1rem;margin-bottom:8px">⏱ The clock runs both ways</h3>
+          <p style="font-size:.85rem;color:var(--mut)">Scammers use urgency against you; the Golden Window is urgency working for you. The faster the 1930 call after extraction, the higher the freeze chances.</p>
+        </div>
+        <div class="card card3d rv">
+          <h3 style="font-size:1rem;margin-bottom:8px">📣 Reporting is ammunition</h3>
+          <p style="font-size:.85rem;color:var(--mut)">Phases 1 and 6 feed on silence. Every NCRP report — even of a failed attempt — burns numbers, handles and mule accounts the network needs.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:36px" class="rv">
+        <a class="xlink gold" href="scam-intel.html">📁 See the anatomy applied per scam</a>
+        <a class="xlink" href="detection.html">🔍 Detection Lab: the 7 signs</a>
+        <a class="xlink" href="training.html">🎓 Drill the counter-moves</a>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/anatomy.js"></script>
+</body>
+</html>

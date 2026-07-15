@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Shield AI Analyzer — Shield Force</title>
+  <meta name="description" content="Paste any suspicious message and Shield Force AI scores its fraud risk and pinpoints the red flags.">
+  <meta name="theme-color" content="#081020">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ai">
+<main>
+  <header class="page-head wrap">
+    <span class="kicker">Shield Force AI • On-Device Analysis</span>
+    <h1 class="page-title">Message <span class="grad-text">Fraud Scanner</span></h1>
+    <p class="page-sub">
+      Paste any SMS, WhatsApp or email text below. The scanner cross-checks it against known
+      military-targeting fraud signatures and returns a risk verdict with every red flag identified.
+      Nothing leaves your device.
+    </p>
+  </header>
+
+  <section class="section" style="padding-top:24px">
+    <div class="wrap">
+      <div class="ai-shell">
+        <div class="card ai-input rv">
+          <h3 style="font-size:1rem;margin-bottom:12px">📥 Suspicious message</h3>
+          <textarea id="ai-text" spellcheck="false"
+            placeholder="Paste the suspicious SMS / WhatsApp / email text here…&#10;&#10;e.g. “Dear pensioner, your SPARSH account will be blocked today. Share the OTP to keep your pension active…”"></textarea>
+          <div class="exemplar-row">
+            <span class="lbl">Try an exemplar</span>
+            <button class="chip" data-ex="upi">📲 Fake UPI Buyer</button>
+            <button class="chip" data-ex="invest">📈 Investment Pitch</button>
+            <button class="chip" data-ex="welfare">🤝 Welfare Fund</button>
+            <button class="chip" data-ex="pension">🧓 Pension KYC</button>
+            <button class="chip" data-ex="arrest">🚨 Digital Arrest</button>
+            <button class="chip" data-ex="safe">✅ Genuine Message</button>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-gold" id="ai-run">🛰 Run Shield Scan</button>
+            <button class="btn btn-ghost" id="ai-clear">Clear</button>
+          </div>
+        </div>
+
+        <div class="card ai-result scanline-box rv" id="ai-result">
+          <div class="ai-idle" id="ai-idle">
+            <div class="pulse-ring">🤖</div>
+            <h3 style="margin-bottom:8px">Shield AI standing by</h3>
+            <p style="font-size:.86rem">Paste a message (or load an exemplar) and run the scan.<br>Verdict, risk score and red flags will appear here.</p>
+          </div>
+          <div id="ai-output" style="display:none"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:36px" class="rv">
+        <a class="xlink gold" href="detection.html">🔍 Learn to spot these flags yourself</a>
+        <a class="xlink" href="training.html">🎓 Drill it in Training modules</a>
+        <a class="xlink red" href="emergency.html">🚨 Already replied? Emergency steps</a>
+      </div>
+      <p class="feed-note rv" style="text-align:center">Heuristic signature engine for education — a low score is not a guarantee of safety. When in doubt, verify via official channels.</p>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/analyzer.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Threat Map — Shield Force</title>
+  <meta name="description" content="Live hourly-updated map of scam incidents targeting military personnel across India.">
+  <meta name="theme-color" content="#081020">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="map">
+<main>
+  <header class="page-head wrap">
+    <span class="kicker">Live Grid • Hourly Sync</span>
+    <h1 class="page-title">National <span class="grad-text">Threat Map</span></h1>
+    <p class="page-sub">
+      Scam incidents reported against military personnel and families, plotted across India.
+      The grid re-syncs every hour. Tap any pulsing icon for incident details.
+    </p>
+  </header>
+
+  <section class="section" style="padding-top:20px">
+    <div class="wrap">
+      <div class="map-shell">
+        <div class="card map-panel rv" id="map-panel">
+          <svg id="india-map" viewBox="0 0 620 700" role="img" aria-label="Stylised map of India with scam incident markers">
+            <defs>
+              <radialGradient id="landGlow" cx="45%" cy="35%" r="80%">
+                <stop offset="0" stop-color="rgba(35,62,116,.9)"/>
+                <stop offset="1" stop-color="rgba(16,30,58,.85)"/>
+              </radialGradient>
+            </defs>
+            <g id="map-land"></g>
+            <g id="map-cities"></g>
+            <g id="map-markers"></g>
+          </svg>
+        </div>
+
+        <aside class="map-side">
+          <div class="card rv">
+            <h3 style="font-size:1rem;margin-bottom:4px">⏱ Grid Sync</h3>
+            <p style="font-size:.8rem;color:var(--mut)">Last sync <b id="map-last" style="color:var(--txt)">—</b></p>
+            <p style="font-size:.8rem;color:var(--mut)">Next refresh in <b id="map-next" style="color:var(--gold)">—</b></p>
+            <div id="map-refresh-bar"><i style="width:0%"></i></div>
+          </div>
+          <div class="card rv">
+            <h3 style="font-size:1rem;margin-bottom:10px">🗂 Threat Legend</h3>
+            <div id="map-legend"></div>
+          </div>
+          <div class="card rv">
+            <h3 style="font-size:1rem;margin-bottom:10px">📊 This Hour's Picture</h3>
+            <div id="map-stats"></div>
+          </div>
+          <div class="card rv" style="display:grid;gap:10px">
+            <a class="xlink gold" href="scam-intel.html">Decode these scam types ⟶</a>
+            <a class="xlink red" href="emergency.html">🚨 Report an incident</a>
+          </div>
+        </aside>
+      </div>
+      <p class="feed-note rv">Simulated incident telemetry generated hourly from recurring reported fraud patterns — for awareness training, not operational data.</p>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>

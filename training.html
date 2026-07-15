@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Training Modules — Shield Force</title>
+  <meta name="description" content="Six interactive quiz modules covering every scam family — with instant answer checks and explanations.">
+  <meta name="theme-color" content="#081020">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="training">
+<main>
+  <header class="page-head wrap">
+    <span class="kicker">Battle Inoculation</span>
+    <h1 class="page-title">Training <span class="grad-text">Modules</span></h1>
+    <p class="page-sub">
+      Six modules, one per scam family. Multiple choice, instant verdicts, and an explanation for
+      every answer — right or wrong. Your best scores are saved on this device.
+    </p>
+  </header>
+
+  <!-- module chooser -->
+  <section class="section" style="padding-top:26px" id="module-select">
+    <div class="wrap">
+      <div class="module-grid" id="module-grid"></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px" class="rv">
+        <a class="xlink gold" href="scam-intel.html">📁 Revise the intel first</a>
+        <a class="xlink" href="detection.html">🔍 Review the 7 signs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- quiz stage -->
+  <section class="section" id="quiz-section" style="display:none;padding-top:26px">
+    <div class="wrap quiz-stage">
+      <div class="quiz-top">
+        <button class="btn btn-ghost btn-sm" id="quiz-exit">⟵ All modules</button>
+        <div class="quiz-bar"><i id="quiz-bar-fill" style="width:0%"></i></div>
+        <span class="tag tag-gold" id="quiz-count">Q 1/5</span>
+      </div>
+      <div class="card" id="quiz-card" style="padding:32px"></div>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>
