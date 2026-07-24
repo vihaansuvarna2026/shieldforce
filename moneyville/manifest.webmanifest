@@ -1,0 +1,15 @@
+{
+  "name": "MoneyVille: Life on Allowance",
+  "short_name": "MoneyVille",
+  "description": "A financial literacy game for children aged 8–14. Learn budgeting, saving, smart shopping, investing and scam awareness through real-world decisions.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f1f7ff",
+  "theme_color": "#3b82f6",
+  "categories": ["education", "games", "kids"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
