@@ -327,7 +327,7 @@ h1.page-title {
   position: relative; padding: 40px 0 90px;
 }
 .mega {
-  font-size: clamp(3.2rem, 10.5vw, 8.2rem);
+  font-size: clamp(2.7rem, 10.5vw, 8.2rem);
   font-weight: 900; line-height: .96; letter-spacing: -0.03em;
   text-transform: uppercase; margin: 26px 0 30px;
   will-change: transform;
@@ -919,7 +919,9 @@ body.splash-lock { overflow: hidden; }
 }
 @media (max-width: 980px) {
   .hero2 { padding-bottom: 70px; }
-  .hero-meta span { padding: 6px 14px; }
+  /* meta wraps to multiple rows here, so column dividers would land mid-row */
+  .hero-meta { gap: 6px 22px; }
+  .hero-meta span { padding: 4px 0; border-left: none; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); border-bottom: none; }
   .stat, .stat:not(:first-child) { border-left: none; padding: 26px 0; border-bottom: 1px solid var(--line); }
   .stat:nth-child(even) { border-left: 1px solid var(--line); padding-left: 26px; }
@@ -932,13 +934,27 @@ body.splash-lock { overflow: hidden; }
 @media (max-width: 620px) {
   .stat-grid, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .stat:nth-child(even) { border-left: none; padding-left: 0; }
-  .hero-meta { gap: 8px 0; }
   .hero-mark { display: none; }
+  /* stacked meta reads as a list, not as columns with stray dividers */
+  .hero-meta { gap: 10px 0; flex-direction: column; align-items: flex-start; }
+  .hero-meta span { border-left: none; padding: 0; }
+  /* full-width CTAs instead of ragged right edges */
+  .hero-cta { flex-direction: column; align-items: stretch; gap: 11px; }
+  .hero-cta .btn { width: 100%; }
+  .kicker { font-size: .6rem; letter-spacing: .09em; padding: 7px 13px; gap: 7px; }
   .anat-track { grid-template-columns: repeat(2, 1fr); }
   .case-item { grid-template-columns: 1fr; gap: 8px; }
   .case-date { text-align: left; border-right: none; border-bottom: 1px dashed var(--line); padding: 0 0 8px; }
   .case-date b { display: inline; margin-right: 8px; }
   .case-meta { text-align: left; justify-items: start; }
+  /* map: reclaim panel padding and scale city labels up to stay legible */
+  .map-panel { padding: 6px; }
+  #india-map text { font-size: 15px; }
+  /* analyzer: even two-up chips and full-width actions instead of ragged rows */
+  .exemplar-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .exemplar-row .lbl { grid-column: 1 / -1; }
+  .exemplar-row .chip { width: 100%; justify-content: center; text-align: center; }
+  #ai-run, #ai-clear { width: 100%; }
   .golden-strip { grid-template-columns: 1fr; text-align: center; }
   .sos-dial { flex-direction: column; padding: 20px 26px; }
   .sos-dial .lbl { text-align: center; }
