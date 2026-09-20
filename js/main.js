@@ -57,7 +57,7 @@
             <ul class="splash-points">
               <li>A community awareness tool for the Indian defence community</li>
               <li>Not an official Government of India / Ministry of Defence service</li>
-              <li>No personal data is collected — the Shield AI scanner runs entirely on your device</li>
+              <li>No accounts, no database, no tracking — nothing you type ever leaves your device</li>
               <li>Statistics shown are representative training estimates, not live official figures</li>
             </ul>
             <label class="splash-check">

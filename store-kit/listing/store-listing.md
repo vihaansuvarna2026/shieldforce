@@ -56,8 +56,10 @@ WORKS OFFLINE
 After the first launch, every page, guide and PDF works without a connection.
 
 PRIVACY
-No account. No tracking. No analytics. No data collection of any kind. The AI scanner
-runs locally on your device and nothing you type ever leaves it.
+No account. No database. No tracking. No analytics. No data collection of any kind.
+Shield Force has no server that receives your information, so there is no store of user
+data that could be breached or shared. The AI scanner runs locally on your device and
+nothing you type ever leaves it.
 
 IMPORTANT
 Shield Force is an independent community awareness initiative. It is not affiliated with

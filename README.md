@@ -83,6 +83,10 @@ Government of India / Ministry of Defence website.
 
 ## Legal
 
-`privacy.html` and `terms.html` cover data collection (there is none — no backend, no analytics,
-the Shield AI scanner runs entirely client-side) and the educational-only / not-an-official-service
-disclaimers both app stores expect. Both are linked from every page's footer.
+`privacy.html` and `terms.html` cover data collection (there is none — no database, no backend, no
+analytics; the Shield AI scanner runs entirely client-side) and the educational-only /
+not-an-official-service disclaimers both app stores expect. Both are linked from every page's footer.
+
+The app is deliberately serverless: there are no `fetch`/XHR calls anywhere in `js/`, no third-party
+scripts, and no API endpoints. The only persistence is `localStorage` for quiz scores and the
+terms-accepted flag, which never leaves the device.
