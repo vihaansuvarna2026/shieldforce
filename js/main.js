@@ -43,6 +43,32 @@
       </header>
       <nav id="nav-drawer" aria-label="Mobile">${links}</nav>`);
 
+    document.body.insertAdjacentHTML("afterbegin", `
+      <div id="splash">
+        <div class="splash-inner">
+          <div class="splash-load">
+            <div class="splash-mark" aria-hidden="true">${LOGO_SVG}</div>
+            <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+            <p class="splash-status">Initializing Shield Grid…</p>
+          </div>
+          <div class="splash-gate" role="dialog" aria-modal="true" aria-labelledby="splash-gate-h">
+            <span class="kicker">Before you begin</span>
+            <h2 id="splash-gate-h">Welcome to Shield Force</h2>
+            <ul class="splash-points">
+              <li>A community awareness tool for the Indian defence community</li>
+              <li>Not an official Government of India / Ministry of Defence service</li>
+              <li>No personal data is collected — the Shield AI scanner runs entirely on your device</li>
+              <li>Statistics shown are representative training estimates, not live official figures</li>
+            </ul>
+            <label class="splash-check">
+              <input type="checkbox" id="splash-agree-check">
+              <span>I have read and agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+            </label>
+            <button class="btn btn-gold" id="splash-agree-btn" disabled>Agree &amp; Continue</button>
+          </div>
+        </div>
+      </div>`);
+
     document.querySelector("main")?.insertAdjacentHTML("afterend", `
       <footer>
         <div class="wrap">
@@ -102,8 +128,11 @@
   }
 
   /* ---------------- page transition veil ---------------- */
-  function veilSetup() {
+  function revealApp() {
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add("veil-out")));
+  }
+
+  function veilSetup() {
     document.addEventListener("click", (e) => {
       const a = e.target.closest("a[href]");
       if (!a) return;
@@ -123,6 +152,87 @@
         document.body.classList.add("veil-out");
       }
     });
+  }
+
+  /* ---------------- splash / first-run terms gate ---------------- */
+  const TERMS_KEY = "sf_terms_accepted_v1";
+  const SESSION_KEY = "sf_splash_done";
+  const LOAD_MS = 1400;
+
+  function storageGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function storageSet(key, val) {
+    try { localStorage.setItem(key, val); } catch (e) { /* private mode / storage disabled */ }
+  }
+  function sessionGet(key) {
+    try { return sessionStorage.getItem(key); } catch (e) { return null; }
+  }
+  function sessionSet(key, val) {
+    try { sessionStorage.setItem(key, val); } catch (e) { /* ignore */ }
+  }
+
+  function splashSetup() {
+    const el = document.getElementById("splash");
+    if (!el) { revealApp(); return; }
+
+    const accepted = storageGet(TERMS_KEY) === "1";
+    const seenThisSession = sessionGet(SESSION_KEY) === "1";
+
+    if (accepted && seenThisSession) {
+      el.remove();
+      revealApp();
+      return;
+    }
+
+    document.body.classList.add("splash-lock");
+    document.getElementById("navbar")?.setAttribute("inert", "");
+    document.getElementById("nav-drawer")?.setAttribute("inert", "");
+    document.querySelector("main")?.setAttribute("inert", "");
+
+    // cosmetic progress bar + status cycling, fixed duration regardless of real asset load
+    const bar = el.querySelector(".splash-bar-fill");
+    const status = el.querySelector(".splash-status");
+    const msgs = ["Initializing Shield Grid…", "Loading threat intelligence…", "Syncing defence network…", "Ready."];
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      bar.style.transition = `width ${LOAD_MS}ms cubic-bezier(.2,.7,.2,1)`;
+      bar.style.width = "100%";
+    }));
+    let mi = 0;
+    const msgTimer = setInterval(() => {
+      mi++;
+      if (mi >= msgs.length) { clearInterval(msgTimer); return; }
+      status.textContent = msgs[mi];
+    }, LOAD_MS / msgs.length);
+
+    function unlock() {
+      document.body.classList.remove("splash-lock");
+      document.getElementById("navbar")?.removeAttribute("inert");
+      document.getElementById("nav-drawer")?.removeAttribute("inert");
+      document.querySelector("main")?.removeAttribute("inert");
+      el.classList.add("splash-out");
+      setTimeout(() => el.remove(), 650);
+      revealApp();
+    }
+
+    setTimeout(() => {
+      if (accepted) {
+        sessionSet(SESSION_KEY, "1");
+        unlock();
+        return;
+      }
+      // first-time user: swap the loading view for the terms gate, in place
+      el.classList.add("gate-mode");
+      const check = document.getElementById("splash-agree-check");
+      const btn = document.getElementById("splash-agree-btn");
+      check.addEventListener("change", () => { btn.disabled = !check.checked; });
+      btn.addEventListener("click", () => {
+        storageSet(TERMS_KEY, "1");
+        sessionSet(SESSION_KEY, "1");
+        unlock();
+      });
+      check.focus();
+    }, LOAD_MS);
   }
 
   /* ---------------- particle defence grid ---------------- */
@@ -281,6 +391,7 @@
   inject();
   navSetup();
   veilSetup();
+  splashSetup();
   particles();
   tilt();
   addEventListener("DOMContentLoaded", () => { reveal(); addGlares(); watchCounters(); });

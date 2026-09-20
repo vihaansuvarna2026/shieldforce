@@ -1,5 +1,5 @@
 /* Shield Force — service worker: offline-first app shell */
-const CACHE = "shieldforce-v2";
+const CACHE = "shieldforce-v3";
 const ASSETS = [
   "index.html",
   "scam-intel.html", "scam-detail.html",

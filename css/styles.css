@@ -844,6 +844,73 @@ footer {
 #toast.show { transform: translate(-50%, 0); }
 
 /* ============================================================
+   SPLASH / FIRST-RUN TERMS GATE
+   ============================================================ */
+body.splash-lock { overflow: hidden; }
+
+#splash {
+  position: fixed; inset: 0; z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  padding-top: calc(24px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  background:
+    radial-gradient(900px 600px at 50% -10%, rgba(255,165,62,.08), transparent 60%),
+    radial-gradient(800px 700px at 100% 110%, rgba(46,230,168,.06), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 55%, var(--bg0));
+  transition: opacity .55s ease;
+}
+#splash.splash-out { opacity: 0; pointer-events: none; }
+
+.splash-inner { width: min(460px, 100%); text-align: center; }
+.splash-mark { display: inline-flex; margin-bottom: 42px; }
+.splash-mark .wordmark { font-size: 1.7rem; }
+.splash-load { transition: opacity .35s ease; }
+#splash.gate-mode .splash-load { display: none; }
+
+.splash-bar {
+  height: 3px; border-radius: 3px; background: rgba(125,165,255,.14);
+  overflow: hidden; margin: 0 auto; max-width: 260px;
+}
+.splash-bar-fill { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--gold), var(--teal)); border-radius: 3px; }
+.splash-status {
+  margin-top: 18px; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; color: var(--mut);
+}
+
+.splash-gate {
+  display: none; text-align: left;
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: var(--r-lg);
+  padding: 30px clamp(22px, 4vw, 34px);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.55);
+}
+#splash.gate-mode .splash-gate { display: block; animation: gateIn .5s cubic-bezier(.2,.8,.3,1); }
+@keyframes gateIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.splash-gate .kicker { display: inline-flex; }
+.splash-gate h2 { font-size: clamp(1.3rem, 3.2vw, 1.7rem); font-weight: 800; margin: 16px 0 18px; text-align: center; }
+.splash-points { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 11px; }
+.splash-points li { position: relative; padding-left: 25px; color: var(--mut); font-size: .87rem; line-height: 1.5; }
+.splash-points li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--teal); font-weight: 900; }
+
+.splash-check {
+  display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+  padding: 14px 16px; border-radius: var(--r-md); background: rgba(255,255,255,.03);
+  border: 1px solid var(--line); margin-bottom: 20px;
+}
+.splash-check input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--gold); flex: 0 0 auto; }
+.splash-check span { font-size: .82rem; color: var(--mut); line-height: 1.5; }
+.splash-check a { color: var(--gold2); }
+
+#splash-agree-btn { width: 100%; opacity: .4; pointer-events: none; transition: opacity .25s ease; }
+#splash-agree-btn:not(:disabled) { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 480px) {
+  .splash-gate { padding: 24px 18px; }
+  .splash-mark { margin-bottom: 32px; }
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1120px) {
