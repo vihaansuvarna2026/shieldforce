@@ -76,6 +76,7 @@
           <div class="foot-base">
             <span>© ${new Date().getFullYear()} Shield Force — community awareness initiative. Not an official Government of India / Ministry of Defence website.</span>
             <span>Statistics &amp; case feeds are representative training data. Always verify via official channels.</span>
+            <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="mailto:vihaanssuvarna@gmail.com">Contact</a></span>
           </div>
         </div>
       </footer>`);

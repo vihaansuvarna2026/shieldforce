@@ -33,12 +33,12 @@ def in_shield(nx, ny, scale=1.0):
     return abs(nx) <= shield_half_width(v) * scale
 
 
-def make_icon(size, maskable=False):
+def make_icon(size, maskable=False, square=False):
     px = bytearray()
     cx = cy = size / 2.0
     # maskable icons need content within the inner 80% safe zone
     shield_scale = size * (0.66 if maskable else 0.80)
-    corner = 0 if maskable else size * 0.22
+    corner = 0 if (maskable or square) else size * 0.22
     for y in range(size):
         row = bytearray()
         for x in range(size):
@@ -90,10 +90,12 @@ def make_icon(size, maskable=False):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    jobs = [("icon-192.png", 192, False), ("icon-512.png", 512, False),
-            ("icon-maskable-512.png", 512, True), ("icon-180.png", 180, False)]
-    for name, size, maskable in jobs:
-        data = make_icon(size, maskable)
+    jobs = [("icon-192.png", 192, False, False), ("icon-512.png", 512, False, False),
+            ("icon-maskable-512.png", 512, True, False), ("icon-180.png", 180, False, False),
+            # 1024x1024, square, fully opaque (no alpha) — for Apple App Store Connect submission
+            ("icon-1024-appstore.png", 1024, False, True)]
+    for name, size, maskable, square in jobs:
+        data = make_icon(size, maskable, square)
         with open(os.path.join(OUT, name), "wb") as f:
             f.write(data)
         print("wrote", name, len(data), "bytes")

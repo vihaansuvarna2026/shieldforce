@@ -47,12 +47,21 @@ python3 scripts/gen_icons.py   # → assets/icons/*.png
 
 ## Store packaging
 
-The app is a compliant PWA (manifest + service worker + offline shell + maskable icons), so it can
-be shipped to stores without rewriting:
+The app is a compliant PWA (manifest + service worker + offline shell + maskable icons + iOS/Android
+meta tags + safe-area-aware layout), so it can be shipped to stores without rewriting:
 
 - **Google Play**: wrap with [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) /
-  PWABuilder as a Trusted Web Activity (TWA).
+  PWABuilder as a Trusted Web Activity (TWA). In Play Console's **Data safety** form, declare
+  "No data collected" (accurate — see [Data honesty](#data-honesty) below). Set the wrapper
+  project's `targetSdkVersion` to whatever Play Console currently requires at build time (Google
+  raises this annually).
 - **Apple App Store**: wrap with PWABuilder's iOS package or a thin WKWebView shell.
+  `assets/icons/icon-1024-appstore.png` is a ready 1024×1024 source for the App Store Connect
+  product icon (flatten to remove the alpha channel if your upload tool insists on none). In App
+  Store Connect's **App Privacy** section, declare "Data Not Collected."
+- **Both stores** require a public **Privacy Policy URL** and a **support contact** in their
+  console/Connect listings — point them at this site's `privacy.html` / `terms.html` once deployed,
+  and use the contact email in those pages.
 - **Desktop**: installable directly from Chrome/Edge ("Install Shield Force"), or wrap with Electron/Tauri.
 
 ## Design system
@@ -71,3 +80,9 @@ real: **1930**, [cybercrime.gov.in](https://cybercrime.gov.in),
 [sancharsaathi.gov.in](https://sancharsaathi.gov.in), [SPARSH](https://sparsh.defencepension.gov.in),
 [KSB](https://ksb.gov.in). Shield Force is a community awareness initiative and not an official
 Government of India / Ministry of Defence website.
+
+## Legal
+
+`privacy.html` and `terms.html` cover data collection (there is none — no backend, no analytics,
+the Shield AI scanner runs entirely client-side) and the educational-only / not-an-official-service
+disclaimers both app stores expect. Both are linked from every page's footer.
