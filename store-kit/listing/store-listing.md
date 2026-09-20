@@ -110,8 +110,8 @@ this does not count as collection under Apple's definition.
 | Support contact | vihaanssuvarna@gmail.com |
 | Marketing/site URL | `https://<YOUR-DOMAIN>/` |
 
-Default if you deploy with GitHub Pages:
-`https://vihaansuvarna2026.github.io/shieldforce/`
+Deployed on Netlify (replace with your actual subdomain once you claim it):
+`https://shieldforce.netlify.app/`
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "packageId": "in.shieldforce.app",
-  "host": "vihaansuvarna2026.github.io",
+  "host": "shieldforce.netlify.app",
   "name": "Shield Force",
   "launcherName": "Shield Force",
   "display": "standalone",
@@ -12,28 +12,41 @@
   "navigationDividerColorDark": "#081020",
   "backgroundColor": "#081020",
   "enableNotifications": false,
-  "startUrl": "/shieldforce/index.html",
-  "iconUrl": "https://vihaansuvarna2026.github.io/shieldforce/assets/icons/icon-512.png",
-  "maskableIconUrl": "https://vihaansuvarna2026.github.io/shieldforce/assets/icons/icon-maskable-512.png",
+  "startUrl": "/index.html",
+  "iconUrl": "https://shieldforce.netlify.app/assets/icons/icon-512.png",
+  "maskableIconUrl": "https://shieldforce.netlify.app/assets/icons/icon-maskable-512.png",
   "splashScreenFadeOutDuration": 300,
-  "signingKey": { "path": "./android.keystore", "alias": "shieldforce" },
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "shieldforce"
+  },
   "appVersionName": "1.0.0",
   "appVersionCode": 1,
   "shortcuts": [
-    { "name": "Emergency", "shortName": "SOS", "url": "/shieldforce/emergency.html",
-      "chosenIconUrl": "https://vihaansuvarna2026.github.io/shieldforce/assets/icons/icon-192.png" },
-    { "name": "Shield AI", "shortName": "Shield AI", "url": "/shieldforce/ai-analyzer.html",
-      "chosenIconUrl": "https://vihaansuvarna2026.github.io/shieldforce/assets/icons/icon-192.png" }
+    {
+      "name": "Emergency",
+      "shortName": "SOS",
+      "url": "/emergency.html",
+      "chosenIconUrl": "https://shieldforce.netlify.app/assets/icons/icon-192.png"
+    },
+    {
+      "name": "Shield AI",
+      "shortName": "Shield AI",
+      "url": "/ai-analyzer.html",
+      "chosenIconUrl": "https://shieldforce.netlify.app/assets/icons/icon-192.png"
+    }
   ],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "https://vihaansuvarna2026.github.io/shieldforce/manifest.webmanifest",
+  "webManifestUrl": "https://shieldforce.netlify.app/manifest.webmanifest",
   "fallbackType": "customtabs",
   "features": {},
-  "alphaDependencies": { "enabled": false },
+  "alphaDependencies": {
+    "enabled": false
+  },
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "isMetaQuest": false,
-  "fullScopeUrl": "https://vihaansuvarna2026.github.io/shieldforce/",
+  "fullScopeUrl": "https://shieldforce.netlify.app/",
   "minSdkVersion": 21,
   "orientation": "default"
 }
