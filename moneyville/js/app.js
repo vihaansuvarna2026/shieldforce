@@ -224,9 +224,24 @@
   /* ---- Level runner ------------------------------------------------------- */
   function openLevel(level) { route("level", level); }
 
-  function renderLevel(main, level) {
-    if (!level) return route("town");
+  // Resolve the scenario for the player's current difficulty mode. Each level
+  // carries configs.{junior,explorer,advanced} with completely different
+  // content; we clone the level with the right config (and any per-mode intro /
+  // objective overrides) so every renderer just reads `level.config`.
+  function resolveLevel(level) {
+    const modeId = S.mode().id;
+    const cfg = (level.configs && (level.configs[modeId] || level.configs.explorer)) || level.config || {};
+    return Object.assign({}, level, {
+      config: cfg,
+      intro: cfg.intro || level.intro,
+      objective: cfg.objective || level.objective,
+    });
+  }
+
+  function renderLevel(main, baseLevel) {
+    if (!baseLevel) return route("town");
     const mode = S.mode();
+    const level = resolveLevel(baseLevel);
     const hintHtml = mode.hints !== "few"
       ? `<strong>💡 Tip:</strong> ${levelHint(level)}` : null;
 
@@ -242,7 +257,7 @@
     main.appendChild(back);
     main.appendChild(el("div", { class: "level-shell" }, [
       el("div", { class: "level-heading" }, [
-        el("span", { class: "level-heading-num", text: "Level " + level.number }),
+        el("span", { class: "level-heading-num", text: `Level ${level.number} · ${mode.icon} ${mode.name}` }),
         el("h1", { text: level.title }),
       ]),
       stage,

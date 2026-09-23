@@ -18,6 +18,21 @@
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
   const randn = () => (Math.random() + Math.random() + Math.random() + Math.random() - 2) / 2; // ~N(0,~0.29)
 
+  /* Aggregate allocator values by category flag so scoring works for ANY
+     category set (each difficulty mode defines its own categories). */
+  function aggregate(cats, values, S) {
+    const a = { needTotal: 0, needMin: 0, savingTotal: 0, safetyTotal: 0, growthTotal: 0, wantTotal: 0 };
+    cats.forEach((c) => {
+      const v = values[c.id] || 0;
+      if (c.need) { a.needTotal += v; a.needMin += S(c.min || 0); }
+      else if (c.isSaving) a.savingTotal += v;
+      else if (c.isSafety) a.safetyTotal += v;
+      else if (c.isGrowth) a.growthTotal += v;
+      else a.wantTotal += v;
+    });
+    return a;
+  }
+
   /* ---- Shared: money allocator widget ------------------------------------
      Renders a pool + category steppers; keeps a running "remaining". Returns
      an API to read values and subscribe to changes. --------------------------*/
@@ -110,26 +125,26 @@
 
     const submit = primaryBtn("Finish the month →", () => {
       const v = alloc.values;
-      const school = v.school || 0;
-      const savings = v.savings || 0;
+      const agg = aggregate(cats, v, S);
+      const savings = agg.savingTotal;
       const leftover = alloc.remaining();
 
-      // Twist: surprise school item.
+      // Twist: surprise essential item.
       const twistCost = S(cfg.twist.cost);
       let paidFromLeftover = Math.min(leftover, twistCost);
       let stillOwed = twistCost - paidFromLeftover;
       let paidFromSavings = Math.min(savings, stillOwed);
       stillOwed -= paidFromSavings;
       const savingsAfter = savings - paidFromSavings;
-      const schoolMin = S(cfg.categories.find((c) => c.id === "school").min);
+      const needMin = agg.needMin;
 
-      const needsCovered = school >= schoolMin && stillOwed <= 0;
+      const needsCovered = agg.needTotal >= needMin && stillOwed <= 0;
       ctx.addSavings(savingsAfter);
 
-      // Scoring categories.
-      const planning = clamp((school / schoolMin) * (stillOwed <= 0 ? 1 : 0.4), 0, 1);
+      // Scoring categories (flag-based).
+      const planning = clamp((needMin > 0 ? agg.needTotal / needMin : 1) * (stillOwed <= 0 ? 1 : 0.4), 0, 1);
       const saving = clamp(savingsAfter / (income * 0.25), 0, 1);
-      const smart = clamp(1 - ((v.snacks + v.entertainment + (v.gift || 0)) / income), 0, 1) * 0.7 + 0.3;
+      const smart = clamp(1 - (agg.wantTotal / income), 0, 1) * 0.7 + 0.3;
       const safety = clamp((leftover) / (income * 0.15), 0, 1);
       const percent = Math.round(((planning * 0.4 + saving * 0.25 + smart * 0.2 + safety * 0.15)) * 100);
 
@@ -305,10 +320,11 @@
 
     host.appendChild(el("div", { class: "level-actions" }, [primaryBtn("End the month →", () => {
       const v = alloc.values;
-      const essMin = S(cfg.categories.find((c) => c.id === "essentials").min);
-      const essentials = v.essentials || 0;
-      const safety = v.safety || 0;
-      const goalSave = v.goal || 0;
+      const agg = aggregate(cfg.categories, v, S);
+      const essMin = agg.needMin;
+      const essentials = agg.needTotal;
+      const safety = agg.safetyTotal;
+      const goalSave = agg.savingTotal;
       const cost = S(cfg.twist.cost);
       const event = cfg.twist.options[Math.floor(Math.random() * cfg.twist.options.length)];
 
@@ -330,8 +346,9 @@
         : { kind: "corrective", text: level.feedback.corrective };
       if (usedFund) ctx.awardBadge && ctx.awardBadge("safety_first");
 
+      const essRatio = essMin > 0 ? essentials / essMin : 1;
       const safetyScore = clamp(safety / cost, 0, 1);
-      const percent = Math.round((clamp(essentials / essMin, 0, 1) * 0.4 + safetyScore * 0.35 + (resolved ? 0.25 : 0)) * 100);
+      const percent = Math.round((clamp(essRatio, 0, 1) * 0.4 + safetyScore * 0.35 + (resolved ? 0.25 : 0)) * 100);
       ctx.dashboard("safety", percent);
 
       const extra = el("div", { class: "twist-card" }, [
@@ -345,7 +362,7 @@
       ctx.finish({ passed, percent, feedback,
         categories: {
           Safety: { value: Math.round(safetyScore * 100), max: 100 },
-          Planning: { value: Math.round(clamp(essentials / essMin, 0, 1) * 100), max: 100 },
+          Planning: { value: Math.round(clamp(essRatio, 0, 1) * 100), max: 100 },
           Saving: { value: Math.round(clamp(savingsLeft / (income * 0.2), 0, 1) * 100), max: 100 },
         }, extraNodes: extra });
     })]));
@@ -510,8 +527,8 @@
     host.appendChild(el("div", { class: "level-actions" }, [primaryBtn("End the month (renewal day) →", () => {
       let monthly = 0, kept = 0, cancelled = 0, cancelledCosmetic = false, keptUseful = false;
       cfg.services.forEach((s) => {
-        if (active[s.id]) { monthly += S(s.price); kept++; if (s.id === "learn") keptUseful = true; }
-        else { cancelled++; if (s.id === "avatar" || s.id === "gaming" || s.id === "video") cancelledCosmetic = true; }
+        if (active[s.id]) { monthly += S(s.price); kept++; if (s.useful) keptUseful = true; }
+        else { cancelled++; if (s.cosmetic) cancelledCosmetic = true; }
       });
       const wallet = income - monthly;
       const passed = wallet >= 0;
@@ -926,9 +943,9 @@
         cfg.assets.forEach((a) => {
           if (holdings[a.id] <= 0) return;
           let r = a.meanReturn + randn() * a.volatility;
-          // Twist: crash the riskiest funded asset around the middle month.
-          if (!crashApplied && m === Math.ceil(cfg.months / 2) && (a.id === "trend" || a.id === "share")) {
-            r = -0.35; crashApplied = true;
+          // Twist: crash the crash-prone funded assets around the middle month.
+          if (m === Math.ceil(cfg.months / 2) && a.crashProne) {
+            r = (cfg.crashMagnitude != null ? cfg.crashMagnitude : -0.35); crashApplied = true;
           }
           holdings[a.id] = Math.max(0, Math.round(holdings[a.id] * (1 + r)));
         });
@@ -1075,12 +1092,14 @@
 
     host.appendChild(el("div", { class: "level-actions" }, [primaryBtn("Live the month →", () => {
       const v = alloc.values;
-      const essMin = S(cfg.categories.find((c) => c.id === "essentials").min);
-      let essentials = v.essentials || 0;
-      let safety = v.safety || 0;
-      let goal = v.goal || 0;
-      let invest = v.invest || 0;
-      const subs = v.subs || 0;
+      const agg = aggregate(cfg.categories, v, S);
+      const essMin = agg.needMin;
+      let essentials = agg.needTotal;
+      let safety = agg.safetyTotal;
+      const originalSafety = agg.safetyTotal;
+      let goal = agg.savingTotal;
+      let invest = agg.growthTotal;
+      const wants = agg.wantTotal;
       const leftover = alloc.remaining();
 
       // Apply twists in sequence.
@@ -1113,10 +1132,10 @@
 
       // Determine strongest behaviour for the final title.
       const scores = {
-        planning: clamp(essentials / essNeeded, 0, 1.2),
+        planning: clamp(essNeeded > 0 ? essentials / essNeeded : 1, 0, 1.2),
         saving: clamp(goal / (income * 0.25), 0, 1.2),
-        safety: clamp((v.safety || 0) / repair, 0, 1.2),
-        spending: clamp(1 - (v.entertainment || 0) / income, 0, 1),
+        safety: clamp(repair > 0 ? originalSafety / repair : 1, 0, 1.2),
+        spending: clamp(1 - wants / income, 0, 1),
         growth: clamp(invest / (income * 0.2), 0, 1.2),
         balance: 0,
       };
@@ -1125,7 +1144,7 @@
       const basisKey = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
       const title = cfg.titles.find((t) => t.basis === basisKey) || cfg.titles[cfg.titles.length - 1];
 
-      const essScore = clamp(essentials / essNeeded, 0, 1);
+      const essScore = clamp(essNeeded > 0 ? essentials / essNeeded : 1, 0, 1);
       const passed = essCovered && unresolved === 0;
       const percent = Math.round((essScore * 0.35 + scores.saving / 1.2 * 0.2 + scores.safety / 1.2 * 0.2 + scores.growth / 1.2 * 0.1 + scores.balance / 1.1 * 0.15) * 100);
       const feedback = passed && spread >= 3

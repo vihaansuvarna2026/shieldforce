@@ -73,7 +73,10 @@ explanation of consequences → unlock XP, badges and the next level.
 - **Show consequences, never shame.** Feedback is positive / trade-off / corrective — respectful and non-patronising (GDD §12).
 - **Reward balance, not just wealth.** Scores come from Planning, Saving, Safety, Smart Spending, Growth and Awareness — never from "most money".
 - **Fictional investments only.** No real financial products or advice.
-- **Age-appropriate complexity.** Difficulty modes scale money values, choices and hints.
+- **Age-appropriate complexity.** Each of the three difficulty modes has its *own* scenarios — different items, amounts, number of choices and twists — not the same puzzle rescaled:
+  - **Junior (8–10):** small amounts, 2–3 simple choices, gentle surprises (e.g. AED 20 pocket money: lunch, a toy, savings).
+  - **Explorer (11–12):** monthly budgets, subscriptions, simple interest (e.g. AED 100: school supplies, snacks, entertainment, gift, savings).
+  - **Advanced (13–14):** larger budgets, multiple needs, inflation, investment risk, opportunity cost (e.g. AED 300: transport, phone credit, lunches, wants, savings).
 - **Safe for classrooms.** No public chat, no player-to-player messaging; usernames are the player's own nickname; leaderboards focus on learning.
 
 ---
@@ -102,9 +105,13 @@ moneyville/
 ### Content management (GDD §19)
 
 All scenario content lives in **`js/data.js`**, fully separated from game logic. Each
-level defines its id, number, concept, learning objective, twist, feedback text, XP and
-badge rewards, plus a level-specific `config` block consumed by its mini-game renderer.
-**New scenarios can be added by editing data only** — no engine changes required.
+level defines its id, number, concept, learning objective, feedback text, XP and badge
+rewards, plus **three** level-specific scenarios under `configs.{junior, explorer,
+advanced}` — each with its own items, amounts, choices and twist. The engine resolves
+the config for the player's current difficulty mode. Renderers read only `level.config`
+and score from category *flags* (need / saving / safety / growth), so they work with any
+content set. **New scenarios or whole new difficulty variants can be added by editing
+data only** — no engine changes required.
 
 ### Systems (GDD §20)
 
