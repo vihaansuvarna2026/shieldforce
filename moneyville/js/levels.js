@@ -800,9 +800,10 @@
           const price = +priceSlider.value, produced = +prodSlider.value, ads = +adSlider.value;
           const upfront = Math.round(produced * unitCost * (0.8 + quality * 0.2) + ads);
           if (upfront > cash) { U.toast("You can't afford that much production/ads today.", "warn"); return; }
-          // realise the day with a little variance
+          // realise the day with a small amount of variance (kept low so a
+          // sensibly-priced, well-stocked stall reliably clears its target).
           const est = estimate(price, produced, ads);
-          const noise = 1 + randn() * 0.15;
+          const noise = 1 + randn() * 0.06;
           const sold = clamp(Math.round(est.sold * noise), 0, produced);
           const revenue = sold * price;
           const cost = upfront;
@@ -971,10 +972,21 @@
         if (diversified) ctx.awardBadge && ctx.awardBadge("balanced_inv");
         const gainPct = ((finalValue - capital) / capital) * 100;
         const passed = true; // completing the period is the condition; stars reflect quality
-        const percent = clamp(50 + gainPct * 1.5 + (diversified ? 20 : 0), 0, 100);
-        const feedback = diversified && finalValue >= capital
+        // Score the PROCESS (diversification — the lesson) far more than the
+        // random market outcome, so a sensibly spread portfolio reliably earns
+        // full marks and an all-in bet reliably doesn't.
+        const assetsUsed = invested.length;
+        const maxWeight = capital > 0 ? Math.max(...Object.values(alloc)) / capital : 1;
+        let divScore;
+        if (assetsUsed >= 4 && maxWeight <= 0.45) divScore = 1;
+        else if (assetsUsed >= 3 && maxWeight <= 0.55) divScore = 0.92;
+        else if (assetsUsed >= 2 && maxWeight <= 0.75) divScore = 0.62;
+        else divScore = 0.25;
+        const gainBonus = clamp(gainPct * 0.4, -6, 6); // small nod to outcome
+        const percent = clamp(Math.round(divScore * 82 + 13 + gainBonus), 0, 100);
+        const feedback = divScore >= 0.9
           ? { kind: "good", text: level.feedback.good }
-          : finalValue >= capital ? { kind: "tradeoff", text: level.feedback.tradeoff }
+          : divScore >= 0.6 ? { kind: "tradeoff", text: level.feedback.tradeoff }
           : { kind: "corrective", text: level.feedback.corrective };
         ctx.dashboard("invest", Math.round(percent));
         const extra = el("div", { class: "twist-card" }, [
@@ -989,8 +1001,8 @@
         ctx.finish({ passed, percent: Math.round(percent), feedback,
           categories: {
             Growth: { value: Math.round(clamp(50 + gainPct * 2, 0, 100)), max: 100 },
-            Awareness: { value: diversified ? 95 : 40, max: 100 },
-            Planning: { value: diversified ? 85 : 55, max: 100 },
+            "Diversification": { value: Math.round(divScore * 100), max: 100 },
+            Planning: { value: divScore >= 0.9 ? 92 : divScore >= 0.6 ? 70 : 40, max: 100 },
           }, extraNodes: extra });
       }
     }
