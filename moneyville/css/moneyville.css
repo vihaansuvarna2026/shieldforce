@@ -499,6 +499,7 @@ p { margin: 0; }
 .dash-practice, .dash-teacher, .dash-data { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.2rem; margin-top: 1rem; box-shadow: var(--shadow-sm); }
 .dash-practice h3, .dash-teacher h3, .dash-data h3 { margin-bottom: .5rem; }
 .dash-practice ul { margin: 0; padding-left: 1.2rem; }
+.dash-data-actions { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .3rem; }
 .class-code { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin: .5rem 0; }
 .code-chip { background: #eef2ff; border: 1px dashed var(--indigo); border-radius: 8px; padding: .3rem .7rem; font-weight: 800; font-size: 1.1rem; letter-spacing: .08em; color: var(--indigo); }
 

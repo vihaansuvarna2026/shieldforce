@@ -43,6 +43,7 @@
   /* ---- Header HUD (GDD §13) ---------------------------------------------- */
   function renderHeader() {
     const st = S.get();
+    const prog = S.progress();
     const mode = S.mode();
     const header = el("header", { class: "app-header" });
 
@@ -54,7 +55,7 @@
       ]),
     ]);
 
-    const xp = U.statPill("⭐", "Money XP", st.stats.moneyXP.toLocaleString(), "hud-xp");
+    const xp = U.statPill("⭐", "Money XP", prog.stats.moneyXP.toLocaleString(), "hud-xp");
     const done = U.statPill("🏅", "Levels", `${S.levelsCompleted()}/${D.LEVELS.length}`, "hud-lvl");
 
     const modeSel = el("select", { class: "mode-select", title: "Difficulty mode",
@@ -131,14 +132,16 @@
   /* ---- Town map + level path (GDD §5, §10) ------------------------------- */
   function renderTown(main) {
     const st = S.get();
+    const prog = S.progress();
+    const mode = S.mode();
 
     // Welcome / progress strip.
-    const totalStars = D.LEVELS.reduce((a, l) => a + ((st.levels[l.id] && st.levels[l.id].stars) || 0), 0);
+    const totalStars = D.LEVELS.reduce((a, l) => a + ((prog.levels[l.id] && prog.levels[l.id].stars) || 0), 0);
     main.appendChild(el("section", { class: "welcome" }, [
       el("div", { class: "welcome-avatar", text: st.profile.avatar }),
       el("div", { class: "welcome-body" }, [
         el("h1", { class: "welcome-title", text: `Welcome back, ${st.profile.name}!` }),
-        el("p", { class: "welcome-sub", text: `${S.levelsCompleted()} of ${D.LEVELS.length} levels complete · ${totalStars}/${D.LEVELS.length * 3} ⭐ · ${st.stats.moneyXP} Money XP` }),
+        el("p", { class: "welcome-sub", text: `${mode.icon} ${mode.name} progress · ${S.levelsCompleted()} of ${D.LEVELS.length} levels · ${totalStars}/${D.LEVELS.length * 3} ⭐ · ${prog.stats.moneyXP} Money XP` }),
       ]),
       el("button", { class: "btn btn-primary", text: nextActionLabel(), onClick: () => {
         const next = firstPlayable();
@@ -169,7 +172,7 @@
     const list = el("div", { class: "level-list" });
     D.LEVELS.forEach((lvl) => {
       const unlocked = S.isLevelUnlocked(lvl.number);
-      const res = st.levels[lvl.id];
+      const res = prog.levels[lvl.id];
       const building = D.BUILDINGS.find((b) => b.id === lvl.building);
       const card = el("div", { class: "level-card " + (unlocked ? (res && res.completed ? "done" : "open") : "locked"),
         id: "lvl-" + lvl.building });
@@ -264,7 +267,7 @@
     ]));
 
     function runGame() {
-      const badgesBefore = new Set(Object.keys(S.get().badges));
+      const badgesBefore = new Set(Object.keys(S.progress().badges));
       const ctx = {
         scale: S.moneyScale(),
         mode,
@@ -280,8 +283,7 @@
   function finishLevel(level, outcome, badgesBefore, stage, replay) {
     S.addTime(Date.now() - levelStartTime);
     const result = S.completeLevel(level, outcome);
-    const st = S.get();
-    const newBadges = Object.keys(st.badges).filter((id) => !badgesBefore.has(id));
+    const newBadges = Object.keys(S.progress().badges).filter((id) => !badgesBefore.has(id));
 
     U.clear(stage);
     const feedbackText = outcome.feedback ? outcome.feedback : { kind: "good", text: "Well played." };
@@ -319,16 +321,17 @@
 
   /* ---- Badges gallery (GDD §11) ------------------------------------------ */
   function renderBadges(main) {
-    const st = S.get();
+    const prog = S.progress();
+    const mode = S.mode();
     main.appendChild(el("button", { class: "link-back", text: "← Back to town", onClick: () => route("town") }));
-    const earned = Object.keys(st.badges).length;
+    const earned = Object.keys(prog.badges).length;
     main.appendChild(el("div", { class: "page-head" }, [
       el("h1", { text: "🏅 Badges" }),
-      el("p", { class: "muted", text: `${earned} of ${Object.keys(D.BADGES).length} unlocked` }),
+      el("p", { class: "muted", text: `${earned} of ${Object.keys(D.BADGES).length} unlocked in ${mode.icon} ${mode.name} mode` }),
     ]));
     const grid = el("div", { class: "badge-grid" });
     Object.values(D.BADGES).forEach((b) => {
-      const have = !!st.badges[b.id];
+      const have = !!prog.badges[b.id];
       grid.appendChild(el("div", { class: "badge-card " + (have ? "have" : "locked") }, [
         el("div", { class: "badge-icon", text: have ? b.icon : "🔒" }),
         el("div", { class: "badge-name", text: b.name }),
@@ -380,11 +383,13 @@
   /* ---- Teacher / Parent dashboard (GDD §16) ------------------------------ */
   function renderDashboard(main) {
     const st = S.get();
-    const dash = st.dashboard;
+    const prog = S.progress();
+    const dash = prog.dashboard;
+    const mode = S.mode();
     main.appendChild(el("button", { class: "link-back", text: "← Back to town", onClick: () => route("town") }));
     main.appendChild(el("div", { class: "page-head" }, [
       el("h1", { text: "📊 Grown-up Dashboard" }),
-      el("p", { class: "muted", text: "A private summary of learning progress — no chats or personal data." }),
+      el("p", { class: "muted", text: `A private summary of learning progress for ${mode.icon} ${mode.name} mode (ages ${mode.ages}) — no chats or personal data.` }),
     ]));
 
     const avg = (arr) => arr.length ? Math.round(arr.reduce((a, b) => a + b, 0) / arr.length) : null;
@@ -394,9 +399,9 @@
 
     const tiles = [
       { icon: "🏅", label: "Levels completed", value: `${S.levelsCompleted()}/${D.LEVELS.length}` },
-      { icon: "⭐", label: "Money XP", value: st.stats.moneyXP.toLocaleString() },
+      { icon: "⭐", label: "Money XP", value: prog.stats.moneyXP.toLocaleString() },
       { icon: "⏱️", label: "Time spent", value: mins + " min" },
-      { icon: "💰", label: "Total saved (lifetime)", value: money(st.stats.totalSaved) },
+      { icon: "💰", label: "Total saved (this mode)", value: money(prog.stats.totalSaved) },
       { icon: "📋", label: "Budgeting", value: fmtScore(avg(dash.budgetScores)) },
       { icon: "🎯", label: "Saving behaviour", value: fmtScore(avg(dash.savingScores)) },
       { icon: "🛟", label: "Emergency preparedness", value: fmtScore(avg(dash.safetyScores)) },
@@ -444,18 +449,31 @@
     // Data controls.
     main.appendChild(el("div", { class: "dash-data" }, [
       el("h3", { text: "⚙️ Data" }),
-      el("p", { class: "muted small", text: "Progress is saved locally on this device." }),
-      el("button", { class: "btn btn-danger btn-sm", text: "Reset all progress", onClick: () => {
-        const box = el("div", {}, [
-          el("h3", { text: "Reset everything?" }),
-          el("p", { text: "This clears all levels, badges and settings on this device. This cannot be undone." }),
-          el("div", { class: "modal-actions" }, [
-            el("button", { class: "btn btn-ghost", text: "Cancel", onClick: () => m.close() }),
-            el("button", { class: "btn btn-danger", text: "Yes, reset", onClick: () => { m.close(); S.reset(); renderOnboarding(); } }),
-          ]),
-        ]);
-        const m = U.modal(box);
-      } }),
+      el("p", { class: "muted small", text: "Each difficulty mode keeps its own separate progress. Everything is saved locally on this device." }),
+      el("div", { class: "dash-data-actions" }, [
+        el("button", { class: "btn btn-ghost btn-sm", text: `↺ Reset ${mode.name} progress`, onClick: () => {
+          const box = el("div", {}, [
+            el("h3", { text: `Reset ${mode.name} mode?` }),
+            el("p", { text: `This clears levels, stars, XP and badges for ${mode.icon} ${mode.name} mode only. Your other difficulty modes are untouched. This cannot be undone.` }),
+            el("div", { class: "modal-actions" }, [
+              el("button", { class: "btn btn-ghost", text: "Cancel", onClick: () => m.close() }),
+              el("button", { class: "btn btn-danger", text: "Reset this mode", onClick: () => { m.close(); S.resetMode(); U.toast(`${mode.name} progress reset`, "info"); renderDashboard(U.clear(main)); } }),
+            ]),
+          ]);
+          const m = U.modal(box);
+        } }),
+        el("button", { class: "btn btn-danger btn-sm", text: "Reset everything", onClick: () => {
+          const box = el("div", {}, [
+            el("h3", { text: "Reset everything?" }),
+            el("p", { text: "This clears all difficulty modes, badges and your profile on this device. This cannot be undone." }),
+            el("div", { class: "modal-actions" }, [
+              el("button", { class: "btn btn-ghost", text: "Cancel", onClick: () => m.close() }),
+              el("button", { class: "btn btn-danger", text: "Yes, reset all", onClick: () => { m.close(); S.reset(); renderOnboarding(); } }),
+            ]),
+          ]);
+          const m = U.modal(box);
+        } }),
+      ]),
     ]));
   }
 

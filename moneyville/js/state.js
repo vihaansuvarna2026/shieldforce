@@ -1,49 +1,60 @@
 /* =============================================================================
    MoneyVille — Game State, Persistence, Scoring & Progression
    -----------------------------------------------------------------------------
-   Holds the player profile, financial indicators (GDD §6), Money XP, badges,
-   per-level results and star ratings (GDD §7). Persists to localStorage so
-   progress survives reloads. Exposes a small event bus so the UI can react.
+   Holds the player profile plus a SEPARATE progress slot per difficulty mode
+   (junior / explorer / advanced): each slot has its own financial indicators
+   (GDD §6), Money XP, badges, per-level results, star ratings (GDD §7) and
+   dashboard learning signals. Switching difficulty switches slots, so the three
+   modes are fully independent playthroughs. Profile and cosmetics are shared.
+   Persists to localStorage; exposes a small event bus so the UI can react.
    ============================================================================= */
 (function (global) {
   "use strict";
 
   const { CONFIG, MODES, BADGES, LEVELS } = global.MV_DATA;
+  const MODE_IDS = Object.keys(MODES); // junior, explorer, advanced
+
+  function emptyProgress() {
+    return {
+      stats: { moneyXP: 0, totalSaved: 0 },
+      levels: {},   // { [levelId]: { stars, score, best, completed, ... } }
+      badges: {},   // { [badgeId]: timestamp }
+      dashboard: {
+        timeSpentMs: 0,
+        scamAccuracy: [], budgetScores: [], savingScores: [],
+        safetyScores: [], businessScores: [], investScores: [],
+        attempts: {},
+      },
+    };
+  }
+
+  function emptyProgressSet() {
+    const p = {};
+    MODE_IDS.forEach((id) => (p[id] = emptyProgress()));
+    return p;
+  }
 
   const DEFAULT = () => ({
-    version: 1,
+    version: 2,
     profile: {
-      name: "",
-      avatar: "🦊",
-      mode: "explorer",
+      name: "", avatar: "🦊", mode: "explorer",
       room: { wall: "#dff1ff", floor: "#ffe8c7" },
-      classCode: "",
-      createdAt: Date.now(),
+      classCode: "", createdAt: Date.now(),
     },
-    // Financial indicators (GDD §6). `wallet` carries between levels.
-    stats: {
-      moneyXP: 0,
-      totalSaved: 0,      // lifetime savings deposited (for badges)
-    },
-    // Per-level results keyed by level id.
-    levels: {},           // { [id]: { stars, score, xp, completed, best, categories, title } }
-    badges: {},           // { [id]: timestampAwarded }
-    cosmetics: { unlocked: ["🦊", "🐼", "🐸"], selected: "🦊" },
-    // Aggregate learning signals for the dashboard (GDD §16).
-    dashboard: {
-      timeSpentMs: 0,
-      scamAccuracy: [],   // array of {correct,total}
-      budgetScores: [],
-      savingScores: [],
-      safetyScores: [],
-      businessScores: [],
-      investScores: [],
-      attempts: {},       // { [id]: count }
-    },
+    cosmetics: { unlocked: ["🦊", "🐼", "🐸"], selected: "🦊" }, // shared
+    progress: emptyProgressSet(),                                  // per-mode
   });
 
   let state = DEFAULT();
   const listeners = new Set();
+
+  /* ---- Active slot -------------------------------------------------------- */
+  function slot() {
+    const id = state.profile.mode;
+    if (!state.progress[id]) state.progress[id] = emptyProgress();
+    return state.progress[id];
+  }
+  const progress = () => slot();
 
   /* ---- Persistence -------------------------------------------------------- */
   function load() {
@@ -51,15 +62,33 @@
       const raw = localStorage.getItem(CONFIG.saveKey);
       if (raw) {
         const parsed = JSON.parse(raw);
-        state = Object.assign(DEFAULT(), parsed);
-        // Deep-ensure nested defaults exist after schema growth.
         const d = DEFAULT();
+        state = d;
         state.profile = Object.assign(d.profile, parsed.profile || {});
-        state.stats = Object.assign(d.stats, parsed.stats || {});
-        state.dashboard = Object.assign(d.dashboard, parsed.dashboard || {});
         state.cosmetics = Object.assign(d.cosmetics, parsed.cosmetics || {});
-        state.levels = parsed.levels || {};
-        state.badges = parsed.badges || {};
+
+        if (parsed.progress) {
+          // v2+ : merge each slot, ensuring shape.
+          MODE_IDS.forEach((id) => {
+            const src = parsed.progress[id];
+            if (src) {
+              const slotDef = emptyProgress();
+              slotDef.stats = Object.assign(slotDef.stats, src.stats || {});
+              slotDef.dashboard = Object.assign(slotDef.dashboard, src.dashboard || {});
+              slotDef.levels = src.levels || {};
+              slotDef.badges = src.badges || {};
+              state.progress[id] = slotDef;
+            }
+          });
+        } else {
+          // v1 : single shared progress → migrate into the mode last played.
+          const modeId = MODE_IDS.indexOf(state.profile.mode) >= 0 ? state.profile.mode : "explorer";
+          const s = state.progress[modeId];
+          s.stats = Object.assign(s.stats, parsed.stats || {});
+          s.levels = parsed.levels || {};
+          s.badges = parsed.badges || {};
+          s.dashboard = Object.assign(s.dashboard, parsed.dashboard || {});
+        }
       }
     } catch (e) {
       console.warn("MoneyVille: could not load save, starting fresh.", e);
@@ -69,18 +98,15 @@
   }
 
   function save() {
-    try {
-      localStorage.setItem(CONFIG.saveKey, JSON.stringify(state));
-    } catch (e) {
-      console.warn("MoneyVille: could not save.", e);
-    }
+    try { localStorage.setItem(CONFIG.saveKey, JSON.stringify(state)); }
+    catch (e) { console.warn("MoneyVille: could not save.", e); }
     emit();
   }
 
-  function reset() {
-    state = DEFAULT();
-    save();
-  }
+  function reset() { state = DEFAULT(); save(); }
+
+  // Reset only the active difficulty's progress (keeps other modes & profile).
+  function resetMode() { state.progress[state.profile.mode] = emptyProgress(); save(); }
 
   /* ---- Event bus ---------------------------------------------------------- */
   function subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); }
@@ -91,43 +117,43 @@
   const mode = () => MODES[state.profile.mode] || MODES.explorer;
   const moneyScale = () => mode().moneyScale;
 
-  function levelResult(id) { return state.levels[id] || null; }
+  function levelResult(id) { return slot().levels[id] || null; }
 
   function isLevelUnlocked(number) {
     if (number <= 1) return true;
-    // Unlock next level once the previous is completed.
     const prev = LEVELS.find((l) => l.number === number - 1);
-    return prev ? !!(state.levels[prev.id] && state.levels[prev.id].completed) : false;
+    const lv = slot().levels;
+    return prev ? !!(lv[prev.id] && lv[prev.id].completed) : false;
   }
 
   function isBuildingUnlocked(buildingUnlockLevel) {
     if (buildingUnlockLevel <= 1) return true;
-    // A building unlocks once the player has reached (unlocked) that level.
+    const lv = slot().levels;
     return isLevelUnlocked(buildingUnlockLevel) ||
-      LEVELS.some((l) => l.number >= buildingUnlockLevel && state.levels[l.id] && state.levels[l.id].completed);
+      LEVELS.some((l) => l.number >= buildingUnlockLevel && lv[l.id] && lv[l.id].completed);
   }
 
   function levelsCompleted() {
-    return LEVELS.filter((l) => state.levels[l.id] && state.levels[l.id].completed).length;
+    const lv = slot().levels;
+    return LEVELS.filter((l) => lv[l.id] && lv[l.id].completed).length;
   }
 
-  /* ---- Profile mutations -------------------------------------------------- */
+  /* ---- Profile mutations (shared) ---------------------------------------- */
   function setProfile(patch) { Object.assign(state.profile, patch); save(); }
-  function setMode(id) { if (MODES[id]) { state.profile.mode = id; save(); } }
+  function setMode(id) { if (MODES[id]) { state.profile.mode = id; slot(); save(); } }
   function selectAvatar(emoji) { state.profile.avatar = emoji; state.cosmetics.selected = emoji; save(); }
 
-  /* ---- Badges ------------------------------------------------------------- */
+  /* ---- Badges (per mode) -------------------------------------------------- */
   function awardBadge(id) {
-    if (!id || !BADGES[id] || state.badges[id]) return false;
-    state.badges[id] = Date.now();
-    return true; // caller decides when to save/announce
+    if (!id || !BADGES[id]) return false;
+    const b = slot().badges;
+    if (b[id]) return false;
+    b[id] = Date.now();
+    return true;
   }
-  function hasBadge(id) { return !!state.badges[id]; }
+  function hasBadge(id) { return !!slot().badges[id]; }
 
-  /* ---- Scoring (GDD §7) ---------------------------------------------------
-     A level submits `categories`: a map of category → {value, max}. We compute a
-     percentage, translate to 1–3 stars, and award XP. Money XP rewards balance
-     and learning, not raw wealth. ------------------------------------------- */
+  /* ---- Scoring (GDD §7) --------------------------------------------------- */
   function starsFor(percent) {
     const t = CONFIG.starThresholds;
     if (percent >= t.three) return 3;
@@ -136,22 +162,20 @@
   }
 
   function completeLevel(level, outcome) {
-    // outcome: { percent (0-100), categories:{}, passed:bool, title?, extra?:{} }
+    const s = slot();
     const id = level.id;
     const stars = outcome.passed ? starsFor(outcome.percent) : 1;
-    const prior = state.levels[id];
+    const prior = s.levels[id];
     const firstTime = !prior || !prior.completed;
 
     const xpEarned = firstTime
       ? level.xp + stars * CONFIG.xpPerStar
-      : Math.round((stars * CONFIG.xpPerStar) / 2); // reduced XP on replays
+      : Math.round((stars * CONFIG.xpPerStar) / 2);
 
-    if (outcome.passed) {
-      state.stats.moneyXP += Math.max(0, xpEarned);
-    }
+    if (outcome.passed) s.stats.moneyXP += Math.max(0, xpEarned);
 
     const best = Math.max(prior ? prior.best || 0 : 0, outcome.percent);
-    state.levels[id] = {
+    s.levels[id] = {
       number: level.number,
       completed: prior ? prior.completed || outcome.passed : outcome.passed,
       stars: Math.max(prior ? prior.stars || 0 : 0, outcome.passed ? stars : 0),
@@ -163,26 +187,18 @@
       lastPlayed: Date.now(),
     };
 
-    // Attempts tracking (dashboard).
-    state.dashboard.attempts[id] = (state.dashboard.attempts[id] || 0) + 1;
+    s.dashboard.attempts[id] = (s.dashboard.attempts[id] || 0) + 1;
 
-    // Badge on pass (first meaningful completion).
     const newBadges = [];
     if (outcome.passed && level.badge && awardBadge(level.badge)) newBadges.push(level.badge);
-
-    // Extra badges from lifetime savings.
-    if (state.stats.totalSaved >= 100 && awardBadge("saved_100")) newBadges.push("saved_100");
-
-    // MoneyVille Master when all ten are complete.
+    if (s.stats.totalSaved >= 100 && awardBadge("saved_100")) newBadges.push("saved_100");
     if (levelsCompleted() >= LEVELS.length && awardBadge("money_master")) newBadges.push("money_master");
 
     save();
     return { stars, xpEarned, firstTime, newBadges };
   }
 
-  function addSavings(amount) {
-    if (amount > 0) { state.stats.totalSaved += amount; }
-  }
+  function addSavings(amount) { if (amount > 0) slot().stats.totalSaved += amount; }
 
   function recordDashboard(kind, value) {
     const map = {
@@ -190,13 +206,13 @@
       safety: "safetyScores", business: "businessScores", invest: "investScores",
     };
     const key = map[kind];
-    if (key) state.dashboard[key].push(value);
+    if (key) slot().dashboard[key].push(value);
   }
 
-  function addTime(ms) { state.dashboard.timeSpentMs += ms; }
+  function addTime(ms) { slot().dashboard.timeSpentMs += ms; }
 
   global.MV_STATE = {
-    load, save, reset, subscribe, get, mode, moneyScale,
+    load, save, reset, resetMode, subscribe, get, progress, mode, moneyScale,
     levelResult, isLevelUnlocked, isBuildingUnlocked, levelsCompleted,
     setProfile, setMode, selectAvatar,
     awardBadge, hasBadge, completeLevel, addSavings, recordDashboard, addTime,

@@ -77,6 +77,8 @@ explanation of consequences → unlock XP, badges and the next level.
   - **Junior (8–10):** small amounts, 2–3 simple choices, gentle surprises (e.g. AED 20 pocket money: lunch, a toy, savings).
   - **Explorer (11–12):** monthly budgets, subscriptions, simple interest (e.g. AED 100: school supplies, snacks, entertainment, gift, savings).
   - **Advanced (13–14):** larger budgets, multiple needs, inflation, investment risk, opportunity cost (e.g. AED 300: transport, phone credit, lunches, wants, savings).
+
+  Each mode also keeps **its own separate progress** — levels, stars, Money XP, badges and dashboard signals are independent per difficulty, so switching modes is like a fresh save slot. Your profile, avatar and room are shared. Reset a single mode or everything from the dashboard.
 - **Safe for classrooms.** No public chat, no player-to-player messaging; usernames are the player's own nickname; leaderboards focus on learning.
 
 ---
