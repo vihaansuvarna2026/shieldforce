@@ -1186,8 +1186,377 @@
     }
   }
 
+  /* small helper: two-pill header */
+  function hud(a, b) {
+    return el("div", { class: "money-hud" }, [
+      U.statPill(a[0], a[1], a[2], "wallet"),
+      b ? U.statPill(b[0], b[1], b[2], "concept") : null,
+    ]);
+  }
+  function reportDash(ctx, cfg, percent, correctTotal) {
+    if (cfg.dashboardKind === "scam" && correctTotal) ctx.dashboard("scam", correctTotal);
+    else if (cfg.dashboardKind) ctx.dashboard(cfg.dashboardKind, Math.round(percent));
+  }
+
+  /* =========================================================================
+     FORMAT: sort — classify items into two bins (needs/wants, safe/risky,
+     keep/cancel, good/bad deal, safe/scam). Content-agnostic.
+     ========================================================================= */
+  function playSort(mount, level, ctx) {
+    const cfg = level.config;
+    const host = el("div", { class: "level-body" });
+    host.appendChild(hud(["🗂️", "Sort them", `${cfg.items.length} items`], ["🎯", "Goal", level.concept]));
+    host.appendChild(el("div", { class: "sort-legend" }, [
+      el("span", { class: "sort-legend-a", text: `${cfg.binA.icon} ${cfg.binA.label}` }),
+      el("span", { class: "sort-legend-b", text: `${cfg.binB.icon} ${cfg.binB.label}` }),
+    ]));
+    const answers = {};
+    const list = el("div", { class: "sort-list" });
+    cfg.items.forEach((it) => {
+      const card = el("div", { class: "sort-item", dataset: { id: it.id } }, [
+        el("div", { class: "sort-item-main" }, [
+          el("span", { class: "sort-emoji", text: it.icon }),
+          el("span", { class: "sort-name", text: it.name }),
+        ]),
+        el("div", { class: "sort-choices" }, [
+          el("button", { class: "sort-btn a", text: `${cfg.binA.icon} ${cfg.binA.label}`, onClick: () => choose(it.id, "A", card) }),
+          el("button", { class: "sort-btn b", text: `${cfg.binB.icon} ${cfg.binB.label}`, onClick: () => choose(it.id, "B", card) }),
+        ]),
+      ]);
+      list.appendChild(card);
+    });
+    host.appendChild(list);
+    function choose(id, val, card) {
+      answers[id] = val;
+      card.querySelectorAll(".sort-btn").forEach((b) => b.classList.remove("sel"));
+      card.querySelector(val === "A" ? ".a" : ".b").classList.add("sel");
+      card.classList.add("answered");
+    }
+    host.appendChild(el("div", { class: "level-actions" }, [primaryBtn("Check my sorting →", () => {
+      if (Object.keys(answers).length < cfg.items.length) { U.toast("Sort every item first.", "warn"); return; }
+      let correct = 0;
+      cfg.items.forEach((it) => {
+        const right = answers[it.id] === it.bin;
+        if (right) correct++;
+        const card = list.querySelector(`.sort-item[data-id="${it.id}"]`);
+        card.classList.add(right ? "right" : "wrong");
+        card.querySelectorAll(".sort-btn").forEach((b) => (b.disabled = true));
+        card.appendChild(el("div", { class: "sort-why " + (right ? "ok" : "bad") }, [
+          el("strong", { text: right ? "✔ " : "✘ " }),
+          el("span", { text: (right ? "" : `That one is ${it.bin === "A" ? cfg.binA.label : cfg.binB.label}. `) + (it.why || "") }),
+        ]));
+      });
+      const total = cfg.items.length;
+      const percent = Math.round((correct / total) * 100);
+      const passed = correct / total >= (cfg.passRatio || 0.7);
+      const feedback = correct === total ? { kind: "good", text: level.feedback.good }
+        : passed ? { kind: "tradeoff", text: level.feedback.tradeoff }
+        : { kind: "corrective", text: level.feedback.corrective };
+      reportDash(ctx, cfg, percent, { correct, total });
+      const extra = el("div", { class: "twist-card" }, [
+        el("div", { class: "twist-outcome " + (passed ? "ok" : "bad"), text: `You sorted ${correct} of ${total} correctly.` }),
+      ]);
+      ctx.finish({ passed, percent, feedback, categories: { Awareness: { value: percent, max: 100 } }, extraNodes: extra });
+    })]));
+    mount.appendChild(host);
+  }
+
+  /* =========================================================================
+     FORMAT: pick — buy items within a fixed budget; cover needs, chase value,
+     mind opportunity cost. Content-agnostic.
+     ========================================================================= */
+  function playPick(mount, level, ctx) {
+    const cfg = level.config;
+    const budget = cfg.budget;
+    const cart = {};
+    const host = el("div", { class: "level-body" });
+    const totalEl = el("span", { class: "pick-total-num" });
+    host.appendChild(hud(["💳", "Budget", money(budget)], ["🛒", "In cart", money(0)]));
+    host.appendChild(el("p", { class: "muted", text: "Tap to add to your cart. Buy every ✅ Need first, then spend what's left on the best value. You can't go over budget." }));
+    const grid = el("div", { class: "pick-grid" });
+    cfg.items.forEach((it) => {
+      const card = el("button", { class: "pick-card", dataset: { id: it.id } }, [
+        el("div", { class: "pick-emoji", text: it.icon }),
+        el("div", { class: "pick-name", text: it.name }),
+        el("div", { class: "pick-price", text: money(it.price) }),
+        it.need ? el("span", { class: "tag tag-need", text: "Need" }) : el("span", { class: "pick-value", text: "value " + "★".repeat(it.value || 1) }),
+        it.note ? el("div", { class: "pick-note", text: it.note }) : null,
+      ]);
+      card.addEventListener("click", () => {
+        if (cart[it.id]) { delete cart[it.id]; card.classList.remove("in"); }
+        else {
+          const total = Object.keys(cart).reduce((s, id) => s + cfg.items.find((x) => x.id === id).price, 0);
+          if (total + it.price > budget) { U.toast("That would go over budget.", "warn"); return; }
+          cart[it.id] = true; card.classList.add("in");
+        }
+        renderTotal();
+      });
+      grid.appendChild(card);
+    });
+    host.appendChild(grid);
+    function cartTotal() { return Object.keys(cart).reduce((s, id) => s + cfg.items.find((x) => x.id === id).price, 0); }
+    function renderTotal() {
+      const t = cartTotal();
+      totalEl.textContent = money(t);
+      host.querySelector(".money-hud").children[1].querySelector(".stat-value").textContent = money(t);
+    }
+    host.appendChild(el("div", { class: "shop-total" }, [el("span", { text: "Cart total:" }), totalEl]));
+    host.appendChild(el("div", { class: "level-actions" }, [primaryBtn("Buy it all →", () => {
+      const needs = cfg.items.filter((i) => i.need);
+      const needsBought = needs.every((i) => cart[i.id]);
+      const total = cartTotal();
+      const within = total <= budget;
+      const passed = needsBought && within;
+      const boughtValue = cfg.items.filter((i) => cart[i.id] && !i.need).reduce((s, i) => s + (i.value || 0), 0);
+      const affordableWants = cfg.items.filter((i) => !i.need).sort((a, b) => b.value - a.value);
+      const bestValue = affordableWants.slice(0, Object.keys(cart).length).reduce((s, i) => s + (i.value || 0), 0) || 1;
+      const valuePct = clamp((boughtValue / bestValue) * 100, 0, 100);
+      const leftover = budget - total;
+      const percent = Math.round((needsBought ? 55 : 20) + valuePct * 0.35 + (within ? 10 : 0));
+      const feedback = passed && valuePct >= 60 ? { kind: "good", text: level.feedback.good }
+        : passed ? { kind: "tradeoff", text: level.feedback.tradeoff }
+        : { kind: "corrective", text: level.feedback.corrective };
+      reportDash(ctx, cfg, percent);
+      const extra = el("div", { class: "twist-card" }, [
+        el("div", { class: "receipt" }, [
+          el("div", { class: "receipt-row" }, [el("span", { text: "Spent" }), el("span", { text: money(total) })]),
+          el("div", { class: "receipt-row" }, [el("span", { text: "Left over" }), el("span", { text: money(leftover) })]),
+          el("div", { class: "receipt-row " + (needsBought ? "ok" : "bad") }, [el("span", { text: needsBought ? "All needs covered ✅" : "Missed a need ⚠️" }), el("span", { text: `${needs.filter((i) => cart[i.id]).length}/${needs.length}` })]),
+        ]),
+      ]);
+      ctx.finish({ passed, percent, feedback, categories: {
+        Planning: { value: needsBought ? 95 : 35, max: 100 },
+        "Smart Spending": { value: Math.round(valuePct), max: 100 },
+        Awareness: { value: within ? 90 : 40, max: 100 },
+      }, extraNodes: extra });
+    })]));
+    renderTotal();
+    mount.appendChild(host);
+  }
+
+  /* =========================================================================
+     FORMAT: scenario — a sequence of decision cards, each with consequences.
+     Content-agnostic; teaches any concept through choices.
+     ========================================================================= */
+  function playScenario(mount, level, ctx) {
+    const cfg = level.config;
+    const host = el("div", { class: "level-body" });
+    host.appendChild(hud(["🧭", "Decisions", `${cfg.steps.length} to make`], ["🎯", "Topic", level.concept]));
+    const progressEl = el("div", { class: "scn-progress" });
+    const panel = el("div", { class: "scn-panel" });
+    host.appendChild(progressEl); host.appendChild(panel);
+    mount.appendChild(host);
+    let step = 0, scoreSum = 0;
+    function renderProgress() {
+      U.clear(progressEl);
+      cfg.steps.forEach((s, i) => progressEl.appendChild(el("span", { class: "scn-dot " + (i < step ? "done" : i === step ? "now" : "") })));
+    }
+    function renderStep() {
+      U.clear(panel);
+      renderProgress();
+      if (step >= cfg.steps.length) return finish();
+      const s = cfg.steps[step];
+      panel.appendChild(el("div", { class: "scn-card" }, [
+        el("div", { class: "scn-icon", text: s.icon || "❓" }),
+        el("div", { class: "scn-step", text: `Decision ${step + 1} of ${cfg.steps.length}` }),
+        el("div", { class: "scn-situation", text: s.situation }),
+        el("div", { class: "scn-choices" }, s.choices.map((c) =>
+          el("button", { class: "scn-choice", onClick: () => pick(s, c) }, [el("span", { text: c.text })]))),
+      ]));
+    }
+    function pick(s, c) {
+      scoreSum += c.score;
+      U.clear(panel);
+      renderProgress();
+      panel.appendChild(el("div", { class: "scn-card" }, [
+        el("div", { class: "scn-icon", text: s.icon || "❓" }),
+        el("div", { class: "scn-situation muted", text: s.situation }),
+        el("div", { class: "scn-outcome " + (c.score >= 0.75 ? "ok" : c.score >= 0.4 ? "mid" : "bad") }, [
+          el("div", { class: "scn-chosen", text: `You chose: ${c.text}` }),
+          el("div", { text: c.outcome }),
+        ]),
+        primaryBtn(step + 1 >= cfg.steps.length ? "See results →" : "Next decision →", () => { step++; renderStep(); }),
+      ]));
+    }
+    function finish() {
+      const avg = scoreSum / cfg.steps.length;
+      const percent = Math.round(avg * 100);
+      const passed = avg >= (cfg.passScore || 0.6);
+      const feedback = avg >= 0.85 ? { kind: "good", text: level.feedback.good }
+        : passed ? { kind: "tradeoff", text: level.feedback.tradeoff }
+        : { kind: "corrective", text: level.feedback.corrective };
+      reportDash(ctx, cfg, percent);
+      ctx.finish({ passed, percent, feedback, categories: {
+        Planning: { value: percent, max: 100 },
+        Awareness: { value: percent, max: 100 },
+      } });
+    }
+    renderStep();
+  }
+
+  /* =========================================================================
+     FORMAT: tapsave — drop coins into a jar each week to reach a goal, with an
+     optional tempting purchase and (optionally) a rising price (inflation).
+     ========================================================================= */
+  function playTapSave(mount, level, ctx) {
+    const cfg = level.config;
+    const host = el("div", { class: "level-body" });
+    let saved = 0, week = 1, thisWeek = 0, price = cfg.goalPrice, bought = false;
+    host.appendChild(hud([cfg.goalIcon, cfg.goalName, money(price)], ["🐷", "Saved", money(0)]));
+    const jar = el("div", { class: "jar" });
+    const panel = el("div", { class: "jar-panel" });
+    host.appendChild(jar); host.appendChild(panel);
+    mount.appendChild(host);
+
+    function updateHud() {
+      const pills = host.querySelectorAll(".money-hud .stat-value");
+      pills[0].textContent = money(price);
+      pills[1].textContent = money(saved);
+    }
+    function renderJar() {
+      U.clear(jar);
+      const fill = clamp((saved / price) * 100, 0, 100);
+      jar.appendChild(el("div", { class: "jar-glass" }, [
+        el("div", { class: "jar-fill", style: { height: fill + "%" } }),
+        el("div", { class: "jar-label", text: `${money(saved)} / ${money(price)}` }),
+      ]));
+    }
+    function renderWeek() {
+      U.clear(panel);
+      if (bought || week > cfg.weeks || saved >= price) return finish();
+      const weekAllow = cfg.weeklyAllowance;
+      panel.appendChild(el("h3", { class: "section-h", text: `Week ${week} of ${cfg.weeks}` }));
+      panel.appendChild(el("p", { class: "muted", text: `You have ${money(weekAllow - thisWeek)} left to save this week.` }));
+      if (cfg.tempt && cfg.tempt.week === week) {
+        panel.appendChild(el("div", { class: "sale-card" }, [
+          el("div", { class: "sale-head" }, [el("span", { text: cfg.tempt.icon || "⚡" }), el("strong", { text: cfg.tempt.name })]),
+          el("p", { text: `Buy it for ${money(cfg.tempt.cost)}? It comes out of this week's saving money.` }),
+          el("button", { class: "btn btn-ghost btn-sm", text: `Treat myself (−${money(cfg.tempt.cost)})`, onClick: (e) => {
+            if (weekAllow - thisWeek >= cfg.tempt.cost) { thisWeek += cfg.tempt.cost; e.target.disabled = true; e.target.textContent = "Bought 🛍️"; renderWeek2(); }
+            else U.toast("Not enough left this week.", "warn");
+          } }),
+        ]));
+      }
+      const addBtn = el("button", { class: "btn btn-gold jar-add", text: `➕ Drop ${money(cfg.perTap)} in the jar` });
+      addBtn.addEventListener("click", () => {
+        if (thisWeek + cfg.perTap > weekAllow) { U.toast("That's all you can save this week.", "info"); return; }
+        thisWeek += cfg.perTap; saved += cfg.perTap; updateHud(); renderJar();
+        if (saved >= price) { bought = true; return finish(); }
+        renderWeek2();
+      });
+      const nextBtn = primaryBtn("Next week ▶", () => { week++; thisWeek = 0; if (cfg.inflationPerWeek && week <= cfg.weeks) { price += cfg.inflationPerWeek; updateHud(); renderJar(); } renderWeek(); });
+      panel.appendChild(el("div", { class: "jar-actions" }, [addBtn, nextBtn]));
+      if (cfg.inflationPerWeek) panel.appendChild(el("div", { class: "jar-inflation", text: `⚠️ Careful — the price rises ${money(cfg.inflationPerWeek)} every week!` }));
+      renderWeek2();
+      function renderWeek2() {
+        const left = weekAllow - thisWeek;
+        panel.querySelector("p.muted").textContent = `You have ${money(left)} left to save this week.`;
+        if (left < cfg.perTap) addBtn.disabled = true;
+      }
+    }
+    function finish() {
+      U.clear(panel);
+      ctx.addSavings(saved);
+      const passed = saved >= price * (cfg.passRatio || 0.9) || bought;
+      if (bought || saved >= price) ctx.awardBadge && ctx.awardBadge(level.badge);
+      const percent = Math.round(clamp((saved / price) * 100, 0, 100));
+      const feedback = saved >= price ? { kind: "good", text: level.feedback.good }
+        : passed ? { kind: "tradeoff", text: level.feedback.tradeoff }
+        : { kind: "corrective", text: level.feedback.corrective };
+      reportDash(ctx, cfg, percent);
+      const extra = el("div", { class: "twist-card" }, [
+        el("div", { class: "twist-outcome " + (saved >= price ? "ok" : "bad"), text:
+          saved >= price ? `🎉 You filled the jar and got your ${cfg.goalName.toLowerCase()}!`
+          : `You saved ${money(saved)} of ${money(price)}. ${cfg.inflationPerWeek ? "The rising price made it tricky!" : "So close — keep dropping those coins!"}` }),
+      ]);
+      ctx.finish({ passed, percent, feedback, categories: { Saving: { value: percent, max: 100 } }, extraNodes: extra });
+    }
+    renderJar(); renderWeek();
+  }
+
+  /* =========================================================================
+     FORMAT: spotflags — inspect messages, tap the red flags, judge scam/genuine.
+     ========================================================================= */
+  function playSpotFlags(mount, level, ctx) {
+    const cfg = level.config;
+    const host = el("div", { class: "level-body" });
+    host.appendChild(hud(["🔎", "Inspect", `${cfg.messages.length} messages`], ["🎯", "Goal", `${cfg.requiredCorrect}+ verdicts right`]));
+    host.appendChild(el("p", { class: "muted", text: "For each message, tap the red flags you spot, then judge it. Genuine messages have no red flags." }));
+    const selected = {}; // msgId -> Set(flagIndex)
+    const verdicts = {}; // msgId -> "scam"|"genuine"
+    const inbox = el("div", { class: "scam-inbox" });
+    cfg.messages.forEach((m) => {
+      selected[m.id] = new Set();
+      const chips = el("div", { class: "flag-chips" }, m.flags.map((f, i) =>
+        el("button", { class: "flag-chip", onClick: (e) => {
+          if (selected[m.id].has(i)) { selected[m.id].delete(i); e.currentTarget.classList.remove("on"); }
+          else { selected[m.id].add(i); e.currentTarget.classList.add("on"); }
+        } }, [el("span", { text: f.text })])));
+      const card = el("div", { class: "scam-msg spot", dataset: { id: m.id } }, [
+        el("div", { class: "scam-from" }, [el("span", { class: "scam-avatar", text: "✉️" }), el("span", { class: "scam-sender", text: m.from })]),
+        el("div", { class: "scam-text", text: m.text }),
+        el("div", { class: "flag-label", text: "Tap any red flags:" }),
+        chips,
+        el("div", { class: "scam-actions" }, [
+          el("button", { class: "scam-btn report", text: "🚩 Scam", onClick: (e) => setV(m.id, "scam", card) }),
+          el("button", { class: "scam-btn keep", text: "✅ Genuine", onClick: (e) => setV(m.id, "genuine", card) }),
+        ]),
+      ]);
+      inbox.appendChild(card);
+    });
+    host.appendChild(inbox);
+    function setV(id, v, card) {
+      verdicts[id] = v;
+      card.querySelectorAll(".scam-btn").forEach((b) => b.classList.remove("sel"));
+      card.querySelector(v === "scam" ? ".report" : ".keep").classList.add("sel");
+      card.classList.add("answered");
+    }
+    host.appendChild(el("div", { class: "level-actions" }, [primaryBtn("Submit findings →", () => {
+      if (Object.keys(verdicts).length < cfg.messages.length) { U.toast("Give a verdict on every message.", "warn"); return; }
+      let verdictsRight = 0, flagPoints = 0, flagMax = 0;
+      cfg.messages.forEach((m) => {
+        const vRight = (m.scam && verdicts[m.id] === "scam") || (!m.scam && verdicts[m.id] === "genuine");
+        if (vRight) verdictsRight++;
+        m.flags.forEach((f, i) => {
+          if (f.real) { flagMax++; if (selected[m.id].has(i)) flagPoints++; }
+          else if (selected[m.id].has(i)) flagPoints = Math.max(0, flagPoints - 0.5); // small penalty for false flags
+        });
+        const card = inbox.querySelector(`.scam-msg[data-id="${m.id}"]`);
+        card.classList.add(vRight ? "right" : "wrong");
+        card.querySelectorAll(".scam-btn").forEach((b) => (b.disabled = true));
+        card.querySelectorAll(".flag-chip").forEach((chip, i) => {
+          chip.disabled = true;
+          if (m.flags[i].real) chip.classList.add("real");
+        });
+        card.appendChild(el("div", { class: "scam-verdict " + (vRight ? "ok" : "bad") }, [
+          el("strong", { text: vRight ? "✔ Right call" : "✘ Not quite" }),
+          el("span", { text: m.scam ? " This was a scam." : " This one was genuine." }),
+        ]));
+      });
+      const total = cfg.messages.length;
+      const verdictPct = (verdictsRight / total) * 100;
+      const flagPct = flagMax ? (flagPoints / flagMax) * 100 : 100;
+      const percent = Math.round(verdictPct * 0.6 + flagPct * 0.4);
+      const passed = verdictsRight >= cfg.requiredCorrect;
+      if (verdictsRight >= Math.max(4, cfg.requiredCorrect)) ctx.awardBadge && ctx.awardBadge("scam_blocker");
+      const feedback = verdictsRight === total && flagPct >= 80 ? { kind: "good", text: level.feedback.good }
+        : passed ? { kind: "tradeoff", text: level.feedback.tradeoff }
+        : { kind: "corrective", text: level.feedback.corrective };
+      reportDash(ctx, cfg, percent, { correct: verdictsRight, total });
+      const extra = el("div", { class: "twist-card" }, [
+        el("div", { class: "twist-outcome " + (passed ? "ok" : "bad"), text: `${verdictsRight}/${total} verdicts correct · ${Math.round(flagPct)}% of red flags spotted.` }),
+      ]);
+      ctx.finish({ passed, percent, feedback, categories: {
+        Awareness: { value: Math.round(verdictPct), max: 100 },
+        "Red-flag spotting": { value: Math.round(flagPct), max: 100 },
+      }, extraNodes: extra });
+    })]));
+    mount.appendChild(host);
+  }
+
   /* ---- Dispatcher --------------------------------------------------------- */
   const RENDERERS = {
+    // signature simulations
     budget: playBudget,
     savings: playSavings,
     emergency: playEmergency,
@@ -1198,10 +1567,17 @@
     investment: playInvestment,
     scam: playScam,
     final: playFinal,
+    // reusable formats
+    sort: playSort,
+    pick: playPick,
+    scenario: playScenario,
+    tapsave: playTapSave,
+    spotflags: playSpotFlags,
   };
 
   function play(mount, level, ctx) {
-    const fn = RENDERERS[level.type];
+    const fmt = (level.config && level.config.format) || level.type;
+    const fn = RENDERERS[fmt];
     if (!fn) { mount.appendChild(el("p", { text: "This level is coming soon." })); return; }
     fn(mount, level, ctx);
   }

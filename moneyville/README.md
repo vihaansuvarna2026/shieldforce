@@ -73,10 +73,22 @@ explanation of consequences → unlock XP, badges and the next level.
 - **Show consequences, never shame.** Feedback is positive / trade-off / corrective — respectful and non-patronising (GDD §12).
 - **Reward balance, not just wealth.** Scores come from Planning, Saving, Safety, Smart Spending, Growth and Awareness — never from "most money".
 - **Fictional investments only.** No real financial products or advice.
-- **Age-appropriate complexity.** Each of the three difficulty modes has its *own* scenarios — different items, amounts, number of choices and twists — not the same puzzle rescaled:
-  - **Junior (8–10):** small amounts, 2–3 simple choices, gentle surprises (e.g. AED 20 pocket money: lunch, a toy, savings).
-  - **Explorer (11–12):** monthly budgets, subscriptions, simple interest (e.g. AED 100: school supplies, snacks, entertainment, gift, savings).
-  - **Advanced (13–14):** larger budgets, multiple needs, inflation, investment risk, opportunity cost (e.g. AED 300: transport, phone credit, lunches, wants, savings).
+- **Age-appropriate complexity.** For every level, the three difficulties play as **completely different mini-games** — not the same puzzle rescaled. The concept stays the same; the *format* changes:
+
+  | Level (concept) | 🐣 Junior | 🧭 Explorer | 🚀 Advanced |
+  |---|---|---|---|
+  | 1 Needs vs wants | Sort into Need/Want bins | Budget planner | Buy-within-budget (opportunity cost) |
+  | 2 Savings goal | Coin-jar tap saver | Weekly saving sliders | Decision scenario |
+  | 3 Emergency fund | Spend-now/Keep-safe sort | Budget + safety fund | Emergency decision scenario |
+  | 4 Value for money | Good-deal/Bad-deal sort | Store comparison basket | Buy-within-budget |
+  | 5 Subscriptions | Keep/Cancel sort | Toggle + renewal sim | Subscription-audit scenario |
+  | 6 Inflation | Beat-the-price coin jar | Deposit-vs-price sim | Inflation-strategy scenario |
+  | 7 Business | Stock your stall (budget) | Day-by-day business sim | Run-the-business scenario |
+  | 8 Investing | Safe/Risky sort | Allocate + market sim | Market-events scenario |
+  | 9 Scams | Safe/Scam sort | Inbox keep/report | Tap-the-red-flags inspector |
+  | 10 Full month | Buy-within-budget | Full budget + twists | Whole-month decision scenario |
+
+  There are 15 game formats in all (`sort`, `budget`, `pick`, `savings`, `tapsave`, `scenario`, `emergency`, `shopping`, `subscription`, `inflation`, `business`, `investment`, `scam`, `spotflags`, `final`). The engine dispatches on each config's `format` field.
 
   Each mode also keeps **its own separate progress** — levels, stars, Money XP, badges and dashboard signals are independent per difficulty, so switching modes is like a fresh save slot. Your profile, avatar and room are shared. Reset a single mode or everything from the dashboard.
 - **Safe for classrooms.** No public chat, no player-to-player messaging; usernames are the player's own nickname; leaderboards focus on learning.

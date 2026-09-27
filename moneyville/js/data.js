@@ -1,17 +1,17 @@
 /* =============================================================================
    MoneyVille: Life on Allowance — Content Data Layer
    -----------------------------------------------------------------------------
-   All scenario content lives here, separate from game logic (GDD §19). Each of
-   the ten levels defines THREE completely different scenarios — one per age
-   band — under `configs.{junior, explorer, advanced}`. The engine resolves the
-   config for the player's current difficulty mode, so Junior, Explorer and
-   Advanced players face different items, amounts, choices and twists, not the
-   same puzzle rescaled (GDD §8 Age-Based Difficulty).
+   All scenario content lives here, separate from game logic (GDD §19).
+   Each level defines THREE scenarios — one per age band — under
+   `configs.{junior, explorer, advanced}`, and each uses a DIFFERENT game
+   FORMAT so the three difficulties play as distinct mini-games, not the same
+   puzzle rescaled (GDD §8). Formats: sort, budget, pick, savings, tapsave,
+   scenario, emergency, shopping, subscription, inflation, business,
+   investment, scam, spotflags, final. The engine dispatches on config.format.
    ============================================================================= */
 (function (global) {
   "use strict";
 
-  /* ---- Global config ------------------------------------------------------ */
   const CONFIG = {
     currency: "AED",
     starThresholds: { three: 85, two: 60, one: 0 },
@@ -19,83 +19,65 @@
     saveKey: "moneyville.save.v1",
   };
 
-  /* ---- Difficulty modes (GDD §8) ------------------------------------------
-     moneyScale is 1 for every mode now: each mode's config carries its own
-     age-appropriate absolute amounts, so nothing is auto-rescaled. -----------*/
   const MODES = {
-    junior: {
-      id: "junior", name: "Junior", ages: "8–10",
-      blurb: "Small amounts, few simple choices, lots of guidance.",
-      moneyScale: 1, hints: "full", icon: "🐣",
-    },
-    explorer: {
-      id: "explorer", name: "Explorer", ages: "11–12",
-      blurb: "Monthly budgets, discounts, subscriptions and simple interest.",
-      moneyScale: 1, hints: "some", icon: "🧭",
-    },
-    advanced: {
-      id: "advanced", name: "Advanced", ages: "13–14",
-      blurb: "Bigger budgets, inflation, investment risk and opportunity cost.",
-      moneyScale: 1, hints: "few", icon: "🚀",
-    },
+    junior:   { id: "junior",   name: "Junior",   ages: "8–10",  blurb: "Playful sorting, coin jars and simple choices.",        moneyScale: 1, hints: "full", icon: "🐣" },
+    explorer: { id: "explorer", name: "Explorer", ages: "11–12", blurb: "Hands-on budgets, shops, subscriptions and businesses.", moneyScale: 1, hints: "some", icon: "🧭" },
+    advanced: { id: "advanced", name: "Advanced", ages: "13–14", blurb: "Decision scenarios: investing, inflation, opportunity cost.", moneyScale: 1, hints: "few", icon: "🚀" },
   };
 
-  /* ---- Buildings / town map (GDD §5) -------------------------------------- */
   const BUILDINGS = [
-    { id: "home",       name: "Home",                  icon: "🏠", unlockLevel: 0,  desc: "Review goals, budgets, badges and your room." },
-    { id: "shop",       name: "Shopping Centre",       icon: "🛒", unlockLevel: 1,  desc: "Buy items, compare prices, tell needs from wants." },
-    { id: "bank",       name: "Bank",                  icon: "🏦", unlockLevel: 2,  desc: "Deposit savings, set goals, learn about interest." },
-    { id: "business",   name: "Business District",     icon: "🏭", unlockLevel: 7,  desc: "Start a business, set prices, track profit." },
-    { id: "investment", name: "Investment Centre",     icon: "📈", unlockLevel: 8,  desc: "Learn risk, diversify, track simulated returns." },
-    { id: "safety",     name: "Digital Safety Centre", icon: "🛡️", unlockLevel: 9,  desc: "Spot scams and stay safe online." },
+    { id: "home",       name: "Home",                  icon: "🏠", unlockLevel: 0, desc: "Review goals, budgets, badges and your room." },
+    { id: "shop",       name: "Shopping Centre",       icon: "🛒", unlockLevel: 1, desc: "Buy items, compare prices, tell needs from wants." },
+    { id: "bank",       name: "Bank",                  icon: "🏦", unlockLevel: 2, desc: "Deposit savings, set goals, learn about interest." },
+    { id: "business",   name: "Business District",     icon: "🏭", unlockLevel: 7, desc: "Start a business, set prices, track profit." },
+    { id: "investment", name: "Investment Centre",     icon: "📈", unlockLevel: 8, desc: "Learn risk, diversify, track simulated returns." },
+    { id: "safety",     name: "Digital Safety Centre", icon: "🛡️", unlockLevel: 9, desc: "Spot scams and stay safe online." },
   ];
 
-  /* ---- Badges (GDD §11) --------------------------------------------------- */
   const BADGES = {
-    first_budget:   { id: "first_budget",   name: "First Budget",        icon: "📋", desc: "Complete your first monthly budget." },
-    saved_100:      { id: "saved_100",      name: "First 100 Saved",     icon: "💰", desc: "Save a total of AED 100." },
-    goal_getter:    { id: "goal_getter",    name: "Goal Getter",         icon: "🎯", desc: "Reach a complete savings goal." },
-    safety_first:   { id: "safety_first",   name: "Safety First",        icon: "🚑", desc: "Successfully use an emergency fund." },
-    smart_shopper:  { id: "smart_shopper",  name: "Smart Shopper",       icon: "🛍️", desc: "Finish a shopping challenge under budget." },
-    sub_manager:    { id: "sub_manager",    name: "Subscription Manager",icon: "🧾", desc: "Cancel an unnecessary recurring payment." },
-    beat_inflation: { id: "beat_inflation", name: "Beat Inflation",      icon: "📊", desc: "Reach a goal despite a price increase." },
-    first_profit:   { id: "first_profit",   name: "First Profit",        icon: "🍋", desc: "Earn a profit from a business." },
-    balanced_inv:   { id: "balanced_inv",   name: "Balanced Investor",   icon: "⚖️", desc: "Create a diversified portfolio." },
-    scam_blocker:   { id: "scam_blocker",   name: "Scam Blocker",        icon: "🚫", desc: "Correctly report scam messages." },
-    money_master:   { id: "money_master",   name: "MoneyVille Master",   icon: "👑", desc: "Complete all ten levels." },
+    first_budget:   { id: "first_budget",   name: "First Budget",         icon: "📋", desc: "Complete your first budgeting level." },
+    saved_100:      { id: "saved_100",      name: "First 100 Saved",      icon: "💰", desc: "Save a total of AED 100." },
+    goal_getter:    { id: "goal_getter",    name: "Goal Getter",          icon: "🎯", desc: "Reach a complete savings goal." },
+    safety_first:   { id: "safety_first",   name: "Safety First",         icon: "🚑", desc: "Handle an emergency the smart way." },
+    smart_shopper:  { id: "smart_shopper",  name: "Smart Shopper",        icon: "🛍️", desc: "Ace a value-for-money challenge." },
+    sub_manager:    { id: "sub_manager",    name: "Subscription Manager", icon: "🧾", desc: "Cut an unnecessary recurring payment." },
+    beat_inflation: { id: "beat_inflation", name: "Beat Inflation",       icon: "📊", desc: "Reach a goal despite rising prices." },
+    first_profit:   { id: "first_profit",   name: "First Profit",         icon: "🍋", desc: "Make smart business decisions." },
+    balanced_inv:   { id: "balanced_inv",   name: "Balanced Investor",    icon: "⚖️", desc: "Invest with diversification in mind." },
+    scam_blocker:   { id: "scam_blocker",   name: "Scam Blocker",         icon: "🚫", desc: "Correctly catch scam messages." },
+    money_master:   { id: "money_master",   name: "MoneyVille Master",    icon: "👑", desc: "Complete all ten levels." },
   };
 
-  /* ---- Levels (GDD §9) ---------------------------------------------------- */
   const LEVELS = [
-    /* ================= LEVEL 1 — The First Allowance ==================== */
+    /* ================= LEVEL 1 — Needs vs Wants ======================== */
     {
       id: "lvl-01-allowance", number: 1, title: "The First Allowance",
       concept: "Needs versus wants", building: "home", icon: "🪙", type: "budget",
-      objective: "Cover the essentials, then share out the rest and keep a little spare.",
-      learningOutcome: [
-        "Tell the difference between needs and wants.",
-        "Plan money before spending it.",
-        "See why spending everything at once causes problems.",
-      ],
+      objective: "Tell needs from wants and use your money wisely.",
+      learningOutcome: ["Tell needs from wants.", "Plan money before spending.", "Spending everything at once causes problems."],
       feedback: {
-        good: "You covered every essential and still set money aside. That is exactly how a budget should feel.",
-        tradeoff: "You had fun, but leaving nothing spare made the surprise a squeeze.",
-        corrective: "Spending everything early left no room for the surprise. Planning first keeps you safe.",
+        good: "You clearly know a need from a want — and planned your money well.",
+        tradeoff: "Good effort — a couple of choices leaned toward wants over needs.",
+        corrective: "Needs come first. Cover the must-haves before the nice-to-haves.",
       },
       xp: 60, badge: "first_budget",
       configs: {
         junior: {
-          intro: "You have AED 20 of pocket money this week. Buy your lunch first, then choose one treat and pop a little into savings.",
-          objective: "Make sure lunch is paid for and save at least a coin or two.",
-          income: 20,
-          categories: [
-            { id: "lunch",  name: "Lunch",   icon: "🥪", need: true, min: 8, hint: "You need this every school day." },
-            { id: "toy",    name: "A toy",   icon: "🧸", need: false, min: 0 },
-            { id: "save",   name: "Savings", icon: "🐷", need: false, min: 0, isSaving: true },
+          format: "sort", dashboardKind: "budget", passRatio: 0.7,
+          intro: "Sort each thing into what you NEED or what you just WANT.",
+          objective: "Put every item in the right basket.",
+          binA: { label: "Need", icon: "✅" }, binB: { label: "Want", icon: "💫" },
+          items: [
+            { id: "food",  name: "Healthy lunch", icon: "🥪", bin: "A", why: "You need food for energy at school." },
+            { id: "toy",   name: "New toy",       icon: "🧸", bin: "B", why: "Fun, but not something you need." },
+            { id: "shoes", name: "School shoes",  icon: "👟", bin: "A", why: "You need shoes for school." },
+            { id: "candy", name: "Candy",         icon: "🍬", bin: "B", why: "A tasty treat — a want." },
+            { id: "pencil",name: "Pencils",       icon: "✏️", bin: "A", why: "Needed for classwork." },
+            { id: "game",  name: "Video game",    icon: "🎮", bin: "B", why: "Great fun, but a want." },
           ],
-          twist: { name: "Oops — a lost pencil", desc: "You need a new pencil for class. It costs AED 3.", cost: 3 },
         },
         explorer: {
+          format: "budget",
           intro: "Your first monthly allowance is AED 100. Split it between school supplies, fun and savings — school supplies are a must.",
           objective: "Cover school supplies and keep something back for savings.",
           income: 100,
@@ -109,51 +91,46 @@
           twist: { name: "Surprise workbook", desc: "Your teacher asks everyone to buy a AED 15 workbook.", cost: 15 },
         },
         advanced: {
-          intro: "You now get AED 300 a month (allowance plus a small part-time job) — but you also cover more of your own costs. Transport, phone credit and lunch are all needs.",
-          objective: "Cover all three needs, then balance wants, savings and opportunity cost.",
-          income: 300,
-          categories: [
-            { id: "transport", name: "Transport",     icon: "🚌", need: true, min: 50, hint: "Bus pass to get to school." },
-            { id: "phone",     name: "Phone credit",  icon: "📱", need: true, min: 30, hint: "Needed to stay reachable." },
-            { id: "lunch",     name: "Lunches",       icon: "🍱", need: true, min: 60, hint: "Food for the month." },
-            { id: "clothes",   name: "New clothes",   icon: "👕", need: false, min: 0 },
-            { id: "streaming", name: "Streaming & fun",icon: "🎬", need: false, min: 0 },
-            { id: "save",      name: "Savings",       icon: "🏦", need: false, min: 0, isSaving: true },
+          format: "pick", dashboardKind: "budget",
+          intro: "You have AED 250 but can't buy everything. Cover your needs first, then spend the rest where it adds the most value. Every purchase is money you can't use elsewhere (opportunity cost).",
+          objective: "Buy all needs and stay within AED 250.",
+          budget: 250,
+          items: [
+            { id: "transport", name: "Bus pass",          icon: "🚌", price: 50, need: true,  value: 5 },
+            { id: "lunch",     name: "Month of lunches",  icon: "🍱", price: 70, need: true,  value: 5 },
+            { id: "phone",     name: "Phone credit",      icon: "📱", price: 30, need: true,  value: 4 },
+            { id: "book",      name: "Revision guide",    icon: "📗", price: 25, need: false, value: 4, note: "Boosts your grades." },
+            { id: "hoodie",    name: "New hoodie",        icon: "🧥", price: 80, need: false, value: 3, note: "Nice, not needed." },
+            { id: "game",      name: "Video game",        icon: "🎮", price: 60, need: false, value: 2, note: "Fun but pricey." },
+            { id: "concert",   name: "Concert ticket",    icon: "🎫", price: 90, need: false, value: 2, note: "One night out." },
           ],
-          twist: { name: "Textbook needed", desc: "A set textbook is required this month: AED 45. Every dirham spent on wants was a dirham that couldn't cover it.", cost: 45 },
         },
       },
     },
 
-    /* ================= LEVEL 2 — Saving for Something Big =============== */
+    /* ================= LEVEL 2 — Savings goal ========================== */
     {
       id: "lvl-02-savings-goal", number: 2, title: "Saving for Something Big",
       concept: "Setting and reaching a savings goal", building: "bank", icon: "🚲", type: "savings",
-      objective: "Pick a goal and save toward it week by week without going broke.",
-      learningOutcome: [
-        "Regular saving builds real progress.",
-        "Small purchases can delay a bigger goal.",
-        "Long-term goals need patience and priority.",
-      ],
+      objective: "Work steadily toward a goal without getting sidetracked.",
+      learningOutcome: ["Regular saving builds progress.", "Small buys can delay a bigger goal.", "Long-term goals need priority."],
       feedback: {
-        good: "Steady saving paid off — you reached your goal by staying focused week after week.",
-        tradeoff: "A tempting buy was fun, but it pushed your main goal back. Every small purchase has a cost.",
-        corrective: "Saving too little each week left the goal out of reach. Try setting aside a bit more next time.",
+        good: "Steady, focused saving got you there. That's exactly how goals are reached.",
+        tradeoff: "A tempting detour slowed you down — every small buy has a cost.",
+        corrective: "You fell short. Saving a bit more, more consistently, gets you there.",
       },
       xp: 70, badge: "goal_getter",
       configs: {
         junior: {
-          intro: "Pick one small thing to save for. You get AED 10 each week — save what you can over 3 weeks.",
-          objective: "Save up the full price of your chosen item.",
-          weeklyIncome: 10, weeks: 3, weeklyExpense: 2, targetPercent: 100,
-          goals: [
-            { id: "car",   name: "Toy car",       icon: "🚗", price: 18 },
-            { id: "book",  name: "Colouring book",icon: "🖍️", price: 15 },
-            { id: "ball",  name: "Bouncy ball",   icon: "⚽", price: 12 },
-          ],
-          twist: { name: "Sticker sale!", desc: "A shiny sticker pack is on sale for AED 5. Buying it slows your saving.", cost: 5 },
+          format: "tapsave", dashboardKind: "saving", passRatio: 0.9,
+          intro: "Fill your jar to buy the toy robot! Each week, drop your coins into the jar.",
+          objective: "Save up the full price by dropping coins each week.",
+          goalName: "Toy robot", goalIcon: "🤖", goalPrice: 24,
+          weeks: 4, weeklyAllowance: 8, perTap: 2,
+          tempt: { week: 2, name: "Ice cream van!", icon: "🍦", cost: 4 },
         },
         explorer: {
+          format: "savings",
           intro: "Choose a goal and decide how much to save each week for a month. Balance saving with small weekly costs.",
           objective: "Reach at least 90% of your goal by the end of the month.",
           weeklyIncome: 40, weeks: 4, weeklyExpense: 10, targetPercent: 90,
@@ -167,56 +144,66 @@
           twist: { name: "Flash sale!", desc: "A cool gadget is on sale for AED 25 — this week only. Buying it delays your goal.", cost: 25 },
         },
         advanced: {
-          intro: "You're saving for something big over six weeks, earning AED 80 a week but with AED 25 of weekly costs. Choose wisely — the pricier goals need real discipline.",
-          objective: "Reach at least 85% of your goal across six weeks.",
-          weeklyIncome: 80, weeks: 6, weeklyExpense: 25, targetPercent: 85,
-          goals: [
-            { id: "laptop",  name: "Laptop",           icon: "💻", price: 480 },
-            { id: "phone",   name: "New phone",        icon: "📱", price: 600 },
-            { id: "camera",  name: "Camera",           icon: "📷", price: 520 },
-            { id: "course",  name: "Online course",    icon: "🎓", price: 350 },
-            { id: "concert", name: "Concert + travel", icon: "🎫", price: 400 },
+          format: "scenario", dashboardKind: "saving", passScore: 0.6,
+          intro: "You're saving AED 600 for a laptop over a few months. Each month brings a choice that speeds up or slows your goal.",
+          objective: "Make choices that keep your savings on track.",
+          steps: [
+            { situation: "Month 1: You get AED 200. A friend suggests a AED 90 weekend trip.", icon: "🏖️", choices: [
+              { text: "Skip the trip, save AED 200", score: 1, outcome: "Great discipline — your laptop fund jumps ahead." },
+              { text: "Go, and save AED 110", score: 0.5, outcome: "Fun, but the goal slips a few weeks." },
+              { text: "Spend it all, save nothing", score: 0, outcome: "No progress toward the goal this month." },
+            ] },
+            { situation: "Month 2: Keep savings in a jar at home, or an account paying interest?", icon: "🏦", choices: [
+              { text: "Interest-earning account", score: 1, outcome: "Your money grows a little on its own. Smart." },
+              { text: "Jar at home", score: 0.5, outcome: "Safe, but it earns nothing." },
+            ] },
+            { situation: "Month 3: A limited game sale (AED 70) tempts you.", icon: "🎮", choices: [
+              { text: "Resist and keep saving", score: 1, outcome: "Goal stays on track." },
+              { text: "Buy it", score: 0.3, outcome: "Enjoyable, but the laptop moves further away." },
+            ] },
+            { situation: "Month 4: You could do a AED 120 side job this month.", icon: "💼", choices: [
+              { text: "Take the side job", score: 1, outcome: "Extra earnings push you across the finish line." },
+              { text: "Relax instead", score: 0.5, outcome: "Understandable, but slower progress." },
+            ] },
           ],
-          twist: { name: "Front-row upgrade", desc: "A better version tempts you for an extra AED 60 now (opportunity cost!). Spending it delays the real goal.", cost: 60 },
         },
       },
     },
 
-    /* ================= LEVEL 3 — The Surprise Expense ================== */
+    /* ================= LEVEL 3 — Emergency fund ======================== */
     {
       id: "lvl-03-emergency", number: 3, title: "The Surprise Expense",
       concept: "Emergency funds", building: "bank", icon: "🚑", type: "emergency",
-      objective: "Split your money wisely — and keep a safety fund for the unexpected.",
-      learningOutcome: [
-        "Unexpected expenses happen to everyone.",
-        "An emergency fund lets you handle them calmly.",
-        "Without one, emergencies eat into your other goals.",
-      ],
+      objective: "Keep something aside so surprises don't derail you.",
+      learningOutcome: ["Surprises happen to everyone.", "An emergency fund keeps you calm.", "Without one, surprises hurt your goals."],
       feedback: {
-        good: "Your safety fund covered the surprise instantly — no goals harmed, no stress.",
-        tradeoff: "You handled the surprise, but had to dip into savings because the safety fund was thin.",
-        corrective: "With nothing set aside, the surprise forced you to cancel other plans. A safety fund prevents that.",
+        good: "You handled the surprise calmly because you were prepared. That's the power of a safety fund.",
+        tradeoff: "You coped, but it cost you elsewhere. A bigger buffer would have helped.",
+        corrective: "The surprise caught you out. Keeping a little aside prevents that.",
       },
       xp: 75, badge: "safety_first",
       configs: {
         junior: {
-          intro: "You have AED 20 this week. Pay for snacks, have a little fun, save a bit — and maybe keep a coin aside 'just in case'.",
-          objective: "Cover your snacks and handle the little surprise.",
-          income: 20,
-          categories: [
-            { id: "snacks", name: "Snacks",     icon: "🍎", need: true, min: 6, hint: "Your food for the week." },
-            { id: "fun",    name: "Fun",        icon: "🎈", need: false, min: 0 },
-            { id: "save",   name: "Savings",    icon: "🐷", need: false, min: 0, isSaving: true },
-            { id: "safety", name: "Just-in-case",icon: "🛟", need: false, min: 0, isSafety: true, hint: "Money for surprises." },
+          format: "sort", dashboardKind: "safety", passRatio: 0.7,
+          intro: "Some money should be spent now, and some kept safe for surprises. Sort them!",
+          objective: "Decide what to spend now and what to keep safe.",
+          binA: { label: "Spend now", icon: "🛍️" }, binB: { label: "Keep safe", icon: "🛟" },
+          items: [
+            { id: "lunch",  name: "Money for today's lunch", icon: "🥪", bin: "A", why: "You need to eat today." },
+            { id: "bus",    name: "Bus fare home",           icon: "🚌", bin: "A", why: "You need it to get home." },
+            { id: "snack",  name: "Today's snack",           icon: "🍎", bin: "A", why: "A small need for today." },
+            { id: "spare",  name: "Spare coins",             icon: "🪙", bin: "B", why: "Save them for a rainy day." },
+            { id: "fund",   name: "Emergency fund",          icon: "🚑", bin: "B", why: "Always good to keep safe." },
+            { id: "gift",   name: "Birthday money to save",  icon: "🎁", bin: "B", why: "Tuck it away for surprises." },
           ],
-          twist: { name: "Uh oh!", options: ["Your balloon popped", "You lost a coin", "Your snack got squashed"], cost: 6 },
         },
         explorer: {
+          format: "emergency",
           intro: "Everything looks normal this month. But life has surprises. Will you keep some money in a safety fund, just in case?",
           objective: "Cover essentials and resolve the surprise expense.",
           income: 100,
           categories: [
-            { id: "essentials", name: "Essentials",  icon: "🥪", need: true, min: 25, hint: "Food, transport and school costs." },
+            { id: "essentials", name: "Essentials",   icon: "🥪", need: true, min: 25, hint: "Food, transport and school costs." },
             { id: "fun",        name: "Entertainment",icon: "🎮", need: false, min: 0 },
             { id: "goal",       name: "Savings goal", icon: "🎯", need: false, min: 0, isSaving: true },
             { id: "safety",     name: "Safety fund",  icon: "🛟", need: false, min: 0, isSafety: true, hint: "Money set aside for surprises." },
@@ -224,55 +211,57 @@
           twist: { name: "Unexpected expense", options: ["Your backpack strap snapped", "You lost your bus card", "Your football boots tore"], cost: 30 },
         },
         advanced: {
-          intro: "You manage AED 250 this month with real costs to cover. Emergencies get pricier as you get older — how big a safety net will you build?",
-          objective: "Cover transport and food, and absorb a large surprise expense.",
-          income: 250,
-          categories: [
-            { id: "transport", name: "Transport",    icon: "🚇", need: true, min: 60, hint: "Getting around all month." },
-            { id: "food",      name: "Food",         icon: "🍲", need: true, min: 50, hint: "Meals for the month." },
-            { id: "fun",       name: "Entertainment",icon: "🎬", need: false, min: 0 },
-            { id: "goal",      name: "Savings goal", icon: "🎯", need: false, min: 0, isSaving: true },
-            { id: "safety",    name: "Safety fund",  icon: "🛟", need: false, min: 0, isSafety: true, hint: "The bigger the surprise, the more you'll want here." },
+          format: "scenario", dashboardKind: "safety", passScore: 0.6,
+          intro: "You kept a AED 120 safety fund. This month throws surprises at you — how you respond shows why an emergency fund matters.",
+          objective: "Respond to each surprise the smart way.",
+          steps: [
+            { situation: "Your phone screen cracks. Repair is AED 90.", icon: "📱", choices: [
+              { text: "Pay from the safety fund", score: 1, outcome: "Handled instantly — no stress, no borrowing." },
+              { text: "Use a broken phone for now", score: 0.4, outcome: "You cope, but it's risky and inconvenient." },
+              { text: "Borrow AED 90 from a friend", score: 0.2, outcome: "Now you owe money over an avoidable gap." },
+            ] },
+            { situation: "An unexpected AED 40 school fee is due.", icon: "🏫", choices: [
+              { text: "Pay from what's left of the fund", score: 1, outcome: "Covered. Exactly what the fund is for." },
+              { text: "Cancel your savings-goal deposit", score: 0.5, outcome: "Paid, but your bigger goal slips." },
+            ] },
+            { situation: "Next month — rebuild the safety fund?", icon: "🔁", choices: [
+              { text: "Yes, top it up first", score: 1, outcome: "You're ready for the next surprise." },
+              { text: "No, spend on fun", score: 0.3, outcome: "Risky — the next emergency could hurt." },
+            ] },
           ],
-          twist: { name: "Costly surprise", options: ["Your phone screen cracked", "A dental fee arrived", "Your laptop charger died"], cost: 90 },
         },
       },
     },
 
-    /* ================= LEVEL 4 — Smart Shopper Challenge =============== */
+    /* ================= LEVEL 4 — Smart shopper ========================= */
     {
       id: "lvl-04-smart-shopper", number: 4, title: "Smart Shopper Challenge",
       concept: "Price comparison and value for money", building: "shop", icon: "🛍️", type: "shopping",
-      objective: "Buy every required item, staying under budget and choosing the best value.",
-      learningOutcome: [
-        "The cheapest product is not always the best value.",
-        "Delivery fees and durability change the real cost.",
-        "Compare quality, quantity and hidden charges.",
-      ],
+      objective: "Spot real value — the cheapest isn't always the best.",
+      learningOutcome: ["Cheapest isn't always best value.", "Hidden fees and durability change the real cost.", "Weigh quality and quantity."],
       feedback: {
-        good: "Smart choices! You balanced price with quality and stayed comfortably under budget.",
-        tradeoff: "You saved money up front, but a flimsy pick cost more once it broke. Value beats price.",
-        corrective: "Chasing the lowest price led to breakages and hidden fees that pushed you over budget.",
+        good: "Sharp eye for value — you balanced price with quality beautifully.",
+        tradeoff: "Decent, but a flimsy bargain or hidden cost slipped through.",
+        corrective: "Chasing the lowest price backfired. Value beats price.",
       },
       xp: 80, badge: "smart_shopper",
       configs: {
         junior: {
-          intro: "You need two things for school and have AED 20. Pick the option that's good value — cheap things that break aren't a bargain!",
-          objective: "Buy both items and stay under AED 20.",
-          budget: 20,
-          requiredItems: [
-            { id: "case", name: "Pencil case", icon: "✏️", options: [
-              { store: "QuickShop", price: 5, quality: 2, durability: 1, delivery: 0, note: "Zip looks weak." },
-              { store: "GoodBuy",   price: 8, quality: 4, durability: 3, delivery: 0, note: "Sturdy and roomy." },
-            ] },
-            { id: "bottle", name: "Water bottle", icon: "🧴", options: [
-              { store: "QuickShop", price: 6,  quality: 3, durability: 2, delivery: 0, note: "Fine for now." },
-              { store: "GoodBuy",   price: 9,  quality: 4, durability: 3, delivery: 0, note: "Leak-proof lid." },
-            ] },
+          format: "sort", dashboardKind: "budget", passRatio: 0.7,
+          intro: "Is each one a GOOD deal or a BAD deal? Think about price AND quality.",
+          objective: "Sort the good deals from the bad ones.",
+          binA: { label: "Good deal", icon: "👍" }, binB: { label: "Bad deal", icon: "👎" },
+          items: [
+            { id: "juice", name: "Big juice, low price",       icon: "🧃", bin: "A", why: "More for less — good value." },
+            { id: "snack", name: "Tiny snack, high price",     icon: "🍪", bin: "B", why: "You pay a lot for very little." },
+            { id: "bag",   name: "Sturdy bag on sale",         icon: "🎒", bin: "A", why: "Good quality and cheap — great deal." },
+            { id: "toy",   name: "Toy that breaks fast",       icon: "🪀", bin: "B", why: "Cheap but breaks — not worth it." },
+            { id: "pens",  name: "2 pens for the price of 1",   icon: "🖊️", bin: "A", why: "Extra free — good value." },
+            { id: "drink", name: "Same drink, double the price",icon: "🥤", bin: "B", why: "Paying more for the same thing." },
           ],
-          twist: { name: "The catch", desc: "A very cheap pencil case with a weak zip may break and need replacing." },
         },
         explorer: {
+          format: "shopping",
           intro: "You must buy supplies for a school activity. Different stores sell similar things — but watch for delivery fees and flimsy 'bargains'.",
           objective: "Buy all three items and stay under AED 80.",
           budget: 80,
@@ -296,65 +285,52 @@
           twist: { name: "The catch", desc: "The cheapest backpack's strap breaks — a replacement costs AED 20. Some 'bargains' hide delivery fees." },
         },
         advanced: {
-          intro: "You're kitting out for a tech project with a AED 200 budget. Weigh price against warranty, durability and delivery — the real cost is more than the sticker price.",
-          objective: "Buy all four items and stay under AED 200.",
-          budget: 200,
-          requiredItems: [
-            { id: "headphones", name: "Headphones", icon: "🎧", options: [
-              { store: "TechLow",  price: 45, quality: 2, durability: 1, delivery: 0, note: "No warranty, thin cable." },
-              { store: "SoundPro", price: 70, quality: 4, durability: 4, delivery: 0, note: "1-year warranty." },
-              { store: "MegaTech", price: 62, quality: 3, durability: 2, delivery: 12, note: "Hidden AED 12 delivery." },
-            ] },
-            { id: "usb", name: "USB drive", icon: "💾", options: [
-              { store: "TechLow",  price: 15, quality: 2, durability: 1, delivery: 0, note: "Slow, may corrupt." },
-              { store: "SoundPro", price: 22, quality: 4, durability: 4, delivery: 0, note: "Fast and reliable." },
-              { store: "MegaTech", price: 18, quality: 3, durability: 2, delivery: 0, note: "Middle of the road." },
-            ] },
-            { id: "calc", name: "Calculator", icon: "🧮", options: [
-              { store: "TechLow",  price: 20, quality: 2, durability: 1, delivery: 0, note: "Buttons stick." },
-              { store: "SoundPro", price: 35, quality: 4, durability: 4, delivery: 0, note: "Exam-approved, robust." },
-              { store: "MegaTech", price: 28, quality: 3, durability: 3, delivery: 5, note: "AED 5 delivery." },
-            ] },
-            { id: "case", name: "Laptop sleeve", icon: "💼", options: [
-              { store: "TechLow",  price: 25, quality: 2, durability: 1, delivery: 0, note: "Thin padding." },
-              { store: "SoundPro", price: 40, quality: 4, durability: 4, delivery: 0, note: "Protective, snug fit." },
-              { store: "MegaTech", price: 33, quality: 3, durability: 2, delivery: 8, note: "Hidden AED 8 delivery." },
-            ] },
+          format: "pick", dashboardKind: "budget",
+          intro: "Kit out for a school trip with AED 150. Prices shown INCLUDE delivery. Buy every essential and spend the rest on the best value — cheap-but-flimsy costs more later.",
+          objective: "Buy all essentials within AED 150.",
+          budget: 150,
+          items: [
+            { id: "shoes",   name: "Walking shoes (durable)", icon: "👟", price: 60, need: true,  value: 5 },
+            { id: "bottle",  name: "Water bottle",            icon: "🧴", price: 15, need: true,  value: 4 },
+            { id: "bag",     name: "Sturdy daypack",          icon: "🎒", price: 45, need: true,  value: 5 },
+            { id: "poncho",  name: "Rain poncho",             icon: "🧥", price: 10, need: false, value: 4, note: "Cheap and genuinely useful." },
+            { id: "snacks",  name: "Snack pack",              icon: "🍫", price: 12, need: false, value: 3 },
+            { id: "cheapbag",name: "Flimsy daypack",          icon: "👝", price: 20, need: false, value: 1, note: "Cheaper, but it'll rip — false economy." },
+            { id: "camera",  name: "Disposable camera",       icon: "📷", price: 35, need: false, value: 2 },
           ],
-          twist: { name: "The catch", desc: "Low-durability picks fail and need a AED 20 replacement each, and hidden delivery fees add up fast. Value and warranty matter." },
         },
       },
     },
 
-    /* ================= LEVEL 5 — Subscription Trap ===================== */
+    /* ================= LEVEL 5 — Subscriptions ========================= */
     {
       id: "lvl-05-subscriptions", number: 5, title: "Subscription Trap",
       concept: "Recurring expenses and automatic payments", building: "home", icon: "🧾", type: "subscription",
-      objective: "Enjoy some services, but finish the month with money still in your wallet.",
-      learningOutcome: [
-        "Small recurring payments add up fast.",
-        "Free trials often need cancelling before they charge.",
-        "Review subscriptions regularly.",
-      ],
+      objective: "Keep only what's worth it before renewals hit.",
+      learningOutcome: ["Small recurring payments add up.", "Free trials need cancelling in time.", "Review subscriptions regularly."],
       feedback: {
-        good: "You kept only what you'd use and cancelled the rest before renewal. Wallet still healthy!",
-        tradeoff: "A couple of forgotten plans renewed. Handy reminder to review subscriptions each month.",
-        corrective: "Too many auto-renewals drained your wallet. Trials are only free if you cancel in time.",
+        good: "You kept only what you'd use and cut the rest. Wallet stays healthy!",
+        tradeoff: "Reasonable, but a plan or two you don't need slipped through.",
+        corrective: "Too much kept running. Trials are only free if you cancel in time.",
       },
       xp: 85, badge: "sub_manager",
       configs: {
         junior: {
-          intro: "Three apps are switched on with a free trial. You only get AED 20 this month — keep the ones you'll really use and cancel the rest before they charge.",
-          objective: "Finish the month with money left in your wallet.",
-          income: 20,
-          services: [
-            { id: "cartoon", name: "Cartoon streaming", icon: "📺", price: 8, trial: true,  cosmetic: true,  note: "Fun, but AED 8/mo after the trial." },
-            { id: "gamepass",name: "Game pass",         icon: "🎮", price: 7, trial: false, cosmetic: true,  note: "AED 7 every month." },
-            { id: "reading", name: "Reading app",       icon: "📖", price: 4, trial: false, useful: true,   note: "AED 4/mo — helps your reading." },
+          format: "sort", dashboardKind: "budget", passRatio: 0.7,
+          intro: "Your apps all cost money every month. KEEP the ones worth it, CANCEL the ones you don't really use.",
+          objective: "Keep the useful apps and cancel the rest.",
+          binA: { label: "Keep", icon: "✅" }, binB: { label: "Cancel", icon: "🚫" },
+          items: [
+            { id: "learn", name: "Reading app you use daily",   icon: "📖", bin: "A", why: "You use it a lot — worth keeping." },
+            { id: "ghost", name: "Game you stopped playing",    icon: "🕹️", bin: "B", why: "Not used — cancel to save money." },
+            { id: "music", name: "Music you love",              icon: "🎵", bin: "A", why: "Used often — okay to keep." },
+            { id: "dup",   name: "A 2nd video app (you have one)",icon: "📺", bin: "B", why: "You already have one — cut the extra." },
+            { id: "trial", name: "Free trial you forgot",       icon: "⏰", bin: "B", why: "Cancel before it starts charging!" },
+            { id: "cloud", name: "Photo backup you rely on",    icon: "☁️", bin: "A", why: "Useful — keep it." },
           ],
-          twist: { name: "Renewal day", desc: "The month ends and every app still switched on charges you." },
         },
         explorer: {
+          format: "subscription",
           intro: "Loads of apps offer free trials. They feel free now — but at month's end, every active plan renews automatically.",
           objective: "Finish the month with a positive wallet.",
           income: 80,
@@ -369,49 +345,54 @@
           twist: { name: "Renewal day", desc: "The month ends. Every active plan charges you — and free trials you forgot to cancel become paid." },
         },
         advanced: {
-          intro: "You manage AED 200 and eight tempting services, some with student or family plans. Auto-renewals are silent — decide what actually earns its place.",
-          objective: "Finish the month positive, keeping only what's worth it.",
-          income: 200,
-          services: [
-            { id: "video",   name: "Video streaming",    icon: "🎬", price: 35, trial: true,  cosmetic: true, note: "Trial, then AED 35/mo." },
-            { id: "music",   name: "Music (student)",    icon: "🎵", price: 15, trial: true,                  note: "Student plan, AED 15/mo." },
-            { id: "gaming",  name: "Gaming membership",  icon: "🎮", price: 30, trial: false, cosmetic: true, note: "AED 30/mo." },
-            { id: "cloud",   name: "Cloud storage",      icon: "☁️", price: 12, trial: true,  useful: true,   note: "Trial, then AED 12/mo." },
-            { id: "learn",   name: "Study platform",     icon: "📚", price: 25, trial: false, useful: true,   note: "AED 25/mo — boosts grades." },
-            { id: "fitness", name: "Fitness app",        icon: "🏋️", price: 20, trial: true,                  note: "Trial, then AED 20/mo." },
-            { id: "news",    name: "News+ subscription", icon: "📰", price: 18, trial: false, cosmetic: true, note: "AED 18/mo." },
-            { id: "avatar",  name: "Premium cosmetics",  icon: "😎", price: 22, trial: false, cosmetic: true, note: "AED 22/mo — looks only." },
+          format: "scenario", dashboardKind: "budget", passScore: 0.6,
+          intro: "It's your monthly money check-up. Small recurring charges add up — decide what to do with each.",
+          objective: "Trim the recurring costs that don't earn their place.",
+          steps: [
+            { situation: "A AED 35 streaming plan you watch maybe once a month.", icon: "🎬", choices: [
+              { text: "Cancel it", score: 1, outcome: "You barely used it — AED 35/mo saved." },
+              { text: "Downgrade to a cheaper tier", score: 0.7, outcome: "Sensible — some saving, some access." },
+              { text: "Keep paying full price", score: 0.2, outcome: "You keep paying for something you rarely use." },
+            ] },
+            { situation: "A free trial ends in 2 days. You forgot about it.", icon: "⏰", choices: [
+              { text: "Cancel before it charges", score: 1, outcome: "Nice catch — you avoided a surprise charge." },
+              { text: "Ignore it", score: 0.1, outcome: "It auto-renews and charges you. Ouch." },
+            ] },
+            { situation: "You're paying for two music apps.", icon: "🎵", choices: [
+              { text: "Keep one, cancel the other", score: 1, outcome: "No need to pay twice — smart trim." },
+              { text: "Keep both", score: 0.3, outcome: "You're paying double for the same thing." },
+            ] },
+            { situation: "A study app (AED 25) genuinely boosts your grades.", icon: "📚", choices: [
+              { text: "Keep it", score: 1, outcome: "Good value — it pays off in results." },
+              { text: "Cancel to save money", score: 0.5, outcome: "Saves cash now, but you lose a useful tool." },
+            ] },
           ],
-          twist: { name: "Renewal day", desc: "Every active plan renews — including any trials you didn't cancel. Small monthly fees become a big total." },
         },
       },
     },
 
-    /* ================= LEVEL 6 — Beat Inflation ======================== */
+    /* ================= LEVEL 6 — Inflation ============================= */
     {
       id: "lvl-06-inflation", number: 6, title: "Beat Inflation",
       concept: "Inflation and purchasing power", building: "bank", icon: "📊", type: "inflation",
-      objective: "Buy the item before rising prices put it out of reach.",
-      learningOutcome: [
-        "Prices can rise over time (inflation).",
-        "The same money buys less in the future.",
-        "Saving in an account that earns interest helps you keep up.",
-      ],
+      objective: "Keep your saving ahead of rising prices.",
+      learningOutcome: ["Prices rise over time.", "The same money buys less later.", "Earning interest helps you keep up."],
       feedback: {
-        good: "You out-saved inflation by depositing money to earn interest and trimming extras. Well judged!",
-        tradeoff: "You reached a revised target as prices climbed. Inflation makes waiting expensive.",
-        corrective: "Prices rose faster than your savings. Earning interest and cutting extras helps close the gap.",
+        good: "You stayed ahead of rising prices — smart saving beats inflation.",
+        tradeoff: "You kept pace, just. Inflation makes waiting expensive.",
+        corrective: "Prices outran your savings. Interest and cutting extras help close the gap.",
       },
       xp: 90, badge: "beat_inflation",
       configs: {
         junior: {
-          intro: "You want a AED 50 toy. Each month its price creeps up a little. Save your AED 25 and try to buy it before it costs too much!",
-          objective: "Buy the toy before the price runs away.",
-          startPrice: 50, months: 3, monthlyIncome: 25,
-          baseInflation: 0.02, highInflationMonth: 2, highInflationRate: 0.05, savingsInterest: 0.02,
-          twist: { name: "Prices went up", desc: "One month the toy's price jumps a bit more than usual." },
+          format: "tapsave", dashboardKind: "saving", passRatio: 0.9,
+          intro: "You want a skateboard, but its price goes UP a little each week! Fill your jar fast to beat the rising price.",
+          objective: "Save enough before the price climbs too high.",
+          goalName: "Skateboard", goalIcon: "🛹", goalPrice: 40,
+          weeks: 4, weeklyAllowance: 14, perTap: 2, inflationPerWeek: 2,
         },
         explorer: {
+          format: "inflation",
           intro: "You want an item that costs AED 500 today. Over several months its price keeps creeping up. Can your savings keep pace?",
           objective: "Buy the item, or reach the revised target.",
           startPrice: 500, months: 5, monthlyIncome: 130,
@@ -419,45 +400,61 @@
           twist: { name: "Inflation spike", desc: "A burst of high inflation makes the item's price jump faster than expected." },
         },
         advanced: {
-          intro: "Your target costs AED 1,500 today, and inflation is running hot. You earn AED 320/month — depositing to earn 3% interest is the only way to keep up.",
-          objective: "Beat a fast-rising price by saving smart and cutting extras.",
-          startPrice: 1500, months: 6, monthlyIncome: 320,
-          baseInflation: 0.04, highInflationMonth: 4, highInflationRate: 0.12, savingsInterest: 0.03,
-          twist: { name: "Inflation surge", desc: "A high-inflation month sends the price sharply upward. Interest and lower spending matter more than ever." },
+          format: "scenario", dashboardKind: "saving", passScore: 0.6,
+          intro: "Prices are rising fast this year. You're saving for a AED 1,500 item. Each decision affects whether your money keeps up.",
+          objective: "Make choices that beat inflation.",
+          steps: [
+            { situation: "Where do you keep your savings?", icon: "🏦", choices: [
+              { text: "Account earning 4% interest", score: 1, outcome: "Your money grows and offsets rising prices." },
+              { text: "Cash under the bed", score: 0.3, outcome: "It loses value as prices climb — inflation bites." },
+            ] },
+            { situation: "Inflation jumps and the item costs more.", icon: "📈", choices: [
+              { text: "Increase your monthly saving", score: 1, outcome: "You adapt your plan and stay on track." },
+              { text: "Keep saving the same amount", score: 0.5, outcome: "You fall a little behind the rising price." },
+              { text: "Give up on the goal", score: 0.1, outcome: "Prices won." },
+            ] },
+            { situation: "Buy now (you can afford it) or wait and save more?", icon: "💳", choices: [
+              { text: "Buy now before prices rise further", score: 0.9, outcome: "Locking today's price is smart when inflation is high." },
+              { text: "Wait months and pay a higher price", score: 0.4, outcome: "You paid more later — inflation cost you." },
+            ] },
+            { situation: "Cut an expense to save faster?", icon: "✂️", choices: [
+              { text: "Trim a subscription you don't use", score: 1, outcome: "Freed-up money speeds you to the goal." },
+              { text: "Change nothing", score: 0.5, outcome: "Slower progress against rising prices." },
+            ] },
+          ],
         },
       },
     },
 
-    /* ================= LEVEL 7 — Lemonade to Launch ==================== */
+    /* ================= LEVEL 7 — Business ============================== */
     {
       id: "lvl-07-business", number: 7, title: "Lemonade to Launch",
       concept: "Entrepreneurship: costs, revenue and profit", building: "business", icon: "🍋", type: "business",
-      objective: "Run your business for several days and reach the target profit without going broke.",
-      learningOutcome: [
-        "Revenue is not the same as profit.",
-        "Businesses have operating costs.",
-        "Price affects how many customers buy.",
-        "Higher sales don't always mean higher profit.",
-      ],
+      objective: "Turn a profit — revenue minus costs.",
+      learningOutcome: ["Revenue isn't profit.", "Businesses have costs.", "Price affects demand.", "More sales ≠ more profit."],
       feedback: {
-        good: "Great instincts — you priced to sell, controlled costs and turned a healthy profit.",
-        tradeoff: "You made sales, but thin margins and ad spending ate the profit. Watch costs, not just revenue.",
-        corrective: "Prices or costs were off and the business lost money. Remember: profit = revenue − costs.",
+        good: "Great instincts — you priced to sell, controlled costs and made a profit.",
+        tradeoff: "You made sales, but thin margins ate the profit. Watch costs, not just revenue.",
+        corrective: "The numbers didn't work out. Profit = revenue − costs — keep costs below price.",
       },
       xp: 100, badge: "first_profit",
       configs: {
         junior: {
-          intro: "Start a tiny stall with AED 20. Choose what to sell, set a fair price, and try to make AED 20 profit over 3 days.",
-          objective: "Reach AED 20 profit in 3 days.",
-          startingCash: 20, days: 3, targetProfit: 20, adEffectiveness: 0.5,
-          businesses: [
-            { id: "lemonade", name: "Lemonade stall", icon: "🍋", unitCost: 1, baseDemand: 20 },
-            { id: "cookies",  name: "Cookie stand",   icon: "🍪", unitCost: 1, baseDemand: 18 },
-            { id: "bracelets",name: "Friendship bands",icon: "🧵", unitCost: 1, baseDemand: 16 },
+          format: "pick", dashboardKind: "business",
+          intro: "Set up your lemonade stall! You have AED 20 to buy supplies. Pick what you NEED to make and sell lemonade — don't overspend.",
+          objective: "Buy the essentials to run your stall within AED 20.",
+          budget: 20,
+          items: [
+            { id: "lemons", name: "Lemons",                    icon: "🍋", price: 6, need: true,  value: 5 },
+            { id: "cups",   name: "Cups",                      icon: "🥤", price: 4, need: true,  value: 5 },
+            { id: "sugar",  name: "Sugar",                     icon: "🧂", price: 3, need: true,  value: 4 },
+            { id: "sign",   name: "A sign to draw customers",  icon: "🪧", price: 3, need: false, value: 4, note: "Cheap and brings customers." },
+            { id: "straws", name: "Fancy straws",              icon: "🥤", price: 5, need: false, value: 2, note: "Nice, but not needed." },
+            { id: "umbrella",name: "Big umbrella",             icon: "⛱️", price: 9, need: false, value: 2, note: "Costly for a small stall." },
           ],
-          twist: { name: "A friend copies you", desc: "On day 2 a friend sets up a similar stall, so fewer customers come to you. Adjust your price!" },
         },
         explorer: {
+          format: "business",
           intro: "Time to start a small business! Choose what to sell, set your price and quality, then adjust each day as customers respond.",
           objective: "Reach AED 80 profit in 5 days.",
           startingCash: 60, days: 5, targetProfit: 80, adEffectiveness: 0.5,
@@ -471,50 +468,62 @@
           twist: { name: "New competition", desc: "A rival stall opens nearby around day 3, cooling demand. Adjust your price and quality to keep customers." },
         },
         advanced: {
-          intro: "You're launching a real venture with AED 200 of capital over 7 days. Manage price, quality, production and advertising to clear AED 300 profit — and survive a market shift.",
-          objective: "Reach AED 300 profit in 7 days without running out of cash.",
-          startingCash: 200, days: 7, targetProfit: 300, adEffectiveness: 0.55,
-          businesses: [
-            { id: "coffee",  name: "Coffee cart",     icon: "☕", unitCost: 5, baseDemand: 40 },
-            { id: "print",   name: "Print shop",      icon: "🖨️", unitCost: 4, baseDemand: 34 },
-            { id: "tutoring",name: "Tutoring service",icon: "📐", unitCost: 2, baseDemand: 22 },
-            { id: "craft",   name: "Craft store",     icon: "🎁", unitCost: 6, baseDemand: 30 },
-            { id: "app",     name: "Digital app",     icon: "📱", unitCost: 2, baseDemand: 20 },
+          format: "scenario", dashboardKind: "business", passScore: 0.6,
+          intro: "You run a small business for a week. Revenue is what comes in; profit is what's left after costs. Make the calls.",
+          objective: "Make decisions that lead to real profit.",
+          steps: [
+            { situation: "Your product costs AED 3 to make. What price do you set?", icon: "🏷️", choices: [
+              { text: "AED 9 — healthy margin, still fair", score: 1, outcome: "Good markup and steady sales — solid profit." },
+              { text: "AED 3 — same as cost", score: 0.2, outcome: "You sell lots but make no profit. Revenue ≠ profit." },
+              { text: "AED 20 — very high", score: 0.4, outcome: "Big margin, but few customers buy." },
+            ] },
+            { situation: "Sales are slow. Spend on ads?", icon: "📣", choices: [
+              { text: "A small, targeted AED 30 ad", score: 0.9, outcome: "More customers come; the ad pays for itself." },
+              { text: "A huge AED 100 ad blast", score: 0.3, outcome: "Costs balloon and eat your profit." },
+              { text: "No ads — lower the price a bit", score: 0.7, outcome: "A modest cut lifts sales without big costs." },
+            ] },
+            { situation: "A competitor opens nearby.", icon: "🏪", choices: [
+              { text: "Improve quality, keep loyal customers", score: 1, outcome: "Customers stay for the better product." },
+              { text: "Start a price war down to AED 2", score: 0.3, outcome: "You keep customers but lose money on each sale." },
+            ] },
+            { situation: "You made a profit. What now?", icon: "💰", choices: [
+              { text: "Reinvest some to grow", score: 1, outcome: "Smart — reinvesting fuels future profit." },
+              { text: "Spend it all immediately", score: 0.4, outcome: "No cushion for slow days ahead." },
+            ] },
           ],
-          twist: { name: "Market shift", desc: "Around day 3 a competitor and a demand dip hit at once. Reinvest, re-price, and protect your margin." },
         },
       },
     },
 
-    /* ================= LEVEL 8 — Risk and Reward ======================= */
+    /* ================= LEVEL 8 — Investment ============================ */
     {
       id: "lvl-08-investment", number: 8, title: "Risk and Reward",
       concept: "Investment risk, return and diversification", building: "investment", icon: "📈", type: "investment",
-      objective: "Spread your money across fictional options and ride out several simulated months.",
-      learningOutcome: [
-        "Higher returns usually mean higher risk.",
-        "Investments rise and fall — no return is guaranteed.",
-        "Diversifying reduces the damage from any one loss.",
-      ],
+      objective: "Balance risk and reward; spread your money.",
+      learningOutcome: ["Higher returns mean higher risk.", "Investments rise and fall.", "Diversifying reduces the damage of any one loss."],
       feedback: {
-        good: "A well-diversified mix rode out the shock and grew steadily. That's smart, calm investing.",
-        tradeoff: "You made some gains, but concentrating in risky assets made the ride bumpy.",
-        corrective: "Putting most money into one risky bet meant the crash hurt a lot. Diversifying spreads the risk.",
+        good: "Calm, diversified thinking — you balanced risk and reward well.",
+        tradeoff: "Some smart moves, but a little too much risk in one place.",
+        corrective: "Concentrated bets are dangerous. Spreading your money protects you.",
       },
       xp: 110, badge: "balanced_inv",
       configs: {
         junior: {
-          intro: "Here's AED 100 of pretend money. Spread it across three options — a safe piggy bank, a steady bond, and a mixed fund — then watch four months pass.",
-          objective: "Spread your money out and finish the period.",
-          capital: 100, months: 4, crashMagnitude: -0.15,
-          assets: [
-            { id: "piggy", name: "Piggy bank",  icon: "🐷", risk: "Very low", meanReturn: 0.01, volatility: 0.00 },
-            { id: "bond",  name: "Savings bond",icon: "📜", risk: "Low",      meanReturn: 0.02, volatility: 0.015 },
-            { id: "fund",  name: "Mixed fund",  icon: "🧺", risk: "Medium",   meanReturn: 0.035, volatility: 0.05, crashProne: true },
+          format: "sort", dashboardKind: "invest", passRatio: 0.7,
+          intro: "Some places to put money are SAFER (small, steady) and some are RISKIER (could grow a lot — or drop). Sort them!",
+          objective: "Sort each option into safer or riskier.",
+          binA: { label: "Safer", icon: "🛡️" }, binB: { label: "Riskier", icon: "🎢" },
+          items: [
+            { id: "piggy",   name: "Piggy bank",           icon: "🐷", bin: "A", why: "Very safe, grows slowly." },
+            { id: "bond",    name: "Government bond",       icon: "📜", bin: "A", why: "Low risk, steady." },
+            { id: "coin",    name: "Trendy new coin",       icon: "🪙", bin: "B", why: "Can jump or crash — risky." },
+            { id: "onestock",name: "One brand-new company", icon: "🏢", bin: "B", why: "Could soar or sink — risky." },
+            { id: "savings", name: "Savings account",       icon: "🏦", bin: "A", why: "Safe and predictable." },
+            { id: "hype",    name: "'Get rich quick' scheme",icon: "🚀", bin: "B", why: "Very risky — often a scam." },
           ],
-          twist: { name: "A little dip", desc: "The mixed fund dips one month. If you spread your money, you barely feel it." },
         },
         explorer: {
+          format: "investment",
           intro: "Here is AED 500 of pretend investment money. Divide it between options with different risk levels, then watch the (fictional) market unfold.",
           objective: "Diversify across the options and complete six months.",
           capital: 500, months: 6, crashMagnitude: -0.35,
@@ -528,55 +537,61 @@
           twist: { name: "Market shock", desc: "One high-flying asset suddenly crashes. A diversified portfolio is hurt far less than an all-in bet." },
         },
         advanced: {
-          intro: "You control AED 1,500 across seven fictional assets over eight months. Chase the high-return bets and a crash could wipe out your gains — diversification is your shield.",
-          objective: "Build a genuinely diversified portfolio and survive the shock.",
-          capital: 1500, months: 8, crashMagnitude: -0.4,
-          assets: [
-            { id: "savings", name: "Savings account", icon: "🏦", risk: "Very low", meanReturn: 0.01, volatility: 0.00 },
-            { id: "bond",    name: "Government bond",  icon: "📜", risk: "Low",      meanReturn: 0.02, volatility: 0.02 },
-            { id: "index",   name: "Index fund",      icon: "📊", risk: "Medium",   meanReturn: 0.045, volatility: 0.06 },
-            { id: "fund",    name: "Diversified fund", icon: "🧺", risk: "Medium",   meanReturn: 0.04, volatility: 0.05 },
-            { id: "share",   name: "Single company",   icon: "🏢", risk: "High",     meanReturn: 0.06, volatility: 0.16, crashProne: true },
-            { id: "trend",   name: "Trend asset",     icon: "🎢", risk: "Very high", meanReturn: 0.09, volatility: 0.30, crashProne: true },
-            { id: "startup", name: "Startup bet",     icon: "🚀", risk: "Very high", meanReturn: 0.10, volatility: 0.34, crashProne: true },
+          format: "scenario", dashboardKind: "invest", passScore: 0.6,
+          intro: "You have AED 1,500 to invest. Higher returns come with higher risk — and spreading your money (diversifying) protects you. Decide as the market moves.",
+          objective: "Invest wisely as the market shifts.",
+          steps: [
+            { situation: "How do you split your money?", icon: "🧺", choices: [
+              { text: "Spread across savings, bonds, a fund and one share", score: 1, outcome: "Diversified — no single loss can wipe you out." },
+              { text: "All-in on one trendy asset", score: 0.2, outcome: "Huge risk: one bad move and it's gone." },
+              { text: "All in a savings account", score: 0.6, outcome: "Very safe, but barely grows." },
+            ] },
+            { situation: "A 'guaranteed 30% a month' offer appears.", icon: "⚠️", choices: [
+              { text: "Avoid it — guaranteed high returns are a red flag", score: 1, outcome: "Wise. No real investment guarantees that." },
+              { text: "Put everything in", score: 0, outcome: "It was a scam. Money gone." },
+            ] },
+            { situation: "The market drops 20% this month.", icon: "📉", choices: [
+              { text: "Stay calm, stick to your plan", score: 1, outcome: "Markets recover over time; panic-selling locks in losses." },
+              { text: "Sell everything in a panic", score: 0.3, outcome: "You lock in the loss right before a rebound." },
+            ] },
+            { situation: "One risky asset doubled. What now?", icon: "📈", choices: [
+              { text: "Take some profit, stay diversified", score: 1, outcome: "Sensible — you bank gains and stay balanced." },
+              { text: "Move everything into it", score: 0.2, outcome: "Chasing past performance is dangerous." },
+            ] },
           ],
-          twist: { name: "Major correction", desc: "The riskiest assets crash together mid-way. Concentrated bets take heavy damage; a spread portfolio holds up." },
         },
       },
     },
 
-    /* ================= LEVEL 9 — Scam Detective ======================== */
+    /* ================= LEVEL 9 — Scam detective ======================== */
     {
       id: "lvl-09-scam", number: 9, title: "Scam Detective",
       concept: "Fraud awareness and online safety", building: "safety", icon: "🕵️", type: "scam",
-      objective: "Sort genuine messages from scams. Report the fakes and keep the real ones.",
-      learningOutcome: [
-        "Never share passwords or verification codes.",
-        "Urgent, pushy language is a warning sign.",
-        "Guaranteed returns and odd links are red flags.",
-        "When unsure, check with a trusted adult.",
-      ],
+      objective: "Tell scams from genuine messages and stay safe.",
+      learningOutcome: ["Never share passwords or codes.", "Urgent, pushy language is a warning sign.", "Guaranteed returns and odd links are red flags.", "Ask a trusted adult when unsure."],
       feedback: {
-        good: "Sharp eyes! You spotted the scams — including the sneaky ones — and kept the genuine messages.",
-        tradeoff: "You caught most scams. Double-check senders and links on the ones you missed.",
-        corrective: "A few scams slipped through. Watch for urgency, code requests and odd links, and ask an adult when unsure.",
+        good: "Sharp eyes! You spotted the scams and kept the genuine messages.",
+        tradeoff: "You caught most of them. Double-check senders and links next time.",
+        corrective: "A few scams slipped through. Watch for urgency, code requests and odd links.",
       },
       xp: 110, badge: "scam_blocker",
       configs: {
         junior: {
-          intro: "Your inbox has five messages. Some are real, some are tricks. Keep the real ones and report the tricks!",
-          objective: "Correctly sort at least 3 of the 5 messages.",
-          requiredCorrect: 3,
-          messages: [
-            { id: "j1", from: "Toy Club <win@free-toyz.co>", text: "🎁 You WON a free toy! Tap here to claim: free-toyz.co", scam: true, flags: ["Odd link", "Too good to be true"] },
-            { id: "j2", from: "Mum", text: "Dinner's ready — come downstairs!", scam: false, flags: [] },
-            { id: "j3", from: "Game Helper", text: "Send me your game password and I'll give you free coins!", scam: true, flags: ["Asks for your password", "Free reward trick"] },
-            { id: "j4", from: "Teacher Ms Rae", text: "Reminder: bring your reading book tomorrow.", scam: false, flags: [] },
-            { id: "j5", from: "Prize Bot", text: "Click NOW or your account closes today!!!", scam: true, flags: ["Urgent threat", "Pressure to act fast"] },
+          format: "sort", dashboardKind: "scam", passRatio: 0.7,
+          intro: "Is each message SAFE or a SCAM? Watch out for prizes, passwords and 'act now!'.",
+          objective: "Sort the safe messages from the scams.",
+          binA: { label: "Safe", icon: "✅" }, binB: { label: "Scam", icon: "🚩" },
+          items: [
+            { id: "s1", name: "“You WON a free phone! Tap here!”",        icon: "🎁", bin: "B", why: "Free prizes from strangers are scams." },
+            { id: "s2", name: "“Bring your book tomorrow.” — Teacher",     icon: "📚", bin: "A", why: "A normal, genuine reminder." },
+            { id: "s3", name: "“Send me your password for free coins.”",   icon: "🔑", bin: "B", why: "Never share your password." },
+            { id: "s4", name: "“Dinner's ready!” — Mum",                   icon: "🍽️", bin: "A", why: "A genuine message from family." },
+            { id: "s5", name: "“Your account closes TODAY! Click now!”",    icon: "⏰", bin: "B", why: "Scary, urgent messages are tricks." },
+            { id: "s6", name: "“Library book due next week.”",             icon: "📖", bin: "A", why: "A real, normal notice." },
           ],
-          twist: { name: "Free stuff isn't free", desc: "Messages that promise free prizes or ask for your password are almost always tricks." },
         },
         explorer: {
+          format: "scam",
           intro: "Your inbox is buzzing. Some messages are real, some are scams trying to trick you. Inspect each one and decide.",
           objective: "Correctly identify at least 6 of the 10 messages.",
           requiredCorrect: 6,
@@ -595,68 +610,54 @@
           twist: { name: "Copied friend", desc: "One scam pretends to be a friend whose account was copied. Real friends don't demand secret, urgent money." },
         },
         advanced: {
-          intro: "Twelve messages, and the scams are sophisticated — lookalike domains, fake investments, QR codes and a spoofed friend. Inspect senders, links and requests carefully.",
-          objective: "Correctly identify at least 8 of the 12 messages.",
-          requiredCorrect: 8,
+          format: "spotflags", dashboardKind: "scam", requiredCorrect: 4,
+          intro: "Inspect each message closely. Tap the red flags you spot, then judge it: scam or genuine.",
+          objective: "Find the red flags and get at least 4 of 5 verdicts right.",
           messages: [
-            { id: "a1", from: "IT Support <it@sch00l-helpdesk.net>", text: "Your school login expires in 1 hour. Verify your password at sch00l-helpdesk.net/login", scam: true, flags: ["Lookalike domain (sch00l)", "Password request", "Urgency"] },
-            { id: "a2", from: "Bank of MoneyVille", text: "We noticed a new login. If this wasn't you, review activity in our official app.", scam: false, flags: [] },
-            { id: "a3", from: "CryptoDoubler", text: "Send AED 100 and receive AED 300 back, guaranteed within 24h. Limited slots!", scam: true, flags: ["Guaranteed return", "Get-rich-quick", "Scarcity pressure"] },
-            { id: "a4", from: "Parcel Service", text: "Your parcel is held. Pay a small AED 2 customs fee here: track-parcel.info/pay", scam: true, flags: ["Small-fee bait", "Suspicious link"] },
-            { id: "a5", from: "Coach Ahmed", text: "Match moved to Saturday 9am. Reply to confirm you can make it.", scam: false, flags: [] },
-            { id: "a6", from: "Remote Jobs", text: "Earn AED 500/day from home! Just pay a AED 50 registration fee to start.", scam: true, flags: ["Upfront fee", "Unrealistic pay"] },
-            { id: "a7", from: "Layla (friend)", text: "Lost my phone, this is my new number. Send the group the new link — and lend me AED 80 quick, I'll repay tonight.", scam: true, flags: ["Spoofed identity", "New number", "Urgent money"], twist: true },
-            { id: "a8", from: "MoneyVille Support", text: "Your support ticket #4821 was resolved. No action needed.", scam: false, flags: [] },
-            { id: "a9", from: "Rewards Centre", text: "Scan this QR to claim your cashback before midnight!", scam: true, flags: ["QR-code scam", "Urgency", "Vague reward"] },
-            { id: "a10", from: "Streaming", text: "Your payment failed. Update your card at netfliix-billing.com to avoid cancellation.", scam: true, flags: ["Misspelt domain (netfliix)", "Payment pressure"] },
-            { id: "a11", from: "Library", text: "Your reserved book is ready for pickup this week.", scam: false, flags: [] },
-            { id: "a12", from: "AI Invest Club", text: "Our AI bot guarantees 20% weekly returns. DM your wallet seed phrase to auto-invest.", scam: true, flags: ["Asks for seed phrase", "Guaranteed return", "AI hype"] },
+            { id: "f1", from: "IT Support <it@sch00l-helpdesk.net>", text: "Your login expires in 1 hour. Verify your password at sch00l-helpdesk.net/login", scam: true,
+              flags: [{ text: "Lookalike domain (sch00l)", real: true }, { text: "Asks for your password", real: true }, { text: "Creates urgency", real: true }, { text: "Mentions your login", real: false }] },
+            { id: "f2", from: "Bank of MoneyVille", text: "We noticed a new login. If this wasn't you, review activity in our official app.", scam: false,
+              flags: [{ text: "Mentions a login", real: false }, { text: "Points to official app", real: false }, { text: "No link to click", real: false }] },
+            { id: "f3", from: "CryptoDoubler", text: "Send AED 100, get AED 300 back guaranteed in 24h. Only 3 slots left!", scam: true,
+              flags: [{ text: "Guaranteed big return", real: true }, { text: "Fake scarcity (3 slots)", real: true }, { text: "Asks you to send money", real: true }, { text: "Mentions 24 hours", real: false }] },
+            { id: "f4", from: "Coach Ahmed", text: "Training moved to Saturday 9am. Reply to confirm.", scam: false,
+              flags: [{ text: "Asks you to reply", real: false }, { text: "Mentions a time", real: false }] },
+            { id: "f5", from: "Rewards", text: "Your payment failed. Update your card at netfliix-billing.com now.", scam: true,
+              flags: [{ text: "Misspelt domain (netfliix)", real: true }, { text: "Pressure to act now", real: true }, { text: "Payment-problem claim", real: true }, { text: "Mentions your card", real: false }] },
           ],
-          twist: { name: "Sophisticated fakes", desc: "Lookalike domains and a spoofed friend are designed to fool you. Verify the exact sender and never share codes, passwords or seed phrases." },
         },
       },
     },
 
-    /* ================= LEVEL 10 — One Month on Your Own ================ */
+    /* ================= LEVEL 10 — One month on your own =============== */
     {
       id: "lvl-10-full-month", number: 10, title: "One Month on Your Own",
       concept: "Complete financial planning", building: "home", icon: "🏆", type: "final",
-      objective: "Manage a whole month using everything you've learned. Cover essentials and finish strong.",
-      learningOutcome: [
-        "Bring together budgeting, saving, safety, spending and awareness.",
-        "Balance many priorities at once.",
-        "Handle surprises without failing on essentials.",
-      ],
+      objective: "Bring it all together and finish the month strong.",
+      learningOutcome: ["Combine budgeting, saving, safety and awareness.", "Balance many priorities at once.", "Handle surprises without failing on essentials."],
       feedback: {
-        good: "Outstanding! You balanced every priority and handled the surprises without dropping the essentials.",
-        tradeoff: "A strong month overall — a couple of areas could be tighter, but you kept the essentials covered.",
-        corrective: "The month got away in places. Cover essentials first, then balance goals, safety and extras.",
+        good: "Outstanding! You balanced every priority and handled the surprises with ease.",
+        tradeoff: "A strong month — a couple of areas could be tighter, but essentials held.",
+        corrective: "The month got away in places. Cover essentials first, then balance the rest.",
       },
       xp: 150, badge: "money_master",
       configs: {
         junior: {
-          intro: "A whole week on your own! You have AED 40 plus AED 10 saved. Cover your food, have a little fun, save, and keep a bit aside for surprises.",
-          objective: "Cover food and handle the little surprises.",
-          income: 40, startingSavings: 10,
-          categories: [
-            { id: "food",   name: "Food",       icon: "🍎", need: true, min: 15, hint: "Your meals — a must." },
-            { id: "fun",    name: "Fun",        icon: "🎈", need: false, min: 0 },
-            { id: "save",   name: "Savings",    icon: "🐷", need: false, min: 0, isSaving: true },
-            { id: "safety", name: "Just-in-case",icon: "🛟", need: false, min: 0, isSafety: true },
-          ],
-          twists: [
-            { name: "Small repair", desc: "Your bag zip breaks — AED 6 to fix.", cost: 6, need: "safety" },
-            { name: "Friend's treat", desc: "A friend invites you for a AED 5 ice cream.", cost: 5, optional: true },
-            { name: "Prices up", desc: "Snacks cost AED 4 more this week.", cost: 4, need: "food" },
-          ],
-          titles: [
-            { id: "planner", name: "Prepared Planner", icon: "📋", basis: "planning" },
-            { id: "saver",   name: "Safety Saver",     icon: "🛟", basis: "safety" },
-            { id: "goal",    name: "Goal Getter",      icon: "🎯", basis: "saving" },
-            { id: "balanced",name: "Balanced Kid",     icon: "⚖️", basis: "balance" },
+          format: "pick", dashboardKind: "budget",
+          intro: "A whole week on your own with AED 30! Buy what you NEED first, then a little fun — don't run out.",
+          objective: "Cover your needs and stay within AED 30.",
+          budget: 30,
+          items: [
+            { id: "food", name: "Food for the week",  icon: "🍎", price: 12, need: true,  value: 5 },
+            { id: "bus",  name: "Bus fares",          icon: "🚌", price: 6,  need: true,  value: 5 },
+            { id: "save", name: "Put some in savings",icon: "🐷", price: 5,  need: false, value: 5, note: "Saving is a smart choice!" },
+            { id: "game", name: "A small game",       icon: "🎮", price: 8,  need: false, value: 3 },
+            { id: "candy",name: "Sweets",             icon: "🍬", price: 4,  need: false, value: 2 },
+            { id: "toy",  name: "A big toy",          icon: "🧸", price: 20, need: false, value: 2, note: "Fun, but pricey." },
           ],
         },
         explorer: {
+          format: "final",
           intro: "This is the big one. A full month, all systems, fewer hints. Balance needs, savings, safety, subscriptions and a surprise or two.",
           objective: "Cover essentials and finish the month in balance.",
           income: 160, startingSavings: 40,
@@ -683,31 +684,32 @@
           ],
         },
         advanced: {
-          intro: "A full independent month on AED 400 plus AED 100 saved. Rent, food and transport are all needs. Balance saving, safety, subscriptions and investing — and weather three surprises.",
-          objective: "Cover every need and absorb the surprises without failing essentials.",
-          income: 400, startingSavings: 100,
-          categories: [
-            { id: "rent",      name: "Rent share",   icon: "🏠", need: true, min: 100, hint: "Your biggest fixed cost." },
-            { id: "food",      name: "Food",         icon: "🍲", need: true, min: 60,  hint: "Meals for the month." },
-            { id: "transport", name: "Transport",    icon: "🚇", need: true, min: 40,  hint: "Getting to school/work." },
-            { id: "fun",       name: "Entertainment",icon: "🎬", need: false, min: 0 },
-            { id: "goal",      name: "Savings goal", icon: "🎯", need: false, min: 0, isSaving: true },
-            { id: "safety",    name: "Safety fund",  icon: "🛟", need: false, min: 0, isSafety: true },
-            { id: "subs",      name: "Subscriptions",icon: "🧾", need: false, min: 0 },
-            { id: "invest",    name: "Investment",   icon: "📈", need: false, min: 0, isGrowth: true },
-          ],
-          twists: [
-            { name: "Emergency repair", desc: "Your laptop needs a AED 60 repair for schoolwork.", cost: 60, need: "safety" },
-            { name: "Expensive invite", desc: "Friends plan a AED 50 day out.", cost: 50, optional: true },
-            { name: "Rent & prices rise", desc: "Costs climb AED 30 this month.", cost: 30, need: "rent" },
-          ],
-          titles: [
-            { id: "planner",  name: "Prepared Planner",        icon: "📋", basis: "planning" },
-            { id: "goal",     name: "Goal Getter",             icon: "🎯", basis: "saving" },
-            { id: "shopper",  name: "Smart Spender",           icon: "🛍️", basis: "spending" },
-            { id: "saver",    name: "Safety Saver",            icon: "🛟", basis: "safety" },
-            { id: "investor", name: "Young Investor",          icon: "📈", basis: "growth" },
-            { id: "balanced", name: "Balanced Decision-Maker", icon: "⚖️", basis: "balance" },
+          format: "scenario", dashboardKind: "budget", passScore: 0.65,
+          intro: "A full month on your own on AED 400. Balance rent, food, saving, safety and surprises. Every choice counts.",
+          objective: "Make choices that keep essentials covered and the month balanced.",
+          steps: [
+            { situation: "Fixed costs: rent AED 150, food AED 90, transport AED 50. How do you handle them?", icon: "🏠", choices: [
+              { text: "Pay all essentials first, then budget the rest", score: 1, outcome: "Rock-solid — needs are covered before anything else." },
+              { text: "Pay rent, delay food and transport", score: 0.3, outcome: "Risky — skipping essentials causes bigger problems." },
+            ] },
+            { situation: "AED 110 is left. How do you use it?", icon: "💰", choices: [
+              { text: "Split: some savings, some safety fund, a little fun", score: 1, outcome: "Balanced and resilient." },
+              { text: "All on entertainment", score: 0.3, outcome: "Fun now, but nothing saved or set aside." },
+              { text: "All into savings, no safety fund", score: 0.6, outcome: "Great saving, but a surprise could hurt." },
+            ] },
+            { situation: "Surprise: a AED 60 laptop repair for schoolwork.", icon: "💻", choices: [
+              { text: "Pay from your safety fund", score: 1, outcome: "Exactly why you keep one." },
+              { text: "Borrow the money", score: 0.3, outcome: "You go into debt over an avoidable gap." },
+            ] },
+            { situation: "Friends plan a AED 50 day out, but money's tight.", icon: "🎢", choices: [
+              { text: "Suggest a cheaper plan", score: 1, outcome: "You stay social without breaking the budget." },
+              { text: "Skip it this time", score: 0.8, outcome: "Sensible when money's tight." },
+              { text: "Go and overspend", score: 0.4, outcome: "Fun, but you dip into essentials." },
+            ] },
+            { situation: "Month end — you have a small surplus.", icon: "🏁", choices: [
+              { text: "Save it toward next month", score: 1, outcome: "You end strong and ready. Excellent planning." },
+              { text: "Spend it all", score: 0.5, outcome: "A fine month, but nothing carried forward." },
+            ] },
           ],
         },
       },
