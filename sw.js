@@ -2,7 +2,7 @@
    Precache only the shell (what the first screen actually needs). Everything
    else is cached the first time it is visited, so a first-time visitor does
    not pay to download pages and PDFs they may never open. */
-const CACHE = "shieldforce-v6";
+const CACHE = "shieldforce-v7";
 
 /* Kept deliberately small: the landing page and the files every page uses. */
 const SHELL = [
@@ -20,13 +20,33 @@ const SHELL = [
   "assets/icons/icon-192.png"
 ];
 
-/* Pulled in quietly after the shell is ready, so the app works offline without
-   making the user wait for it up front. */
+/* Everything else, warmed in the background AFTER the shell is serving — so the
+   first paint is never delayed, but within a few seconds of the first visit the
+   whole app (every page, the scanner, the quizzes and the PDFs) works with no
+   network at all, permanently and with no external service involved. */
 const SECONDARY = [
-  "emergency.html", "js/sos.js", "js/data-contacts.js", "css/pages/emergency.css",
-  "scam-intel.html", "js/intel.js",
-  "ai-analyzer.html", "js/analyzer.js", "css/pages/analyzer.css",
-  "threat-map.html", "js/map.js", "css/pages/map.css"
+  // pages
+  "emergency.html", "scam-intel.html", "scam-detail.html", "ai-analyzer.html",
+  "threat-map.html", "fraud-anatomy.html", "detection.html", "schemes.html",
+  "scheme-detail.html", "training.html", "reports.html", "contact.html",
+  "privacy.html", "terms.html", "404.html",
+  // page logic
+  "js/sos.js", "js/intel.js", "js/analyzer.js", "js/map.js", "js/anatomy.js",
+  "js/detection.js", "js/schemes.js", "js/quiz.js", "js/reports.js", "js/contact.js",
+  // page content
+  "js/data-contacts.js", "js/data-schemes.js", "js/data-modules.js",
+  "js/data-detection.js", "js/data-anatomy.js", "js/data-reports.js",
+  // page styles
+  "css/pages/emergency.css", "css/pages/analyzer.css", "css/pages/map.css",
+  "css/pages/anatomy.css", "css/pages/detection.css", "css/pages/schemes.css",
+  "css/pages/quiz.css", "css/pages/reports.css", "css/pages/legal.css",
+  // icons + the downloadable field documents
+  "assets/icons/icon-512.png", "assets/icons/icon-maskable-512.png", "assets/icons/icon-180.png",
+  "assets/reports/shieldforce-family-financial-safety.pdf",
+  "assets/reports/shieldforce-red-flag-checklist.pdf",
+  "assets/reports/shieldforce-qr-scam-warning.pdf",
+  "assets/reports/shieldforce-veteran-pension-fraud-alert.pdf",
+  "assets/reports/shieldforce-fraud-awareness-summary.pdf"
 ];
 
 self.addEventListener("install", (e) => {
