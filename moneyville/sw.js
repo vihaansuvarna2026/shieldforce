@@ -1,14 +1,10 @@
 /* MoneyVille service worker — cache-first for offline classroom use. */
-const CACHE = "moneyville-v1";
+const CACHE = "moneyville-v2";
 const ASSETS = [
   "./",
   "./index.html",
-  "./css/moneyville.css",
-  "./js/data.js",
-  "./js/state.js",
-  "./js/ui.js",
-  "./js/levels.js",
-  "./js/app.js",
+  "./dist/moneyville.min.css",
+  "./dist/moneyville.min.js",
   "./manifest.webmanifest",
   "./icon.svg",
 ];

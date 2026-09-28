@@ -1,0 +1,13 @@
+{
+  "name": "moneyville",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MoneyVille: Life on Allowance — a financial literacy game for children aged 8–14.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "csso": "^5.0.5",
+    "terser": "^5.31.0"
+  }
+}

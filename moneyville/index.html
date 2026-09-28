@@ -9,7 +9,18 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏙️%3C/text%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="icon.svg" />
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="css/moneyville.css" />
+  <!-- Tiny critical styles so the splash paints instantly, before the bundle loads -->
+  <style>
+    html,body{margin:0}
+    body{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:#f1f7ff;color:#0f172a}
+    .boot-splash{text-align:center;padding:22vh 1rem}
+    .boot-mark{font-size:4rem}
+    .boot-title{font-size:2rem;font-weight:800;margin-top:.4rem}
+    .boot-sub{color:#64748b;margin-top:.3rem}
+  </style>
+  <link rel="stylesheet" href="dist/moneyville.min.css" />
+  <!-- Single bundled+minified script, deferred so HTML/CSS paint first -->
+  <script defer src="dist/moneyville.min.js"></script>
 </head>
 <body>
   <div id="app" aria-live="polite">
@@ -21,18 +32,9 @@
   </div>
 
   <noscript>
-    <p style="padding:2rem;text-align:center;font-family:sans-serif">
-      MoneyVille needs JavaScript enabled to play.
-    </p>
+    <p style="padding:2rem;text-align:center">MoneyVille needs JavaScript enabled to play.</p>
   </noscript>
 
-  <!-- Content data (levels, badges, config) — separate from game logic -->
-  <script src="js/data.js"></script>
-  <!-- Engine -->
-  <script src="js/state.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/levels.js"></script>
-  <script src="js/app.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));

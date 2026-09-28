@@ -9,26 +9,44 @@ lectures or taking quizzes.
 > *Gamified budgeting and investment learning through real-world financial decisions.*
 
 The GDD suggests Unity for native WebGL/Android builds. This implementation targets the
-same **WebGL/browser platform** with plain HTML/CSS/JavaScript, so it runs anywhere, is
-installable as a PWA on phones and tablets, and works offline for classrooms — no build
-step, no dependencies.
+same **WebGL/browser platform** with plain HTML/CSS/JavaScript — no runtime libraries,
+frameworks or web fonts, so nothing is fetched from a CDN. It's installable as a PWA on
+phones and tablets, and works offline for classrooms.
 
 ---
 
 ## ▶️ Run it
 
-It's a static site. Any of these work:
+It's a static site. `index.html` loads a pre-built, minified bundle from `dist/`, so it
+runs as-is:
 
 ```bash
-# From this folder:
-python3 -m http.server 8000
-#   then open http://localhost:8000/
+python3 -m http.server 8000   # then open http://localhost:8000/
+```
 
-# …or just open index.html in a browser.
+If you edit anything under `js/` or `css/`, rebuild the bundle:
+
+```bash
+npm install   # dev-only: terser + csso (not shipped to the browser)
+npm run build # regenerates dist/moneyville.min.css and dist/moneyville.min.js
 ```
 
 Progress is saved to `localStorage` on the device. A service worker caches everything
 for **offline play**, and the web manifest makes it **installable** on Android/tablets.
+
+### Performance
+
+Production ships a **minified, bundled** build so the browser makes just **two requests
+for app code** (1 CSS + 1 JS) instead of six, and downloads far less:
+
+| | Raw | Gzipped (over the wire) |
+|---|---|---|
+| Source (`css/` + 5× `js/`) | ~215 KB | ~53 KB |
+| Built `dist/` bundle | ~138 KB | **~40 KB** |
+
+A tiny inline splash style paints instantly, the bundle is `defer`-loaded so HTML/CSS
+render first, and the service worker serves repeat visits from cache (near-instant,
+offline). Animations respect `prefers-reduced-motion`.
 
 ---
 
@@ -102,17 +120,22 @@ Plain ES5-friendly modules attached to a small global namespace, loaded in order
 
 ```
 moneyville/
-├── index.html              # app shell + PWA registration
+├── index.html              # app shell (loads dist/ bundle), PWA registration
 ├── manifest.webmanifest    # installable PWA metadata
-├── sw.js                   # offline cache
+├── sw.js                   # offline cache (precaches the dist bundle)
 ├── icon.svg                # app icon
+├── build.mjs               # dev: bundles + minifies js/ + css/ into dist/
+├── package.json            # dev-only tooling (terser, csso)
+├── dist/                   # ← PRODUCTION (what the browser downloads)
+│   ├── moneyville.min.css
+│   └── moneyville.min.js
 ├── css/
-│   └── moneyville.css       # full design system
-└── js/
+│   └── moneyville.css       # SOURCE: full design system
+└── js/                     # SOURCE (bundled into dist/moneyville.min.js)
     ├── data.js             # ← CONTENT: all levels, badges, config (GDD §19)
     ├── state.js            # game state, persistence, scoring, badges (GDD §6,§7)
     ├── ui.js               # shared UI components (HUD, stars, results, toasts)
-    ├── levels.js           # the 10 level mini-games
+    ├── levels.js           # the 15 mini-game formats
     └── app.js              # router, town map, dashboard, onboarding
 ```
 

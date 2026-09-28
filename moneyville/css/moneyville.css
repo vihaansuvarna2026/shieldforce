@@ -610,6 +610,12 @@ p { margin: 0; }
 .flag-chip.real { box-shadow: 0 0 0 2px #86efac inset; }
 .flag-chip:disabled { opacity: .85; }
 
+/* ---- Accessibility & motion -------------------------------------------- */
+:where(button, select, input, a):focus-visible { outline: 3px solid var(--indigo); outline-offset: 2px; border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
 /* ---- Responsive --------------------------------------------------------- */
 @media (max-width: 640px) {
   .hud-stats { display: none; }
