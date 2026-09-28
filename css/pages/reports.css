@@ -1,0 +1,17 @@
+/* ============================================================
+   REPORTS
+   ============================================================ */
+.report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.report-card { display: flex; flex-direction: column; gap: 13px; }
+.report-card .doc-ico {
+  width: 60px; height: 74px; border-radius: 9px; position: relative; flex: 0 0 auto;
+  background: linear-gradient(160deg, #16294e, #0c1730); border: 1px solid var(--line-strong);
+  display: grid; place-items: center; font-weight: 900; font-size: .68rem; letter-spacing: .06em; color: var(--red);
+}
+.report-card .doc-ico::before { content: ""; position: absolute; top: -1px; right: -1px; border-style: solid;
+  border-width: 0 16px 16px 0; border-color: transparent var(--bg1) transparent transparent; border-radius: 0 9px 0 6px; }
+.report-card h3 { font-size: 1rem; }
+.report-card p { color: var(--mut); font-size: .82rem; flex: 1; }
+.report-card .meta { font-size: .72rem; color: var(--mut); display: flex; gap: 14px; }
+#device-note { display: inline-flex; align-items: center; gap: 10px; }
+

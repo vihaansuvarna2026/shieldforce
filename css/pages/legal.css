@@ -1,0 +1,13 @@
+/* ============================================================
+   LEGAL / PROSE
+   ============================================================ */
+.legal { max-width: 800px; }
+.legal h2 { font-size: clamp(1.2rem, 2.6vw, 1.5rem); font-weight: 800; margin: 40px 0 12px; }
+.legal h2:first-child { margin-top: 0; }
+.legal h3 { font-size: 1.02rem; font-weight: 700; color: var(--gold2); margin: 22px 0 8px; }
+.legal p { color: var(--mut); line-height: 1.7; margin-bottom: 14px; }
+.legal p b, .legal li b { color: var(--txt); }
+.legal ul, .legal ol { color: var(--mut); line-height: 1.7; margin: 0 0 14px 22px; }
+.legal li { margin-bottom: 6px; }
+.legal .updated { color: var(--mut); font-size: .82rem; margin-bottom: 34px; }
+

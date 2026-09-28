@@ -1,0 +1,25 @@
+/* ============================================================
+   SCHEMES
+   ============================================================ */
+.scheme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 20px; }
+.scheme-card { cursor: pointer; min-height: 196px; display: flex; flex-direction: column; gap: 11px; }
+.scheme-card .abbr {
+  align-self: flex-start; font-weight: 900; letter-spacing: .1em; font-size: .8rem; color: var(--teal);
+  padding: 7px 13px; border-radius: 9px; background: rgba(46,230,168,.09); border: 1px solid rgba(46,230,168,.3);
+}
+.scheme-card h3 { font-size: 1.02rem; }
+.scheme-card p { color: var(--mut); font-size: .82rem; flex: 1; }
+.benefit-list, .risk-list { display: grid; gap: 12px; }
+.benefit-list li, .risk-list li {
+  list-style: none; display: flex; gap: 13px; padding: 14px 17px; border-radius: var(--r-sm); font-size: .88rem;
+}
+.benefit-list li { background: rgba(46,230,168,.06); border: 1px solid rgba(46,230,168,.2); }
+.benefit-list li::before { content: "◆"; color: var(--teal); }
+.risk-list li { background: rgba(255,77,94,.06); border: 1px solid rgba(255,77,94,.2); }
+.risk-list li::before { content: "⚠"; color: var(--red); }
+.who-chips { display: flex; flex-wrap: wrap; gap: 9px; }
+.who-chips span {
+  padding: 8px 15px; border-radius: 100px; font-size: .8rem; font-weight: 600;
+  background: rgba(77,159,255,.08); border: 1px solid rgba(77,159,255,.3); color: #a8ccff;
+}
+

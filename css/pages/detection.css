@@ -1,0 +1,42 @@
+/* ============================================================
+   DETECTION EDUCATION
+   ============================================================ */
+.signs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; counter-reset: sign; }
+.sign-card { padding: 22px; }
+.sign-card .n { font-size: .72rem; color: var(--gold); font-weight: 900; letter-spacing: .2em; }
+.sign-card h4 { margin: 8px 0 6px; font-size: 1rem; }
+.sign-card p { color: var(--mut); font-size: .82rem; }
+
+.lab-shell { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.phone-mock {
+  border-radius: 34px; border: 1px solid var(--line-strong); background: #050a14;
+  padding: 18px 16px 22px; box-shadow: 0 34px 80px rgba(0,0,0,.6), inset 0 0 0 6px #0a1428;
+  position: relative;
+}
+.phone-mock .notch { width: 120px; height: 22px; margin: 0 auto 14px; background: #0a1428; border-radius: 0 0 14px 14px; }
+.msg-bubble {
+  background: #12233f; padding: 15px 17px; border-radius: 4px 18px 18px 18px;
+  font-size: .85rem; line-height: 1.65; position: relative;
+}
+.msg-bubble .from { font-size: .7rem; color: var(--gold); font-weight: 800; letter-spacing: .05em; margin-bottom: 8px; }
+mark.rf {
+  background: rgba(255,77,94,.22); color: #ffb9c0; padding: 1px 4px; border-radius: 5px;
+  border-bottom: 2px solid var(--red); cursor: pointer; transition: background .2s, box-shadow .2s;
+}
+mark.rf.lit, mark.rf:hover { background: rgba(255,77,94,.45); color: #fff; box-shadow: var(--glow-red); }
+.rf-list { display: grid; gap: 11px; }
+.rf-item {
+  display: flex; gap: 13px; padding: 14px 17px; border-radius: var(--r-sm); cursor: pointer;
+  background: var(--panel); border: 1px solid var(--line); font-size: .86rem;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.rf-item:hover, .rf-item.lit { border-color: rgba(255,77,94,.5); transform: translateX(5px); box-shadow: var(--glow-red); }
+.rf-item .k { color: var(--red); font-weight: 900; }
+.rf-item p { color: var(--mut); font-size: .8rem; margin-top: 3px; }
+.lab-tabs { display: flex; gap: 9px; margin-bottom: 18px; flex-wrap: wrap; }
+.lab-tab {
+  padding: 9px 17px; border-radius: 100px; cursor: pointer; font-size: .8rem; font-weight: 700;
+  border: 1px solid var(--line); background: transparent; color: var(--mut); transition: all .25s;
+}
+.lab-tab.active { color: #171006; background: linear-gradient(135deg, var(--gold), #ff8a1e); border-color: transparent; box-shadow: var(--glow-gold); }
+

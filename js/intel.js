@@ -53,7 +53,7 @@
     scam.protect.map(p => `<div class="protect-item rv">${p}</div>`).join("");
 
   document.getElementById("d-foot-links").innerHTML = `
-    <a class="btn btn-gold btn-sm" href="training.html?module=${scam.module}">Start the ${SF.moduleById(scam.module).title} module ⟶</a>
+    <a class="btn btn-gold btn-sm" href="training.html?module=${scam.module}">Start the ${SF.moduleTitle(scam.module)} module ⟶</a>
     <a class="btn btn-ghost btn-sm" href="fraud-anatomy.html">See the 6-phase fraud anatomy</a>
     <a class="btn btn-red btn-sm" href="emergency.html">🚨 Emergency protocol</a>`;
 

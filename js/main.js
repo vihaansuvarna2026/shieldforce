@@ -157,7 +157,10 @@
   /* ---------------- splash / first-run terms gate ---------------- */
   const TERMS_KEY = "sf_terms_accepted_v1";
   const SESSION_KEY = "sf_splash_done";
-  const LOAD_MS = 1400;
+  // Floor keeps the splash from flashing past; ceiling stops a slow network from
+  // holding someone hostage. Between the two, it leaves as soon as the page is ready.
+  const LOAD_MIN_MS = 550;
+  const LOAD_MAX_MS = 1600;
 
   function storageGet(key) {
     try { return localStorage.getItem(key); } catch (e) { return null; }
@@ -190,12 +193,11 @@
     document.getElementById("nav-drawer")?.setAttribute("inert", "");
     document.querySelector("main")?.setAttribute("inert", "");
 
-    // cosmetic progress bar + status cycling, fixed duration regardless of real asset load
     const bar = el.querySelector(".splash-bar-fill");
     const status = el.querySelector(".splash-status");
     const msgs = ["Initializing Shield Grid…", "Loading threat intelligence…", "Syncing defence network…", "Ready."];
     requestAnimationFrame(() => requestAnimationFrame(() => {
-      bar.style.transition = `width ${LOAD_MS}ms cubic-bezier(.2,.7,.2,1)`;
+      bar.style.transition = `width ${LOAD_MAX_MS}ms cubic-bezier(.2,.7,.2,1)`;
       bar.style.width = "100%";
     }));
     let mi = 0;
@@ -203,7 +205,7 @@
       mi++;
       if (mi >= msgs.length) { clearInterval(msgTimer); return; }
       status.textContent = msgs[mi];
-    }, LOAD_MS / msgs.length);
+    }, 420);
 
     function unlock() {
       document.body.classList.remove("splash-lock");
@@ -215,7 +217,28 @@
       revealApp();
     }
 
-    setTimeout(() => {
+    /* Leave as soon as the page has actually loaded, but never before the floor
+       and never after the ceiling — so a fast connection is not made to wait. */
+    const started = Date.now();
+    let proceeded = false;
+    function proceed() {
+      if (proceeded) return;
+      proceeded = true;
+      clearInterval(msgTimer);
+      status.textContent = "Ready.";
+      bar.style.transition = "width .25s ease";
+      bar.style.width = "100%";
+      onReady();
+    }
+    function scheduleProceed() {
+      const waited = Date.now() - started;
+      setTimeout(proceed, Math.max(0, LOAD_MIN_MS - waited));
+    }
+    if (document.readyState === "complete") scheduleProceed();
+    else addEventListener("load", scheduleProceed, { once: true });
+    setTimeout(proceed, LOAD_MAX_MS);
+
+    function onReady() {
       if (accepted) {
         sessionSet(SESSION_KEY, "1");
         unlock();
@@ -232,7 +255,7 @@
         unlock();
       });
       check.focus();
-    }, LOAD_MS);
+    }
   }
 
   /* ---------------- particle defence grid ---------------- */
@@ -260,7 +283,8 @@
     addEventListener("pointerleave", () => { mouse.x = mouse.y = -9999; });
 
     const LINK = 130;
-    (function tick() {
+    let rafId = 0;
+    function tick() {
       cx.clearRect(0, 0, W, H);
       for (const p of pts) {
         // gentle mouse repulsion — the "interactive" background
@@ -294,8 +318,19 @@
           }
         }
       }
-      requestAnimationFrame(tick);
-    })();
+      rafId = requestAnimationFrame(tick);
+    }
+    tick();
+
+    // don't burn CPU/battery animating a tab nobody is looking at
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      } else if (!rafId) {
+        rafId = requestAnimationFrame(tick);
+      }
+    });
   }
 
   /* ---------------- 3D tilt cards ---------------- */
