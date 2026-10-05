@@ -62,9 +62,10 @@
     }
 
     categories.forEach((c) => {
-      const badge = c.need
-        ? el("span", { class: "tag tag-need", text: "Need" })
-        : el("span", { class: "tag tag-want", text: c.isSaving ? "Save" : c.isSafety ? "Safety" : c.isGrowth ? "Grow" : "Want" });
+      // Semantic kind drives both the tag and the row's colour treatment.
+      const kind = c.need ? "need" : c.isSaving ? "save" : c.isSafety ? "safety" : c.isGrowth ? "grow" : "want";
+      const kindLabel = { need: "Need", save: "Save", safety: "Safety", grow: "Grow", want: "Want" }[kind];
+      const badge = el("span", { class: `tag tag-${kind}`, text: kindLabel });
       const hint = (c.hint && opts.hints !== "none")
         ? el("div", { class: "alloc-hint", text: c.hint }) : null;
       const minNote = c.need && c.min ? el("div", { class: "alloc-min", text: `Needs at least ${money(S(c.min))}` }) : null;
@@ -75,7 +76,7 @@
       dec.addEventListener("click", () => { values[c.id] = Math.max(0, values[c.id] - step); refresh(); });
       inc.addEventListener("click", () => { if (remaining() >= step) { values[c.id] += step; refresh(); } else if (remaining() > 0) { values[c.id] += remaining(); refresh(); } });
 
-      rows.appendChild(el("div", { class: "alloc-row", dataset: { cat: c.id } }, [
+      rows.appendChild(el("div", { class: `alloc-row alloc-${kind}`, dataset: { cat: c.id } }, [
         el("div", { class: "alloc-icon", text: c.icon }),
         el("div", { class: "alloc-main" }, [
           el("div", { class: "alloc-name-row" }, [el("span", { class: "alloc-name", text: c.name }), badge]),
@@ -1287,7 +1288,7 @@
     host.appendChild(el("p", { class: "muted", text: "Tap to add to your cart. Buy every ✅ Need first, then spend what's left on the best value. You can't go over budget." }));
     const grid = el("div", { class: "pick-grid" });
     cfg.items.forEach((it) => {
-      const card = el("button", { class: "pick-card", dataset: { id: it.id } }, [
+      const card = el("button", { class: "pick-card " + (it.need ? "pick-need" : "pick-want"), dataset: { id: it.id } }, [
         el("div", { class: "pick-emoji", text: it.icon }),
         el("div", { class: "pick-name", text: it.name }),
         el("div", { class: "pick-price", text: money(it.price) }),

@@ -44,9 +44,15 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+/* Larger base type — this game is read by children aged 8–14, so the base is
+   18px rather than the browser default 16px. Everything sized in rem scales
+   with it. */
+html { font-size: 112.5%; }
 body {
   font-family: var(--font);
   color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.55;
   background:
     radial-gradient(1200px 500px at 10% -10%, #dbeafe 0%, transparent 60%),
     radial-gradient(1000px 500px at 100% 0%, #e9d5ff 0%, transparent 55%),
@@ -56,10 +62,10 @@ body {
   min-height: 100vh;
 }
 button { font-family: inherit; cursor: pointer; }
-h1, h2, h3, h4 { margin: 0; line-height: 1.15; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.2; }
 p { margin: 0; }
 .muted { color: var(--muted); }
-.small { font-size: .82rem; }
+.small { font-size: .9rem; }
 
 /* ---- Boot splash -------------------------------------------------------- */
 .boot-splash { text-align: center; padding: 22vh 1rem; }
@@ -251,7 +257,7 @@ p { margin: 0; }
   display: flex; align-items: center; gap: .7rem;
   background: var(--card-2); border: 1px solid var(--line); border-radius: 14px; padding: .55rem .7rem;
 }
-.alloc-icon { font-size: 1.6rem; width: 2rem; text-align: center; }
+.alloc-icon { font-size: 1.6rem; width: auto; min-width: 2.4rem; text-align: center; }
 .alloc-main { flex: 1 1 auto; min-width: 0; }
 .alloc-name-row { display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; }
 .alloc-name { font-weight: 700; }
@@ -585,7 +591,9 @@ p { margin: 0; }
 .scn-situation.muted { font-weight: 600; color: var(--muted); font-size: .95rem; }
 .scn-choices { display: flex; flex-direction: column; gap: .5rem; }
 .scn-choice { text-align: left; background: #fff; border: 2px solid var(--line); border-radius: 14px; padding: .8rem 1rem; font-weight: 600; font-size: .95rem; transition: border-color .12s ease, transform .1s ease; }
-.scn-choice:hover { border-color: var(--blue); transform: translateX(3px); }
+/* Emphasise on hover without shifting the box (a transform here pushed the
+   button past its container edge on narrow screens). */
+.scn-choice:hover { border-color: var(--blue); background: #eff6ff; }
 .scn-outcome { border-radius: 14px; padding: 1rem; margin: 1rem 0; text-align: left; }
 .scn-outcome.ok { background: #f0fdf4; border: 1px solid #86efac; }
 .scn-outcome.mid { background: #fffbeb; border: 1px solid #fcd34d; }
@@ -629,4 +637,347 @@ p { margin: 0; }
 }
 @media (min-width: 900px) {
   .results { max-width: 620px; margin: 0 auto; }
+}
+
+/* =============================================================================
+   Kid-friendly type scale
+   -----------------------------------------------------------------------------
+   The base above is already 18px. These rules do two more things:
+   1) raise the floor — no label, note or hint sits in tiny-print territory;
+   2) emphasise the text children actually read and act on (questions, choices,
+      item names, messages and feedback).
+   Declared last so they win over the equal-specificity rules above.
+   ============================================================================= */
+
+/* --- 1. Raise the floor on small text --- */
+.stat-label      { font-size: .72rem; }
+.stat-value      { font-size: 1.02rem; }
+.nav-lbl         { font-size: .64rem; }
+.who-name        { font-size: .92rem; }
+.tag             { font-size: .72rem; }
+.building-desc   { font-size: .84rem; }
+.level-concept   { font-size: .94rem; }
+.level-building  { font-size: .84rem; }
+.level-locked-note { font-size: .9rem; }
+.welcome-sub     { font-size: 1rem; }
+.alloc-hint      { font-size: .86rem; }
+.alloc-min       { font-size: .84rem; }
+.shop-note, .pick-note, .sub-note, .choice-price { font-size: .86rem; }
+.shop-delivery, .pick-value, .invest-meta { font-size: .84rem; }
+.flag-label      { font-size: .8rem; }
+.scn-step        { font-size: .8rem; }
+.bf-label        { font-size: .74rem; }
+.biz-log-row     { font-size: .88rem; }
+.badge-desc      { font-size: .84rem; }
+.dash-label      { font-size: .84rem; }
+.results-cat-top { font-size: .94rem; }
+.feedback-label  { font-size: .84rem; }
+.mode-opt-age    { font-size: .84rem; }
+.mode-opt-blurb  { font-size: .84rem; }
+.brand-name small { font-size: .76rem; }
+.goal-tracker-note, .pbar-top { font-size: .92rem; }
+
+/* --- 2. Emphasise the text kids read and act on --- */
+.intro-text      { font-size: 1.14rem; line-height: 1.6; }
+.intro-objective { font-size: 1.04rem; }
+.intro-hint      { font-size: .96rem; line-height: 1.55; }
+.level-body > p.muted, .stage > .level-body p.muted { font-size: 1.02rem; }
+
+.scn-situation          { font-size: 1.22rem; line-height: 1.45; }
+.scn-situation.muted    { font-size: 1.04rem; }
+.scn-choice             { font-size: 1.08rem; }
+.scn-outcome            { font-size: 1.02rem; }
+.scn-chosen             { font-size: 1.04rem; }
+
+.sort-name   { font-size: 1.06rem; }
+.sort-btn    { font-size: .98rem; }
+.sort-why    { font-size: .92rem; }
+.sort-legend span { font-size: 1.02rem; }
+
+.alloc-name  { font-size: 1.06rem; }
+.alloc-val   { font-size: 1.06rem; }
+.alloc-pool-label { font-size: 1.02rem; }
+.alloc-remaining  { font-size: 1.25rem; }
+
+.pick-name   { font-size: 1.04rem; }
+.pick-price  { font-size: 1.2rem; }
+
+.scam-text   { font-size: 1.06rem; line-height: 1.55; }
+.scam-sender { font-size: .92rem; }
+.scam-btn, .sub-toggle { font-size: .96rem; }
+.flag-chip   { font-size: .9rem; }
+.scam-verdict { font-size: .94rem; }
+
+.choice-name { font-size: 1.06rem; }
+.sub-name    { font-size: 1.04rem; }
+.invest-name { font-size: 1.04rem; }
+.shop-store  { font-size: 1.02rem; }
+.shop-price  { font-size: 1.28rem; }
+
+.feedback-text { font-size: 1.04rem; line-height: 1.55; }
+.twist-outcome { font-size: 1.02rem; }
+.learn-recap li, .learn-recap-title { font-size: 1.02rem; }
+.results-sub   { font-size: 1.06rem; }
+.receipt-row   { font-size: 1.02rem; }
+.jar-label     { font-size: 1.02rem; }
+
+/* Buttons: bigger, easier targets for small fingers */
+.btn    { font-size: 1.02rem; padding: .68rem 1.25rem; }
+.btn-lg { font-size: 1.12rem; padding: .9rem 1.6rem; }
+.btn-sm { font-size: .9rem; padding: .45rem .9rem; }
+.step-btn { width: 40px; height: 40px; font-size: 1.45rem; }
+.scn-choice { padding: .9rem 1.1rem; }
+.sort-btn   { padding: .55rem; }
+
+/* Keep the denser screens from overflowing now that type is larger */
+@media (max-width: 420px) {
+  html { font-size: 106%; }
+  .alloc-val { min-width: 4rem; font-size: 1rem; }
+  .shop-price { font-size: 1.15rem; }
+}
+
+/* =============================================================================
+   Colour system — bring the whole palette in without losing legibility.
+   Rule of thumb: surfaces get a SOFT TINT, edges/accents get the SATURATED
+   token, and text stays near-ink so contrast never suffers. Each semantic
+   category (need / want / save / safety / grow) owns a colour, and each level
+   and building carries its own accent so the town reads as a colourful place
+   rather than a white list.
+   ============================================================================= */
+:root {
+  --tint-need:   #fff1e6;  --edge-need:   var(--orange);  --ink-need:   #9a3412;
+  --tint-want:   #f4ebff;  --edge-want:   var(--purple);  --ink-want:   #5b21b6;
+  --tint-save:   #e7fbef;  --edge-save:   var(--green);   --ink-save:   #166534;
+  --tint-safety: #e5f6ff;  --edge-safety: var(--sky);     --ink-safety: #075985;
+  --tint-grow:   #e2fbf7;  --edge-grow:   var(--teal);    --ink-grow:   #0f766e;
+}
+
+/* ---- Warmer, more colourful page ground -------------------------------- */
+body {
+  background:
+    radial-gradient(900px 420px at 8% -6%,  #cfe4ff 0%, transparent 62%),
+    radial-gradient(760px 420px at 102% 2%, #f0d9ff 0%, transparent 60%),
+    radial-gradient(700px 380px at 50% 105%, #d8f8e6 0%, transparent 65%),
+    linear-gradient(180deg, #eef6ff 0%, var(--bg) 55%, #eef9f4 100%);
+}
+
+/* ---- Header & stage get a hint of colour instead of flat white --------- */
+.app-header {
+  background: linear-gradient(120deg, rgba(255,255,255,.93), rgba(238,245,255,.93) 55%, rgba(246,238,255,.93));
+  box-shadow: 0 2px 12px rgba(59,130,246,.07);
+}
+.stage {
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 60%, #f6fbff 100%);
+  border-color: #dbe8f7;
+}
+.section-title { display: flex; align-items: center; gap: .55rem; }
+.section-title::before {
+  content: ""; width: 6px; height: 1.25em; border-radius: 99px;
+  background: linear-gradient(180deg, var(--blue), var(--purple));
+}
+
+/* ---- Semantic categories (allocator rows + tags) ----------------------- */
+.tag-need   { background: var(--tint-need);   color: var(--ink-need); }
+.tag-want   { background: var(--tint-want);   color: var(--ink-want); }
+.tag-save   { background: var(--tint-save);   color: var(--ink-save); }
+.tag-safety { background: var(--tint-safety); color: var(--ink-safety); }
+.tag-grow   { background: var(--tint-grow);   color: var(--ink-grow); }
+
+.alloc-row { border-left: 6px solid transparent; }
+.alloc-need   { background: var(--tint-need);   border-left-color: var(--edge-need); }
+.alloc-want   { background: var(--tint-want);   border-left-color: var(--edge-want); }
+.alloc-save   { background: var(--tint-save);   border-left-color: var(--edge-save); }
+.alloc-safety { background: var(--tint-safety); border-left-color: var(--edge-safety); }
+.alloc-grow   { background: var(--tint-grow);   border-left-color: var(--edge-grow); }
+.alloc-row .alloc-icon {
+  background: rgba(255,255,255,.75); border-radius: 12px; padding: .15rem .25rem;
+}
+
+/* ---- Pick cards: needs vs wants read at a glance ------------------------ */
+.pick-need { background: var(--tint-need);  border-color: #fcd9b6; }
+.pick-want { background: var(--tint-want);  border-color: #ddc9f8; }
+.pick-card.in { border-color: var(--green); background: #e7fbef; box-shadow: 0 0 0 3px #bbf7d0; }
+
+/* ---- Sort: give each card a soft ground and the bins real presence ----- */
+.sort-legend-a { background: linear-gradient(135deg, #dcfce7, #bbf7d0); color: #14532d; }
+.sort-legend-b { background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #4c1d95; }
+.sort-item { background: linear-gradient(180deg, #ffffff, #f4f9ff); border-color: #dbe8f7; border-left: 6px solid var(--sky); }
+.sort-item.right { border-left-color: var(--green); }
+.sort-item.wrong { border-left-color: var(--red); }
+
+/* ---- Lists that were plain white now carry their own hue --------------- */
+.sub-row    { background: linear-gradient(180deg, #ffffff, #f6f4ff); border-left: 6px solid var(--purple); }
+.sub-row.on { background: linear-gradient(180deg, #f3fdf6, #e7fbef); border-left-color: var(--green); }
+.sub-row.off{ border-left-color: #cbd5e1; }
+.invest-row { background: linear-gradient(180deg, #ffffff, #f2fbfa); border-left: 6px solid var(--teal); }
+.scam-msg   { background: linear-gradient(180deg, #ffffff, #f6faff); border-left: 6px solid var(--sky); }
+.scam-msg.right { border-left-color: var(--green); }
+.scam-msg.wrong { border-left-color: var(--red); }
+.shop-item-head { color: var(--indigo); }
+.goal-tracker { background: linear-gradient(135deg, #fff8e6, #fffdf7); border-color: #fde68a; }
+.infl-chart, .invest-events { background: linear-gradient(180deg, #ffffff, #f3f9ff); border-color: #dbe8f7; }
+.scn-card { background: linear-gradient(180deg, #ffffff, #f5f9ff); border-color: #dbe8f7; }
+.scn-choice { background: linear-gradient(180deg, #ffffff, #fafcff); }
+.scn-choice:hover { background: #eff6ff; }
+
+/* ---- HUD pills by role ------------------------------------------------- */
+.stat-pill.wallet  { background: linear-gradient(135deg, #ecfdf3, #ffffff); border-color: #bbf7d0; }
+.stat-pill.concept { background: linear-gradient(135deg, #eff6ff, #ffffff); border-color: #bfdbfe; }
+.stat-pill.growth  { background: linear-gradient(135deg, #e6fffb, #ffffff); border-color: #99f6e4; }
+.stat-pill.hud-xp  { background: linear-gradient(135deg, #fffbeb, #ffffff); border-color: #fde68a; }
+.stat-pill.hud-lvl { background: linear-gradient(135deg, #f5f3ff, #ffffff); border-color: #ddd6fe; }
+
+/* ---- Per-level accents: the journey becomes a colourful path ----------- */
+.level-list .level-card { --accent: var(--blue); --accent-tint: #e8f1ff; }
+.level-list .level-card:nth-child(1)  { --accent: #3b82f6; --accent-tint: #e8f1ff; }
+.level-list .level-card:nth-child(2)  { --accent: #ec4899; --accent-tint: #ffe9f4; }
+.level-list .level-card:nth-child(3)  { --accent: #14b8a6; --accent-tint: #e2fbf7; }
+.level-list .level-card:nth-child(4)  { --accent: #f59e0b; --accent-tint: #fff4de; }
+.level-list .level-card:nth-child(5)  { --accent: #a855f7; --accent-tint: #f5eaff; }
+.level-list .level-card:nth-child(6)  { --accent: #22c55e; --accent-tint: #e7fbef; }
+.level-list .level-card:nth-child(7)  { --accent: #fb923c; --accent-tint: #fff0e4; }
+.level-list .level-card:nth-child(8)  { --accent: #38bdf8; --accent-tint: #e5f6ff; }
+.level-list .level-card:nth-child(9)  { --accent: #6366f1; --accent-tint: #ececff; }
+.level-list .level-card:nth-child(10) { --accent: #ef4444; --accent-tint: #ffeaea; }
+.level-card {
+  border-left: 7px solid var(--accent);
+  background: linear-gradient(100deg, var(--accent-tint) 0%, #ffffff 42%);
+}
+/* A finished level keeps its own colour — completion is shown by the green
+   number badge and the stars, not by repainting every card the same green. */
+.level-card.done { background: linear-gradient(100deg, var(--accent-tint) 0%, #ffffff 42%); border-left-color: var(--accent); }
+.level-card.locked { background: linear-gradient(100deg, #eef2f6 0%, #ffffff 45%); border-left-color: #cbd5e1; }
+.level-icon {
+  background: var(--accent-tint); border-radius: 14px;
+  width: 2.6rem; height: 2.6rem; display: grid; place-items: center; flex: none;
+}
+.level-card.locked .level-icon { background: #eef2f6; }
+.level-num { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #1e293b)); }
+.level-card.done .level-num { background: linear-gradient(135deg, var(--green), var(--teal)); }
+.level-card.locked .level-num { background: #cbd5e1; }
+
+/* ---- Buildings: each one its own colour -------------------------------- */
+.town-scene { background: linear-gradient(180deg, #cfeaff 0%, #e8f6ff 38%, #dcf7e6 100%); }
+.building:nth-child(1) { background: linear-gradient(180deg, #ffffff, #e8f1ff); border-color: #bfdbfe; }
+.building:nth-child(2) { background: linear-gradient(180deg, #ffffff, #ffe9f4); border-color: #fbcfe8; }
+.building:nth-child(3) { background: linear-gradient(180deg, #ffffff, #e7fbef); border-color: #bbf7d0; }
+.building:nth-child(4) { background: linear-gradient(180deg, #ffffff, #fff4de); border-color: #fde68a; }
+.building:nth-child(5) { background: linear-gradient(180deg, #ffffff, #f5eaff); border-color: #ddd6fe; }
+.building:nth-child(6) { background: linear-gradient(180deg, #ffffff, #e2fbf7); border-color: #99f6e4; }
+.building.locked { background: linear-gradient(180deg, #ffffff, #eef2f6); border-color: var(--line); }
+
+/* ---- Welcome strip: warmer, bolder ------------------------------------- */
+.welcome {
+  background: linear-gradient(120deg, #e8f1ff 0%, #f5eaff 45%, #e7fbef 100%);
+  border-color: #c7dbf5;
+}
+
+/* ---- Badges & dashboard tiles get hue too ------------------------------ */
+.badge-card.have { background: linear-gradient(180deg, #fffdf5, #fff6dd); border-color: var(--gold); }
+.dash-grid .dash-tile:nth-child(5n+1) { background: linear-gradient(180deg, #ffffff, #e8f1ff); }
+.dash-grid .dash-tile:nth-child(5n+2) { background: linear-gradient(180deg, #ffffff, #f5eaff); }
+.dash-grid .dash-tile:nth-child(5n+3) { background: linear-gradient(180deg, #ffffff, #e7fbef); }
+.dash-grid .dash-tile:nth-child(5n+4) { background: linear-gradient(180deg, #ffffff, #fff4de); }
+.dash-grid .dash-tile:nth-child(5n+5) { background: linear-gradient(180deg, #ffffff, #e2fbf7); }
+
+/* =============================================================================
+   Mobile: the palette has to work harder here, because there is less room for
+   whitespace to do the work. Tighter cards, stronger tints, bigger edges.
+   ============================================================================= */
+@media (max-width: 640px) {
+  .screen { padding-left: .7rem; padding-right: .7rem; }
+  .stage {
+    padding: .9rem .8rem;
+    border-radius: 22px;
+    background: linear-gradient(180deg, #ffffff 0%, #f3f9ff 100%);
+    box-shadow: 0 10px 28px rgba(59,130,246,.12);
+  }
+  .level-heading h1 { font-size: 1.5rem; }
+  /* stronger colour edges so rows don't blur together on a small screen */
+  .alloc-row, .sort-item, .sub-row, .invest-row, .scam-msg { border-left-width: 8px; }
+  /* Allocator rows: name gets the full width, steppers get their own row as
+     big, well-spaced touch targets, instead of all three fighting for space. */
+  .alloc-row {
+    padding: .6rem .7rem; border-radius: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "icon main" "ctrl ctrl";
+    gap: .35rem .55rem; align-items: center;
+  }
+  .alloc-row > .alloc-icon { grid-area: icon; }
+  .alloc-row > .alloc-main { grid-area: main; }
+  /* Scoped to .alloc-row — the investment list reuses .alloc-ctrl and must not
+     pick up these grid/width rules. */
+  .alloc-row > .alloc-ctrl {
+    grid-area: ctrl; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,.7); border-radius: 12px; padding: .25rem .4rem;
+  }
+  /* Investment rows get the same stacked treatment so the steppers fit. */
+  .invest-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "icon main" "ctrl ctrl";
+    gap: .35rem .55rem; align-items: center;
+    padding: .6rem .7rem; border-radius: 16px;
+  }
+  .invest-row > .invest-icon { grid-area: icon; }
+  .invest-row > .invest-main { grid-area: main; }
+  .invest-row > .alloc-ctrl {
+    grid-area: ctrl; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(255,255,255,.75); border-radius: 12px; padding: .25rem .4rem;
+  }
+  .invest-meta { flex-wrap: wrap; }
+  .alloc-val { font-size: 1.1rem; }
+  .alloc-name-row { gap: .4rem; }
+  .alloc-hint, .alloc-min { line-height: 1.35; }
+  /* header fits two tidy rows: brand, then controls */
+  .who { display: none; }
+  .mode-select { font-size: .82rem; padding: .35rem .55rem; }
+  .sort-item { border-radius: 16px; }
+  /* colour the sort buttons so the two choices are obvious at a glance */
+  .sort-btn.a { background: #f0fdf4; border-color: #86efac; color: #166534; }
+  .sort-btn.b { background: #f8f4ff; border-color: #d8b4fe; color: #5b21b6; }
+  .sort-btn.a.sel { background: var(--green); border-color: var(--green); color: #fff; }
+  .sort-btn.b.sel { background: var(--purple); border-color: var(--purple); color: #fff; }
+  .scam-btn.keep   { background: #f0fdf4; border-color: #86efac; color: #166534; }
+  .scam-btn.report { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+  .scam-btn.keep.sel   { background: var(--green); border-color: var(--green); color: #fff; }
+  .scam-btn.report.sel { background: var(--red);   border-color: var(--red);   color: #fff; }
+  /* the welcome strip is the first thing you see — make it sing */
+  .welcome {
+    background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 50%, #d1fae5 100%);
+    border-radius: 22px;
+  }
+  .welcome-avatar { font-size: 2.6rem; }
+  .town-scene { border-radius: 22px; padding: .7rem; gap: .6rem; }
+  .building { border-radius: 16px; padding: .7rem .45rem; }
+  /* Level cards: give the title room by moving stars + button to their own
+     row, instead of squeezing five things onto one line. */
+  .level-card {
+    border-radius: 18px; padding: .7rem .8rem; gap: .45rem .6rem;
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-template-areas: "num icon info" "right right right";
+    align-items: center;
+  }
+  .level-num   { grid-area: num; width: 36px; height: 36px; font-size: 1rem; }
+  .level-icon  { grid-area: icon; width: 2.3rem; height: 2.3rem; font-size: 1.6rem; }
+  .level-info  { grid-area: info; }
+  .level-title { font-size: 1.05rem; line-height: 1.25; }
+  .level-right {
+    grid-area: right; width: 100%;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: .15rem; border-top: 1px dashed rgba(15,23,42,.08);
+  }
+  .level-right .btn { padding: .5rem 1.1rem; }
+  .town-scene { grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); }
+  .scn-card { border-radius: 20px; padding: 1rem .9rem; }
+  .pick-grid { gap: .5rem; }
+  /* header reads as part of the world, not a white bar */
+  .app-header {
+    background: linear-gradient(120deg, #eef5ff, #f7edff 60%, #e9fbf3);
+    border-bottom-color: #cfe0f5;
+  }
 }
