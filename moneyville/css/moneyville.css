@@ -1275,3 +1275,108 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
   .screen { max-width: 1120px; }
   .level-list { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* =============================================================================
+   ★ Phone: the same app, with a native bottom tab bar instead of a cramped
+   header — the mobile counterpart of the iPad sidebar, so both read as one app.
+   ============================================================================= */
+@media (max-width: 819px) {
+  .app-header {
+    padding: .5rem .8rem;
+    background: linear-gradient(180deg, #ffffff, #eaf6ff);
+    border-bottom: 3px solid #bcdcf5;
+    gap: .5rem;
+    /* MUST stay off: backdrop-filter makes this a containing block for
+       position:fixed descendants, which would trap the bottom tab bar inside
+       the header and overlap the page content. */
+    backdrop-filter: none;
+  }
+  .brand-mark { font-size: 1.9rem; }
+  .brand-name strong { font-size: 1.2rem; }
+  /* XP + levels stay visible as small chips — they are the reward loop */
+  .hud-stats { display: flex; gap: .4rem; margin-left: auto; }
+  .hud-stats .stat-pill { padding: .3rem .5rem; }
+  .hud-stats .stat-label { display: none; }
+  .hud-stats .stat-value { font-size: .95rem; }
+  .header-right { margin-left: 0; width: 100%; gap: .5rem; }
+  .mode-select { flex: 1 1 auto; }
+  .who { display: none; }
+
+  /* Bottom tab bar */
+  .app-nav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    padding: .35rem .4rem calc(.35rem + env(safe-area-inset-bottom));
+    background: #ffffff; border-top: 3px solid #bcdcf5;
+    box-shadow: 0 -6px 18px rgba(22,35,63,.10);
+  }
+  .app-nav .nav-btn {
+    border: 0; box-shadow: none; background: transparent; border-radius: 14px;
+    flex-direction: column; gap: 2px; padding: .4rem .2rem; font-size: 1.35rem;
+  }
+  .app-nav .nav-btn:hover { background: #eaf3ff; }
+  .nav-lbl { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .01em; color: var(--ink-2); }
+  /* keep content clear of the tab bar */
+  .screen { padding-bottom: 6rem; }
+}
+
+/* =============================================================================
+   ★ iPad: larger type across the board — kids read this at arm's length on a
+   tablet, so the whole scale steps up rather than a few headings.
+   ============================================================================= */
+@media (min-width: 820px) {
+  html { font-size: 125%; }               /* 20px base on tablet */
+  .level-heading h1 { font-size: 2.1rem; }
+  .intro-title { font-size: 2rem; }
+  .intro-text { font-size: 1.2rem; }
+  .scn-situation { font-size: 1.35rem; }
+  .scn-choice { font-size: 1.14rem; padding: 1rem 1.2rem; }
+  .sort-name, .alloc-name, .pick-name, .sub-name, .invest-name { font-size: 1.12rem; }
+  .sort-btn, .scam-btn { font-size: 1.02rem; padding: .65rem; }
+  .scam-text { font-size: 1.12rem; }
+  .welcome-title { font-size: 1.9rem; }
+  .section-title { font-size: 1.5rem; }
+  .btn-lg { font-size: 1.2rem; }
+  .stat-value { font-size: 1.1rem; }
+  .alloc-val { font-size: 1.15rem; }
+}
+
+/* Section headings: a solid colour tab rather than an emoji marker */
+.section-title::before { height: 1.1em; border-radius: 6px; }
+
+/* =============================================================================
+   ★ Overflow hardening — long words must never escape their card.
+   Found by a multi-width scan (320–1024px) across every level and screen:
+   badge names, item names, store names and avatar cells were spilling out,
+   which reads as "overlapping". Three fixes cover all of it:
+     1) text wraps anywhere rather than pushing its box wider,
+     2) flex/grid children may shrink (min-width:0 — the classic flex overflow),
+     3) grid cells sized for the largest glyphs at the tablet type scale.
+   ============================================================================= */
+body { overflow-wrap: break-word; }
+
+.level-info, .alloc-main, .sub-main, .invest-main, .sort-item-main,
+.pick-card, .badge-card, .choice-card, .shop-option, .dash-tile,
+.stat-body, .welcome-body, .scn-card, .results-cat {
+  min-width: 0;
+}
+.badge-name, .badge-desc, .pick-name, .pick-note, .choice-name, .choice-price,
+.shop-store, .shop-note, .sub-name, .sub-note, .invest-name, .sort-name,
+.alloc-name, .level-title, .building-name, .building-desc, .dash-label,
+.stat-value, .scn-choice, .results-cat-top {
+  overflow-wrap: anywhere;
+}
+/* Avatar cells must fit an emoji at the tablet type scale */
+.avatar-grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); }
+.avatar-opt { font-size: 1.9rem; padding: .45rem .25rem; line-height: 1.1; }
+
+/* Very narrow phones: the subscription row stacks like the allocator rows */
+@media (max-width: 380px) {
+  .sub-row {
+    display: grid; grid-template-columns: auto 1fr;
+    grid-template-areas: "icon main" "btn btn"; gap: .35rem .55rem; align-items: center;
+  }
+  .sub-row > .sub-icon   { grid-area: icon; }
+  .sub-row > .sub-main   { grid-area: main; }
+  .sub-row > .sub-toggle { grid-area: btn; width: 100%; }
+}
