@@ -151,7 +151,7 @@
 
     // Town map of buildings.
     const map = el("section", { class: "town-map" });
-    map.appendChild(el("h2", { class: "section-title", text: "MoneyVille Town" }));
+    map.appendChild(el("h2", { class: "section-title", text: "🏙️ MoneyVille Town" }));
     const sky = el("div", { class: "town-scene" });
     D.BUILDINGS.forEach((b) => {
       const unlocked = S.isBuildingUnlocked(b.unlockLevel);
@@ -168,7 +168,7 @@
 
     // Level path.
     const path = el("section", { class: "level-path" });
-    path.appendChild(el("h2", { class: "section-title", text: "Your money journey" }));
+    path.appendChild(el("h2", { class: "section-title", text: "🗺️ Your money journey" }));
     const list = el("div", { class: "level-list" });
     D.LEVELS.forEach((lvl) => {
       const unlocked = S.isLevelUnlocked(lvl.number);
@@ -326,7 +326,7 @@
     main.appendChild(el("button", { class: "link-back", text: "← Back to town", onClick: () => route("town") }));
     const earned = Object.keys(prog.badges).length;
     main.appendChild(el("div", { class: "page-head" }, [
-      el("h1", { text: "Badges" }),
+      el("h1", { text: "🏅 Badges" }),
       el("p", { class: "muted", text: `${earned} of ${Object.keys(D.BADGES).length} unlocked in ${mode.icon} ${mode.name} mode` }),
     ]));
     const grid = el("div", { class: "badge-grid" });
@@ -346,7 +346,7 @@
   function renderRoom(main) {
     const st = S.get();
     main.appendChild(el("button", { class: "link-back", text: "← Back to town", onClick: () => route("town") }));
-    main.appendChild(el("div", { class: "page-head" }, [el("h1", { text: "My Room" }), el("p", { class: "muted", text: "Spend Money XP nothing — cosmetics are free rewards for learning!" })]));
+    main.appendChild(el("div", { class: "page-head" }, [el("h1", { text: "🛏️ My Room" }), el("p", { class: "muted", text: "Spend Money XP nothing — cosmetics are free rewards for learning!" })]));
 
     const room = el("div", { class: "room-preview", style: { background: st.profile.room.wall } });
     room.appendChild(el("div", { class: "room-floor", style: { background: st.profile.room.floor } }));
@@ -388,7 +388,7 @@
     const mode = S.mode();
     main.appendChild(el("button", { class: "link-back", text: "← Back to town", onClick: () => route("town") }));
     main.appendChild(el("div", { class: "page-head" }, [
-      el("h1", { text: "Grown-up Dashboard" }),
+      el("h1", { text: "📊 Grown-up Dashboard" }),
       el("p", { class: "muted", text: `A private summary of learning progress for ${mode.icon} ${mode.name} mode (ages ${mode.ages}) — no chats or personal data.` }),
     ]));
 

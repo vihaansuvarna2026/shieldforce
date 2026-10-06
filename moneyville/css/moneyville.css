@@ -1252,16 +1252,20 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
 
   .screen { margin-left: 236px; max-width: 980px; padding-top: 1.4rem; }
 
-  /* One roomy column at portrait width (the sidebar already takes 236px);
-     columns only appear further down, once each card has room to breathe. */
-  .level-list { display: grid; grid-template-columns: 1fr; gap: .8rem; align-items: start; }
+  /* The two-up colour pathway. Inside each card the badge + icon sit on their
+     own row so the TITLE gets the full card width — that was the actual bug
+     when this grid wrapped titles a word at a time. */
+  .level-list { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; align-items: start; }
   .level-card {
+    display: grid; gap: .4rem .6rem; align-items: center;
     grid-template-columns: auto auto 1fr;
-    grid-template-areas: "num icon info" "right right right";
-    display: grid; align-items: center; gap: .45rem .6rem;
+    grid-template-areas:
+      "num  icon ."
+      "info info info"
+      "right right right";
   }
   .level-num { grid-area: num; } .level-icon { grid-area: icon; }
-  .level-info { grid-area: info; } 
+  .level-info { grid-area: info; }
   .level-right {
     grid-area: right; width: 100%; display: flex; align-items: center;
     justify-content: space-between; padding-top: .3rem;
@@ -1360,11 +1364,13 @@ body { overflow-wrap: break-word; }
 .stat-body, .welcome-body, .scn-card, .results-cat {
   min-width: 0;
 }
+/* break-word (not `anywhere`) so words only split when they genuinely cannot
+   fit — `anywhere` was chopping names mid-word and looked wrong. */
 .badge-name, .badge-desc, .pick-name, .pick-note, .choice-name, .choice-price,
 .shop-store, .shop-note, .sub-name, .sub-note, .invest-name, .sort-name,
 .alloc-name, .level-title, .building-name, .building-desc, .dash-label,
 .stat-value, .scn-choice, .results-cat-top {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 /* Avatar cells must fit an emoji at the tablet type scale */
 .avatar-grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); }
