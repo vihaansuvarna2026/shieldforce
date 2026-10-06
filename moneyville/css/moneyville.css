@@ -1380,3 +1380,28 @@ body { overflow-wrap: break-word; }
   .sub-row > .sub-main   { grid-area: main; }
   .sub-row > .sub-toggle { grid-area: btn; width: 100%; }
 }
+
+/* =============================================================================
+   ★ Device-matrix fixes (found testing 21 real phone/tablet viewports)
+   ============================================================================= */
+
+/* 1. Toasts must never block a button. They are purely informational, so the
+   host ignores pointer events entirely; it also sits above the phone tab bar,
+   and is centred over the CONTENT (not the sidebar) on tablets. */
+.toast-host { pointer-events: none; }
+@media (max-width: 819px) {
+  .toast-host { bottom: 5.75rem; }      /* clear of the bottom tab bar */
+}
+@media (min-width: 820px) {
+  .toast-host { left: calc(50% + 118px); } /* 118px = half the 236px sidebar */
+}
+
+/* 2. Very narrow phones (e.g. a folded Galaxy Fold at 280px): paired action
+   buttons stack instead of squeezing past the card edge. */
+.scam-actions, .sort-choices { flex-wrap: wrap; }
+@media (max-width: 345px) {
+  .scam-actions, .sort-choices { flex-direction: column; }
+  .scam-actions .scam-btn, .sort-choices .sort-btn { width: 100%; }
+  .screen { padding-left: .5rem; padding-right: .5rem; }
+  .stage { padding: .7rem .55rem; }
+}
