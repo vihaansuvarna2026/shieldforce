@@ -16,7 +16,6 @@
   background: rgba(77,159,255,.08); color: #a8ccff; border: 1px solid rgba(77,159,255,.3);
   transition: all .25s ease;
 }
-.chip:hover { background: rgba(77,159,255,.18); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(77,159,255,.2); }
 
 .ai-result { min-height: 420px; display: flex; flex-direction: column; }
 .ai-idle { margin: auto; text-align: center; color: var(--mut); padding: 30px; }
@@ -51,3 +50,8 @@
 }
 @keyframes scan { to { top: 110%; } }
 
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .chip:hover { background: rgba(77,159,255,.18); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(77,159,255,.2); }
+}

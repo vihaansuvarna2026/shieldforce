@@ -26,7 +26,7 @@
   width: 32px; height: 32px; flex: 0 0 auto; border-radius: 9px; display: grid; place-items: center;
   font-weight: 900; font-size: .8rem; background: rgba(125,165,255,.1); border: 1px solid var(--line-strong);
 }
-.quiz-opt:hover:not([disabled]) { transform: translateX(6px); border-color: var(--gold); }
+
 .quiz-opt.correct { border-color: var(--teal); background: rgba(46,230,168,.1); box-shadow: var(--glow-teal); }
 .quiz-opt.correct .key { background: var(--teal); color: #04140d; border-color: transparent; }
 .quiz-opt.wrong { border-color: var(--red); background: rgba(255,77,94,.1); box-shadow: var(--glow-red); animation: shake .4s ease; }
@@ -47,3 +47,8 @@
 .medal { font-size: 3.4rem; animation: medalPop .7s cubic-bezier(.2,.9,.3,1.5); display: inline-block; }
 @keyframes medalPop { from { transform: scale(0) rotate(-30deg); } }
 
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .quiz-opt:hover:not([disabled]) { transform: translateX(6px); border-color: var(--gold); }
+}

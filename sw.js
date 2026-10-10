@@ -1,16 +1,15 @@
 /* Shield Force — service worker: offline-first app shell
-   Precache only the shell (what the first screen actually needs). Everything
-   else is cached the first time it is visited, so a first-time visitor does
-   not pay to download pages and PDFs they may never open. */
-const CACHE = "shieldforce-v7";
+   The shell is precached so the app opens instantly; everything else is warmed in
+   the background right after, so the whole app works offline within seconds of the
+   first launch. No external service is involved at any point. */
+const CACHE = "shieldforce-v8";
 
-/* Kept deliberately small: the landing page and the files every page uses. */
+/* What the Home screen needs to open. Kept small so first launch is fast. */
 const SHELL = [
   "index.html",
   "css/core.css",
   "css/responsive.css",
   "css/pages/home.css",
-  "css/pages/intel.css",
   "js/main.js",
   "js/home.js",
   "js/data-scams.js",
@@ -20,27 +19,25 @@ const SHELL = [
   "assets/icons/icon-192.png"
 ];
 
-/* Everything else, warmed in the background AFTER the shell is serving — so the
-   first paint is never delayed, but within a few seconds of the first visit the
-   whole app (every page, the scanner, the quizzes and the PDFs) works with no
-   network at all, permanently and with no external service involved. */
+/* Every other screen and asset, fetched after the shell is serving. */
 const SECONDARY = [
-  // pages
-  "emergency.html", "scam-intel.html", "scam-detail.html", "ai-analyzer.html",
-  "threat-map.html", "fraud-anatomy.html", "detection.html", "schemes.html",
-  "scheme-detail.html", "training.html", "reports.html", "contact.html",
-  "privacy.html", "terms.html", "404.html",
-  // page logic
-  "js/sos.js", "js/intel.js", "js/analyzer.js", "js/map.js", "js/anatomy.js",
-  "js/detection.js", "js/schemes.js", "js/quiz.js", "js/reports.js", "js/contact.js",
-  // page content
+  // screens
+  "scam-intel.html", "scam-detail.html", "ai-analyzer.html", "learn.html", "emergency.html",
+  "threat-map.html", "training.html", "fraud-anatomy.html", "detection.html", "schemes.html",
+  "scheme-detail.html", "reports.html", "more.html", "contact.html", "privacy.html",
+  "terms.html", "404.html",
+  // screen logic
+  "js/intel.js", "js/analyzer.js", "js/learn.js", "js/sos.js", "js/map.js", "js/quiz.js",
+  "js/anatomy.js", "js/detection.js", "js/schemes.js", "js/reports.js", "js/more.js",
+  "js/contact.js",
+  // screen content
   "js/data-contacts.js", "js/data-schemes.js", "js/data-modules.js",
   "js/data-detection.js", "js/data-anatomy.js", "js/data-reports.js",
-  // page styles
-  "css/pages/emergency.css", "css/pages/analyzer.css", "css/pages/map.css",
+  // screen styles
+  "css/pages/intel.css", "css/pages/analyzer.css", "css/pages/map.css", "css/pages/quiz.css",
   "css/pages/anatomy.css", "css/pages/detection.css", "css/pages/schemes.css",
-  "css/pages/quiz.css", "css/pages/reports.css", "css/pages/legal.css",
-  // icons + the downloadable field documents
+  "css/pages/reports.css", "css/pages/emergency.css", "css/pages/legal.css",
+  // icons + the downloadable field guides
   "assets/icons/icon-512.png", "assets/icons/icon-maskable-512.png", "assets/icons/icon-180.png",
   "assets/reports/shieldforce-family-financial-safety.pdf",
   "assets/reports/shieldforce-red-flag-checklist.pdf",
@@ -50,11 +47,7 @@ const SECONDARY = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open(CACHE)
-      .then((c) => c.addAll(SHELL))
-      .then(() => self.skipWaiting())
-  );
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {
@@ -62,51 +55,42 @@ self.addEventListener("activate", (e) => {
     caches.keys()
       .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
-      // warm the rest once we're live; failures here must not break activation
-      .then(() => caches.open(CACHE).then((c) =>
-        Promise.allSettled(SECONDARY.map((u) => c.add(u)))
-      ))
+      // warm the rest once live; a failed item must not break activation
+      .then(() => caches.open(CACHE).then((c) => Promise.allSettled(SECONDARY.map((u) => c.add(u)))))
       .catch(() => {})
   );
 });
 
-/* Same-origin only. HTML: network-first so content edits appear immediately,
-   falling back to cache (then the home page) when offline. Everything else:
-   cache-first, since those files change only with a release. */
+function store(req, res) {
+  if (res && res.ok) {
+    const copy = res.clone();
+    caches.open(CACHE).then((c) => c.put(req, copy));
+  }
+  return res;
+}
+
+/* Screens: served straight from cache so moving between them is instant, then quietly
+   refreshed from the network for next time. Offline with nothing cached falls back
+   to Home. Other assets: cache-first — they only change with a new release. */
 self.addEventListener("fetch", (e) => {
-  const url = new URL(e.request.url);
-  if (e.request.method !== "GET" || url.origin !== location.origin) return;
+  const req = e.request;
+  const url = new URL(req.url);
+  if (req.method !== "GET" || url.origin !== location.origin) return;
 
-  const isPage = e.request.mode === "navigate" || url.pathname.endsWith(".html");
-
-  if (isPage) {
+  if (req.mode === "navigate" || url.pathname.endsWith(".html") || url.pathname.endsWith("/")) {
+    // "/" is the same screen as index.html; detail screens share one cached shell
+    // whatever their ?id= is, because their content is rendered on the device
+    const key = url.pathname.endsWith("/") ? "index.html" : req;
+    const fresh = fetch(req).then((res) => store(key, res)).catch(() => null);
+    e.waitUntil(fresh);
     e.respondWith(
-      fetch(e.request)
-        .then((res) => {
-          if (res.ok) {
-            const copy = res.clone();
-            caches.open(CACHE).then((c) => c.put(e.request, copy));
-          }
-          return res;
-        })
-        .catch(() =>
-          caches.match(e.request, { ignoreSearch: true })
-            .then((hit) => hit || caches.match("index.html"))
-        )
+      caches.match(key, { ignoreSearch: true }).then((hit) =>
+        hit || fresh.then((res) => res || caches.match("index.html")))
     );
     return;
   }
 
   e.respondWith(
-    caches.match(e.request).then((hit) =>
-      hit ||
-      fetch(e.request).then((res) => {
-        if (res.ok) {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(e.request, copy));
-        }
-        return res;
-      })
-    )
+    caches.match(req).then((hit) => hit || fetch(req).then((res) => store(req, res)))
   );
 });

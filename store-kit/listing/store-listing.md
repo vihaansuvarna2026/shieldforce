@@ -126,7 +126,8 @@ rule-based heuristic running in JavaScript on device; it performs no network req
 transmits nothing.
 
 The app is an independent community initiative and is not affiliated with any government
-body. This is stated on first launch, on every page footer, and in the Terms of Use.
+body. This is stated on the first-launch terms screen, on the Home screen, in the More
+screen, and in the Terms of Use.
 Statistics displayed are clearly labelled in-app as representative training estimates
 rather than official figures. Government portal names (SPARSH, KSB, cybercrime.gov.in)
 are referenced descriptively for educational purposes and link to the genuine official

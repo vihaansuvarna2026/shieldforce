@@ -9,7 +9,7 @@
   opacity: .5;
 }
 .anat-node { text-align: center; cursor: pointer; position: relative; padding: 6px; border-radius: var(--r-md); transition: background .25s; }
-.anat-node:hover { background: rgba(125,165,255,.05); }
+
 .anat-node .bulb {
   width: 74px; height: 74px; margin: 6px auto 12px; border-radius: 22px; display: grid; place-items: center;
   font-size: 1.75rem; background: var(--panel-solid); border: 1px solid var(--line-strong);
@@ -18,7 +18,7 @@
 }
 .anat-node h4 { font-size: .82rem; letter-spacing: .04em; }
 .anat-node .ph { font-size: .68rem; color: var(--mut); font-weight: 700; letter-spacing: .16em; }
-.anat-node.active .bulb, .anat-node:hover .bulb { transform: translateY(-8px) scale(1.08); border-color: var(--gold); box-shadow: var(--glow-gold); }
+.anat-node.active .bulb { transform: translateY(-8px) scale(1.08); border-color: var(--gold); box-shadow: var(--glow-gold); }
 .anat-node.active h4 { color: var(--gold); }
 .anat-detail { margin-top: 26px; padding: 30px; min-height: 210px; }
 .anat-detail .head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
@@ -33,3 +33,9 @@
 .anat-prog i { flex: 1; height: 4px; border-radius: 4px; background: rgba(125,165,255,.15); transition: background .4s; }
 .anat-prog i.on { background: linear-gradient(90deg, var(--gold), var(--gold2)); box-shadow: var(--glow-gold); }
 
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .anat-node:hover { background: rgba(125,165,255,.05); }
+  .anat-node:hover .bulb { transform: translateY(-8px) scale(1.08); border-color: var(--gold); box-shadow: var(--glow-gold); }
+}

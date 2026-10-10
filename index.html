@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Shield Force — Scam Defence Grid for the Indian Military &amp; Families</title>
-  <meta name="description" content="Shield Force protects Indian Armed Forces personnel, veterans and their families from financial fraud — intelligence, training, AI analysis and rapid response.">
+  <title>Shield Force — Scam Defence for the Indian Military &amp; Families</title>
+  <meta name="description" content="Shield Force protects Indian Armed Forces personnel, veterans and their families from financial fraud — scan suspicious messages, learn the scams, and act fast when it happens.">
   <meta name="theme-color" content="#081020">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,101 +16,75 @@
   <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
   <link rel="stylesheet" href="css/core.css">
   <link rel="stylesheet" href="css/pages/home.css">
-  <link rel="stylesheet" href="css/pages/intel.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-<body data-page="home">
+<body data-page="home" data-screen="index">
 <main>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero2">
-    <div class="wrap" id="hero-inner">
-      <span class="kicker">For the Indian Military &amp; their Families</span>
-      <h1 class="mega" aria-label="Your shield against every scam.">
-        <span class="mline"><span style="transition-delay:.15s">Your shield</span></span>
-        <span class="mline"><span style="transition-delay:.27s">against</span></span>
-        <span class="mline"><span style="transition-delay:.39s">every <em class="outline" style="font-style:normal">scam.</em></span></span>
-      </h1>
-      <p class="lede">
-        Shield Force exists to <b>protect and educate the Indian Armed Forces community</b> —
-        serving personnel, veterans, veer naris and families — against the financial frauds
-        engineered to target them: fake UPI buyers, pension impersonators, bogus welfare funds,
-        investment traps and digital-arrest extortion.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href="scam-intel.html">Explore Scam Intel ⟶</a>
-        <a class="btn btn-ghost" href="ai-analyzer.html">Analyze a Message</a>
-        <a class="btn btn-red" href="emergency.html">I've Been Scammed</a>
-      </div>
-      <div class="hero-meta">
-        <span><b>1930</b> — national helpline · first 60 min matter</span>
-        <span><b>08</b> scam families decoded</span>
-        <span><b>06</b> training modules</span>
-        <span><b>05</b> field documents</span>
-      </div>
-    </div>
-    <div class="scroll-cue"><i></i>Scroll</div>
-    <div class="hero-mark" id="hero-mark" aria-hidden="true">SF</div>
+  <section class="wrap home-head">
+    <p class="home-hello">For the Indian military &amp; their families</p>
+    <h1 class="home-title">Your shield against every <span class="grad-text">scam.</span></h1>
   </section>
 
-  <!-- ================= ALERT TICKER ================= -->
-  <div class="ticker" aria-label="Live fraud alerts"><div class="rail" id="ticker-rail"></div></div>
+  <section class="wrap home-actions" aria-label="Quick actions">
+    <a class="action-card gold" href="ai-analyzer.html">
+      <span class="ac-ico" data-icon="scan"></span>
+      <span class="ac-body"><b>Scan a message</b><span>Paste an SMS or WhatsApp and get a fraud verdict in seconds. It never leaves your phone.</span></span>
+      <span class="ac-chev" data-icon="chev"></span>
+    </a>
+    <a class="action-card red" href="emergency.html">
+      <span class="ac-ico" data-icon="phone"></span>
+      <span class="ac-body"><b>Been scammed? Act now</b><span>Call 1930 and follow the six steps — the first hour decides what comes back.</span></span>
+      <span class="ac-chev" data-icon="chev"></span>
+    </a>
+  </section>
 
-  <!-- ================= STATS ================= -->
-  <section class="section">
-    <div class="wrap">
-      <div class="sec-head-row rv">
-        <div>
-          <h2 class="sec-title">The Damage Report — <span class="grad-text">2026</span></h2>
-          <p class="sec-sub">Fraud against the defence community, in numbers.</p>
-        </div>
-        <a class="xlink gold" href="threat-map.html">View live threat map ⟶</a>
-      </div>
-      <div class="stat-grid" id="stat-grid"></div>
-      <p class="feed-note rv">Figures are representative training estimates compiled for awareness purposes — verify current statistics with I4C / NCRB official releases.</p>
+  <section class="wrap" id="install-row" hidden>
+    <div class="install-row">
+      <span class="li-ico teal" data-icon="install"></span>
+      <span class="li-body"><b>Install Shield Force</b><span>Opens from your home screen and works fully offline.</span></span>
+      <button class="btn btn-teal btn-sm" type="button" id="install-btn">Install</button>
+      <button class="install-x" type="button" id="install-dismiss" aria-label="Dismiss" data-icon="close"></button>
     </div>
   </section>
 
-  <!-- ================= LATEST CASES ================= -->
-  <section class="section">
-    <div class="wrap">
-      <div class="sec-head-row rv">
-        <div>
-          <h2 class="sec-title">Latest Case Intercepts</h2>
-          <p class="sec-sub">Fresh fraud patterns hitting military families across India — date, source and location.</p>
-        </div>
-        <a class="xlink" href="scam-intel.html">Decode these scams ⟶</a>
-      </div>
-      <div class="case-feed" id="case-feed"></div>
-      <p class="feed-note rv">Simulated intelligence feed generated from real, recurring fraud patterns. Refreshes every hour.</p>
+  <div class="wrap">
+    <div class="ticker" aria-label="Live fraud alerts"><div class="rail" id="ticker-rail"></div></div>
+  </div>
+
+  <section class="wrap section">
+    <h2 class="sec-title">Explore</h2>
+    <div class="tiles">
+      <a class="tile" href="threat-map.html"><span class="t-ico blue" data-icon="map"></span><b>Threat map</b></a>
+      <a class="tile" href="scam-intel.html"><span class="t-ico" data-icon="shield"></span><b>Scam intel</b></a>
+      <a class="tile" href="training.html"><span class="t-ico teal" data-icon="cap"></span><b>Training</b></a>
+      <a class="tile" href="detection.html"><span class="t-ico violet" data-icon="eye"></span><b>Spot a scam</b></a>
+      <a class="tile" href="schemes.html"><span class="t-ico" data-icon="bank"></span><b>Defence schemes</b></a>
+      <a class="tile" href="reports.html"><span class="t-ico blue" data-icon="doc"></span><b>Field guides</b></a>
     </div>
   </section>
 
-  <!-- ================= QUICK ACCESS ================= -->
-  <section class="section">
-    <div class="wrap">
-      <h2 class="sec-title rv">Your Defence Toolkit</h2>
-      <p class="sec-sub rv">Every wing of the Shield Force grid, one tap away.</p>
-      <div class="grid grid-3">
-        <div class="card card3d rv intel-card" onclick="location.href='ai-analyzer.html'">
-          <div class="ico">🤖</div><h3>Shield AI Analyzer</h3>
-          <p>Paste any suspicious message and get an instant fraud-risk verdict with the exact red flags identified.</p>
-          <div class="foot"><span class="tag tag-teal">Interactive</span><span class="go">Open ⟶</span></div>
-        </div>
-        <div class="card card3d rv intel-card" onclick="location.href='training.html'">
-          <div class="ico">🎓</div><h3>Training Modules</h3>
-          <p>Six battle-inoculation quizzes — one per scam family — with explanations for every answer.</p>
-          <div class="foot"><span class="tag tag-gold">6 Modules</span><span class="go">Train ⟶</span></div>
-        </div>
-        <div class="card card3d rv intel-card" onclick="location.href='reports.html'">
-          <div class="ico">📄</div><h3>Downloadable Reports</h3>
-          <p>Family safety guides, red-flag checklists and fraud alerts — PDF downloads for any device.</p>
-          <div class="foot"><span class="tag tag-blue">5 PDFs</span><span class="go">Download ⟶</span></div>
-        </div>
-      </div>
+  <section class="wrap section">
+    <div class="sec-head-row">
+      <h2 class="sec-title">2026 at a glance</h2>
+      <a class="xlink gold" href="threat-map.html">Live map</a>
     </div>
+    <div class="stat-grid" id="stat-grid"></div>
   </section>
 
+  <section class="wrap section">
+    <div class="sec-head-row">
+      <h2 class="sec-title">Latest cases</h2>
+      <a class="xlink" href="scam-intel.html">All scams</a>
+    </div>
+    <div class="case-feed" id="case-feed"></div>
+  </section>
+
+  <p class="wrap small-print">
+    Shield Force is a community awareness initiative, not an official Government of India or Ministry
+    of Defence service. Figures and the case feed are representative training data built from
+    recurring, publicly reported fraud patterns — verify current statistics with I4C / NCRB.
+  </p>
 </main>
 <script src="js/data-scams.js"></script>
 <script src="js/data-feed.js"></script>

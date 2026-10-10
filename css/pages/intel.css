@@ -12,13 +12,12 @@
 .intel-card p { color: var(--mut); font-size: .84rem; flex: 1; }
 .intel-card .foot { display: flex; justify-content: space-between; align-items: center; }
 .intel-card .go { color: var(--gold); font-weight: 800; font-size: .8rem; transition: transform .25s; }
-.intel-card:hover .go { transform: translateX(5px); }
 
-.detail-hero { padding: clamp(40px, 6vh, 70px) 0 26px; display: flex; gap: 26px; align-items: center; flex-wrap: wrap; }
-.detail-hero .ico { width: 86px; height: 86px; border-radius: 24px; display: grid; place-items: center; font-size: 2.6rem;
+.detail-hero { padding: 14px 0 12px; display: flex; gap: 16px; align-items: center; }
+.detail-hero .ico { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; font-size: 2rem;
   background: linear-gradient(145deg, rgba(255,165,62,.18), rgba(255,165,62,.05)); border: 1px solid rgba(255,165,62,.35);
   box-shadow: var(--glow-gold); flex: 0 0 auto; }
-.detail-hero h1 { font-size: clamp(1.7rem, 4vw, 2.6rem); font-weight: 900; letter-spacing: -.02em; }
+.detail-hero h1 { font-size: clamp(1.35rem, 5vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
 .detail-hero .sub { color: var(--mut); max-width: 640px; }
 
 .step-list { display: grid; gap: 0; position: relative; }
@@ -55,3 +54,13 @@
 }
 .protect-item::before { content: "✓"; color: var(--teal); font-weight: 900; }
 
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .intel-card:hover .go { transform: translateX(5px); }
+}
+
+/* detail screens: two equal actions under the header */
+.detail-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 2px 0 6px; max-width: 520px; }
+.detail-actions .btn { width: 100%; }
+.detail-actions .i { width: 18px; height: 18px; }

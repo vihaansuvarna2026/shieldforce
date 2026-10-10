@@ -12,7 +12,7 @@
 .map-marker { cursor: pointer; }
 .map-marker .pulse { animation: mpulse 2.2s ease-out infinite; transform-origin: center; transform-box: fill-box; }
 @keyframes mpulse { 0% { opacity: .8; transform: scale(.6);} 100% { opacity: 0; transform: scale(2.6);} }
-.map-marker:hover .core { stroke: #fff; }
+
 .map-pop {
   position: absolute; z-index: 20; width: 264px; padding: 16px 18px;
   background: rgba(8, 15, 30, .96); border: 1px solid var(--line-strong); border-radius: 14px;
@@ -26,7 +26,7 @@
 @keyframes popIn { from { opacity: 0; transform: translate(-50%, calc(-100% - 4px)) scale(.9);} }
 .map-pop h4 { font-size: .92rem; display: flex; justify-content: space-between; gap: 8px; }
 .map-pop .x { cursor: pointer; color: var(--mut); font-weight: 900; }
-.map-pop .x:hover { color: var(--red); }
+
 .map-pop p { font-size: .78rem; color: var(--mut); margin-top: 7px; }
 .map-pop .row { display: flex; justify-content: space-between; font-size: .76rem; margin-top: 8px; }
 .map-pop .row b { color: var(--gold); }
@@ -40,3 +40,9 @@
 .map-stat-row:last-child { border-bottom: none; }
 .map-stat-row b { color: var(--gold); font-variant-numeric: tabular-nums; }
 
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .map-marker:hover .core { stroke: #fff; }
+  .map-pop .x:hover { color: var(--red); }
+}

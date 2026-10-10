@@ -23,14 +23,14 @@ mark.rf {
   background: rgba(255,77,94,.22); color: #ffb9c0; padding: 1px 4px; border-radius: 5px;
   border-bottom: 2px solid var(--red); cursor: pointer; transition: background .2s, box-shadow .2s;
 }
-mark.rf.lit, mark.rf:hover { background: rgba(255,77,94,.45); color: #fff; box-shadow: var(--glow-red); }
+mark.rf.lit { background: rgba(255,77,94,.45); color: #fff; box-shadow: var(--glow-red); }
 .rf-list { display: grid; gap: 11px; }
 .rf-item {
   display: flex; gap: 13px; padding: 14px 17px; border-radius: var(--r-sm); cursor: pointer;
   background: var(--panel); border: 1px solid var(--line); font-size: .86rem;
   transition: border-color .25s, transform .25s, box-shadow .25s;
 }
-.rf-item:hover, .rf-item.lit { border-color: rgba(255,77,94,.5); transform: translateX(5px); box-shadow: var(--glow-red); }
+.rf-item.lit { border-color: rgba(255,77,94,.5); transform: translateX(5px); box-shadow: var(--glow-red); }
 .rf-item .k { color: var(--red); font-weight: 900; }
 .rf-item p { color: var(--mut); font-size: .8rem; margin-top: 3px; }
 .lab-tabs { display: flex; gap: 9px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -40,3 +40,9 @@ mark.rf.lit, mark.rf:hover { background: rgba(255,77,94,.45); color: #fff; box-s
 }
 .lab-tab.active { color: #171006; background: linear-gradient(135deg, var(--gold), #ff8a1e); border-color: transparent; box-shadow: var(--glow-gold); }
 
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  mark.rf:hover { background: rgba(255,77,94,.45); color: #fff; box-shadow: var(--glow-red); }
+  .rf-item:hover { border-color: rgba(255,77,94,.5); transform: translateX(5px); box-shadow: var(--glow-red); }
+}

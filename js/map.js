@@ -89,6 +89,7 @@
       g.setAttribute("role", "button");
       g.setAttribute("aria-label", `Incident in ${inc.city.name}: ${inc.scam.name}`);
       g.innerHTML = `
+        <circle class="hit" cx="${inc.city.x}" cy="${inc.city.y}" r="24" fill="transparent"/>
         <circle class="pulse" cx="${inc.city.x}" cy="${inc.city.y}" r="9" fill="none" stroke="${col}" stroke-width="2" style="animation-delay:${(i % 5) * .4}s"/>
         <circle class="core" cx="${inc.city.x}" cy="${inc.city.y}" r="6.5" fill="${col}" stroke="rgba(5,9,18,.9)" stroke-width="2"/>
         <text x="${inc.city.x}" y="${inc.city.y + 3.2}" text-anchor="middle" font-size="7.5" font-weight="900" fill="#04070e">!</text>`;

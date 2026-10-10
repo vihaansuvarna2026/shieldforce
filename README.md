@@ -9,20 +9,25 @@ Store and Apple App Store (see [Store packaging](#store-packaging)).
 
 ---
 
-## Pages
+## App structure
 
-| # | Page | File | What it does |
-|---|------|------|--------------|
-| 1 | **Home** | `index.html` | Mission statement for the Indian military & families, interactive particle background, animated 3D shield, live alert ticker, 2026 damage-report statistics (targets, total lost, average loss, unreported-out-of-embarrassment share), hourly-refreshed latest-case feed with date / source / location |
-| 2 | **Scam Intel** | `scam-intel.html` → `scam-detail.html?id=…` | 8 decoded scam families; each detail page covers how the scam works step-by-step, case studies and protection drills |
-| 3 | **Threat Map** | `threat-map.html` | Stylised India map that re-syncs **every hour**; pulsing incident icons open popups with victim profile, loss and source; legend + hour stats |
-| 4 | **Shield AI** | `ai-analyzer.html` | On-device fraud message scanner with risk gauge and per-flag explanations; exemplar buttons for Fake UPI, Investment Pitch, Welfare Fund, Pension KYC, Digital Arrest and a genuine control message |
-| 5 | **Fraud Anatomy** | `fraud-anatomy.html` | Interactive 6-phase diagram of how financial frauds unfold, with a protect-yourself tip per phase and auto-play mode |
-| 6 | **Detection Lab** | `detection.html` | The seven signs of a scam, then message specimens with red flags highlighted and cross-linked to explanations |
-| 7 | **Schemes** | `schemes.html` → `scheme-detail.html?id=…` | 8 genuine defence financial schemes (AGIF, DSOP, SPARSH, ECHS, AFBCWF, PMSS, AWWA, CSD) — key benefits, who is benefited and scam risks |
-| 8 | **Training** | `training.html` | 6 quiz modules (one per scam family), multiple choice with instant correct/wrong verdicts and explanations; best scores stored locally |
-| 9 | **Reports** | `reports.html` | 5 downloadable PDF documents (generated into `assets/reports/`), device-aware download hints, download-all |
-| 10 | **Emergency** | `emergency.html` | 1930 tap-to-call, the Golden Window explained, six response steps in order, contact directory for families and officers with official links |
+Shield Force is built as an app, not a website: a bottom **tab bar** on phones and portrait
+tablets (a **side rail** on screens 1024px and wider), an **app bar** with a back button on
+pushed screens, native-style screen transitions, and no web footer.
+
+| Tab | Screen | File | Pushed screens |
+|---|---|---|---|
+| **Home** | Dashboard — scan and SOS actions, live alerts, quick tiles, 2026 stats, latest cases | `index.html` | Threat map (`threat-map.html`), More (`more.html`) |
+| **Intel** | 8 decoded scam families | `scam-intel.html` | Scam briefing (`scam-detail.html?id=…`) |
+| **Scan** | On-device message fraud scanner with risk gauge and per-flag explanations | `ai-analyzer.html` | — |
+| **Learn** | Hub for everything educational | `learn.html` | Training (`training.html`, quiz via `?module=…`), Fraud anatomy, Detection lab, Defence schemes (+ `scheme-detail.html?id=…`), Field guides (`reports.html`) |
+| **SOS** | 1930 dial, the Golden Window, six response steps, contact directory | `emergency.html` | — |
+
+**More** (from the ⋯ button on any tab) holds Install, Field guides, Threat map, Help
+(`contact.html`), Privacy (`privacy.html`), Terms (`terms.html`) and *Reset training progress*.
+
+Where each screen sits — its tab, whether it is a root, and where Back goes when there is no
+in-app history — is defined once in `SCREENS` in `js/main.js`.
 
 ## Running locally
 
@@ -85,7 +90,8 @@ Government of India / Ministry of Defence website.
 
 `privacy.html` and `terms.html` cover data collection (there is none — no database, no backend, no
 analytics; the Shield AI scanner runs entirely client-side) and the educational-only /
-not-an-official-service disclaimers both app stores expect. Both are linked from every page's footer.
+not-an-official-service disclaimers both app stores expect. Both are linked from the More screen
+and from the first-launch terms gate.
 
 The app is deliberately serverless: there are no `fetch`/XHR calls anywhere in `js/`, no third-party
 scripts, and no API endpoints. The only persistence is `localStorage` for quiz scores and the

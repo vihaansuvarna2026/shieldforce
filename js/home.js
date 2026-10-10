@@ -1,14 +1,14 @@
-/* Shield Force — home page: ticker, stats, hourly case feed, hero parallax */
+/* Shield Force — Home: alert strip, stats, hourly case feed, install prompt */
 (function () {
   "use strict";
 
-  /* ticker (duplicated for seamless loop) */
+  /* alert strip (duplicated so the loop is seamless) */
   const items = SF.ticker.map(t => `<span><b>⚠ ALERT</b> &nbsp;${t}</span>`).join("");
   document.getElementById("ticker-rail").innerHTML = items + items;
 
-  /* stats — editorial hairline band */
+  /* stats */
   document.getElementById("stat-grid").innerHTML = SF.stats.map(s => `
-    <div class="stat rv">
+    <div class="stat">
       <div class="num" data-count data-end="${s.end}" data-fmt="${s.fmt}">0</div>
       <div class="lbl">${s.lbl}</div>
       <span class="delta ${s.dir}">${s.delta}</span>
@@ -28,8 +28,7 @@
     let guard = 0;
     while (usedCity.has(city.name) && guard++ < 10) city = pick(SF.cities);
     usedCity.add(city.name);
-    const daysAgo = Math.floor(rnd() * 3) + i; // spread over the past week+
-    const d = new Date(Date.now() - daysAgo * 86400000);
+    const d = new Date(Date.now() - (Math.floor(rnd() * 3) + i) * 86400000);
     feed.push({
       tpl, city,
       day: d.getDate(), mon: MONTHS[d.getMonth()],
@@ -39,54 +38,47 @@
     });
   }
 
-  document.getElementById("case-feed").innerHTML = feed.map((c, i) => {
+  const chev = SFX.icon("chev");
+  document.getElementById("case-feed").innerHTML = feed.map((c) => {
     const scam = SF.scamById(c.tpl.s);
     return `
-    <a class="case-item rv" href="scam-detail.html?id=${c.tpl.s}" style="text-decoration:none;color:inherit">
+    <a class="case-item" href="scam-detail.html?id=${c.tpl.s}">
       <div class="case-date"><b>${c.day}</b><span>${c.mon}</span></div>
       <div class="case-body">
         <h4>${scam.icon} ${c.tpl.t}</h4>
-        <p>${c.victim} targeted • approx. loss ₹${c.loss.toLocaleString("en-IN")} • pattern: ${scam.name}</p>
+        <p>${c.victim} · approx. ₹${c.loss.toLocaleString("en-IN")} · ${c.source}</p>
+        <span class="case-loc">📍 ${c.city.name}, ${c.city.state}</span>
       </div>
-      <div class="case-meta">
-        <span class="tag tag-blue">${c.source}</span>
-        <span class="case-loc">${c.city.name}, ${c.city.state}</span>
-      </div>
+      <span class="case-chev">${chev}</span>
     </a>`;
   }).join("");
 
-  /* hero entrance: masked line reveal after the veil clears */
-  setTimeout(() => document.body.classList.add("hero-in"), 350);
-
-  /* seamless scroll parallax: headline, watermark and orbs drift at different depths */
-  const mega = document.querySelector(".mega");
-  const mark = document.getElementById("hero-mark");
-  const lede = document.querySelector(".hero2 .lede");
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce) {
-    let ticking = false;
-    addEventListener("scroll", () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = scrollY;
-        if (y < innerHeight * 1.2) {
-          if (mega) mega.style.transform = `translateY(${y * 0.18}px)`;
-          if (mark) mark.style.transform = `translateY(${y * -0.12}px)`;
-          if (lede) lede.style.opacity = String(Math.max(0, 1 - y / (innerHeight * 0.55)));
-        }
-        ticking = false;
-      });
-    }, { passive: true });
-
-    /* subtle pointer drift on the watermark for depth */
-    if (!matchMedia("(hover: none)").matches && mark) {
-      addEventListener("pointermove", (e) => {
-        const dx = (e.clientX / innerWidth - 0.5) * -18;
-        mark.style.translate = `${dx}px 0`;
-      }, { passive: true });
-    }
+  /* install prompt: only when the app isn't installed yet and the user hasn't dismissed it */
+  const row = document.getElementById("install-row");
+  const DISMISS_KEY = "sf_install_dismissed";
+  const inst = SFX.install;
+  function updateInstallRow() {
+    const show = !inst.standalone() && SFX.storageGet(DISMISS_KEY) !== "1" && (inst.available() || inst.ios());
+    row.hidden = !show;
+    // iOS has no install prompt to trigger; send people to the step-by-step instructions
+    document.getElementById("install-btn").textContent = inst.available() ? "Install" : "How";
   }
+  document.getElementById("install-btn").addEventListener("click", async () => {
+    if (inst.available()) {
+      const outcome = await inst.prompt();
+      if (outcome === "accepted") row.hidden = true;
+      else updateInstallRow();
+    } else {
+      location.href = "more.html#install";
+    }
+  });
+  document.getElementById("install-dismiss").addEventListener("click", () => {
+    SFX.storageSet(DISMISS_KEY, "1");
+    row.hidden = true;
+  });
+  document.addEventListener("sf:installable", updateInstallRow);
+  document.addEventListener("sf:installed", () => { row.hidden = true; });
+  updateInstallRow();
 
-  SFX.reveal(); SFX.addGlares(); SFX.watchCounters();
+  SFX.watchCounters();
 })();

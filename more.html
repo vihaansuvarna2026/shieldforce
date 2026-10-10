@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>More — Shield Force</title>
+  <meta name="description" content="Install Shield Force, get help, read the privacy policy and terms, and manage data stored on this device.">
+  <meta name="theme-color" content="#081020">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Shield Force">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .steps { padding: 4px 16px 16px 66px; color: var(--mut); font-size: .84rem; }
+    .steps ol { margin-left: 18px; display: grid; gap: 6px; }
+    .steps b { color: var(--txt); }
+    .steps .i { width: 16px; height: 16px; display: inline-block; vertical-align: -3px; color: var(--blue); }
+    .about { text-align: center; margin-top: 26px; }
+    .about .wordmark { font-size: 1.2rem; }
+    .about p { color: var(--mut); font-size: .76rem; margin-top: 8px; }
+  </style>
+</head>
+<body data-page="more" data-screen="more">
+<main>
+  <header class="page-head wrap">
+    <h1 class="page-title">More</h1>
+  </header>
+
+  <section class="wrap">
+    <p class="list-title" id="install">App</p>
+    <div class="list">
+      <button class="list-item" type="button" id="m-install">
+        <span class="li-ico teal" data-icon="install"></span>
+        <span class="li-body"><b id="m-install-t">Install Shield Force</b><span id="m-install-s">Open it from your home screen — works fully offline</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </button>
+      <div class="steps" id="m-steps" hidden></div>
+      <a class="list-item" href="reports.html">
+        <span class="li-ico blue" data-icon="doc"></span>
+        <span class="li-body"><b>Field guides</b><span>Printable PDF downloads</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+      <a class="list-item" href="threat-map.html">
+        <span class="li-ico blue" data-icon="map"></span>
+        <span class="li-body"><b>Threat map</b><span>Where scams against the community are being reported</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+    </div>
+
+    <p class="list-title">Help</p>
+    <div class="list">
+      <a class="list-item" href="tel:1930">
+        <span class="li-ico red" data-icon="phone"></span>
+        <span class="li-body"><b>Call 1930</b><span>National Cyber Crime Helpline</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+      <a class="list-item" href="emergency.html">
+        <span class="li-ico red" data-icon="alert"></span>
+        <span class="li-body"><b>Emergency steps</b><span>What to do in the first hour after a fraud</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+      <a class="list-item" href="contact.html">
+        <span class="li-ico" data-icon="mail"></span>
+        <span class="li-body"><b>Contact &amp; support</b><span>Questions, corrections, official channels</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+    </div>
+
+    <p class="list-title">Legal</p>
+    <div class="list">
+      <a class="list-item" href="privacy.html">
+        <span class="li-ico violet" data-icon="lock"></span>
+        <span class="li-body"><b>Privacy policy</b><span>No accounts, no database, no tracking</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+      <a class="list-item" href="terms.html">
+        <span class="li-ico violet" data-icon="scale"></span>
+        <span class="li-body"><b>Terms of use</b><span>Educational use and disclaimers</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+    </div>
+
+    <p class="list-title">Data on this device</p>
+    <div class="list">
+      <button class="list-item danger" type="button" id="m-reset">
+        <span class="li-ico red" data-icon="reset"></span>
+        <span class="li-body"><b>Reset training progress</b><span>Clears the quiz scores saved on this device</span></span>
+      </button>
+    </div>
+
+    <div class="about">
+      <span class="wordmark" aria-label="Shield Force"><b>SHIELD</b><em>FORCE</em><i>®</i></span>
+      <p>Version 1.0 · Works offline</p>
+      <p class="small-print" style="margin:12px auto 0;max-width:520px">
+        A community awareness initiative — not an official Government of India or Ministry of
+        Defence service. Nothing you type is stored or sent anywhere.
+      </p>
+    </div>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/more.js"></script>
+</body>
+</html>

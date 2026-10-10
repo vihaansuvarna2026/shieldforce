@@ -3,7 +3,9 @@
   "use strict";
 
   const STORE = "sf-training-v1";
-  const best = JSON.parse(localStorage.getItem(STORE) || "{}");
+  // storage can be disabled or full (privacy modes, managed devices); the quiz must still run
+  let best = {};
+  try { best = JSON.parse(localStorage.getItem(STORE) || "{}") || {}; } catch (e) { best = {}; }
 
   const selectSec = document.getElementById("module-select");
   const quizSec = document.getElementById("quiz-section");
@@ -106,7 +108,7 @@
     const pct = Math.round(score / n * 100);
     if (!best[mod.id] || score > best[mod.id]) {
       best[mod.id] = score;
-      localStorage.setItem(STORE, JSON.stringify(best));
+      try { localStorage.setItem(STORE, JSON.stringify(best)); } catch (e) { /* not persisted */ }
     }
     const medal = pct === 100 ? "🏅" : pct >= 80 ? "🥈" : pct >= 60 ? "🎖️" : "🛡️";
     const line = pct === 100 ? "Perfect drill. This scam will never touch you."

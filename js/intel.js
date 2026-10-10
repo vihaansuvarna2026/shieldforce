@@ -32,9 +32,8 @@
     </div>`;
 
   document.getElementById("d-links").innerHTML = `
-    <a class="xlink" href="scam-intel.html">⟵ All scam intel</a>
-    <a class="xlink gold" href="training.html?module=${scam.module}">🎓 Train against this scam</a>
-    <a class="xlink" href="ai-analyzer.html">🤖 Analyze a suspicious message</a>`;
+    <a class="btn btn-gold btn-sm" href="training.html?module=${scam.module}">${SFX.icon("cap")} Train against it</a>
+    <a class="btn btn-ghost btn-sm" href="ai-analyzer.html">${SFX.icon("scan")} Scan a message</a>`;
 
   document.getElementById("d-steps").innerHTML = scam.how.map(([t, d], i) => `
     <div class="step rv">
