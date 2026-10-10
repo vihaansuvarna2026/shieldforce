@@ -1,0 +1,66 @@
+/* ============================================================
+   SCAM INTEL GRID + DETAIL
+   ============================================================ */
+.intel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(262px, 1fr)); gap: 20px; }
+.intel-card { cursor: pointer; display: flex; flex-direction: column; gap: 13px; min-height: 218px; }
+.intel-card .ico {
+  width: 58px; height: 58px; border-radius: 17px; display: grid; place-items: center; font-size: 1.7rem;
+  background: linear-gradient(145deg, rgba(255,165,62,.16), rgba(255,165,62,.04));
+  border: 1px solid rgba(255,165,62,.3); box-shadow: inset 0 0 18px rgba(255,165,62,.08);
+}
+.intel-card h3 { font-size: 1.08rem; font-weight: 800; }
+.intel-card p { color: var(--mut); font-size: .84rem; flex: 1; }
+.intel-card .foot { display: flex; justify-content: space-between; align-items: center; }
+.intel-card .go { color: var(--gold); font-weight: 800; font-size: .8rem; transition: transform .25s; }
+
+.detail-hero { padding: 14px 0 12px; display: flex; gap: 16px; align-items: center; }
+.detail-hero .ico { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; font-size: 2rem;
+  background: linear-gradient(145deg, rgba(255,165,62,.18), rgba(255,165,62,.05)); border: 1px solid rgba(255,165,62,.35);
+  box-shadow: var(--glow-gold); flex: 0 0 auto; }
+.detail-hero h1 { font-size: clamp(1.35rem, 5vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
+.detail-hero .sub { color: var(--mut); max-width: 640px; }
+
+.step-list { display: grid; gap: 0; position: relative; }
+.step {
+  display: grid; grid-template-columns: 58px 1fr; gap: 20px; padding: 20px 0; position: relative;
+}
+.step::before {
+  content: ""; position: absolute; left: 28px; top: 62px; bottom: -6px; width: 2px;
+  background: linear-gradient(180deg, rgba(255,165,62,.5), rgba(255,165,62,.06));
+}
+.step:last-child::before { display: none; }
+.step .n {
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+  font-weight: 900; font-size: 1.15rem; color: var(--gold);
+  background: rgba(255,165,62,.08); border: 1px solid rgba(255,165,62,.4);
+  box-shadow: inset 0 0 16px rgba(255,165,62,.1);
+}
+.step h4 { font-size: 1.02rem; margin-bottom: 4px; }
+.step p { color: var(--mut); font-size: .88rem; }
+
+.case-study {
+  border-left: 3px solid var(--blue); padding: 18px 22px; border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: rgba(77,159,255,.06); margin-bottom: 16px;
+}
+.case-study h4 { font-size: .95rem; }
+.case-study .meta { font-size: .72rem; color: var(--blue); font-weight: 700; letter-spacing: .06em; margin-bottom: 8px; }
+.case-study p { font-size: .86rem; color: var(--mut); }
+.case-study .loss { color: var(--red); font-weight: 800; }
+
+.protect-list { display: grid; gap: 12px; }
+.protect-item {
+  display: flex; gap: 14px; padding: 15px 18px; border-radius: var(--r-sm);
+  background: rgba(46,230,168,.06); border: 1px solid rgba(46,230,168,.2); font-size: .9rem;
+}
+.protect-item::before { content: "✓"; color: var(--teal); font-weight: 900; }
+
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .intel-card:hover .go { transform: translateX(5px); }
+}
+
+/* detail screens: two equal actions under the header */
+.detail-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 2px 0 6px; max-width: 520px; }
+.detail-actions .btn { width: 100%; }
+.detail-actions .i { width: 18px; height: 18px; }

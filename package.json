@@ -1,0 +1,23 @@
+{
+  "name": "shieldforce",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shield Force — scam defence for the Indian Armed Forces community. Web app plus Android and iOS store builds.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-www.mjs",
+    "sync": "node scripts/build-www.mjs && cap sync",
+    "open:android": "cap open android",
+    "open:ios": "cap open ios",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.3",
+    "@capacitor/core": "8.5.3",
+    "@capacitor/ios": "8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.3"
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Shield Force — Scam Defence for the Indian Military &amp; Families</title>
+  <meta name="description" content="Shield Force protects Indian Armed Forces personnel, veterans and their families from financial fraud — scan suspicious messages, learn the scams, and act fast when it happens.">
+  <meta name="theme-color" content="#081020">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Shield Force">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+  <link rel="stylesheet" href="css/core.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="home" data-screen="index">
+<main>
+
+  <section class="wrap home-head">
+    <p class="home-hello">For the Indian military &amp; their families</p>
+    <h1 class="home-title">Your shield against every <span class="grad-text">scam.</span></h1>
+  </section>
+
+  <section class="wrap home-actions" aria-label="Quick actions">
+    <a class="action-card gold" href="ai-analyzer.html">
+      <span class="ac-ico" data-icon="scan"></span>
+      <span class="ac-body"><b>Scan a message</b><span>Paste an SMS or WhatsApp and get a fraud verdict in seconds. It never leaves your phone.</span></span>
+      <span class="ac-chev" data-icon="chev"></span>
+    </a>
+    <a class="action-card red" href="emergency.html">
+      <span class="ac-ico" data-icon="phone"></span>
+      <span class="ac-body"><b>Been scammed? Act now</b><span>Call 1930 and follow the six steps — the first hour decides what comes back.</span></span>
+      <span class="ac-chev" data-icon="chev"></span>
+    </a>
+  </section>
+
+  <section class="wrap" id="install-row" hidden>
+    <div class="install-row">
+      <span class="li-ico teal" data-icon="install"></span>
+      <span class="li-body"><b>Install Shield Force</b><span>Opens from your home screen and works fully offline.</span></span>
+      <button class="btn btn-teal btn-sm" type="button" id="install-btn">Install</button>
+      <button class="install-x" type="button" id="install-dismiss" aria-label="Dismiss" data-icon="close"></button>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="ticker" aria-label="Live fraud alerts"><div class="rail" id="ticker-rail"></div></div>
+  </div>
+
+  <section class="wrap section">
+    <h2 class="sec-title">Explore</h2>
+    <div class="tiles">
+      <a class="tile" href="threat-map.html"><span class="t-ico blue" data-icon="map"></span><b>Threat map</b></a>
+      <a class="tile" href="scam-intel.html"><span class="t-ico" data-icon="shield"></span><b>Scam intel</b></a>
+      <a class="tile" href="training.html"><span class="t-ico teal" data-icon="cap"></span><b>Training</b></a>
+      <a class="tile" href="detection.html"><span class="t-ico violet" data-icon="eye"></span><b>Spot a scam</b></a>
+      <a class="tile" href="schemes.html"><span class="t-ico" data-icon="bank"></span><b>Defence schemes</b></a>
+      <a class="tile" href="reports.html"><span class="t-ico blue" data-icon="doc"></span><b>Field guides</b></a>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="sec-head-row">
+      <h2 class="sec-title">2026 at a glance</h2>
+      <a class="xlink gold" href="threat-map.html">Live map</a>
+    </div>
+    <div class="stat-grid" id="stat-grid"></div>
+  </section>
+
+  <section class="wrap section">
+    <div class="sec-head-row">
+      <h2 class="sec-title">Latest cases</h2>
+      <a class="xlink" href="scam-intel.html">All scams</a>
+    </div>
+    <div class="case-feed" id="case-feed"></div>
+  </section>
+
+  <p class="wrap small-print">
+    Shield Force is a community awareness initiative, not an official Government of India or Ministry
+    of Defence service. Figures and the case feed are representative training data built from
+    recurring, publicly reported fraud patterns — verify current statistics with I4C / NCRB.
+  </p>
+</main>
+<script src="js/data-scams.js"></script>
+<script src="js/data-feed.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

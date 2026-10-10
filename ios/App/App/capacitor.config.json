@@ -1,0 +1,26 @@
+{
+	"appId": "in.shieldforce.app",
+	"appName": "Shield Force",
+	"webDir": "www",
+	"backgroundColor": "#081020",
+	"loggingBehavior": "debug",
+	"android": {
+		"backgroundColor": "#081020",
+		"allowMixedContent": false,
+		"captureInput": false
+	},
+	"ios": {
+		"backgroundColor": "#081020",
+		"contentInset": "never",
+		"scrollEnabled": true,
+		"limitsNavigationsToAppBoundDomains": false
+	},
+	"plugins": {
+		"SystemBars": {
+			"style": "DARK",
+			"insetsHandling": "css",
+			"initialViewportFitValueHint": "cover"
+		}
+	},
+	"packageClassList": []
+}

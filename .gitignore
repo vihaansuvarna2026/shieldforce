@@ -1,1 +1,13 @@
+node_modules/
 store-kit/desktop/site/
+www/
+
+# Signing keys and store credentials — never commit these (this repository is public)
+*.jks
+*.keystore
+*.p12
+*.p8
+*.mobileprovision
+*.cer
+keystore.properties
+upload-key*

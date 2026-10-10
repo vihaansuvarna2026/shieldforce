@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Adaptive icon backdrop: the app's navy, lit from the top left like the app icon. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:startColor="#0F1F3D"
+        android:centerColor="#081020"
+        android:endColor="#040913"
+        android:type="linear" />
+</shape>

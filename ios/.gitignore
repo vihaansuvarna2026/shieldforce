@@ -1,0 +1,11 @@
+App/build
+App/Pods
+App/output
+DerivedData
+xcuserdata
+
+# Cordova plugins for Capacitor
+capacitor-cordova-ios-plugins
+
+# The web app (App/App/public) and its generated config are committed on purpose, so the
+# Xcode project builds as checked out. `npm run sync` refreshes them; CI checks they match.

@@ -1,0 +1,85 @@
+{
+  "name": "Shield Force — Scam Defence",
+  "short_name": "Shield Force",
+  "description": "Scan suspicious messages, learn the scams that target the Indian Armed Forces community, and act fast when fraud happens. Works offline; nothing you type leaves your device.",
+  "id": "/",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#081020",
+  "theme_color": "#081020",
+  "lang": "en-IN",
+  "categories": [
+    "education",
+    "security",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scan a message",
+      "short_name": "Scan",
+      "url": "ai-analyzer.html",
+      "description": "Check a suspicious SMS or WhatsApp",
+      "icons": [
+        {
+          "src": "assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Emergency — I've been scammed",
+      "short_name": "SOS",
+      "url": "emergency.html",
+      "description": "Call 1930 and the six response steps",
+      "icons": [
+        {
+          "src": "assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Training drills",
+      "short_name": "Training",
+      "url": "training.html",
+      "description": "Six quiz modules",
+      "icons": [
+        {
+          "src": "assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  },
+  "prefer_related_applications": false
+}

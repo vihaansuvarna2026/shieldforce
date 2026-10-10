@@ -1,9 +1,10 @@
 # Shield Force — Netlify deployment config
-# Static site: no build step, the repo root is what gets served.
+# The build copies just the app into www/ (no native projects, store kit or scripts) and
+# Netlify serves that folder. It is the same folder the Android and iOS apps are built from.
 
 [build]
-  publish = "."
-  command = ""
+  command = "npm run build"
+  publish = "www"
 
 # ---------------------------------------------------------------
 # Security headers
@@ -42,11 +43,11 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Fingerprint-free but rarely-changing assets: cache hard
+# Icons keep their file names between releases, so cache them for a day, not forever
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=86400"
 
 [[headers]]
   for = "/assets/reports/*"

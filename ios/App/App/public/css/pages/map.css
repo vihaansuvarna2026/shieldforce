@@ -1,0 +1,48 @@
+/* ============================================================
+   THREAT MAP
+   ============================================================ */
+.map-shell { display: grid; grid-template-columns: 1fr 330px; gap: 22px; align-items: start; }
+.map-panel { padding: 14px; position: relative; overflow: visible; }
+#india-map { width: 100%; height: auto; display: block; }
+#india-map .land {
+  fill: rgba(20, 38, 74, .75); stroke: rgba(125,165,255,.4); stroke-width: 1.6;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.5)) drop-shadow(0 0 14px rgba(77,159,255,.15));
+}
+#india-map .land-inner { fill: none; stroke: rgba(125,165,255,.12); stroke-width: 5; }
+.map-marker { cursor: pointer; }
+.map-marker .pulse { animation: mpulse 2.2s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+@keyframes mpulse { 0% { opacity: .8; transform: scale(.6);} 100% { opacity: 0; transform: scale(2.6);} }
+
+.map-pop {
+  position: absolute; z-index: 20; width: 264px; padding: 16px 18px;
+  background: rgba(8, 15, 30, .96); border: 1px solid var(--line-strong); border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  transform: translate(-50%, calc(-100% - 16px)); animation: popIn .25s cubic-bezier(.2,.9,.3,1.3);
+  pointer-events: auto;
+}
+.map-pop::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 12px; height: 12px;
+  background: inherit; border-right: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong);
+  transform: translateX(-50%) rotate(45deg); }
+@keyframes popIn { from { opacity: 0; transform: translate(-50%, calc(-100% - 4px)) scale(.9);} }
+.map-pop h4 { font-size: .92rem; display: flex; justify-content: space-between; gap: 8px; }
+.map-pop .x { cursor: pointer; color: var(--mut); font-weight: 900; }
+
+.map-pop p { font-size: .78rem; color: var(--mut); margin-top: 7px; }
+.map-pop .row { display: flex; justify-content: space-between; font-size: .76rem; margin-top: 8px; }
+.map-pop .row b { color: var(--gold); }
+.map-side { display: grid; gap: 16px; }
+.map-side .card { padding: 20px; }
+.legend-row { display: flex; align-items: center; gap: 11px; font-size: .82rem; color: var(--mut); padding: 6px 0; }
+.legend-row i { width: 12px; height: 12px; border-radius: 50%; flex: 0 0 auto; }
+#map-refresh-bar { height: 6px; border-radius: 6px; background: rgba(125,165,255,.12); overflow: hidden; margin-top: 10px; }
+#map-refresh-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), var(--gold)); border-radius: 6px; transition: width 1s linear; }
+.map-stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: .84rem; }
+.map-stat-row:last-child { border-bottom: none; }
+.map-stat-row b { color: var(--gold); font-variant-numeric: tabular-nums; }
+
+/* hover effects only where a mouse actually hovers — on touch they would
+   stick after a tap */
+@media (hover: hover) and (pointer: fine) {
+  .map-marker:hover .core { stroke: #fff; }
+  .map-pop .x:hover { color: var(--red); }
+}

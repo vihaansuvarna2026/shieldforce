@@ -1,0 +1,180 @@
+# Builds the Android and iOS apps on GitHub's machines and tests them.
+#
+#  • web      — builds www/ and checks the copy committed inside the Xcode project is current
+#  • android  — debug APK (install on a phone to try it) and the release AAB for Google Play.
+#               The AAB is signed only when the upload-key secrets are set (see
+#               store-kit/SUBMISSION-RUNBOOK.md); the key itself never enters the repository.
+#  • android-emulator — installs the APK on an emulator and walks through the app
+#  • ios      — compiles for real iPhones/iPads (unsigned) and launches it in the Simulator.
+#               Signing and the App Store upload happen in Xcode on a Mac.
+name: Build apps
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: apps-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web:
+    name: Web app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run sync
+      - name: Xcode project holds the current web app
+        run: |
+          if [ -n "$(git status --porcelain -- ios)" ]; then
+            git status --short -- ios
+            echo "::error::The web app inside ios/ is out of date. Run 'npm run sync' and commit."
+            exit 1
+          fi
+
+  android:
+    name: Android build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+      - run: npm ci
+      - run: npm run sync
+
+      - name: Load the upload key from repository secrets, if set
+        env:
+          KEYSTORE_B64: ${{ secrets.SF_UPLOAD_KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_B64" ]; then
+            echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/upload.jks"
+            echo "SF_UPLOAD_STORE_FILE=$RUNNER_TEMP/upload.jks" >> "$GITHUB_ENV"
+            echo "Release bundle will be signed with the upload key."
+          else
+            echo "::notice::No upload-key secrets set, so the release AAB is unsigned. Add them to upload to Google Play."
+          fi
+
+      - name: Build APK and AAB
+        working-directory: android
+        env:
+          SF_VERSION_CODE: ${{ github.run_number }}
+          SF_UPLOAD_STORE_PASSWORD: ${{ secrets.SF_UPLOAD_STORE_PASSWORD }}
+          SF_UPLOAD_KEY_ALIAS: ${{ secrets.SF_UPLOAD_KEY_ALIAS }}
+          SF_UPLOAD_KEY_PASSWORD: ${{ secrets.SF_UPLOAD_KEY_PASSWORD }}
+        run: ./gradlew --no-daemon assembleDebug bundleRelease
+
+      - name: Remove the decoded key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/upload.jks"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shieldforce-android-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shieldforce-android-aab
+          path: android/app/build/outputs/bundle/release/app-release.aab
+          retention-days: 30
+
+  android-emulator:
+    name: Android emulator test
+    needs: android
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: shieldforce-android-apk
+          path: apk
+      - name: Enable hardware acceleration for the emulator
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Install the test driver
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+        run: npm install --no-save --no-package-lock playwright@1.55.0
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_7
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
+          script: |
+            adb install -r apk/app-debug.apk
+            OUT=smoke node scripts/ci/android-smoke.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shieldforce-android-screens
+          path: smoke
+          retention-days: 14
+
+  ios:
+    name: iOS build
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Build for iPhone and iPad (unsigned)
+        run: |
+          xcodebuild -quiet -project ios/App/App.xcodeproj -scheme App -configuration Release \
+            -destination 'generic/platform=iOS' -derivedDataPath "$RUNNER_TEMP/device" \
+            CODE_SIGNING_ALLOWED=NO build
+
+      - name: Launch in the Simulator
+        run: |
+          xcodebuild -quiet -project ios/App/App.xcodeproj -scheme App -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath "$RUNNER_TEMP/sim" \
+            CODE_SIGNING_ALLOWED=NO build
+          APP="$RUNNER_TEMP/sim/Build/Products/Debug-iphonesimulator/App.app"
+          mkdir -p ios-screens
+          for MODEL in "iPhone" "iPad"; do
+            UDID=$(python3 scripts/ci/pick-simulator.py "$MODEL")
+            echo "$MODEL simulator: $UDID"
+            xcrun simctl boot "$UDID"
+            xcrun simctl bootstatus "$UDID" -b
+            xcrun simctl install "$UDID" "$APP"
+            xcrun simctl launch "$UDID" in.shieldforce.app
+            sleep 25
+            xcrun simctl io "$UDID" screenshot "ios-screens/$MODEL-first-launch.png"
+            # still running = it did not crash on launch
+            xcrun simctl spawn "$UDID" launchctl list | grep -q "in.shieldforce.app" \
+              || { echo "::error::Shield Force is not running on the $MODEL simulator"; exit 1; }
+            xcrun simctl shutdown "$UDID"
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shieldforce-ios-screens
+          path: ios-screens
+          retention-days: 14
