@@ -38,7 +38,7 @@
       `stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON_PATHS[name] || ""}</svg>`;
   }
 
-  const LOGO = `<span class="wordmark" aria-label="Shield Force"><b>SHIELD</b><em>FORCE</em><i>®</i></span>`;
+  const LOGO = `<span class="wordmark" aria-label="Shield Force"><b>SHIELD</b><em>FORCE</em><i>™</i></span>`;
 
   /* ---------------- where each screen sits in the app ---------------- */
   const TABS = [
@@ -253,7 +253,7 @@
 
     const bar = el.querySelector(".splash-bar-fill");
     const status = el.querySelector(".splash-status");
-    const msgs = ["Initializing Shield Grid…", "Loading threat intelligence…", "Syncing defence network…", "Ready."];
+    const msgs = ["Starting Shield Force…", "Loading scam intelligence…", "Preparing the on-device scanner…", "Ready."];
     requestAnimationFrame(() => requestAnimationFrame(() => {
       bar.style.transition = `width ${LOAD_MAX_MS}ms cubic-bezier(.2,.7,.2,1)`;
       bar.style.width = "100%";
@@ -438,7 +438,8 @@
   /* ---------------- install support ---------------- */
   let deferredPrompt = null;
   const install = {
-    standalone: () => NATIVE || matchMedia("(display-mode: standalone)").matches || navigator.standalone === true,
+    standalone: () => NATIVE || matchMedia("(display-mode: standalone)").matches || navigator.standalone === true ||
+      / Electron\//.test(navigator.userAgent),   // the Windows / Mac desktop build
     ios: () => /iphone|ipad|ipod/i.test(navigator.userAgent) ||
                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1),
     available: () => !!deferredPrompt,

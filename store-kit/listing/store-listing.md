@@ -1,7 +1,7 @@
 # Shield Force — Store Listing Copy
 
-Copy-paste these into App Store Connect / Play Console. Character limits are noted
-and all text below is already within them.
+Copy-paste these into Google Play Console and App Store Connect. Character limits are
+noted and every text below is already within them.
 
 ---
 
@@ -14,9 +14,12 @@ and all text below is already within them.
 ## Short description (Play, 80 char limit)
 `Fraud protection and training for Indian Armed Forces families.` *(63)*
 
+## Promotional text (Apple, 170 char limit — can be changed any time without review)
+`Spot the scams that target serving personnel, veterans and their families — and know exactly what to do in the first hour if one gets through.` *(142)*
+
 ---
 
-## Full description (Play: 4000 char limit / Apple description)
+## Full description (Play: 4000 char limit / Apple: 4000)
 
 Shield Force is a free awareness and training app built for the Indian Armed Forces
 community — serving personnel, veterans, veer naris and their families — who are
@@ -24,50 +27,58 @@ targeted by financial fraud at a far higher rate than the general public.
 
 WHAT'S INSIDE
 
-• Scam Intelligence — 8 decoded scam families targeting defence personnel, each with
-  step-by-step breakdowns of how the fraud works, real case patterns and protection drills.
+• Scam Intelligence — 8 decoded scam families targeting defence personnel, each with a
+  step-by-step breakdown of how the fraud works, typical case patterns and protection drills.
 
-• Shield AI Scanner — paste any suspicious SMS, WhatsApp or email text and get an instant
-  risk verdict with every red flag identified and explained. Runs entirely on your device;
-  your message is never uploaded.
+• Scam Scanner — paste any suspicious SMS, WhatsApp or email text and get an instant risk
+  verdict with every red flag identified and explained. It runs entirely on your device
+  using built-in detection rules; your message is never uploaded.
 
-• National Threat Map — scam incidents plotted across India, refreshed hourly, with
-  victim profile, loss and source for each incident.
+• Threat Map — a training map of the fraud patterns reported against the defence
+  community across India, with illustrative incidents that rotate every hour.
 
 • Fraud Anatomy — an interactive walkthrough of the six phases every financial fraud
   follows, with the counter-move for each phase.
 
-• Detection Lab — the seven signs of a scam, taught on real message specimens with red
-  flags highlighted and cross-referenced.
+• Detection Lab — the seven signs of a scam, taught on sample messages with the red
+  flags highlighted and explained.
 
-• Defence Schemes — 8 genuine financial schemes (AGIF, DSOP, SPARSH, ECHS, AFBCWF, PMSS,
-  AWWA, CSD) explained alongside the scams that impersonate each one.
+• Defence Schemes — 8 genuine welfare and financial schemes (AGIF, DSOP, SPARSH, ECHS,
+  AFBCWF, PMSS, AWWA, CSD) explained alongside the scams that impersonate each one.
 
 • Training Modules — 6 quiz modules with instant verdicts and explanations, so the
   patterns stick before an attacker uses them.
 
-• Emergency Response — one-tap 1930 helpline dialling, the Golden Window explained, and
-  the exact six steps to take in the first hour after a fraud.
+• Emergency Response — one-tap dialling of the 1930 cyber-fraud helpline, the Golden
+  Window explained, and the exact six steps to take in the first hour after a fraud.
 
-• Downloadable Reports — 5 print-ready PDF guides for briefings, notice boards and the
-  family fridge.
+• Field Guides — 5 print-ready PDF guides for briefings, notice boards and the family
+  fridge.
 
 WORKS OFFLINE
-After the first launch, every page, guide and PDF works without a connection.
+Everything works without a connection from the first launch. Only the PDF field guides
+need internet, because they open in your browser so you can save or print them.
 
 PRIVACY
-No account. No database. No tracking. No analytics. No data collection of any kind.
-Shield Force has no server that receives your information, so there is no store of user
-data that could be breached or shared. The AI scanner runs locally on your device and
-nothing you type ever leaves it.
+No account. No database. No tracking. No analytics. No ads. No data collection of any
+kind. Shield Force has no server that receives your information, so there is no store of
+user data that could be breached or shared. Nothing you type ever leaves your device.
 
-IMPORTANT
-Shield Force is an independent community awareness initiative. It is not affiliated with
-or endorsed by the Government of India, the Ministry of Defence or the Indian Armed
-Forces. Content is educational and is not financial, legal or cybersecurity advice.
-Statistics shown are representative training estimates, not live official figures —
-verify current figures with I4C / NCRB. In a real emergency call 1930 or visit
-cybercrime.gov.in.
+NOT A GOVERNMENT APP
+Shield Force is an independent community awareness initiative. It is not affiliated
+with, endorsed by or acting for the Government of India, the Ministry of Defence or the
+Indian Armed Forces. Content is educational and is not financial, legal or cybersecurity
+advice. Statistics, case feeds and map incidents are representative training material
+built from publicly reported fraud patterns, not live official data.
+
+Official sources referenced in the app:
+• National Cyber Crime Reporting Portal (I4C, Ministry of Home Affairs) — https://cybercrime.gov.in — helpline 1930
+• Sanchar Saathi (Department of Telecommunications) — https://sancharsaathi.gov.in
+• SPARSH defence pensions (Ministry of Defence) — https://sparsh.defencepension.gov.in
+• Kendriya Sainik Board — https://ksb.gov.in
+• Reserve Bank of India complaints — https://cms.rbi.org.in and Sachet — https://sachet.rbi.org.in
+
+In a real emergency call 1930 or report at cybercrime.gov.in.
 
 ---
 
@@ -76,59 +87,77 @@ cybercrime.gov.in.
 *(88 chars)*
 
 ## Category
-- **Apple primary:** Education · **secondary:** Reference
-- **Play:** Education
+- **Apple:** primary **Education**, secondary **Reference**
+- **Play:** **Education**; tags: Education, Safety
 
-## Content rating
-Everyone / 3+. Contains no violence, no user-generated content, no ads, no purchases,
-no gambling. The Play content-rating questionnaire should be answered "No" throughout;
-Apple age rating resolves to 4+.
-
----
-
-## Privacy declarations
-
-### Apple — App Privacy ("Data Not Collected")
-Select **"Data Not Collected"**. The app has no backend, no accounts, no analytics SDK,
-no advertising SDK, and no third-party trackers. Local storage holds only quiz scores
-and the terms-accepted flag, both of which stay on device and are never transmitted —
-this does not count as collection under Apple's definition.
-
-### Play — Data Safety form
-- Does your app collect or share any of the required user data types? → **No**
-- Is all user data encrypted in transit? → N/A (no data transmitted)
-- Do you provide a way for users to request data deletion? → N/A (no data collected);
-  state that clearing app storage erases the on-device quiz scores.
-
----
-
-## Required URLs
+## Contact details
 | Field | Value |
 |---|---|
-| Privacy policy | `https://<YOUR-DOMAIN>/privacy.html` |
-| Terms of use | `https://<YOUR-DOMAIN>/terms.html` |
-| Support contact | vihaanssuvarna@gmail.com |
-| Marketing/site URL | `https://<YOUR-DOMAIN>/` |
+| Support email (both stores) | vihaanssuvarna@gmail.com |
+| Support URL (Apple, required) | `https://shieldforce.netlify.app/contact.html` |
+| Marketing / website URL | `https://shieldforce.netlify.app/` |
+| Privacy policy URL (both, required) | `https://shieldforce.netlify.app/privacy.html` |
+| Terms of use / EULA (Apple, optional) | `https://shieldforce.netlify.app/terms.html` |
 
-Deployed on Netlify (replace with your actual subdomain once you claim it):
-`https://shieldforce.netlify.app/`
+> These assume your Netlify site is named `shieldforce`. If it has a different address,
+> use that everywhere above **and** change the one line `SF.siteUrl` in
+> `js/data-reports.js` (the apps open the PDF guides from there), then rebuild.
 
 ---
 
-## Review notes (paste into "Notes for Reviewer")
+## Google Play Console — "App content" answers
 
-Shield Force is a free, offline-capable educational app for the Indian defence community.
-No login is required — all features are immediately accessible on launch after accepting
-the terms screen.
+| Section | Answer |
+|---|---|
+| Privacy policy | the URL above |
+| App access | **All functionality is available without special access** |
+| Ads | **No, my app does not contain ads** |
+| Content rating | Category **Reference, News, or Educational**; answer **No** to every question → rated Everyone / PEGI 3 / IARC 3+ |
+| Target audience | **18 and over** (the content is written for adults; this also keeps the app outside the Families programme) |
+| News app | **No** |
+| Data safety | see below |
+| Government apps | **No** — not developed by or on behalf of a government |
+| Financial features | **My app doesn't provide any financial features** |
+| Health | **No health features** |
+| Advertising ID | **No** — the app does not use the advertising ID |
 
-The app collects no data of any kind. The "Shield AI" message scanner is a local,
-rule-based heuristic running in JavaScript on device; it performs no network requests and
-transmits nothing.
+### Data safety form
+- Does your app collect or share any of the required user data types? → **No**
+- Is all of the user data collected by your app encrypted in transit? → not asked once you answer No
+- Account creation → **My app does not allow users to create an account**
+- Data deletion → not required (nothing collected). Quiz scores stay on the device and are
+  cleared with **More → Reset training progress** or by uninstalling.
+
+---
+
+## App Store Connect answers
+
+| Section | Answer |
+|---|---|
+| App Privacy | **Data Not Collected** |
+| Age rating questionnaire | **None** for every item (no violence, mature themes, gambling, user content, messaging, web browsing or purchases) → **4+** |
+| Content rights | **No**, it does not contain, show or access third-party content |
+| Export compliance | answered automatically — the app declares it uses no non-exempt encryption |
+| Sign-in required | **No** — leave the demo account fields empty |
+| Pricing | **Free**, all countries or India only — your choice |
+| iPad / Mac | the app supports iPad; leave "Apple silicon Mac" availability on so Mac users get it too |
+
+---
+
+## Notes for the reviewer (paste into both stores)
+
+Shield Force is a free educational app for the Indian defence community. No login is
+required — every feature is available straight after the first-launch terms screen.
+
+The app collects no data of any kind and makes no network requests: all content ships
+inside the app and works offline. The message scanner is a rule-based analyser that runs
+on the device; nothing typed into it is transmitted. The only links that leave the app
+are to official government portals and the PDF field guides, which open in the system
+browser from the app's website.
 
 The app is an independent community initiative and is not affiliated with any government
-body. This is stated on the first-launch terms screen, on the Home screen, in the More
-screen, and in the Terms of Use.
-Statistics displayed are clearly labelled in-app as representative training estimates
-rather than official figures. Government portal names (SPARSH, KSB, cybercrime.gov.in)
-are referenced descriptively for educational purposes and link to the genuine official
-sites.
+body. This is stated on the first-launch terms screen, on the Home screen, on the More
+screen, in the Terms of Use and in the store description. Statistics, the case feed and
+the threat map are labelled in the app as representative training material, not official
+or live figures. Government portals (cybercrime.gov.in, Sanchar Saathi, SPARSH, KSB, RBI)
+are named for educational purposes and link only to their genuine official sites.

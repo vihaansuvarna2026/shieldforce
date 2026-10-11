@@ -1,4 +1,4 @@
-/* Shield Force — content data: live feed (cities, victims, sources, stats, ticker)
+/* Shield Force — content data: training feed (cities, victims, sources, stats, ticker)
    Split per page so each page downloads only what it renders. */
 (function () {
   "use strict";
@@ -72,7 +72,7 @@
     { t: "Advance-fee trap on 'army auction' bikes page", s: "impersonation" },
     { t: "Collect-request fraud posed as canteen refund", s: "fake-upi" }
   ];
-  /* Deterministic PRNG so 'live' feeds update on schedule but stay stable within the hour */
+  /* Deterministic PRNG so the training feeds rotate hourly but stay stable within the hour */
   function mulberry32(seed) {
     return function () {
       seed |= 0; seed = (seed + 0x6D2B79F5) | 0;

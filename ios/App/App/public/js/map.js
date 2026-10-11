@@ -1,4 +1,4 @@
-/* Shield Force — hourly-syncing India threat map */
+/* Shield Force — India threat map: illustrative incidents, rotated hourly */
 (function () {
   "use strict";
 
@@ -168,7 +168,7 @@
       const last = new Date(seed * HOUR);
       document.getElementById("map-last").textContent =
         last.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" });
-      if (window.SFX && seedInitDone) SFX.toast("🛰 Threat grid re-synced with the latest hourly picture");
+      if (window.SFX && seedInitDone) SFX.toast("🛰 Training grid rotated to this hour's scenarios");
     }
     seedInitDone = true;
   }

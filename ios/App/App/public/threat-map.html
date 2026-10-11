@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Threat Map — Shield Force</title>
-  <meta name="description" content="Live hourly-updated map of scam incidents targeting military personnel across India.">
+  <meta name="description" content="Training map of the scam patterns that target military personnel across India, rotated hourly.">
   <meta name="theme-color" content="#081020">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,9 +22,9 @@
 <body data-page="map" data-screen="threat-map">
 <main>
   <header class="page-head wrap">
-    <span class="kicker">Live Grid • Hourly Sync</span>
+    <span class="kicker">Training Grid • Rotates Hourly</span>
     <h1 class="page-title">National <span class="grad-text">Threat Map</span></h1>
-    <p class="page-sub">Scam incidents against the defence community across India, refreshed hourly. Tap a marker for details.</p>
+    <p class="page-sub">Illustrative incidents built from the fraud patterns reported against the defence community across India, rotated hourly. Tap a marker for details.</p>
   </header>
 
   <section class="section" style="padding-top:20px">
@@ -46,9 +46,9 @@
 
         <aside class="map-side">
           <div class="card rv">
-            <h3 style="font-size:1rem;margin-bottom:4px">⏱ Grid Sync</h3>
-            <p style="font-size:.8rem;color:var(--mut)">Last sync <b id="map-last" style="color:var(--txt)">—</b></p>
-            <p style="font-size:.8rem;color:var(--mut)">Next refresh in <b id="map-next" style="color:var(--gold)">—</b></p>
+            <h3 style="font-size:1rem;margin-bottom:4px">⏱ Scenario rotation</h3>
+            <p style="font-size:.8rem;color:var(--mut)">Rotated at <b id="map-last" style="color:var(--txt)">—</b></p>
+            <p style="font-size:.8rem;color:var(--mut)">Next rotation in <b id="map-next" style="color:var(--gold)">—</b></p>
             <div id="map-refresh-bar"><i style="width:0%"></i></div>
           </div>
           <div class="card rv">

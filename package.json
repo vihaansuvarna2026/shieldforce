@@ -10,7 +10,9 @@
     "sync": "node scripts/build-www.mjs && cap sync",
     "open:android": "cap open android",
     "open:ios": "cap open ios",
-    "icons": "node scripts/make-icons.mjs"
+    "icons": "node scripts/make-icons.mjs",
+    "store-assets": "node scripts/build-www.mjs && node scripts/make-store-assets.mjs",
+    "desktop": "node scripts/build-www.mjs && node -e \"const f=require('fs');f.rmSync('store-kit/desktop/site',{recursive:true,force:true});f.cpSync('www','store-kit/desktop/site',{recursive:true})\""
   },
   "dependencies": {
     "@capacitor/android": "8.5.3",

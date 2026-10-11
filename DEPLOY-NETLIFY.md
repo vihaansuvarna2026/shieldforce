@@ -8,7 +8,8 @@ Option B is better long-term because every future `git push` redeploys automatic
 ## Option A — Drag and drop (fastest)
 
 1. Unzip `shieldforce-netlify.zip` (sent to you separately) so you have a folder
-   containing `index.html` at its top level.
+   containing `index.html` at its top level. (To make it yourself: `npm run build` and use
+   the `www` folder, with `netlify.toml` copied into it.)
 2. Go to **[app.netlify.com/drop](https://app.netlify.com/drop)**
 3. **Drag the folder** onto the drop zone.
 4. Done — Netlify gives you a live URL immediately, something like
@@ -31,14 +32,13 @@ Netlify assigns a random subdomain. To change it:
 
 1. Go to **[app.netlify.com](https://app.netlify.com)** → **Add new site** → **Import an existing project**
 2. Choose **GitHub**, authorise Netlify, pick **`vihaansuvarna2026/shieldforce`**
-3. Set:
-   - **Branch to deploy:** `claude/military-scam-awareness-site-y1xz1s`
-   - **Build command:** *leave empty*
-   - **Publish directory:** `.` (just a dot)
+3. Set **Branch to deploy:** `claude/military-scam-awareness-site-y1xz1s`. Leave the build
+   command and publish directory as Netlify fills them in from `netlify.toml`
+   (`npm run build` and `www`).
 4. **Deploy site**
 
-`netlify.toml` in the repo already sets the correct headers, so there is nothing else to
-configure. From then on, any push to that branch redeploys the site automatically.
+`netlify.toml` sets the build, the publish folder and the headers, so there is nothing else
+to configure. From then on, any push to that branch redeploys the site automatically.
 
 ---
 
@@ -49,7 +49,7 @@ Open the URL on your phone and confirm:
 - [ ] Loading screen → terms gate appears on first visit
 - [ ] Browser offers **Add to Home Screen** / install
 - [ ] Tapping **1930** opens the dialler
-- [ ] A PDF downloads from the Reports page
+- [ ] A PDF downloads from More → Field guides
 
 Then, to test offline: open the site, turn on airplane mode, reopen it. It should still work.
 
@@ -73,20 +73,20 @@ If you buy a domain (e.g. `shieldforce.in`, ~₹800/yr):
 **Domain management → Add a domain** → follow the DNS steps. Netlify issues the HTTPS
 certificate free and automatically.
 
-**If you do this after submitting to the app stores**, remember to update the URL in your
-store listings and in `store-kit/android-twa/twa-manifest.json`, and re-generate
-`.well-known/assetlinks.json` for the new domain — otherwise the Android app will show a
-browser address bar.
+**If you change the address after the apps are published**, update the URLs in your store
+listings and the line `SF.siteUrl` in `js/data-reports.js` (the store apps open the PDF
+field guides from it), then upload new builds. Keep the old address working until those
+updates are out.
 
 ---
 
-## Note for the app-store step
+## Why the store apps need this site
 
-`store-kit/android-twa/twa-manifest.json` is already pointed at
-`https://shieldforce.netlify.app`. **If your actual Netlify subdomain ends up different,
-search-replace it in that file** before running Bubblewrap, or the Android build will
-verify against the wrong host.
+The Android and iOS apps contain the whole app and never need the website to run, but:
 
-For Digital Asset Links, the file must end up served at:
-`https://<your-subdomain>.netlify.app/.well-known/assetlinks.json`
-Put it at `.well-known/assetlinks.json` in the repo root and Netlify serves it as-is.
+- both stores require a public **privacy policy** address — `/privacy.html` here;
+- the apps open the **PDF field guides** from `https://shieldforce.netlify.app/assets/reports/`
+  in the phone's browser, because app web views cannot save files.
+
+So deploy the site under the name `shieldforce` before submitting, or change `SF.siteUrl`
+to wherever it lives.

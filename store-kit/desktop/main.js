@@ -9,7 +9,7 @@ function createWindow() {
     minHeight: 560,
     backgroundColor: "#081020",
     title: "Shield Force",
-    icon: path.join(__dirname, "build", process.platform === "win32" ? "icon.ico" : "icon.png"),
+    icon: path.join(__dirname, "build", "icon.png"),
     webPreferences: { contextIsolation: true, nodeIntegration: false },
   });
 

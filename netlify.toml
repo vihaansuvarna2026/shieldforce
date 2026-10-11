@@ -6,6 +6,9 @@
   command = "npm run build"
   publish = "www"
 
+[build.environment]
+  NODE_VERSION = "22"
+
 # ---------------------------------------------------------------
 # Security headers
 # ---------------------------------------------------------------
