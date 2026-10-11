@@ -64,10 +64,19 @@ check((await path()).includes("scam-detail.html?id="), "a scam opens its detail 
 await shot("3-detail");
 
 // system Back walks back through screens instead of quitting
-await back(); await settle();
-check((await path()).endsWith("scam-intel.html"), "Back returns to the Intel list");
-await back(); await settle();
-check(/\/(index\.html)?$/.test(await path()), "Back again returns Home");
+const reaches = async (re) => {           // navigation after Back is asynchronous
+  for (let i = 0; i < 32; i++) { if (re.test(await path().catch(() => ""))) return true; await wait(250); }
+  return false;
+};
+await back();
+check(await reaches(/scam-intel\.html$/), "Back returns to the Intel list");
+await wait(600);
+await back();
+check(await reaches(/\/(index\.html)?$/), "Back again returns Home");
+await wait(600);
+await back(); await wait(1500);
+const top = await device.shell("dumpsys activity activities | grep -E 'topResumedActivity|mResumedActivity'");
+check(!top.toString().includes(PKG), "Back on Home leaves the app like any other app");
 
 // a second launch skips the gate
 await device.shell(`am force-stop ${PKG}`);
