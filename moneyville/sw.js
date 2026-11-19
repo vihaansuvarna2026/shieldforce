@@ -1,5 +1,5 @@
 /* MoneyVille service worker — cache-first for offline classroom use. */
-const CACHE = "moneyville-v2";
+const CACHE = "moneyville-v3";
 const ASSETS = [
   "./",
   "./index.html",
@@ -7,6 +7,9 @@ const ASSETS = [
   "./dist/moneyville.min.js",
   "./manifest.webmanifest",
   "./icon.svg",
+  "./icon-192.png",
+  "./icon-512.png",
+  "./icon-maskable-512.png",
 ];
 
 self.addEventListener("install", (e) => {

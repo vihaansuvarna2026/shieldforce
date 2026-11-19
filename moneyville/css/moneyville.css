@@ -1411,3 +1411,62 @@ body { overflow-wrap: break-word; }
   .screen { padding-left: .5rem; padding-right: .5rem; }
   .stage { padding: .7rem .55rem; }
 }
+
+/* =============================================================================
+   ★ TOUCH TARGETS (Android/Material: 48dp minimum)
+   Scoped to coarse pointers, so pointing devices keep the compact look while
+   anything tapped by a finger — and this game is tapped by small fingers —
+   gets a target you can actually hit.
+   ============================================================================= */
+@media (pointer: coarse) {
+  .btn            { min-height: 48px; }
+  .btn-sm,
+  .btn-danger     { min-height: 44px; }
+  .step-btn       { width: 48px; height: 48px; font-size: 1.5rem; }
+  .scam-btn,
+  .sub-toggle,
+  .sort-btn       { min-height: 48px; }
+  .mode-select    { min-height: 48px; }
+  .flag-chip      { min-height: 44px; display: inline-flex; align-items: center; }
+  .swatch         { width: 44px; height: 44px; }
+  .avatar-opt     { min-height: 48px; }
+  .qbtn           { min-height: 44px; }
+  .nav-btn        { min-height: 48px; }
+  .link-back      { min-height: 44px; display: inline-flex; align-items: center; padding: .4rem .2rem; }
+  .brand          { min-height: 44px; }
+  .choice-card,
+  .pick-card,
+  .shop-option    { min-height: 48px; }
+
+  /* Range inputs: a 8px-tall bar is unusable with a finger. Keep the track
+     slim visually but give the control a full-height hit area and a big thumb. */
+  .slider { height: 44px; background: transparent; }
+  .slider::-webkit-slider-runnable-track {
+    height: 12px; border-radius: 999px; background: #e2e8f0;
+  }
+  .slider::-moz-range-track { height: 12px; border-radius: 999px; background: #e2e8f0; }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 30px; height: 30px; margin-top: -9px;
+    border-radius: 50%; background: var(--blue); border: 3px solid #fff;
+    box-shadow: 0 2px 4px rgba(15,23,42,.3);
+  }
+  .slider::-moz-range-thumb {
+    width: 30px; height: 30px; border-radius: 50%; background: var(--blue);
+    border: 3px solid #fff; box-shadow: 0 2px 4px rgba(15,23,42,.3);
+  }
+}
+
+/* =============================================================================
+   ★ Business level: the control row must wrap on phones.
+   `.biz-control` was display:flex with NO flex-wrap, while the mobile rules
+   give its <label> min-width:100%. The label then took the whole row and
+   pushed the Basic/Good/Premium buttons outside the card, stretching the page
+   to ~900px on a 412px screen. Wrapping fixes it.
+   ============================================================================= */
+.biz-control  { flex-wrap: wrap; }
+.biz-quality  { flex-wrap: wrap; }
+
+/* Colour swatches were shrinking to 25px in the flex row — stop them
+   shrinking and let the row wrap instead. */
+.colour-row { flex-wrap: wrap; }
+.swatch     { flex: 0 0 auto; }
