@@ -178,33 +178,7 @@ p { margin: 0; }
 .building-icon { font-size: 2.4rem; line-height: 1; }
 .building-name { font-weight: 800; margin-top: .35rem; font-size: .95rem; }
 .building-desc { font-size: .72rem; color: var(--muted); margin-top: .2rem; min-height: 2.2em; }
-
-/* ---- Level path --------------------------------------------------------- */
-.level-list { display: flex; flex-direction: column; gap: .7rem; }
-.level-card {
-  display: flex; align-items: center; gap: .9rem;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: .8rem 1rem; box-shadow: var(--shadow-sm); transition: box-shadow .15s ease, transform .15s ease;
-}
-.level-card.open { border-left: 5px solid var(--blue); }
-.level-card.done { border-left: 5px solid var(--green); background: linear-gradient(90deg, #f0fdf4, #fff 30%); }
-.level-card.locked { opacity: .6; }
-.level-card.flash { animation: flash 1.2s ease; }
 @keyframes flash { 0%,100%{box-shadow:var(--shadow-sm)} 30%{box-shadow:0 0 0 4px #93c5fd} }
-.level-num {
-  width: 40px; height: 40px; flex: none; border-radius: 12px;
-  display: grid; place-items: center; font-weight: 800; font-size: 1.1rem;
-  background: linear-gradient(135deg, var(--blue), var(--indigo)); color: #fff;
-}
-.level-card.done .level-num { background: linear-gradient(135deg, var(--green), var(--teal)); }
-.level-card.locked .level-num { background: #cbd5e1; }
-.level-icon { font-size: 1.9rem; }
-.level-info { flex: 1 1 auto; min-width: 0; }
-.level-title { font-weight: 800; }
-.level-concept { color: var(--muted); font-size: .84rem; }
-.level-building { font-size: .74rem; color: var(--ink-2); margin-top: .15rem; }
-.level-right { display: flex; align-items: center; gap: .6rem; flex: none; }
-.level-locked-note { color: var(--muted); font-size: .8rem; font-weight: 700; }
 .town-foot { text-align: center; color: var(--muted); font-size: .78rem; margin-top: 2rem; }
 
 /* ---- Stars -------------------------------------------------------------- */
@@ -621,8 +595,7 @@ p { margin: 0; }
 /* ---- Accessibility & motion -------------------------------------------- */
 :where(button, select, input, a):focus-visible { outline: 3px solid var(--indigo); outline-offset: 2px; border-radius: 8px; }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
-}
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }}
 
 /* ---- Responsive --------------------------------------------------------- */
 @media (max-width: 640px) {
@@ -633,11 +606,9 @@ p { margin: 0; }
   .biz-log-row { grid-template-columns: auto 1fr auto; }
   .biz-log-row span:nth-child(3), .biz-log-row span:nth-child(4) { display: none; }
   .level-actions .btn { min-width: 100%; }
-  .slider-row label, .biz-control label { min-width: 100%; }
-}
+  .slider-row label, .biz-control label { min-width: 100%; }}
 @media (min-width: 900px) {
-  .results { max-width: 620px; margin: 0 auto; }
-}
+  .results { max-width: 620px; margin: 0 auto; }}
 
 /* =============================================================================
    Kid-friendly type scale
@@ -656,9 +627,6 @@ p { margin: 0; }
 .who-name        { font-size: .92rem; }
 .tag             { font-size: .72rem; }
 .building-desc   { font-size: .84rem; }
-.level-concept   { font-size: .94rem; }
-.level-building  { font-size: .84rem; }
-.level-locked-note { font-size: .9rem; }
 .welcome-sub     { font-size: 1rem; }
 .alloc-hint      { font-size: .86rem; }
 .alloc-min       { font-size: .84rem; }
@@ -733,8 +701,7 @@ p { margin: 0; }
 @media (max-width: 420px) {
   html { font-size: 106%; }
   .alloc-val { min-width: 4rem; font-size: 1rem; }
-  .shop-price { font-size: 1.15rem; }
-}
+  .shop-price { font-size: 1.15rem; }}
 
 /* =============================================================================
    Colour system — bring the whole palette in without losing legibility.
@@ -826,35 +793,6 @@ body {
 .stat-pill.growth  { background: linear-gradient(135deg, #e6fffb, #ffffff); border-color: #99f6e4; }
 .stat-pill.hud-xp  { background: linear-gradient(135deg, #fffbeb, #ffffff); border-color: #fde68a; }
 .stat-pill.hud-lvl { background: linear-gradient(135deg, #f5f3ff, #ffffff); border-color: #ddd6fe; }
-
-/* ---- Per-level accents: the journey becomes a colourful path ----------- */
-.level-list .level-card { --accent: var(--blue); --accent-tint: #e8f1ff; }
-.level-list .level-card:nth-child(1)  { --accent: #3b82f6; --accent-tint: #e8f1ff; }
-.level-list .level-card:nth-child(2)  { --accent: #ec4899; --accent-tint: #ffe9f4; }
-.level-list .level-card:nth-child(3)  { --accent: #14b8a6; --accent-tint: #e2fbf7; }
-.level-list .level-card:nth-child(4)  { --accent: #f59e0b; --accent-tint: #fff4de; }
-.level-list .level-card:nth-child(5)  { --accent: #a855f7; --accent-tint: #f5eaff; }
-.level-list .level-card:nth-child(6)  { --accent: #22c55e; --accent-tint: #e7fbef; }
-.level-list .level-card:nth-child(7)  { --accent: #fb923c; --accent-tint: #fff0e4; }
-.level-list .level-card:nth-child(8)  { --accent: #38bdf8; --accent-tint: #e5f6ff; }
-.level-list .level-card:nth-child(9)  { --accent: #6366f1; --accent-tint: #ececff; }
-.level-list .level-card:nth-child(10) { --accent: #ef4444; --accent-tint: #ffeaea; }
-.level-card {
-  border-left: 7px solid var(--accent);
-  background: linear-gradient(100deg, var(--accent-tint) 0%, #ffffff 42%);
-}
-/* A finished level keeps its own colour — completion is shown by the green
-   number badge and the stars, not by repainting every card the same green. */
-.level-card.done { background: linear-gradient(100deg, var(--accent-tint) 0%, #ffffff 42%); border-left-color: var(--accent); }
-.level-card.locked { background: linear-gradient(100deg, #eef2f6 0%, #ffffff 45%); border-left-color: #cbd5e1; }
-.level-icon {
-  background: var(--accent-tint); border-radius: 14px;
-  width: 2.6rem; height: 2.6rem; display: grid; place-items: center; flex: none;
-}
-.level-card.locked .level-icon { background: #eef2f6; }
-.level-num { background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, #1e293b)); }
-.level-card.done .level-num { background: linear-gradient(135deg, var(--green), var(--teal)); }
-.level-card.locked .level-num { background: #cbd5e1; }
 
 /* ---- Buildings: each one its own colour -------------------------------- */
 .town-scene { background: linear-gradient(180deg, #cfeaff 0%, #e8f6ff 38%, #dcf7e6 100%); }
@@ -953,25 +891,6 @@ body {
   .welcome-avatar { font-size: 2.6rem; }
   .town-scene { border-radius: 22px; padding: .7rem; gap: .6rem; }
   .building { border-radius: 16px; padding: .7rem .45rem; }
-  /* Level cards: give the title room by moving stars + button to their own
-     row, instead of squeezing five things onto one line. */
-  .level-card {
-    border-radius: 18px; padding: .7rem .8rem; gap: .45rem .6rem;
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    grid-template-areas: "num icon info" "right right right";
-    align-items: center;
-  }
-  .level-num   { grid-area: num; width: 36px; height: 36px; font-size: 1rem; }
-  .level-icon  { grid-area: icon; width: 2.3rem; height: 2.3rem; font-size: 1.6rem; }
-  .level-info  { grid-area: info; }
-  .level-title { font-size: 1.05rem; line-height: 1.25; }
-  .level-right {
-    grid-area: right; width: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding-top: .15rem; border-top: 1px dashed rgba(15,23,42,.08);
-  }
-  .level-right .btn { padding: .5rem 1.1rem; }
   .town-scene { grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); }
   .scn-card { border-radius: 20px; padding: 1rem .9rem; }
   .pick-grid { gap: .5rem; }
@@ -979,8 +898,7 @@ body {
   .app-header {
     background: linear-gradient(120deg, #eef5ff, #f7edff 60%, #e9fbf3);
     border-bottom-color: #cfe0f5;
-  }
-}
+  }}
 
 /* =============================================================================
    ★ THEME: "MoneyVille Arcade" — a chunky, tactile tablet app
@@ -1023,12 +941,8 @@ body {
   letter-spacing: -.005em;
 }
 h1, h2, h3, h4 { letter-spacing: -.02em; }
-
 /* ---- Panels become solid cards with a thick edge and a hard shadow ----- */
-.stage, .welcome, .town-scene, .level-card, .badge-card, .dash-tile,
-.scn-card, .modal-box, .onboard-card, .room-preview,
-.dash-practice, .dash-teacher, .dash-data, .goal-tracker,
-.infl-chart, .invest-events, .twist-card, .biz-forecast {
+.stage, .welcome, .town-scene, .badge-card, .dash-tile, .scn-card, .modal-box, .onboard-card, .room-preview, .dash-practice, .dash-teacher, .dash-data, .goal-tracker, .infl-chart, .invest-events, .twist-card, .biz-forecast{
   border-width: 3px; border-style: solid;
 }
 .stage {
@@ -1131,38 +1045,6 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
 .scn-choice:active { transform: translateY(3px); box-shadow: 0 1px 0 #e9f1fb; }
 .scn-dot.now { background: #2d7dff; }
 
-/* ---- Level cards as bold colour blocks --------------------------------- */
-.level-card {
-  border: 3px solid var(--accent);
-  border-left-width: 3px;
-  background: var(--accent-tint);
-  border-radius: 22px;
-  box-shadow: 0 6px 0 rgba(22,35,63,.10);
-}
-.level-card.done   { background: var(--accent-tint); border-color: var(--accent); }
-.level-card.locked { background: #eef3f9; border-color: #cfdbe9; box-shadow: 0 5px 0 #e2e9f2; }
-.level-num {
-  border-radius: 16px; color: #fff; border: 0;
-  background: var(--accent); box-shadow: 0 3px 0 rgba(0,0,0,.18);
-}
-.level-card.done .level-num { background: #22c55e; }
-.level-card.locked .level-num { background: #b9c6d6; }
-.level-icon { background: rgba(255,255,255,.92); box-shadow: 0 2px 0 rgba(0,0,0,.07); }
-.level-title { color: var(--ink); }
-.level-concept, .level-building { color: var(--ink-2); }
-
-/* Bolder accent tints so each level reads as its own colour */
-.level-list .level-card:nth-child(1)  { --accent:#2d7dff; --accent-tint:#d6e8ff; }
-.level-list .level-card:nth-child(2)  { --accent:#ec4899; --accent-tint:#ffd9ec; }
-.level-list .level-card:nth-child(3)  { --accent:#14b8a6; --accent-tint:#c2f4ec; }
-.level-list .level-card:nth-child(4)  { --accent:#f59e0b; --accent-tint:#ffeac2; }
-.level-list .level-card:nth-child(5)  { --accent:#8b5cf6; --accent-tint:#e9d9ff; }
-.level-list .level-card:nth-child(6)  { --accent:#22c55e; --accent-tint:#c4f6d6; }
-.level-list .level-card:nth-child(7)  { --accent:#fb7185; --accent-tint:#ffdbe1; }
-.level-list .level-card:nth-child(8)  { --accent:#0ea5e9; --accent-tint:#c6e9ff; }
-.level-list .level-card:nth-child(9)  { --accent:#6366f1; --accent-tint:#dcdcff; }
-.level-list .level-card:nth-child(10) { --accent:#f97316; --accent-tint:#ffe0c2; }
-
 /* ---- Town: a real place, with a sky and grass -------------------------- */
 .town-scene {
   background: linear-gradient(180deg, #7fd4ff 0%, #bfeaff 45%, #9ae6b4 100%);
@@ -1243,7 +1125,9 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
   .hud-stats { display: flex; flex-direction: column; gap: .5rem; }
   .hud-stats .stat-pill { width: 100%; }
   .header-right { margin-left: 0; flex-direction: column; align-items: stretch; gap: .6rem; }
-  .mode-select { width: 100%; }
+  /* The sidebar is narrow and the longest mode label is "Explorer (11–12)",
+     so leave the native arrow its own gutter instead of letting it clip. */
+  .mode-select { width: 100%; font-size: .76rem; padding: .5rem 1.9rem .5rem .7rem; }
   .app-nav { display: grid; grid-template-columns: 1fr; gap: .45rem; }
   .nav-btn { flex-direction: row; justify-content: flex-start; gap: .6rem; padding: .6rem .8rem; }
   .nav-lbl { font-size: .9rem; text-transform: none; letter-spacing: 0; }
@@ -1251,34 +1135,11 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
   .who-name { display: inline; max-width: none; font-size: 1rem; }
 
   .screen { margin-left: 236px; max-width: 980px; padding-top: 1.4rem; }
-
-  /* The two-up colour pathway. Inside each card the badge + icon sit on their
-     own row so the TITLE gets the full card width — that was the actual bug
-     when this grid wrapped titles a word at a time. */
-  .level-list { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; align-items: start; }
-  .level-card {
-    display: grid; gap: .4rem .6rem; align-items: center;
-    grid-template-columns: auto auto 1fr;
-    grid-template-areas:
-      "num  icon ."
-      "info info info"
-      "right right right";
-  }
-  .level-num { grid-area: num; } .level-icon { grid-area: icon; }
-  .level-info { grid-area: info; }
-  .level-right {
-    grid-area: right; width: 100%; display: flex; align-items: center;
-    justify-content: space-between; padding-top: .3rem;
-    border-top: 2px dashed rgba(22,35,63,.10);
-  }
   .town-scene { grid-template-columns: repeat(3, 1fr); }
-  .level-shell { max-width: 820px; }
-}
+  .level-shell { max-width: 820px; }}
 
 @media (min-width: 1180px) {
-  .screen { max-width: 1120px; }
-  .level-list { grid-template-columns: repeat(2, 1fr); }
-}
+  .screen { max-width: 1120px; }}
 
 /* =============================================================================
    ★ Phone: the same app, with a native bottom tab bar instead of a cramped
@@ -1321,8 +1182,7 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
   .app-nav .nav-btn:hover { background: #eaf3ff; }
   .nav-lbl { display: block; font-size: .68rem; font-weight: 800; letter-spacing: .01em; color: var(--ink-2); }
   /* keep content clear of the tab bar */
-  .screen { padding-bottom: 6rem; }
-}
+  .screen { padding-bottom: 6rem; }}
 
 /* =============================================================================
    ★ iPad: larger type across the board — kids read this at arm's length on a
@@ -1342,8 +1202,7 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
   .section-title { font-size: 1.5rem; }
   .btn-lg { font-size: 1.2rem; }
   .stat-value { font-size: 1.1rem; }
-  .alloc-val { font-size: 1.15rem; }
-}
+  .alloc-val { font-size: 1.15rem; }}
 
 /* Section headings: a solid colour tab rather than an emoji marker */
 .section-title::before { height: 1.1em; border-radius: 6px; }
@@ -1358,18 +1217,12 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
      3) grid cells sized for the largest glyphs at the tablet type scale.
    ============================================================================= */
 body { overflow-wrap: break-word; }
-
-.level-info, .alloc-main, .sub-main, .invest-main, .sort-item-main,
-.pick-card, .badge-card, .choice-card, .shop-option, .dash-tile,
-.stat-body, .welcome-body, .scn-card, .results-cat {
+.alloc-main, .sub-main, .invest-main, .sort-item-main, .pick-card, .badge-card, .choice-card, .shop-option, .dash-tile, .stat-body, .welcome-body, .scn-card, .results-cat{
   min-width: 0;
 }
 /* break-word (not `anywhere`) so words only split when they genuinely cannot
    fit — `anywhere` was chopping names mid-word and looked wrong. */
-.badge-name, .badge-desc, .pick-name, .pick-note, .choice-name, .choice-price,
-.shop-store, .shop-note, .sub-name, .sub-note, .invest-name, .sort-name,
-.alloc-name, .level-title, .building-name, .building-desc, .dash-label,
-.stat-value, .scn-choice, .results-cat-top {
+.badge-name, .badge-desc, .pick-name, .pick-note, .choice-name, .choice-price, .shop-store, .shop-note, .sub-name, .sub-note, .invest-name, .sort-name, .alloc-name, .building-name, .building-desc, .dash-label, .stat-value, .scn-choice, .results-cat-top{
   overflow-wrap: break-word;
 }
 /* Avatar cells must fit an emoji at the tablet type scale */
@@ -1384,8 +1237,7 @@ body { overflow-wrap: break-word; }
   }
   .sub-row > .sub-icon   { grid-area: icon; }
   .sub-row > .sub-main   { grid-area: main; }
-  .sub-row > .sub-toggle { grid-area: btn; width: 100%; }
-}
+  .sub-row > .sub-toggle { grid-area: btn; width: 100%; }}
 
 /* =============================================================================
    ★ Device-matrix fixes (found testing 21 real phone/tablet viewports)
@@ -1409,8 +1261,7 @@ body { overflow-wrap: break-word; }
   .scam-actions, .sort-choices { flex-direction: column; }
   .scam-actions .scam-btn, .sort-choices .sort-btn { width: 100%; }
   .screen { padding-left: .5rem; padding-right: .5rem; }
-  .stage { padding: .7rem .55rem; }
-}
+  .stage { padding: .7rem .55rem; }}
 
 /* =============================================================================
    ★ TOUCH TARGETS (Android/Material: 48dp minimum)
@@ -1453,8 +1304,7 @@ body { overflow-wrap: break-word; }
   .slider::-moz-range-thumb {
     width: 30px; height: 30px; border-radius: 50%; background: var(--blue);
     border: 3px solid #fff; box-shadow: 0 2px 4px rgba(15,23,42,.3);
-  }
-}
+  }}
 
 /* =============================================================================
    ★ Business level: the control row must wrap on phones.
@@ -1470,3 +1320,118 @@ body { overflow-wrap: break-word; }
    shrinking and let the row wrap instead. */
 .colour-row { flex-wrap: wrap; }
 .swatch     { flex: 0 0 auto; }
+
+/* =============================================================================
+   ★ JOURNEY MAP — a winding road through MoneyVille, one stop per level.
+   Stop positions and the road are percentages of the map box, so phone and
+   tablet render the SAME map at different scales rather than two different
+   layouts. Only the current stop carries a name label, so labels can never
+   collide with neighbouring stops.
+   ============================================================================= */
+.journey {
+  position: relative; height: 52rem;
+  border: 3px solid #5bc0f0; border-radius: 26px; overflow: hidden;
+  box-shadow: 0 6px 0 #4aa8d8, 0 18px 34px rgba(22,35,63,.14);
+}
+.journey-scene {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+  background: linear-gradient(180deg,#8fd8ff 0%,#bfeaff 12%,#7fd0f5 17%,#5bb8e8 21%,
+                               #bfe8a8 25%,#a8e08f 55%,#8fd47c 100%);
+}
+.journey-scene::after {                     /* hills on the horizon */
+  content:""; position:absolute; left:-5%; right:-5%; top:15%; height:16%;
+  background: radial-gradient(60% 100% at 20% 100%,#7cc47a 0%,transparent 70%),
+              radial-gradient(60% 100% at 65% 100%,#8ccf86 0%,transparent 70%),
+              radial-gradient(50% 100% at 95% 100%,#6fba6e 0%,transparent 70%);
+}
+.journey-deco { position:absolute; inset:0; z-index:1; pointer-events:none; }
+.journey-deco .deco {
+  position:absolute; transform:translate(-50%,-50%);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.18));
+}
+.journey-road { position:absolute; inset:0; z-index:2; pointer-events:none; }
+.journey-road svg { width:100%; height:100%; display:block; overflow:visible; }
+.journey-road path { fill:none; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+.road-base { stroke:#b08357; stroke-width:24px; opacity:.5; }
+.road-top  { stroke:#f0d9a8; stroke-width:18px; }
+.road-dash { stroke:#fff; stroke-width:3px; stroke-dasharray:10 12; opacity:.85; }
+
+/* Stops */
+.stop {
+  position:absolute; transform:translate(-50%,-50%); z-index:3;
+  background:none; border:0; padding:0; width:auto;
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+}
+.stop-disc {
+  position:relative; width:3rem; height:3rem; border-radius:50%;
+  display:grid; place-items:center; border:4px solid #fff;
+  background: var(--accent,#2d7dff);
+  box-shadow: 0 5px 0 rgba(0,0,0,.22), 0 8px 14px rgba(22,35,63,.25);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.stop-num { font-weight:900; font-size:1.25rem; color:#fff; line-height:1; }
+.stop-icon {
+  position:absolute; right:-.5rem; bottom:-.4rem; font-size:1.15rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+}
+.stop-stars { display:flex; gap:1px; line-height:1; margin-top:1px; }
+.stop-stars .s { font-size:.8rem; color:#dbe7f5; text-shadow:0 1px 1px rgba(0,0,0,.3); }
+.stop-stars .s.on { color:#ffc53d; }
+.stop-name {
+  position:absolute; top:100%; margin-top:.15rem; font-size:.74rem; width:max-content; font-weight:800; line-height:1.15;
+  color:#15325a; text-align:center; max-width:8rem;
+  background:#fff; border:2px solid var(--accent,#2d7dff); border-radius:10px;
+  padding:.15rem .45rem; box-shadow:0 3px 0 rgba(22,35,63,.15);
+}
+.stop:hover .stop-disc { transform:translateY(-2px) scale(1.06); }
+.stop:active .stop-disc { transform:translateY(2px); box-shadow:0 2px 0 rgba(0,0,0,.22); }
+
+/* per-level accent, matching the town palette */
+.stop[data-level="1"]{--accent:#2d7dff} .stop[data-level="2"]{--accent:#ec4899}
+.stop[data-level="3"]{--accent:#14b8a6} .stop[data-level="4"]{--accent:#f59e0b}
+.stop[data-level="5"]{--accent:#8b5cf6} .stop[data-level="6"]{--accent:#22c55e}
+.stop[data-level="7"]{--accent:#fb7185} .stop[data-level="8"]{--accent:#0ea5e9}
+.stop[data-level="9"]{--accent:#6366f1} .stop[data-level="10"]{--accent:#f97316}
+
+.stop.done .stop-disc { background:#22c55e; }
+.stop.locked { cursor:not-allowed; }
+.stop.locked .stop-disc { background:#9fb3c8; box-shadow:0 4px 0 rgba(0,0,0,.15); }
+.stop.locked .stop-num { font-size:1rem; }
+.stop.locked .stop-icon { filter:grayscale(.8); opacity:.7; }
+
+.stop.now .stop-disc {
+  box-shadow: 0 5px 0 rgba(0,0,0,.22), 0 0 0 6px rgba(255,255,255,.8), 0 0 0 11px rgba(45,125,255,.45);
+}
+.stop-flag {
+  position:absolute; top:-1.5rem; background:#ff3b6b; color:#fff;
+  font-weight:900; font-size:.66rem; letter-spacing:.06em;
+  padding:.18rem .5rem; border-radius:999px; border:2px solid #fff;
+  box-shadow:0 3px 0 #c2284f; animation: flagBob 1.6s ease-in-out infinite;
+}
+@keyframes flagBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+.stop.flash .stop-disc { animation: stopFlash 1.5s ease; }
+@keyframes stopFlash {
+  0%,100%{box-shadow:0 5px 0 rgba(0,0,0,.22)}
+  40%{box-shadow:0 5px 0 rgba(0,0,0,.22),0 0 0 12px rgba(255,197,61,.65)}
+}
+
+/* Phone: taller map so the same winding road still reads at narrow widths */
+@media (max-width: 560px) {
+  .journey { height: 46rem; border-radius:22px; }
+  .stop-disc { width:2.6rem; height:2.6rem; border-width:3px; }
+  .stop-num { font-size:1.1rem; }
+  .stop-icon { font-size:1rem; right:-.42rem; bottom:-.35rem; }
+  .stop-name { font-size:.68rem; max-width:6.5rem; }
+  .stop-stars .s { font-size:.7rem; }
+  .road-base { stroke-width:18px; } .road-top { stroke-width:13px; } .road-dash { stroke-width:2px; }
+  .journey-deco .deco { font-size:1.25rem !important; }}
+/* Tablet: roomier, same map */
+@media (min-width: 820px) {
+  .journey { height: 56rem; }
+  .stop-disc { width:3.5rem; height:3.5rem; }
+  .stop-num { font-size:1.45rem; }
+  .stop-icon { font-size:1.3rem; }
+  .stop-name { font-size:.84rem; max-width:10rem; }}
+/* Touch: the whole stop is the target, so give it room */
+@media (pointer: coarse) {
+  .stop-disc { min-width:48px; min-height:48px; }}

@@ -1,5 +1,5 @@
 /* MoneyVille service worker — cache-first for offline classroom use. */
-const CACHE = "moneyville-v3";
+const CACHE = "moneyville-v4";
 const ASSETS = [
   "./",
   "./index.html",

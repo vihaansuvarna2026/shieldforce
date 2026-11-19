@@ -166,41 +166,99 @@
     map.appendChild(sky);
     main.appendChild(map);
 
-    // Level path.
+    // Level pathway — a winding road through MoneyVille, one stop per level.
     const path = el("section", { class: "level-path" });
     path.appendChild(el("h2", { class: "section-title", text: "🗺️ Your money journey" }));
-    const list = el("div", { class: "level-list" });
-    D.LEVELS.forEach((lvl) => {
-      const unlocked = S.isLevelUnlocked(lvl.number);
-      const res = prog.levels[lvl.id];
-      const building = D.BUILDINGS.find((b) => b.id === lvl.building);
-      const card = el("div", { class: "level-card " + (unlocked ? (res && res.completed ? "done" : "open") : "locked"),
-        id: "lvl-" + lvl.building });
-      card.appendChild(el("div", { class: "level-num", text: unlocked ? lvl.number : "🔒" }));
-      card.appendChild(el("div", { class: "level-icon", text: lvl.icon }));
-      const body = el("div", { class: "level-info" }, [
-        el("div", { class: "level-title", text: lvl.title }),
-        el("div", { class: "level-concept", text: lvl.concept }),
-        el("div", { class: "level-building", text: `${building.icon} ${building.name}` }),
-      ]);
-      card.appendChild(body);
-      const right = el("div", { class: "level-right" });
-      if (res && res.stars) right.appendChild(U.stars(res.stars));
-      if (unlocked) {
-        right.appendChild(el("button", { class: "btn " + (res && res.completed ? "btn-ghost" : "btn-primary"),
-          text: res && res.completed ? "Replay" : "Play", onClick: () => openLevel(lvl) }));
-      } else {
-        right.appendChild(el("span", { class: "level-locked-note", text: "Locked" }));
-      }
-      card.appendChild(right);
-      list.appendChild(card);
-    });
-    path.appendChild(list);
+    path.appendChild(renderJourneyMap(prog));
     main.appendChild(path);
 
     main.appendChild(el("footer", { class: "town-foot" }, [
       el("span", { text: "Fictional money · learning-focused · safe for classrooms" }),
     ]));
+  }
+
+  /* ---- Journey map ---------------------------------------------------------
+     A winding road through MoneyVille with one stop per level. Node positions
+     are percentages of the map box, so the identical map scales from a 280px
+     phone to a 1366px tablet — mobile and desktop share one aesthetic rather
+     than diverging into two layouts. The road is an SVG curve through the same
+     points. Only the stop you're about to play carries a name label; showing a
+     name under every stop made neighbouring labels collide. ----------------- */
+  const NODE_POS = [
+    [22, 5], [52, 15], [78, 25], [60, 35], [30, 45],
+    [16, 55], [40, 64], [68, 74], [84, 84], [56, 94],
+  ];
+  const SCENERY = [
+    ["⛵", 8, 3, 1.4], ["⛵", 68, 4, 1.1], ["🌳", 6, 13, 1.9], ["🏛️", 30, 10, 2.2],
+    ["🏠", 88, 15, 2.0], ["🌲", 93, 31, 1.8], ["🏪", 32, 27, 2.0], ["🌳", 84, 40, 1.7],
+    ["⛲", 44, 40, 1.9], ["🌳", 8, 36, 1.7], ["🏦", 58, 50, 2.1], ["🌲", 90, 57, 1.8],
+    ["🏭", 14, 69, 2.1], ["🌳", 62, 60, 1.7], ["🏡", 20, 82, 2.0], ["🌲", 40, 88, 1.8],
+    ["🛡️", 92, 71, 1.9], ["🌳", 78, 93, 1.7],
+  ];
+  // Smooth cubic curve through the stops (Catmull-Rom → Bézier).
+  function roadPath(pts) {
+    let d = `M ${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      d += ` C ${p1[0] + (p2[0]-p0[0])/6} ${p1[1] + (p2[1]-p0[1])/6},` +
+           ` ${p2[0] - (p3[0]-p1[0])/6} ${p2[1] - (p3[1]-p1[1])/6},` +
+           ` ${p2[0]} ${p2[1]}`;
+    }
+    return d;
+  }
+
+  function renderJourneyMap(prog) {
+    const wrap = el("div", { class: "journey" });
+    wrap.appendChild(el("div", { class: "journey-scene" }));
+
+    const deco = el("div", { class: "journey-deco", "aria-hidden": "true" });
+    SCENERY.forEach(([emoji, x, y, size]) => {
+      deco.appendChild(el("span", { class: "deco", text: emoji,
+        style: { left: x + "%", top: y + "%", fontSize: size + "rem" } }));
+    });
+    wrap.appendChild(deco);
+
+    const d = roadPath(NODE_POS);
+    const road = el("div", { class: "journey-road", "aria-hidden": "true" });
+    road.innerHTML = `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="${d}" class="road-base"/><path d="${d}" class="road-top"/><path d="${d}" class="road-dash"/>
+      </svg>`;
+    wrap.appendChild(road);
+
+    const next = firstPlayable();
+    D.LEVELS.forEach((lvl, i) => {
+      const [x, y] = NODE_POS[i];
+      const unlocked = S.isLevelUnlocked(lvl.number);
+      const res = prog.levels[lvl.id];
+      const done = !!(res && res.completed);
+      const isNext = next && next.id === lvl.id;
+      const building = D.BUILDINGS.find((b) => b.id === lvl.building);
+
+      const stop = el("button", {
+        class: "stop " + (unlocked ? (done ? "done" : "open") : "locked") + (isNext ? " now" : ""),
+        style: { left: x + "%", top: y + "%" },
+        dataset: { level: lvl.number, building: lvl.building },
+        "aria-label": `Level ${lvl.number}: ${lvl.title} — ${lvl.concept}${unlocked ? (done ? " (completed)" : "") : " (locked)"}`,
+        title: `${lvl.title} — ${lvl.concept} · ${building.name}`,
+        onClick: () => unlocked ? openLevel(lvl)
+          : U.toast(`Finish level ${lvl.number - 1} to unlock this`, "info"),
+      });
+      if (isNext) stop.appendChild(el("span", { class: "stop-flag", text: "PLAY" }));
+      // The number always shows, locked or not, so a child can see how far
+      // along the road each stop is; the badge turns into a padlock instead.
+      stop.appendChild(el("span", { class: "stop-disc" }, [
+        el("span", { class: "stop-num", text: String(lvl.number) }),
+        el("span", { class: "stop-icon", text: unlocked ? lvl.icon : "🔒" }),
+      ]));
+      if (isNext) stop.appendChild(el("span", { class: "stop-name", text: lvl.title }));
+      if (res && res.stars) {
+        const s = el("span", { class: "stop-stars" });
+        for (let k = 1; k <= 3; k++) s.appendChild(el("span", { class: "s " + (k <= res.stars ? "on" : ""), text: k <= res.stars ? "★" : "☆" }));
+        stop.appendChild(s);
+      }
+      wrap.appendChild(stop);
+    });
+    return wrap;
   }
 
   function nextActionLabel() {
@@ -220,8 +278,11 @@
     return [...D.LEVELS].reverse().find((l) => S.isLevelUnlocked(l.number)) || D.LEVELS[0];
   }
   function scrollToBuilding(buildingId) {
-    const node = document.getElementById("lvl-" + buildingId);
-    if (node) { node.scrollIntoView({ behavior: "smooth", block: "center" }); node.classList.add("flash"); setTimeout(() => node.classList.remove("flash"), 1200); }
+    const node = document.querySelector(`.stop[data-building="${buildingId}"]`);
+    if (!node) return;
+    (node.closest(".journey") || node).scrollIntoView({ behavior: "smooth", block: "center" });
+    node.classList.add("flash");
+    setTimeout(() => node.classList.remove("flash"), 1600);
   }
 
   /* ---- Level runner ------------------------------------------------------- */
