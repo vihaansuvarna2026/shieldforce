@@ -535,3 +535,93 @@ body.splash-lock { overflow: hidden; }
    Android's 48dp — so it can be hit reliably with a thumb. */
 .chip, .lab-tab, .dial { min-height: 44px; }
 .chip, .lab-tab { display: inline-flex; align-items: center; }
+
+/* ============================================================
+   LANGUAGES
+   ============================================================ */
+/* hidden for the moment it takes to translate, so English never flashes up first */
+html.i18n-wait body { visibility: hidden; }
+
+/* the language button: a globe (the sign phones use for "language") and the current
+   language written in its own script */
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 10px 0 8px;
+  border-radius: 999px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.04);
+  color: var(--txt); font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; margin-inline-end: 4px;
+  transition: background .15s ease, transform .15s ease;
+}
+.lang-btn:active { background: rgba(125,165,255,.14); transform: scale(.95); }
+.lang-btn .lb-globe svg { width: 20px; height: 20px; display: block; color: var(--gold); }
+.lang-btn .lb-name { max-width: 7.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 359px) { .lang-btn .lb-name { display: none; } .lang-btn { padding: 0 9px; } }
+
+/* first launch: every language's own name, so anyone can find theirs */
+.gate-lang { margin: 4px 0 18px; }
+.gate-lang-h { display: flex; align-items: center; gap: 8px; color: var(--mut); font-size: .78rem; margin-bottom: 10px; }
+.gate-lang-h svg { width: 20px; height: 20px; color: var(--gold); flex: 0 0 auto; }
+.gate-lang-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.lang-chip {
+  min-height: 44px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line-strong);
+  background: rgba(255,255,255,.04); color: var(--txt); font: inherit; font-size: .95rem; font-weight: 600; cursor: pointer;
+}
+.lang-chip.on { border-color: var(--gold); background: rgba(255,165,62,.14); color: var(--gold2); }
+.lang-chip:active { transform: scale(.96); }
+
+/* the language picker */
+#lang-sheet { position: fixed; inset: 0; z-index: 2100; display: flex; align-items: flex-end; justify-content: center; }
+#lang-sheet .ls-backdrop { position: absolute; inset: 0; background: rgba(2,5,12,.6); opacity: 0; transition: opacity .2s ease; }
+#lang-sheet .ls-panel {
+  position: relative; width: min(560px, 100%); max-height: min(86vh, 760px); display: flex; flex-direction: column;
+  background: var(--panel-solid); border: 1px solid var(--line-strong); border-bottom: 0;
+  border-radius: 22px 22px 0 0; padding: 18px 16px calc(14px + var(--safe-b));
+  transform: translateY(24px); opacity: 0; transition: transform .22s var(--ease), opacity .22s ease;
+  box-shadow: 0 -20px 60px rgba(0,0,0,.5);
+}
+#lang-sheet.open .ls-backdrop { opacity: 1; }
+#lang-sheet.open .ls-panel { transform: none; opacity: 1; }
+@media (min-width: 700px) {
+  #lang-sheet { align-items: center; }
+  #lang-sheet .ls-panel { border-radius: 22px; border-bottom: 1px solid var(--line-strong); padding-bottom: 16px; }
+}
+.ls-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.ls-globe svg { width: 34px; height: 34px; color: var(--gold); display: block; }
+.ls-titles { flex: 1; min-width: 0; }
+.ls-titles h2 { font-size: 1.15rem; font-weight: 800; line-height: 1.3; }
+.ls-words { color: var(--mut); font-size: .8rem; line-height: 1.6; margin-top: 2px; }
+.ls-close { width: 44px; height: 44px; border-radius: 12px; border: 0; background: rgba(255,255,255,.05); color: var(--txt); font-size: 1rem; cursor: pointer; flex: 0 0 auto; }
+.ls-search {
+  width: 100%; min-height: 46px; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line-strong);
+  background: rgba(255,255,255,.04); color: var(--txt); font: inherit; font-size: 1rem; margin-bottom: 10px;
+}
+.ls-list { list-style: none; margin: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain; display: grid; gap: 6px; }
+.ls-item {
+  width: 100%; min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 10px 14px;
+  border-radius: 14px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--txt);
+  font: inherit; text-align: start; cursor: pointer;
+}
+.ls-item b { font-size: 1.12rem; font-weight: 700; }
+.ls-item span { color: var(--mut); font-size: .82rem; }
+.ls-item .ls-tick { margin-inline-start: auto; font-style: normal; color: var(--gold); font-weight: 900; }
+.ls-item.on { border-color: var(--gold); background: rgba(255,165,62,.1); }
+.ls-item:active { transform: scale(.985); }
+.ls-empty { color: var(--mut); text-align: center; padding: 16px; }
+.ls-note { color: var(--mut); font-size: .76rem; line-height: 1.5; margin-top: 12px; }
+.ls-note a { color: var(--gold2); text-decoration: underline; }
+
+/* Indian scripts: taller lines for vowel signs above and below, and no letter-spacing,
+   which pulls apart the joined letters of Devanagari, Bengali, Urdu and the others */
+html:not([lang="en"]) body *:not(.wordmark):not(.wordmark *) { letter-spacing: normal !important; }
+html:not([lang="en"]) h1, html:not([lang="en"]) h2, html:not([lang="en"]) h3,
+html:not([lang="en"]) h4, html:not([lang="en"]) .page-title { line-height: 1.35; }
+html:not([lang="en"]) body { line-height: 1.6; }
+html[lang="ur"] body { font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Jameel Noori Nastaleeq", system-ui, sans-serif; line-height: 1.95; }
+html[lang="ur"] h1, html[lang="ur"] h2, html[lang="ur"] h3, html[lang="ur"] h4, html[lang="ur"] .page-title { line-height: 1.7; }
+
+/* right-to-left (Urdu): arrows point the other way */
+[dir="rtl"] .ab-back .i, [dir="rtl"] .li-chev .i, [dir="rtl"] .case-chev .i, [dir="rtl"] .ac-chev .i { transform: scaleX(-1); }
+[dir="rtl"] .splash-points li { padding-left: 0; padding-right: 25px; }
+[dir="rtl"] .splash-points li::before { left: auto; right: 0; }
+
+/* translated legal pages carry a note that the English text is the binding one */
+html[lang="en"] .legal-note { display: none; }
+.legal-note { border: 1px solid var(--line-strong); border-radius: var(--r-md); padding: 12px 14px; color: var(--mut); font-size: .85rem; margin: 0 0 18px; }

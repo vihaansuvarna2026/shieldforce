@@ -10,6 +10,7 @@ const SHELL = [
   "css/core.css",
   "css/responsive.css",
   "css/pages/home.css",
+  "js/i18n.js",
   "js/vt.js",
   "js/main.js",
   "js/home.js",

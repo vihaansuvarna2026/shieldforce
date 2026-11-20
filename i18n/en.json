@@ -1,0 +1,4682 @@
+{
+ "1407068": {
+  "en": "Training Grid • Rotates Hourly",
+  "at": "threat-map.html"
+ },
+ "mw8jwh": {
+  "en": "Starting Shield Force…",
+  "at": "index.html"
+ },
+ "q292cw": {
+  "en": "Before you begin",
+  "at": "index.html"
+ },
+ "172yu8e": {
+  "en": "Welcome to Shield Force",
+  "at": "index.html"
+ },
+ "e5pxzo": {
+  "en": "A community awareness tool for the Indian defence community",
+  "at": "index.html"
+ },
+ "5b4265": {
+  "en": "Not an official Government of India / Ministry of Defence service",
+  "at": "index.html"
+ },
+ "sy8x33": {
+  "en": "No accounts, no database, no tracking — nothing you type ever leaves your device",
+  "at": "index.html"
+ },
+ "g2eccu": {
+  "en": "Statistics shown are representative training estimates, not live official figures",
+  "at": "index.html"
+ },
+ "2872z7": {
+  "en": "I have read and agree to the <1>Terms of Use</1> and <2>Privacy Policy</2>.",
+  "at": "index.html"
+ },
+ "1avr4tv": {
+  "en": "Agree &amp; Continue",
+  "at": "index.html"
+ },
+ "10fo4wa": {
+  "en": "Shield Force home",
+  "at": "index.html"
+ },
+ "lz65mo": {
+  "en": "More",
+  "at": "index.html"
+ },
+ "mlh3jc": {
+  "en": "Main",
+  "at": "index.html"
+ },
+ "n0mxf2": {
+  "en": "Home",
+  "at": "index.html"
+ },
+ "1mkuf87": {
+  "en": "Intel",
+  "at": "index.html"
+ },
+ "u9kkco": {
+  "en": "Scan",
+  "at": "index.html"
+ },
+ "ab0tkl": {
+  "en": "Learn",
+  "at": "index.html"
+ },
+ "3wh218": {
+  "en": "SOS",
+  "at": "index.html"
+ },
+ "nvco8": {
+  "en": "For the Indian military &amp; their families",
+  "at": "index.html"
+ },
+ "1ym2kyk": {
+  "en": "Your shield against every <1>scam.</1>",
+  "at": "index.html"
+ },
+ "1swl2rj": {
+  "en": "Quick actions",
+  "at": "index.html"
+ },
+ "aakm8o": {
+  "en": "Scan a message",
+  "at": "index.html"
+ },
+ "47kr9k": {
+  "en": "Paste an SMS or WhatsApp and get a fraud verdict in seconds. It never leaves your phone.",
+  "at": "index.html"
+ },
+ "1rlrfy": {
+  "en": "Been scammed? Act now",
+  "at": "index.html"
+ },
+ "13pvq4j": {
+  "en": "Call {0} and follow the six steps — the first hour decides what comes back.",
+  "at": "index.html"
+ },
+ "s51jfq": {
+  "en": "Install Shield Force",
+  "at": "index.html"
+ },
+ "1au2j7e": {
+  "en": "Opens from your home screen and works fully offline.",
+  "at": "index.html"
+ },
+ "rtxc19": {
+  "en": "How",
+  "at": "index.html"
+ },
+ "an1pf7": {
+  "en": "Dismiss",
+  "at": "index.html"
+ },
+ "flplry": {
+  "en": "Fraud alert patterns",
+  "at": "index.html"
+ },
+ "h6a5q7": {
+  "en": "<1>⚠ ALERT</1> QR 'advance payment' fraud active on resale apps — receiving money NEVER needs your PIN",
+  "at": "index.html"
+ },
+ "1v4y95h": {
+  "en": "<1>⚠ ALERT</1> Fake SPARSH calls demanding OTPs from pensioners — SPARSH never calls for OTPs or fees",
+  "at": "index.html"
+ },
+ "jzsric": {
+  "en": "<1>⚠ ALERT</1> 'Digital arrest' video calls targeting parents of serving personnel — no such law exists",
+  "at": "index.html"
+ },
+ "182dp38": {
+  "en": "<1>⚠ ALERT</1> Bogus CSD car-quota pages on social media — canteen entitlements are non-transferable",
+  "at": "index.html"
+ },
+ "4bu60y": {
+  "en": "<1>⚠ ALERT</1> Telegram 'mentors' promising daily returns on DSOP savings — guaranteed returns are guaranteed fraud",
+  "at": "index.html"
+ },
+ "1vo8g03": {
+  "en": "<1>⚠ ALERT</1> Report every attempt: {0} • cybercrime.gov.in — the first {1} minutes are the Golden Window",
+  "at": "index.html"
+ },
+ "ljbnj0": {
+  "en": "Explore",
+  "at": "index.html"
+ },
+ "qr6kmb": {
+  "en": "Threat map",
+  "at": "index.html"
+ },
+ "ws9439": {
+  "en": "Scam intel",
+  "at": "index.html"
+ },
+ "11u6fyv": {
+  "en": "Training",
+  "at": "index.html"
+ },
+ "1a55n2e": {
+  "en": "Spot a scam",
+  "at": "index.html"
+ },
+ "r1r5uv": {
+  "en": "Defence schemes",
+  "at": "index.html"
+ },
+ "1yelpl4": {
+  "en": "Field guides",
+  "at": "index.html"
+ },
+ "kw2d6z": {
+  "en": "{0} at a glance",
+  "at": "index.html"
+ },
+ "h63ki7": {
+  "en": "Military personnel &amp; family members targeted this year",
+  "at": "index.html"
+ },
+ "c156iw": {
+  "en": "▲ {0}% vs last year",
+  "at": "index.html"
+ },
+ "25iwpt": {
+  "en": "Total amount reported lost in {0}",
+  "at": "index.html"
+ },
+ "1mvrknb": {
+  "en": "▲ ₹{0} Cr vs {1}",
+  "at": "index.html"
+ },
+ "16scm7t": {
+  "en": "Average loss per reported case",
+  "at": "index.html"
+ },
+ "15h9bkv": {
+  "en": "▼ Faster {0} reporting is cutting losses",
+  "at": "index.html"
+ },
+ "y54lq2": {
+  "en": "Estimated cases never reported — out of embarrassment",
+  "at": "index.html"
+ },
+ "q02aal": {
+  "en": "Reporting is strength, not shame",
+  "at": "index.html"
+ },
+ "11akl6f": {
+  "en": "Latest cases",
+  "at": "index.html"
+ },
+ "6q8kh1": {
+  "en": "All scams",
+  "at": "index.html"
+ },
+ "1b5e2dg": {
+  "en": "NOV",
+  "at": "index.html"
+ },
+ "1gjqvov": {
+  "en": "🚨 'Digital arrest' video call extorts family",
+  "at": "index.html"
+ },
+ "f82uvl": {
+  "en": "<1/> · approx. ₹{0} · <2/>",
+  "at": "index.html"
+ },
+ "16bm8ve": {
+  "en": "Retired JCO",
+  "at": "index.html"
+ },
+ "kplnos": {
+  "en": "{0} helpline log",
+  "at": "index.html"
+ },
+ "43yi9l": {
+  "en": "Jodhpur",
+  "at": "index.html"
+ },
+ "47c1dh": {
+  "en": "Rajasthan",
+  "at": "index.html"
+ },
+ "1pg24uo": {
+  "en": "Retired officer",
+  "at": "index.html"
+ },
+ "dzk0kh": {
+  "en": "Unit FWO alert",
+  "at": "index.html"
+ },
+ "158ce7d": {
+  "en": "Visakhapatnam",
+  "at": "index.html"
+ },
+ "a1kff6": {
+  "en": "Andhra Pradesh",
+  "at": "index.html"
+ },
+ "19cyh5v": {
+  "en": "🎖️ Fake Colonel sells phantom CSD car quota",
+  "at": "index.html"
+ },
+ "4p4uk4": {
+  "en": "Agniveer trainee's family",
+  "at": "index.html"
+ },
+ "10fhk81": {
+  "en": "Bank fraud-cell referral",
+  "at": "index.html"
+ },
+ "176wky8": {
+  "en": "Srinagar",
+  "at": "index.html"
+ },
+ "75wwz": {
+  "en": "J&amp;K",
+  "at": "index.html"
+ },
+ "psrw95": {
+  "en": "🧓 Fake SPARSH KYC call drains pension account",
+  "at": "index.html"
+ },
+ "1kq2nkc": {
+  "en": "Veteran (Subedar retd.)",
+  "at": "index.html"
+ },
+ "9cm7p2": {
+  "en": "Dehradun",
+  "at": "index.html"
+ },
+ "1sw45py": {
+  "en": "Uttarakhand",
+  "at": "index.html"
+ },
+ "kt8oc8": {
+  "en": "🎖️ Advance-fee trap on 'army auction' bikes page",
+  "at": "index.html"
+ },
+ "109m48j": {
+  "en": "NCRP portal filing",
+  "at": "index.html"
+ },
+ "xyus5x": {
+  "en": "Jammu",
+  "at": "index.html"
+ },
+ "p3qa8h": {
+  "en": "📲 Collect-request fraud posed as canteen refund",
+  "at": "index.html"
+ },
+ "179z0v2": {
+  "en": "Officer's spouse",
+  "at": "index.html"
+ },
+ "4do9i6": {
+  "en": "I{0}C advisory",
+  "at": "index.html"
+ },
+ "7vb2u9": {
+  "en": "Thiruvananthapuram",
+  "at": "index.html"
+ },
+ "1si4r9n": {
+  "en": "Kerala",
+  "at": "index.html"
+ },
+ "1j9li74": {
+  "en": "Shield Force is a community awareness initiative, not an official Government of India or Ministry of Defence service. Figures and the case feed are representative training data built from recurring, publicly reported fraud patterns — verify current statistics with I{0}C / NCRB.",
+  "at": "index.html"
+ },
+ "1ueel82": {
+  "en": "Shield Force — Scam Defence for the Indian Military &amp; Families",
+  "at": "index.html"
+ },
+ "kc7pvy": {
+  "en": "Ready.",
+  "at": "index.html"
+ },
+ "j7y77b": {
+  "en": "Choose your language",
+  "at": "index.html"
+ },
+ "1l0xxoj": {
+  "en": "Close",
+  "at": "index.html"
+ },
+ "x72k39": {
+  "en": "No matching language",
+  "at": "index.html"
+ },
+ "gkfyx8": {
+  "en": "Translations were made with AI help and are being checked by native speakers. <1>Report a translation error</1>",
+  "at": "index.html"
+ },
+ "1w98g42": {
+  "en": "Loading scam intelligence…",
+  "at": "index.html"
+ },
+ "7nyaog": {
+  "en": "Threat Intelligence",
+  "at": "scam-intel.html"
+ },
+ "1yjpyfc": {
+  "en": "Scam <1>Intel</1>",
+  "at": "scam-intel.html"
+ },
+ "14ppcm4": {
+  "en": "Eight fraud families engineered against the fauj. Tap one for how it works and how to stop it.",
+  "at": "scam-intel.html"
+ },
+ "1p1zsos": {
+  "en": "Fake UPI / QR Reversal Fraud",
+  "at": "scam-intel.html"
+ },
+ "1de5htk": {
+  "en": "“Scan this QR to receive your advance, sir.” Money never arrives — it leaves.",
+  "at": "scam-intel.html"
+ },
+ "11om8bs": {
+  "en": "Critical",
+  "at": "scam-intel.html"
+ },
+ "1jjuo0e": {
+  "en": "Full briefing ⟶",
+  "at": "scam-intel.html"
+ },
+ "avp969": {
+  "en": "OTP, KYC &amp; SIM-Swap Phishing",
+  "at": "scam-intel.html"
+ },
+ "1ya4dpg": {
+  "en": "“Your SPARSH / bank KYC expires today” — one OTP and the account is theirs.",
+  "at": "scam-intel.html"
+ },
+ "1bc4tkk": {
+  "en": "Investment &amp; Crypto Ponzi Pitches",
+  "at": "scam-intel.html"
+ },
+ "1u8s6et": {
+  "en": "“Double your DSOP in {0} days” — guaranteed returns are guaranteed fraud.",
+  "at": "scam-intel.html"
+ },
+ "1gq8xlp": {
+  "en": "High",
+  "at": "scam-intel.html"
+ },
+ "icxu9g": {
+  "en": "Officer Impersonation &amp; Advance-Fee Deals",
+  "at": "scam-intel.html"
+ },
+ "1tmvmic": {
+  "en": "Fake Colonels selling cars, canteen liquor quotas and CSD goods at 'unit rates'.",
+  "at": "scam-intel.html"
+ },
+ "r9fxml": {
+  "en": "Pension, Arrears &amp; SPARSH Fraud",
+  "at": "scam-intel.html"
+ },
+ "1g8fzbf": {
+  "en": "Fake 'record office' calls to veterans and veer naris about blocked pensions.",
+  "at": "scam-intel.html"
+ },
+ "fswqmu": {
+  "en": "Fake Welfare Funds &amp; Martyr Charity Fraud",
+  "at": "scam-intel.html"
+ },
+ "pm1vxd": {
+  "en": "Emotional appeals in the name of shaheed families that never reach any family.",
+  "at": "scam-intel.html"
+ },
+ "84yrx0": {
+  "en": "Loan App Traps &amp; Identity Theft",
+  "at": "scam-intel.html"
+ },
+ "iagcis": {
+  "en": "Leaked ID documents become instant loans, extortion and harassment.",
+  "at": "scam-intel.html"
+ },
+ "kw04fs": {
+  "en": "Digital Arrest &amp; Fake Police Extortion",
+  "at": "scam-intel.html"
+ },
+ "1s8ruyd": {
+  "en": "Video calls from fake 'CBI officers': you are under digital arrest — stay on camera and pay.",
+  "at": "scam-intel.html"
+ },
+ "1q9kyq7": {
+  "en": "🎓 Test yourself in Training modules",
+  "at": "scam-intel.html"
+ },
+ "ila2sh": {
+  "en": "🔍 Learn the {0} detection signs",
+  "at": "scam-intel.html"
+ },
+ "61hyn1": {
+  "en": "🚨 Hit already? Emergency protocol",
+  "at": "scam-intel.html"
+ },
+ "qkljcl": {
+  "en": "Scam Intel — Shield Force",
+  "at": "scam-intel.html"
+ },
+ "1ltwv9x": {
+  "en": "Scam Intel",
+  "at": "scam-intel.html"
+ },
+ "12m3gbt": {
+  "en": "Incident in {city}: {scam}",
+  "at": "threat-map.html"
+ },
+ "1sngbbb": {
+  "en": "Hyderabad",
+  "at": "threat-map.html"
+ },
+ "hgvsu4": {
+  "en": "Ahmedabad",
+  "at": "threat-map.html"
+ },
+ "4uczew": {
+  "en": "Bengaluru",
+  "at": "threat-map.html"
+ },
+ "1ns0lpo": {
+  "en": "Jhansi",
+  "at": "threat-map.html"
+ },
+ "1v1wzbs": {
+  "en": "Chandigarh",
+  "at": "threat-map.html"
+ },
+ "1vxtz5j": {
+  "en": "New Delhi",
+  "at": "threat-map.html"
+ },
+ "1bcjdyf": {
+  "en": "Kochi",
+  "at": "threat-map.html"
+ },
+ "1tmwoo6": {
+  "en": "Kolkata",
+  "at": "threat-map.html"
+ },
+ "gpphs8": {
+  "en": "Lucknow",
+  "at": "threat-map.html"
+ },
+ "1tk5msi": {
+  "en": "Mumbai",
+  "at": "threat-map.html"
+ },
+ "1hzmxtu": {
+  "en": "Back",
+  "at": "threat-map.html"
+ },
+ "108glzc": {
+  "en": "National <1>Threat Map</1>",
+  "at": "threat-map.html"
+ },
+ "hs4p25": {
+  "en": "Illustrative incidents built from the fraud patterns reported against the defence community across India, rotated hourly. Tap a marker for details.",
+  "at": "threat-map.html"
+ },
+ "ubd0tb": {
+  "en": "Stylised map of India with scam incident markers",
+  "at": "threat-map.html"
+ },
+ "12rc4tv": {
+  "en": "Chennai",
+  "at": "threat-map.html"
+ },
+ "1xy3ok5": {
+  "en": "Guwahati",
+  "at": "threat-map.html"
+ },
+ "1jqx9z4": {
+  "en": "⏱ Scenario rotation",
+  "at": "threat-map.html"
+ },
+ "nkq4hc": {
+  "en": "Rotated at <1>{0}</1>",
+  "at": "threat-map.html"
+ },
+ "1l8no0n": {
+  "en": "Next rotation in <1>{0}m {1}s</1>",
+  "at": "threat-map.html"
+ },
+ "1if0sib": {
+  "en": "🗂 Threat Legend",
+  "at": "threat-map.html"
+ },
+ "1db3lvi": {
+  "en": "<1></1>Fake UPI / QR Reversal Fraud <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "neke4b": {
+  "en": "<1></1>Pension, Arrears &amp; SPARSH Fraud <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "1bzfaxk": {
+  "en": "<1></1>Investment &amp; Crypto Ponzi Pitches <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "bkcxu0": {
+  "en": "<1></1>Officer Impersonation &amp; Advance-Fee Deals <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "1mgtxq2": {
+  "en": "<1></1>Fake Welfare Funds &amp; Martyr Charity Fraud <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "1htzjzq": {
+  "en": "<1></1>Digital Arrest &amp; Fake Police Extortion <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "1vdz074": {
+  "en": "📊 This Hour's Picture",
+  "at": "threat-map.html"
+ },
+ "46gec": {
+  "en": "Active incident markers",
+  "at": "threat-map.html"
+ },
+ "1azwy08": {
+  "en": "Combined reported loss",
+  "at": "threat-map.html"
+ },
+ "18st19e": {
+  "en": "₹{0} L",
+  "at": "threat-map.html"
+ },
+ "1gflpwf": {
+  "en": "Golden-window freezes",
+  "at": "threat-map.html"
+ },
+ "tu1jna": {
+  "en": "Hottest zone",
+  "at": "threat-map.html"
+ },
+ "1k12toi": {
+  "en": "Uttar Pradesh",
+  "at": "threat-map.html"
+ },
+ "1o8bdof": {
+  "en": "Decode these scam types ⟶",
+  "at": "threat-map.html"
+ },
+ "16ev309": {
+  "en": "🚨 Report an incident",
+  "at": "threat-map.html"
+ },
+ "1hl1xtw": {
+  "en": "Simulated incident telemetry generated hourly from recurring reported fraud patterns — for awareness training, not operational data.",
+  "at": "threat-map.html"
+ },
+ "1i19khf": {
+  "en": "Threat Map — Shield Force",
+  "at": "threat-map.html"
+ },
+ "1yfxj5v": {
+  "en": "Threat Map",
+  "at": "threat-map.html"
+ },
+ "1bm122r": {
+  "en": "Shield Force AI • On-Device Analysis",
+  "at": "ai-analyzer.html"
+ },
+ "6u51bv": {
+  "en": "Message <1>Fraud Scanner</1>",
+  "at": "ai-analyzer.html"
+ },
+ "yadwhf": {
+  "en": "Paste a suspicious SMS, WhatsApp or email for a risk verdict and every red flag. Nothing leaves your device.",
+  "at": "ai-analyzer.html"
+ },
+ "1ir3791": {
+  "en": "📥 Suspicious message",
+  "at": "ai-analyzer.html"
+ },
+ "1w98os7": {
+  "en": "Try an exemplar",
+  "at": "ai-analyzer.html"
+ },
+ "197ap88": {
+  "en": "📲 Fake UPI Buyer",
+  "at": "ai-analyzer.html"
+ },
+ "mmwv1n": {
+  "en": "📈 Investment Pitch",
+  "at": "ai-analyzer.html"
+ },
+ "1hnhgxv": {
+  "en": "🤝 Welfare Fund",
+  "at": "ai-analyzer.html"
+ },
+ "y6qsml": {
+  "en": "🧓 Pension KYC",
+  "at": "ai-analyzer.html"
+ },
+ "uvyyd": {
+  "en": "🚨 Digital Arrest",
+  "at": "ai-analyzer.html"
+ },
+ "r56cqq": {
+  "en": "✅ Genuine Message",
+  "at": "ai-analyzer.html"
+ },
+ "1c4lrnb": {
+  "en": "🛰 Run Shield Scan",
+  "at": "ai-analyzer.html"
+ },
+ "1aeugy": {
+  "en": "Clear",
+  "at": "ai-analyzer.html"
+ },
+ "18nlw0f": {
+  "en": "Shield AI standing by",
+  "at": "ai-analyzer.html"
+ },
+ "134xe73": {
+  "en": "Paste a message (or load an exemplar) and run the scan.<1/>Verdict, risk score and red flags will appear here.",
+  "at": "ai-analyzer.html"
+ },
+ "1kwgvzv": {
+  "en": "🔍 Learn to spot these flags yourself",
+  "at": "ai-analyzer.html"
+ },
+ "1b9m0c4": {
+  "en": "🎓 Drill it in Training modules",
+  "at": "ai-analyzer.html"
+ },
+ "dsrl38": {
+  "en": "🚨 Already replied? Emergency steps",
+  "at": "ai-analyzer.html"
+ },
+ "1wa6t8t": {
+  "en": "Heuristic signature engine for education — a low score is not a guarantee of safety. When in doubt, verify via official channels.",
+  "at": "ai-analyzer.html"
+ },
+ "1210lvm": {
+  "en": "Shield AI Analyzer — Shield Force",
+  "at": "ai-analyzer.html"
+ },
+ "1bz37xh": {
+  "en": "Scanner",
+  "at": "ai-analyzer.html"
+ },
+ "1nijcai": {
+  "en": "Build your <1>defences</1>",
+  "at": "learn.html"
+ },
+ "135w5gg": {
+  "en": "Short drills and guides — learn the patterns before a fraudster tries them on you or your family.",
+  "at": "learn.html"
+ },
+ "1ko57eo": {
+  "en": "Practise",
+  "at": "learn.html"
+ },
+ "1dm7fxj": {
+  "en": "Training drills",
+  "at": "learn.html"
+ },
+ "1uubypi": {
+  "en": "{0} quiz modules, one per scam family",
+  "at": "learn.html"
+ },
+ "le62q7": {
+  "en": "The seven warning signs, shown on real message examples",
+  "at": "learn.html"
+ },
+ "lzhuq3": {
+  "en": "Understand",
+  "at": "learn.html"
+ },
+ "w5y8ga": {
+  "en": "Anatomy of a fraud",
+  "at": "learn.html"
+ },
+ "1o13rcd": {
+  "en": "The six phases every scam follows, and the counter-move for each",
+  "at": "learn.html"
+ },
+ "81rqin": {
+  "en": "AGIF, DSOP, SPARSH, ECHS and more — and how each is impersonated",
+  "at": "learn.html"
+ },
+ "m2bcgo": {
+  "en": "Share",
+  "at": "learn.html"
+ },
+ "4daj8u": {
+  "en": "Five printable PDFs for briefings, notice boards and the family",
+  "at": "learn.html"
+ },
+ "fy7cyd": {
+  "en": "Learn — Shield Force",
+  "at": "learn.html"
+ },
+ "3br842": {
+  "en": "Battle Inoculation",
+  "at": "training.html"
+ },
+ "1ehv0in": {
+  "en": "Training <1>Modules</1>",
+  "at": "training.html"
+ },
+ "iwdnus": {
+  "en": "Six quizzes, one per scam family, with an explanation for every answer. Scores stay on this device.",
+  "at": "training.html"
+ },
+ "1mefwb3": {
+  "en": "Not started",
+  "at": "training.html"
+ },
+ "2473db": {
+  "en": "UPI &amp; QR Fraud Defence",
+  "at": "training.html"
+ },
+ "109hf0o": {
+  "en": "Payment reversal tricks, collect requests and the QR trap on resale apps.",
+  "at": "training.html"
+ },
+ "k31q9z": {
+  "en": "{0} questions • ~{1} min",
+  "at": "training.html"
+ },
+ "1ssl5jv": {
+  "en": "Start module ⟶",
+  "at": "training.html"
+ },
+ "78nrhh": {
+  "en": "📖 Read the intel",
+  "at": "training.html"
+ },
+ "ggoqdm": {
+  "en": "OTP, KYC &amp; Link Phishing",
+  "at": "training.html"
+ },
+ "1954grm": {
+  "en": "Fake KYC alerts, cloned portals, malicious APKs and SIM-swap attacks.",
+  "at": "training.html"
+ },
+ "skb69o": {
+  "en": "Investment &amp; Ponzi Awareness",
+  "at": "training.html"
+ },
+ "1iv1p8w": {
+  "en": "Guaranteed-return apps, crypto 'mentors' and DSOP-targeting schemes.",
+  "at": "training.html"
+ },
+ "4i066z": {
+  "en": "Impersonation &amp; Digital Arrest",
+  "at": "training.html"
+ },
+ "1lgf2lb": {
+  "en": "Fake officers, CSD quota fraud and video-call 'digital arrest' extortion.",
+  "at": "training.html"
+ },
+ "1f925u6": {
+  "en": "Pension &amp; Veteran Protection",
+  "at": "training.html"
+ },
+ "1rd6gm4": {
+  "en": "SPARSH impersonation, arrears bait and life-certificate fraud against veterans.",
+  "at": "training.html"
+ },
+ "prqbr1": {
+  "en": "Welfare Fund &amp; Charity Fraud",
+  "at": "training.html"
+ },
+ "t49efz": {
+  "en": "Fake martyr donations, bogus membership renewals and mule-account appeals.",
+  "at": "training.html"
+ },
+ "sovse8": {
+  "en": "📁 Revise the intel first",
+  "at": "training.html"
+ },
+ "1tcops2": {
+  "en": "🔍 Review the {0} signs",
+  "at": "training.html"
+ },
+ "nl2cra": {
+  "en": "⟵ All modules",
+  "at": "training.html"
+ },
+ "r3zhfi": {
+  "en": "Q {0}",
+  "at": "training.html"
+ },
+ "1djrmtw": {
+  "en": "Training Modules — Shield Force",
+  "at": "training.html"
+ },
+ "1ukn91o": {
+  "en": "Know the Machine",
+  "at": "fraud-anatomy.html"
+ },
+ "l4u7q5": {
+  "en": "Fraud <1>Anatomy</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "9drg6v": {
+  "en": "Every fraud — from QR traps to digital arrest — runs the same six phases. Tap a phase for the counter-move that breaks it.",
+  "at": "fraud-anatomy.html"
+ },
+ "1v470p3": {
+  "en": "Phase {0}: Target Selection",
+  "at": "fraud-anatomy.html"
+ },
+ "wyremq": {
+  "en": "Phase {0}",
+  "at": "fraud-anatomy.html"
+ },
+ "bbawqe": {
+  "en": "Target Selection",
+  "at": "fraud-anatomy.html"
+ },
+ "kgf3ca": {
+  "en": "Phase {0}: First Contact",
+  "at": "fraud-anatomy.html"
+ },
+ "cdmp8l": {
+  "en": "First Contact",
+  "at": "fraud-anatomy.html"
+ },
+ "6ep4j9": {
+  "en": "Phase {0}: Trust Engineering",
+  "at": "fraud-anatomy.html"
+ },
+ "1m29lsm": {
+  "en": "Trust Engineering",
+  "at": "fraud-anatomy.html"
+ },
+ "g3iwz2": {
+  "en": "Phase {0}: The Hook",
+  "at": "fraud-anatomy.html"
+ },
+ "1mk6khf": {
+  "en": "The Hook",
+  "at": "fraud-anatomy.html"
+ },
+ "kkgwug": {
+  "en": "Phase {0}: Extraction & Escalation",
+  "at": "fraud-anatomy.html"
+ },
+ "1a38efm": {
+  "en": "Extraction &amp; Escalation",
+  "at": "fraud-anatomy.html"
+ },
+ "167ci3k": {
+  "en": "Phase {0}: Vanish & Re-target",
+  "at": "fraud-anatomy.html"
+ },
+ "1dlnryi": {
+  "en": "Vanish &amp; Re-target",
+  "at": "fraud-anatomy.html"
+ },
+ "e7q18k": {
+  "en": "Phase {0} of {1}",
+  "at": "fraud-anatomy.html"
+ },
+ "gjzzdi": {
+  "en": "Fraud networks buy or scrape data — pensioner lists, resale-app listings, social media posts revealing rank, unit and family events. Defence households are prized: predictable pay dates, postings that separate families, and a culture of trusting the fauj vocabulary.",
+  "at": "fraud-anatomy.html"
+ },
+ "otj38m": {
+  "en": "🛡 <1><2>Protect yourself:</2> Minimise your data shadow: no rank/unit/posting details on public profiles; watermark every ID copy you share.</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "9ek4dm": {
+  "en": "⟵ Previous phase",
+  "at": "fraud-anatomy.html"
+ },
+ "1c5x70x": {
+  "en": "Next phase ⟶",
+  "at": "fraud-anatomy.html"
+ },
+ "1djysfo": {
+  "en": "▶ Auto-play the fraud",
+  "at": "fraud-anatomy.html"
+ },
+ "48wrvq": {
+  "en": "⛓️ One break stops everything",
+  "at": "fraud-anatomy.html"
+ },
+ "pv528v": {
+  "en": "The engine needs every phase to succeed. Refusing one OTP, one QR scan or one 'fee' collapses the whole chain — you don't need to win six battles, just one.",
+  "at": "fraud-anatomy.html"
+ },
+ "aju91g": {
+  "en": "⏱ The clock runs both ways",
+  "at": "fraud-anatomy.html"
+ },
+ "1aytxuu": {
+  "en": "Scammers use urgency against you; the Golden Window is urgency working for you. The faster the {0} call after extraction, the higher the freeze chances.",
+  "at": "fraud-anatomy.html"
+ },
+ "la6kv0": {
+  "en": "📣 Reporting is ammunition",
+  "at": "fraud-anatomy.html"
+ },
+ "1rdmuxw": {
+  "en": "Phases {0} and {1} feed on silence. Every NCRP report — even of a failed attempt — burns numbers, handles and mule accounts the network needs.",
+  "at": "fraud-anatomy.html"
+ },
+ "zaof94": {
+  "en": "📁 See the anatomy applied per scam",
+  "at": "fraud-anatomy.html"
+ },
+ "1srvzig": {
+  "en": "🔍 Detection Lab: the {0} signs",
+  "at": "fraud-anatomy.html"
+ },
+ "1ehw3j1": {
+  "en": "🎓 Drill the counter-moves",
+  "at": "fraud-anatomy.html"
+ },
+ "1ovmeiq": {
+  "en": "Fraud Anatomy — Shield Force",
+  "at": "fraud-anatomy.html"
+ },
+ "89gddk": {
+  "en": "Fraud Anatomy",
+  "at": "fraud-anatomy.html"
+ },
+ "1wrg936": {
+  "en": "Detection Education",
+  "at": "detection.html"
+ },
+ "6c4ji7": {
+  "en": "The <1>Detection Lab</1>",
+  "at": "detection.html"
+ },
+ "ep3bz3": {
+  "en": "Learn the seven signs that expose almost every scam, then spot them in real-style messages.",
+  "at": "detection.html"
+ },
+ "1rf1snq": {
+  "en": "🧭 The Seven Signs of a Scam",
+  "at": "detection.html"
+ },
+ "1315sgq": {
+  "en": "If even one of these appears, stop and verify through official channels before doing anything.",
+  "at": "detection.html"
+ },
+ "1p7dlnq": {
+  "en": "SIGN {0}",
+  "at": "detection.html"
+ },
+ "1nmlkbh": {
+  "en": "Manufactured urgency",
+  "at": "detection.html"
+ },
+ "mkiehz": {
+  "en": "Deadlines in minutes or hours — 'account blocks today', 'offer expires now'. Real institutions give written notice and time.",
+  "at": "detection.html"
+ },
+ "p3ktyf": {
+  "en": "Secrecy demands",
+  "at": "detection.html"
+ },
+ "12m5g6b": {
+  "en": "'Don't tell your bank/family/unit.' Isolation is a control tactic; genuine officials never forbid you from consulting others.",
+  "at": "detection.html"
+ },
+ "oaevzo": {
+  "en": "OTP / PIN / password requests",
+  "at": "detection.html"
+ },
+ "1wpfo1b": {
+  "en": "No bank, army office, telecom company or portal ever needs your OTP, UPI PIN, CVV or password. This single sign settles it.",
+  "at": "detection.html"
+ },
+ "2uthqn": {
+  "en": "Pay to receive money",
+  "at": "detection.html"
+ },
+ "mibirq": {
+  "en": "Any flow where you must scan a QR, enter a PIN, or pay a 'fee' to RECEIVE funds is inverted — receiving never costs money.",
+  "at": "detection.html"
+ },
+ "1wb8kf7": {
+  "en": "Unverifiable identity",
+  "at": "detection.html"
+ },
+ "10gcja8": {
+  "en": "Uniform photos, ID cards and letterheads on WhatsApp are props. Verification means calling official numbers YOU look up.",
+  "at": "detection.html"
+ },
+ "if7a0c": {
+  "en": "Too good to be true",
+  "at": "detection.html"
+ },
+ "14hriki": {
+  "en": "Guaranteed returns, {0}% off canteen cars, lottery wins you never entered — pricing that beats the market exists to beat you.",
+  "at": "detection.html"
+ },
+ "1qw50q0": {
+  "en": "Channel switching &amp; links",
+  "at": "detection.html"
+ },
+ "a0degq": {
+  "en": "Being pushed from an app's chat to WhatsApp/Telegram, or sent shortened links and APK files, moves you where protections can't follow.",
+  "at": "detection.html"
+ },
+ "1c6c7zb": {
+  "en": "🔬 Red-Flag Dissection",
+  "at": "detection.html"
+ },
+ "ri04mp": {
+  "en": "Pick a specimen. Hover or tap any highlighted phrase — or any flag card — to link the evidence.",
+  "at": "detection.html"
+ },
+ "1ang62r": {
+  "en": "Bank KYC SMS",
+  "at": "detection.html"
+ },
+ "uilwvx": {
+  "en": "Army buyer on OLX",
+  "at": "detection.html"
+ },
+ "134ha6n": {
+  "en": "SPARSH 'officer' call script",
+  "at": "detection.html"
+ },
+ "1s4fjih": {
+  "en": "FROM: <1/>",
+  "at": "detection.html"
+ },
+ "9yvp90": {
+  "en": "Dear customer, your <1>SBI YONO account will be BLOCKED in {0} hours</1>. Please update your PAN/KYC immediately by clicking <2>http://sbi-kyc-update.xyz/verify</2> and confirm with the <3>OTP you receive</3>. Failure will lead to <4>permanent account suspension</4>.",
+  "at": "detection.html"
+ },
+ "1d47dui": {
+  "en": "Manufactured deadline designed to cause panic-clicking. Banks send written notice and never block accounts over KYC by SMS.",
+  "at": "detection.html"
+ },
+ "1un9s2m": {
+  "en": "Suspicious link",
+  "at": "detection.html"
+ },
+ "fcpg7b": {
+  "en": "Non-bank domain (.xyz) impersonating SBI. Real bank links use the bank's own domain; better, type the address yourself.",
+  "at": "detection.html"
+ },
+ "nrfe8h": {
+  "en": "OTP harvesting",
+  "at": "detection.html"
+ },
+ "1stlxvc": {
+  "en": "The OTP they ask you to 'confirm' is the transaction OTP authorising THEIR transfer from your account.",
+  "at": "detection.html"
+ },
+ "f69abp": {
+  "en": "Threat language",
+  "at": "detection.html"
+ },
+ "10ir4tx": {
+  "en": "Escalating threat language. Institutions cite rules and give grievance channels; scripts threaten.",
+  "at": "detection.html"
+ },
+ "bwkm1m": {
+  "en": "🤖 Let Shield AI dissect your own message",
+  "at": "detection.html"
+ },
+ "i4fvg0": {
+  "en": "🎓 Prove it in the Training modules",
+  "at": "detection.html"
+ },
+ "184aerj": {
+  "en": "📄 Download the Red-Flag Checklist PDF",
+  "at": "detection.html"
+ },
+ "ywuf7f": {
+  "en": "Detection Lab — Shield Force",
+  "at": "detection.html"
+ },
+ "xxjqjf": {
+  "en": "Detection Lab",
+  "at": "detection.html"
+ },
+ "hcrmhn": {
+  "en": "Know Your Entitlements",
+  "at": "schemes.html"
+ },
+ "1m9h4vn": {
+  "en": "Financial <1>Schemes</1>",
+  "at": "schemes.html"
+ },
+ "rs386l": {
+  "en": "The genuine schemes for personnel and families — and how fraudsters impersonate each one.",
+  "at": "schemes.html"
+ },
+ "jreyve": {
+  "en": "AGIF",
+  "at": "schemes.html"
+ },
+ "126lzzq": {
+  "en": "Army Group Insurance Fund",
+  "at": "schemes.html"
+ },
+ "1qkm0in": {
+  "en": "Compulsory life insurance cover for all ranks with disability and survivor benefits.",
+  "at": "schemes.html"
+ },
+ "8k33nr": {
+  "en": "Insurance",
+  "at": "schemes.html"
+ },
+ "cue6nf": {
+  "en": "Details ⟶",
+  "at": "schemes.html"
+ },
+ "1wsbtiv": {
+  "en": "DSOP",
+  "at": "schemes.html"
+ },
+ "oiryia": {
+  "en": "Defence Services Officers' / Personnel Provident Fund",
+  "at": "schemes.html"
+ },
+ "1nov2ch": {
+  "en": "The soldier's compounding engine — a government-backed provident fund on defence pay.",
+  "at": "schemes.html"
+ },
+ "hfzy8g": {
+  "en": "Savings",
+  "at": "schemes.html"
+ },
+ "7ofwbi": {
+  "en": "SPARSH",
+  "at": "schemes.html"
+ },
+ "1t2zq4": {
+  "en": "System for Pension Administration (Raksha)",
+  "at": "schemes.html"
+ },
+ "1alnedb": {
+  "en": "Direct-credit digital pension system for defence pensioners and family pensioners.",
+  "at": "schemes.html"
+ },
+ "vy0b09": {
+  "en": "Pension",
+  "at": "schemes.html"
+ },
+ "1hx8qmo": {
+  "en": "ECHS",
+  "at": "schemes.html"
+ },
+ "c3egq3": {
+  "en": "Ex-Servicemen Contributory Health Scheme",
+  "at": "schemes.html"
+ },
+ "npfnc": {
+  "en": "Cashless, comprehensive healthcare for ex-servicemen and dependents via polyclinics.",
+  "at": "schemes.html"
+ },
+ "1o9hunq": {
+  "en": "Healthcare",
+  "at": "schemes.html"
+ },
+ "1yp64v4": {
+  "en": "AFBCWF",
+  "at": "schemes.html"
+ },
+ "1ohptfb": {
+  "en": "Armed Forces Battle Casualties Welfare Fund",
+  "at": "schemes.html"
+ },
+ "k14fa8": {
+  "en": "Government fund giving financial assistance to battle casualties and their families.",
+  "at": "schemes.html"
+ },
+ "ofjhmr": {
+  "en": "Welfare",
+  "at": "schemes.html"
+ },
+ "motdv8": {
+  "en": "PMSS",
+  "at": "schemes.html"
+ },
+ "13rlyc0": {
+  "en": "Prime Minister's Scholarship Scheme",
+  "at": "schemes.html"
+ },
+ "yk8ff8": {
+  "en": "Scholarships for children and widows of ex-servicemen for professional education.",
+  "at": "schemes.html"
+ },
+ "69obp1": {
+  "en": "Education",
+  "at": "schemes.html"
+ },
+ "jfd15l": {
+  "en": "AWWA",
+  "at": "schemes.html"
+ },
+ "1uhiiwd": {
+  "en": "Army Wives Welfare Association",
+  "at": "schemes.html"
+ },
+ "z6vwaz": {
+  "en": "Welfare, skilling and support network for army families, widows and differently-abled dependents.",
+  "at": "schemes.html"
+ },
+ "c8j19l": {
+  "en": "Family Welfare",
+  "at": "schemes.html"
+ },
+ "135q5cl": {
+  "en": "CSD",
+  "at": "schemes.html"
+ },
+ "c97lq6": {
+  "en": "Canteen Stores Department Facilities",
+  "at": "schemes.html"
+ },
+ "1tlzcgg": {
+  "en": "Subsidised goods for serving personnel, veterans and families through unit-run canteens.",
+  "at": "schemes.html"
+ },
+ "ija3a8": {
+  "en": "Entitlement",
+  "at": "schemes.html"
+ },
+ "1a4y47f": {
+  "en": "Summaries for awareness — always confirm current rules, rates and eligibility with your record office, pay office or the scheme's official portal.",
+  "at": "schemes.html"
+ },
+ "1iprdfw": {
+  "en": "📁 The scams that impersonate these schemes",
+  "at": "schemes.html"
+ },
+ "146oz5j": {
+  "en": "🎓 Pension protection module",
+  "at": "schemes.html"
+ },
+ "2xggy2": {
+  "en": "Financial Schemes — Shield Force",
+  "at": "schemes.html"
+ },
+ "1gtrkzr": {
+  "en": "Defence Schemes",
+  "at": "schemes.html"
+ },
+ "1pcq06d": {
+  "en": "Field Documents",
+  "at": "reports.html"
+ },
+ "14xhi6p": {
+  "en": "Reports &amp; <1>Downloads</1>",
+  "at": "reports.html"
+ },
+ "10s46d2": {
+  "en": "Printable guides for briefings, notice boards and the family. <1>🌐 PDFs open in your browser — save or print them from there (needs internet).</1>",
+  "at": "reports.html"
+ },
+ "1ca7mnp": {
+  "en": "PDF",
+  "at": "reports.html"
+ },
+ "hnbtao": {
+  "en": "SF-RPT-{0}",
+  "at": "reports.html"
+ },
+ "12uol7c": {
+  "en": "Family Financial Safety Guide",
+  "at": "reports.html"
+ },
+ "5qlgb6": {
+  "en": "Household security drills, the family code word protocol and response steps for spouses, parents and children of serving personnel.",
+  "at": "reports.html"
+ },
+ "1obuzwp": {
+  "en": "📄 Guide • A{0}",
+  "at": "reports.html"
+ },
+ "20sp81": {
+  "en": "🌐 English",
+  "at": "reports.html"
+ },
+ "drr34h": {
+  "en": "⬇ Open PDF ↗",
+  "at": "reports.html"
+ },
+ "1z0lzy4": {
+  "en": "Quick Red-Flag Checklist",
+  "at": "reports.html"
+ },
+ "1fn4sgj": {
+  "en": "A print-and-stick one-pager: ten red flags and the {0}-line defence. Designed for the fridge, the notice board and the canteen wall.",
+  "at": "reports.html"
+ },
+ "10ga5u1": {
+  "en": "📄 Checklist • A{0}",
+  "at": "reports.html"
+ },
+ "19jw38r": {
+  "en": "QR Code Scam Warning Notice",
+  "at": "reports.html"
+ },
+ "4tgn1h": {
+  "en": "Advisory poster for family welfare meetings explaining the QR/UPI reversal trap and the field rules that defeat it.",
+  "at": "reports.html"
+ },
+ "7j6jck": {
+  "en": "📄 Advisory • A{0}",
+  "at": "reports.html"
+ },
+ "170l8nu": {
+  "en": "Veteran Pension Fraud Alert",
+  "at": "reports.html"
+ },
+ "1bkvo6k": {
+  "en": "Active fraud patterns against pensioners and veer naris — SPARSH impersonation, life-certificate phishing and arrears bait — with safe practice rules.",
+  "at": "reports.html"
+ },
+ "1qofg77": {
+  "en": "📄 Alert • A{0}",
+  "at": "reports.html"
+ },
+ "2azgws": {
+  "en": "Fraud Awareness Summary",
+  "at": "reports.html"
+ },
+ "1y54g6q": {
+  "en": "One-briefing digest of the entire Shield Force programme: threat picture, eight scam families, core defences and the unit-level drill.",
+  "at": "reports.html"
+ },
+ "bpn85d": {
+  "en": "📄 Digest • A{0}",
+  "at": "reports.html"
+ },
+ "1nf2vp8": {
+  "en": "🔍 The checklist, taught interactively",
+  "at": "reports.html"
+ },
+ "15uxduf": {
+  "en": "🎓 Turn reading into reflexes",
+  "at": "reports.html"
+ },
+ "1xmmsux": {
+  "en": "🚨 Emergency contacts page",
+  "at": "reports.html"
+ },
+ "p9imeq": {
+  "en": "Reports &amp; Downloads — Shield Force",
+  "at": "reports.html"
+ },
+ "1eymrvs": {
+  "en": "Field Guides",
+  "at": "reports.html"
+ },
+ "1wf5dih": {
+  "en": "Emergency Response",
+  "at": "emergency.html"
+ },
+ "1czkx99": {
+  "en": "Scammed? <1>Act Now.</1>",
+  "at": "emergency.html"
+ },
+ "106d8oi": {
+  "en": "No shame, no delay — fraud is a crime committed against you. Speed decides how much comes back.",
+  "at": "emergency.html"
+ },
+ "1fmxhi0": {
+  "en": "<1>National Cyber Crime Helpline</1>Tap to call now — reports fraud to the system that can freeze money in transit.",
+  "at": "emergency.html"
+ },
+ "1so9tz5": {
+  "en": "The Golden Window — the first {0} minutes",
+  "at": "emergency.html"
+ },
+ "13d013w": {
+  "en": "Stolen money doesn't vanish instantly: it hops between mule accounts before withdrawal. A report to <1>{0}</1> or <2>cybercrime.gov.in</2> inside the first hour lets banks freeze it mid-hop. Every minute of embarrassment-driven silence is money crossing the border. <3>Report first, feel later.</3>",
+  "at": "emergency.html"
+ },
+ "5j8q3f": {
+  "en": "🧭 The six steps, in order",
+  "at": "emergency.html"
+ },
+ "du88mg": {
+  "en": "Follow the sequence exactly — it maximises freeze chances and preserves evidence.",
+  "at": "emergency.html"
+ },
+ "iwmgzy": {
+  "en": "Disconnect &amp; freeze the moment",
+  "at": "emergency.html"
+ },
+ "1ltiudd": {
+  "en": "Hang up / stop chatting. Do not act on 'one last instruction'. Note the time — the Golden Window has started.",
+  "at": "emergency.html"
+ },
+ "8rrv5t": {
+  "en": "Call {0} immediately",
+  "at": "emergency.html"
+ },
+ "mrsho1": {
+  "en": "Report the transaction with amount, UPI ID/account, and time. This can hold funds at the next mule account before withdrawal.",
+  "at": "emergency.html"
+ },
+ "zexzck": {
+  "en": "Alert your bank on its official line",
+  "at": "emergency.html"
+ },
+ "w1ghox": {
+  "en": "Block cards, freeze UPI, dispute the transaction. Use the app or the number on your card — never a number the fraudster gave.",
+  "at": "emergency.html"
+ },
+ "1ejdvyc": {
+  "en": "File on cybercrime.gov.in",
+  "at": "emergency.html"
+ },
+ "10320y": {
+  "en": "Upload screenshots, numbers, handles and receipts. Save the acknowledgement number for the bank and police.",
+  "at": "emergency.html"
+ },
+ "1puord9": {
+  "en": "Preserve every scrap of evidence",
+  "at": "emergency.html"
+ },
+ "1ooufzw": {
+  "en": "Do not delete chats, call logs, SMS or receipts. Photograph QR codes. Evidence drives both recovery and prosecution.",
+  "at": "emergency.html"
+ },
+ "10er57n": {
+  "en": "Inform unit / ZSWO and family",
+  "at": "emergency.html"
+ },
+ "1a8dphx": {
+  "en": "Parallel-report through your military channel and brief the family so the same script fails on its next attempt.",
+  "at": "emergency.html"
+ },
+ "14689k1": {
+  "en": "📇 Emergency contacts — families &amp; officers",
+  "at": "emergency.html"
+ },
+ "1k1ffs4": {
+  "en": "Who to call, in which situation, with direct links.",
+  "at": "emergency.html"
+ },
+ "ytxz5m": {
+  "en": "Everyone — first call",
+  "at": "emergency.html"
+ },
+ "3w115": {
+  "en": "National Cyber Crime Helpline",
+  "at": "emergency.html"
+ },
+ "zw128y": {
+  "en": "Reports financial cyber fraud to the Citizen Financial Cyber Fraud Reporting &amp; Management System. Can freeze fraudulent transfers while money is still moving between mule accounts.",
+  "at": "emergency.html"
+ },
+ "kwphj9": {
+  "en": "Call now",
+  "at": "emergency.html"
+ },
+ "i655zr": {
+  "en": "Report online ↗",
+  "at": "emergency.html"
+ },
+ "1uzpq5g": {
+  "en": "Everyone — online filing",
+  "at": "emergency.html"
+ },
+ "rcq294": {
+  "en": "National Cyber Crime Reporting Portal",
+  "at": "emergency.html"
+ },
+ "8lo4cf": {
+  "en": "cybercrime.gov.in",
+  "at": "emergency.html"
+ },
+ "1ed8mv": {
+  "en": "File detailed complaints with evidence (screenshots, UPI IDs, numbers). Track status online. Works for financial fraud, impersonation, sextortion and social-media cases.",
+  "at": "emergency.html"
+ },
+ "st97es": {
+  "en": "Open portal ↗",
+  "at": "emergency.html"
+ },
+ "f1stfs": {
+  "en": "Track complaint ↗",
+  "at": "emergency.html"
+ },
+ "1jv4nvs": {
+  "en": "Any emergency",
+  "at": "emergency.html"
+ },
+ "jvd0rn": {
+  "en": "National Emergency Number",
+  "at": "emergency.html"
+ },
+ "bunjqj": {
+  "en": "Police, fire and medical emergency. Use when there is a physical threat, ongoing extortion or a vulnerable family member under pressure from callers.",
+  "at": "emergency.html"
+ },
+ "ck0gvc": {
+  "en": "Telecom fraud",
+  "at": "emergency.html"
+ },
+ "1isvu0r": {
+  "en": "Sanchar Saathi / Chakshu",
+  "at": "emergency.html"
+ },
+ "jgr2gq": {
+  "en": "sancharsaathi.gov.in",
+  "at": "emergency.html"
+ },
+ "zd5mt0": {
+  "en": "Report suspected fraud calls/SMS, check SIMs issued against your ID, and block lost handsets — Department of Telecommunications.",
+  "at": "emergency.html"
+ },
+ "jkskbe": {
+  "en": "Report suspect calls ↗",
+  "at": "emergency.html"
+ },
+ "blp7er": {
+  "en": "Serving personnel",
+  "at": "emergency.html"
+ },
+ "j9vjm4": {
+  "en": "Unit chain: Adjutant / FWO / Cyber cell",
+  "at": "emergency.html"
+ },
+ "ikj5a4": {
+  "en": "Unit lines",
+  "at": "emergency.html"
+ },
+ "18xal8p": {
+  "en": "Inform your Adjutant or unit security staff in parallel with {0}/NCRP — they issue station advisories, support evidence collection and protect others from the same campaign.",
+  "at": "emergency.html"
+ },
+ "17ehw8k": {
+  "en": "Veterans &amp; families",
+  "at": "emergency.html"
+ },
+ "axoxhc": {
+  "en": "Zila / Rajya Sainik Welfare Office",
+  "at": "emergency.html"
+ },
+ "1brn020": {
+  "en": "ZSWO",
+  "at": "emergency.html"
+ },
+ "x3g2d9": {
+  "en": "Guidance for pension fraud, documentation help and welfare-scheme verification. Directory available through the Kendriya Sainik Board.",
+  "at": "emergency.html"
+ },
+ "92c3pa": {
+  "en": "KSB portal ↗",
+  "at": "emergency.html"
+ },
+ "sq6i6r": {
+  "en": "Pension issues",
+  "at": "emergency.html"
+ },
+ "3w448z": {
+  "en": "SPARSH / PCDA (Pensions)",
+  "at": "emergency.html"
+ },
+ "11ch9xi": {
+  "en": "Official portal",
+  "at": "emergency.html"
+ },
+ "wnsqo5": {
+  "en": "Verify pension status, PPO and life-certificate issues ONLY on the official portal or through your record office / bank — never through callers.",
+  "at": "emergency.html"
+ },
+ "1apkwg5": {
+  "en": "SPARSH portal ↗",
+  "at": "emergency.html"
+ },
+ "cyna1f": {
+  "en": "Banking fraud",
+  "at": "emergency.html"
+ },
+ "l9p7hi": {
+  "en": "Your bank's {0}×{1} fraud line + RBI",
+  "at": "emergency.html"
+ },
+ "197a46g": {
+  "en": "Bank helpline",
+  "at": "emergency.html"
+ },
+ "1sl3qfb": {
+  "en": "Freeze cards/UPI instantly through the number on the back of your card or the bank app. Unresolved complaints escalate to the RBI Ombudsman (cms.rbi.org.in).",
+  "at": "emergency.html"
+ },
+ "mkwz0r": {
+  "en": "RBI complaints ↗",
+  "at": "emergency.html"
+ },
+ "yaou6n": {
+  "en": "RBI Sachet ↗",
+  "at": "emergency.html"
+ },
+ "1a863u5": {
+  "en": "After the storm: build the shield",
+  "at": "emergency.html"
+ },
+ "2m4t3u": {
+  "en": "Once the reports are filed, train yourself and your family so the next attempt bounces off.",
+  "at": "emergency.html"
+ },
+ "17tlepj": {
+  "en": "🎓 Training modules",
+  "at": "emergency.html"
+ },
+ "1dnveth": {
+  "en": "📄 Family safety PDFs",
+  "at": "emergency.html"
+ },
+ "i7arb5": {
+  "en": "Emergency — Report Cybercrime — Shield Force",
+  "at": "emergency.html"
+ },
+ "n1ggde": {
+  "en": "Emergency",
+  "at": "emergency.html"
+ },
+ "1023wss": {
+  "en": "App",
+  "at": "more.html"
+ },
+ "16us7mj": {
+  "en": "Language",
+  "at": "more.html"
+ },
+ "kc8bl7": {
+  "en": "Printable PDF downloads",
+  "at": "more.html"
+ },
+ "h7vdbw": {
+  "en": "Where scams against the community are being reported",
+  "at": "more.html"
+ },
+ "1f8350a": {
+  "en": "Help",
+  "at": "more.html"
+ },
+ "1ytpxgn": {
+  "en": "Call {0}",
+  "at": "more.html"
+ },
+ "1k850sl": {
+  "en": "Emergency steps",
+  "at": "more.html"
+ },
+ "wx0xj2": {
+  "en": "What to do in the first hour after a fraud",
+  "at": "more.html"
+ },
+ "83pjwp": {
+  "en": "Contact &amp; support",
+  "at": "more.html"
+ },
+ "agelvi": {
+  "en": "Questions, corrections, official channels",
+  "at": "more.html"
+ },
+ "1xeriu5": {
+  "en": "Report a translation error",
+  "at": "more.html"
+ },
+ "1tn3z79": {
+  "en": "Translations were made with AI help — tell us what reads wrong",
+  "at": "more.html"
+ },
+ "1pq2h0q": {
+  "en": "Legal",
+  "at": "more.html"
+ },
+ "fhaxvj": {
+  "en": "Privacy policy",
+  "at": "more.html"
+ },
+ "1ab8wm6": {
+  "en": "No accounts, no database, no tracking",
+  "at": "more.html"
+ },
+ "15eqa9y": {
+  "en": "Terms of use",
+  "at": "more.html"
+ },
+ "1oxnshy": {
+  "en": "Educational use and disclaimers",
+  "at": "more.html"
+ },
+ "1bk2o9w": {
+  "en": "Data on this device",
+  "at": "more.html"
+ },
+ "gqr42d": {
+  "en": "Reset training progress",
+  "at": "more.html"
+ },
+ "1e7ati6": {
+  "en": "Clears the quiz scores saved on this device",
+  "at": "more.html"
+ },
+ "1sgfk1h": {
+  "en": "Version {0} · Works offline",
+  "at": "more.html"
+ },
+ "1ot9w5f": {
+  "en": "A community awareness initiative — not an official Government of India or Ministry of Defence service. Nothing you type is stored or sent anywhere.",
+  "at": "more.html"
+ },
+ "t6xq0q": {
+  "en": "More — Shield Force",
+  "at": "more.html"
+ },
+ "s95lil": {
+  "en": "Get in touch",
+  "at": "contact.html"
+ },
+ "1dffawp": {
+  "en": "Contact &amp; <1>Report</1>",
+  "at": "contact.html"
+ },
+ "18hiupb": {
+  "en": "Reporting a live fraud? Use the official channels below — they act, we can't. For anything about this app, email us.",
+  "at": "contact.html"
+ },
+ "1d9ioax": {
+  "en": "Being scammed right now? Don't email us — call {0}",
+  "at": "contact.html"
+ },
+ "1t5cw2s": {
+  "en": "Shield Force is an awareness project; we cannot freeze transactions or recover money. The national cyber crime helpline can. Reporting within the first hour gives the best chance of stopping the transfer.",
+  "at": "contact.html"
+ },
+ "op47q0": {
+  "en": "📞 Call {0} now",
+  "at": "contact.html"
+ },
+ "vsyf4h": {
+  "en": "File at cybercrime.gov.in ↗",
+  "at": "contact.html"
+ },
+ "khbtm6": {
+  "en": "Full emergency steps",
+  "at": "contact.html"
+ },
+ "1nzpcut": {
+  "en": "About this app",
+  "at": "contact.html"
+ },
+ "e1f568": {
+  "en": "Questions, corrections, privacy requests, or to report an error in our content.",
+  "at": "contact.html"
+ },
+ "1r9zb5s": {
+  "en": "Support email",
+  "at": "contact.html"
+ },
+ "76ya76": {
+  "en": "vihaanssuvarna@gmail.com",
+  "at": "contact.html"
+ },
+ "51tmi6": {
+  "en": "📋 Copy address",
+  "at": "contact.html"
+ },
+ "1kr6nj4": {
+  "en": "✉ Open mail app",
+  "at": "contact.html"
+ },
+ "117fqum": {
+  "en": "\"Open mail app\" needs an email app set up on your device. If nothing happens, use \"Copy address\" and paste it into your email instead.",
+  "at": "contact.html"
+ },
+ "14zhh5e": {
+  "en": "Official reporting channels",
+  "at": "contact.html"
+ },
+ "1dticui": {
+  "en": "Genuine Government of India services. Shield Force is not affiliated with any of them.",
+  "at": "contact.html"
+ },
+ "1prpwkn": {
+  "en": "How we handle data (we collect none), and the terms of using this app.",
+  "at": "contact.html"
+ },
+ "ab2tcv": {
+  "en": "Privacy Policy",
+  "at": "contact.html"
+ },
+ "1wr163q": {
+  "en": "Terms of Use",
+  "at": "contact.html"
+ },
+ "1hp5qoa": {
+  "en": "Contact &amp; Report — Shield Force",
+  "at": "contact.html"
+ },
+ "1tmpp49": {
+  "en": "Contact &amp; Support",
+  "at": "contact.html"
+ },
+ "x0ckck": {
+  "en": "Privacy <1>Policy</1>",
+  "at": "privacy.html"
+ },
+ "1l3hju5": {
+  "en": "Short version: Shield Force has no database and no accounts. It does not collect, store or transmit any personal data, and everything you type stays on your device.",
+  "at": "privacy.html"
+ },
+ "3cjm6y": {
+  "en": "This is a translation provided for your convenience. If it differs from the English version, the English version applies.",
+  "at": "privacy.html"
+ },
+ "irgjk5": {
+  "en": "Last updated: {0} October {1}",
+  "at": "privacy.html"
+ },
+ "1qidl1x": {
+  "en": "{0}. Who we are",
+  "at": "privacy.html"
+ },
+ "nj67s8": {
+  "en": "Shield Force is a community awareness initiative that helps Indian Armed Forces personnel, veterans and their families recognise and avoid financial fraud. It is <1>not an official Government of India or Ministry of Defence service</1>. Questions about this policy can be sent to <2>vihaanssuvarna@gmail.com</2> (see our <3>Contact page</3>).",
+  "at": "privacy.html"
+ },
+ "1457sdz": {
+  "en": "{0}. Data we collect",
+  "at": "privacy.html"
+ },
+ "gekta6": {
+  "en": "<1>None.</1> Shield Force has no backend server, no user accounts and no analytics or advertising software of any kind. The app runs entirely as code inside your browser or the installed app shell on your device.",
+  "at": "privacy.html"
+ },
+ "1ej7vq9": {
+  "en": "{0}. There is no database",
+  "at": "privacy.html"
+ },
+ "1l0k4mh": {
+  "en": "<1>Shield Force does not operate a database, and does not need one.</1> The app is a set of static files. Nothing you enter is ever sent to a server, there is no place where user records could be written, and no account system to create a record in the first place. We hold no user table, no message log, no quiz history and no contact list.",
+  "at": "privacy.html"
+ },
+ "rt6xup": {
+  "en": "You never register, sign in, or provide a name, phone number, email address, service number, PPO number, rank, unit or bank detail anywhere in this app — nothing asks for them, because there is nowhere to put them.",
+  "at": "privacy.html"
+ },
+ "17fdyeo": {
+  "en": "This has a practical consequence worth stating plainly: <1>there is no store of user data here that could be breached, sold, subpoenaed, or leaked</1>, because it does not exist. We cannot hand over information about you to anyone, including ourselves.",
+  "at": "privacy.html"
+ },
+ "1yihzx2": {
+  "en": "{0}. The Shield AI message scanner",
+  "at": "privacy.html"
+ },
+ "1v39a3m": {
+  "en": "When you paste a message into the <1>Shield AI Analyzer</1>, that text is scored entirely by JavaScript running on your own device against a local list of fraud patterns. <2>The message is never uploaded, logged or sent to any server</2> — it is discarded the moment you navigate away or clear the field.",
+  "at": "privacy.html"
+ },
+ "fscqyn": {
+  "en": "{0}. What stays on your device",
+  "at": "privacy.html"
+ },
+ "16mrlft": {
+  "en": "A small amount of information is saved in the app's local storage on your device, purely so the app remembers your progress between visits. It is never sent to us or anyone else and is not visible to us. The only copy that can exist elsewhere is inside your phone's own encrypted device backup (iCloud or Google), if you have backups switched on:",
+  "at": "privacy.html"
+ },
+ "s6irvs": {
+  "en": "<1>Training scores</1> — your best result on each quiz module, so progress isn't lost.",
+  "at": "privacy.html"
+ },
+ "pz23al": {
+  "en": "<1>Interface preferences</1> — things like whether you've dismissed a banner.",
+  "at": "privacy.html"
+ },
+ "1gxdtnz": {
+  "en": "You can clear your quiz scores with <1>More → Reset training progress</1>, and erase all of it at any time by clearing site data / app storage for Shield Force in your browser or device settings, or by uninstalling the app.",
+  "at": "privacy.html"
+ },
+ "1bl98m9": {
+  "en": "{0}. Offline support &amp; caching",
+  "at": "privacy.html"
+ },
+ "qa0dmt": {
+  "en": "On the website, Shield Force installs a service worker so pages, images and the downloadable PDF reports keep working without an internet connection after your first visit. This is a standard web technology for offline apps and does not collect or transmit any data about you.",
+  "at": "privacy.html"
+ },
+ "1pg4hbx": {
+  "en": "{0}. Hosting and app stores",
+  "at": "privacy.html"
+ },
+ "1i86zso": {
+  "en": "<1>The app-store versions</1> of Shield Force carry every screen inside the app on your device. They make no network requests of their own, so nothing about you is sent anywhere when you use them.",
+  "at": "privacy.html"
+ },
+ "1s4x9pc": {
+  "en": "<1>If you use Shield Force as a website</1>, the company that hosts it (Netlify) receives the standard technical details that every website visit involves — such as your IP address, browser type and the page requested — in order to deliver the pages and protect against abuse. Those logs are held by the host under its own privacy policy; Shield Force does not use them to identify or track anyone.",
+  "at": "privacy.html"
+ },
+ "u4n6bt": {
+  "en": "Apple and Google may provide us with anonymous, aggregated statistics such as total downloads. These are produced by the stores, not by the app, and contain no personal data.",
+  "at": "privacy.html"
+ },
+ "huh4qk": {
+  "en": "{0}. Third-party links",
+  "at": "privacy.html"
+ },
+ "wz8d7y": {
+  "en": "Screens such as Emergency and Contact link out to official government resources — <1>cybercrime.gov.in</1>, <2>Sanchar Saathi</2>, <3>SPARSH</3> and <4>KSB</4> — and to the national helpline via <5/>. Those destinations are outside our control and have their own privacy practices.",
+  "at": "privacy.html"
+ },
+ "1gqwkih": {
+  "en": "{0}. Permissions",
+  "at": "privacy.html"
+ },
+ "1u1l064": {
+  "en": "Shield Force does not request access to your contacts, camera, microphone, location, photos or notifications. The only device capability it uses is local storage, described in section {0}.",
+  "at": "privacy.html"
+ },
+ "fuxz8m": {
+  "en": "{0}. Children's privacy",
+  "at": "privacy.html"
+ },
+ "k4gw3a": {
+  "en": "Shield Force is educational content aimed at adult service members, veterans and family members. It does not knowingly collect data from anyone, so no age-specific handling is required — nothing is collected from any visitor regardless of age.",
+  "at": "privacy.html"
+ },
+ "1tk7zsr": {
+  "en": "{0}. Changes to this policy",
+  "at": "privacy.html"
+ },
+ "hi68uw": {
+  "en": "If this policy changes — for example if a future version adds optional analytics — this page will be updated and the \"Last updated\" date above will change accordingly. Continued use of the app after an update constitutes acceptance of the revised policy.",
+  "at": "privacy.html"
+ },
+ "mpqt15": {
+  "en": "{0}. Contact",
+  "at": "privacy.html"
+ },
+ "1jyoioa": {
+  "en": "For privacy questions, data-deletion requests, or anything else, use our <1>Contact page</1> or email <2>vihaanssuvarna@gmail.com</2>. See also our <3>Terms of Use &amp; Disclaimer</3>.",
+  "at": "privacy.html"
+ },
+ "1nox6hb": {
+  "en": "Privacy Policy — Shield Force",
+  "at": "privacy.html"
+ },
+ "6hb8kp": {
+  "en": "Terms of Use &amp; <1>Disclaimer</1>",
+  "at": "terms.html"
+ },
+ "1a5g8yv": {
+  "en": "Shield Force is a community awareness tool, not an official government service, a security product, or professional advice.",
+  "at": "terms.html"
+ },
+ "1owj0t6": {
+  "en": "Last updated: {0} September {1}",
+  "at": "terms.html"
+ },
+ "14z1jks": {
+  "en": "{0}. Acceptance",
+  "at": "terms.html"
+ },
+ "lakqtm": {
+  "en": "By using Shield Force (the website or installed app), you agree to these terms. If you do not agree, please do not use the app.",
+  "at": "terms.html"
+ },
+ "ipch5g": {
+  "en": "{0}. Not an official government service",
+  "at": "terms.html"
+ },
+ "1bugg4m": {
+  "en": "Shield Force is an independent, community-run awareness initiative. It is <1>not affiliated with, endorsed by, or an official channel of</1> the Government of India, the Ministry of Defence, the Indian Armed Forces, SPARSH, KSB, or any other government body named in this app. Names of real government schemes and portals are referenced for educational purposes only.",
+  "at": "terms.html"
+ },
+ "15q1bkv": {
+  "en": "{0}. Educational content only",
+  "at": "terms.html"
+ },
+ "1488yjg": {
+  "en": "Everything in Shield Force — scam explainers, the threat map, training quizzes, downloadable PDFs and the Shield AI scanner — is provided for <1>general awareness and education</1>. It is not financial, legal, or cybersecurity advice, and must not be treated as a substitute for guidance from your bank, your chain of command, or law enforcement.",
+  "at": "terms.html"
+ },
+ "19ik47f": {
+  "en": "Statistics &amp; case data",
+  "at": "terms.html"
+ },
+ "1gmtttt": {
+  "en": "Figures shown on the homepage, threat map and case feed (targeted-personnel counts, amounts lost, incident locations, etc.) are <1>representative training estimates</1> built from recurring, publicly reported fraud patterns — they are not live official statistics. Always verify current figures with the Indian Cyber Crime Coordination Centre (I{0}C) or NCRB before citing them.",
+  "at": "terms.html"
+ },
+ "76r034": {
+  "en": "Shield AI scanner",
+  "at": "terms.html"
+ },
+ "1c4kz8m": {
+  "en": "The message scanner gives a heuristic risk indication based on known fraud patterns. It can produce false positives or false negatives. <1>A \"low risk\" result is not a guarantee that a message is safe.</1> If in doubt, verify independently through official channels before acting, sharing money, or sharing personal or banking information.",
+  "at": "terms.html"
+ },
+ "zhxr1j": {
+  "en": "{0}. No liability",
+  "at": "terms.html"
+ },
+ "obnkl7": {
+  "en": "Shield Force is provided \"as is,\" without warranties of any kind. To the fullest extent permitted by law, we are not liable for any loss — financial or otherwise — arising from reliance on this app's content, from a fraud that this app's material did not prevent, or from any inaccuracy in the representative statistics described above.",
+  "at": "terms.html"
+ },
+ "pjlsez": {
+  "en": "{0}. In a genuine emergency",
+  "at": "terms.html"
+ },
+ "1vkjifk": {
+  "en": "If you believe you have been defrauded, do not wait on this app: call the national <1>{0}</1> cyber crime helpline or visit <2>cybercrime.gov.in</2> immediately. See the <3>Emergency</3> page for full steps.",
+  "at": "terms.html"
+ },
+ "gq2zs0": {
+  "en": "{0}. Your use of the app",
+  "at": "terms.html"
+ },
+ "wuvwsl": {
+  "en": "Content is for personal, non-commercial awareness use.",
+  "at": "terms.html"
+ },
+ "vdgtw0": {
+  "en": "Don't attempt to disrupt, reverse-engineer for malicious purposes, or misrepresent Shield Force as an official government product when redistributing it.",
+  "at": "terms.html"
+ },
+ "1q3oawc": {
+  "en": "The downloadable PDF reports may be printed and shared freely for awareness purposes within the defence community.",
+  "at": "terms.html"
+ },
+ "181e6h4": {
+  "en": "{0}. Changes",
+  "at": "terms.html"
+ },
+ "1nkvak8": {
+  "en": "These terms may be updated as the app evolves; the \"Last updated\" date above will reflect the most recent revision. Continued use after a change means you accept the updated terms.",
+  "at": "terms.html"
+ },
+ "v7m0v8": {
+  "en": "Questions about these terms: see our <1>Contact page</1> or email <2>vihaanssuvarna@gmail.com</2>. See also our <3>Privacy Policy</3>.",
+  "at": "terms.html"
+ },
+ "kev3c0": {
+  "en": "Terms of Use &amp; Disclaimer — Shield Force",
+  "at": "terms.html"
+ },
+ "65rub3": {
+  "en": "Error {0}",
+  "at": "404.html"
+ },
+ "1v658dl": {
+  "en": "Screen <1>not found</1>",
+  "at": "404.html"
+ },
+ "2t24w1": {
+  "en": "That screen doesn't exist — the link may be old or mistyped. Everything else is still here.",
+  "at": "404.html"
+ },
+ "47yp0c": {
+  "en": "Back to the start",
+  "at": "404.html"
+ },
+ "ux5cxv": {
+  "en": "Check a suspicious SMS or WhatsApp",
+  "at": "404.html"
+ },
+ "18dz2r1": {
+  "en": "Emergency · {0}",
+  "at": "404.html"
+ },
+ "1cqcwhf": {
+  "en": "What to do if you've been scammed",
+  "at": "404.html"
+ },
+ "1qcc0no": {
+  "en": "Not found — Shield Force",
+  "at": "404.html"
+ },
+ "sj08ze": {
+  "en": "Not found",
+  "at": "404.html"
+ },
+ "1m5zd7s": {
+  "en": "Critical threat",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "7acfi7": {
+  "en": "<1/> Train against it",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1gc2xa0": {
+  "en": "<1/> Scan a message",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1c278ue": {
+  "en": "⚙️ How the scam works",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1ko5c3w": {
+  "en": "The script, step by step — know the sequence and you can break it at any link.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "zsspj0": {
+  "en": "Bait on resale apps",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1h0tyu8": {
+  "en": "You list a sofa, bike or car on OLX-type apps. A polite 'Army officer under posting' agrees to full price instantly — no bargaining, no inspection.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "106cbr1": {
+  "en": "Identity props",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "13nqq68": {
+  "en": "He sends a uniform photo, canteen card or fake Aadhaar to build trust, and claims he can only pay online 'from the unit'.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "xk4pfl": {
+  "en": "The QR switch",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "r9hvfr": {
+  "en": "To 'send the advance', he shares a QR code and tells you to scan it and enter your UPI PIN to receive money.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "19gvlku": {
+  "en": "The drain",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "izkawb": {
+  "en": "Scanning + PIN authorises a payment OUT of your account. He claims it 'failed' and makes you repeat it with bigger amounts.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "b5lcfi": {
+  "en": "Vanish &amp; recycle",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "dvejvt": {
+  "en": "Numbers are switched off, profiles deleted; the same script is re-run on the next family from a new SIM.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "vz71ak": {
+  "en": "📁 Case studies",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1c3u9ou": {
+  "en": "Composite case patterns drawn from recurring, reported fraud incidents.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1tze2ea": {
+  "en": "Pune, Maharashtra • NCRP case pattern",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "q66265": {
+  "en": "Retired JCO loses savings selling furniture",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1r6h458": {
+  "en": "A retired JCO listed household furniture online before relocating. A 'Major on posting' sent an advance-payment QR. Over four scans the account was drained before the bank could be reached. <1>Loss: ₹{0} lakh.</1>",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1sb8y09": {
+  "en": "Ambala Cantt, Haryana • Cyber cell advisory",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "ie1rkk": {
+  "en": "Officer's spouse targeted during move",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1l0f6y4": {
+  "en": "During a posting move, a spouse selling a refrigerator was pushed through three 'failed' QR verifications, each debiting her account. The {0} call within {1} minutes helped freeze part of the amount. <1>Loss: ₹{2} (partially recovered).</1>",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "b0zaid": {
+  "en": "🛡️ How to protect yourself",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "15q9my7": {
+  "en": "Counter-drills that neutralise this scam completely.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1hjxhup": {
+  "en": "Receiving money NEVER needs a QR scan or UPI PIN — a PIN only authorises outgoing payments.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "jdsxef": {
+  "en": "Treat every 'army buyer who can't meet' as fraud. Genuine buyers inspect goods in person.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "13tpttn": {
+  "en": "Never accept payment screenshots as proof — verify credit in your own bank app.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "1kv076y": {
+  "en": "Decline unknown 'collect requests' in UPI apps; report the profile in-app and on cybercrime.gov.in.",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "17z8vh2": {
+  "en": "If drained: call {0} inside the Golden Window (first {1} minutes).",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "k9mjt8": {
+  "en": "Start the <1/> module ⟶",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "11jnkn4": {
+  "en": "See the {0}-phase fraud anatomy",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "eql8xf": {
+  "en": "🚨 Emergency protocol",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "18i3xgm": {
+  "en": "Fake UPI / QR Reversal Fraud — Shield Force",
+  "at": "scam-detail.html?id=fake-upi"
+ },
+ "xnq7ek": {
+  "en": "Alarm SMS or call",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "183jkxu": {
+  "en": "A message warns that your bank account, SIM or SPARSH pension profile 'will be blocked today' unless you verify KYC immediately.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "12f95zt": {
+  "en": "Fake portal or APK",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "ujgo8m": {
+  "en": "The link opens a cloned bank/SPARSH page or asks you to install an APK 'update' that silently reads your SMS.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "1cblmzt": {
+  "en": "Credential harvest",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "lwj0qe": {
+  "en": "You enter your account number, PAN, Aadhaar and net-banking password on the fake page.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "186fvdk": {
+  "en": "The OTP ask",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "h3ce1m": {
+  "en": "A 'verification OTP' arrives — it is actually the transaction OTP for a transfer or SIM swap the fraudster just initiated.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "14y234d": {
+  "en": "Account takeover",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "1e3cy1p": {
+  "en": "With OTP or a swapped SIM, they empty the account and often take instant loans in your name.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "4so7nx": {
+  "en": "Jhansi, Uttar Pradesh • Bank fraud cell pattern",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "10nhi26": {
+  "en": "Sepoy's salary account emptied via fake KYC link",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "n8x87": {
+  "en": "An SMS about 'PNB KYC suspension' led to a cloned page. The soldier entered credentials and one OTP; three transfers followed in six minutes while he was on duty. <1>Loss: ₹{0}.</1>",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "19r89ny": {
+  "en": "Kochi, Kerala • TRAI advisory pattern",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "1q2hw3g": {
+  "en": "Veteran's SIM swapped after 'Jio verification' call",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "1dgstny": {
+  "en": "A caller posing as telecom staff got a veteran to forward an SMS 'to keep the SIM active'. His SIM deactivated that evening; by morning the pension account showed nine debits. <1>Loss: ₹{0} lakh.</1>",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "bfm8ze": {
+  "en": "Banks, SPARSH, telecom operators and record offices never ask for OTP/PIN/passwords — ever.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "1ypadh3": {
+  "en": "Type portal addresses yourself (e.g. sparsh.defencepension.gov.in). Never open KYC links from SMS/WhatsApp.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "ud6gyk": {
+  "en": "Never install APK files sent on chat apps; use only official app stores.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "1ba9t8f": {
+  "en": "Sudden 'No Service' on your SIM? Contact your operator and bank immediately — possible SIM swap.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "fc9b4w": {
+  "en": "Use a separate low-balance account for UPI; keep salary/pension accounts unlinked.",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "hzq0a9": {
+  "en": "OTP, KYC &amp; SIM-Swap Phishing — Shield Force",
+  "at": "scam-detail.html?id=otp-phishing"
+ },
+ "187e0nr": {
+  "en": "High threat",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1iu0jxo": {
+  "en": "Warm entry",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1ngm2pq": {
+  "en": "A 'fauji brother', course-mate group forward or Telegram tipster shares screenshots of huge profits from a trading or crypto app.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "nhajvd": {
+  "en": "Small win hook",
+  "at": "scam-detail.html?id=investment"
+ },
+ "tiy8dy": {
+  "en": "Your first small deposit 'earns' quickly and withdrawals work — this seed money is paid from other victims.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "18k4hmw": {
+  "en": "Escalation",
+  "at": "scam-detail.html?id=investment"
+ },
+ "vsuk48": {
+  "en": "You are coached to invest DSOP withdrawals, retirement corpus or loans. A fake dashboard shows soaring profits.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "favyq7": {
+  "en": "The freeze",
+  "at": "scam-detail.html?id=investment"
+ },
+ "33y2se": {
+  "en": "When you try to withdraw, 'tax', 'processing fee' or 'account upgrade' payments are demanded — each one is lost too.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "3i51a": {
+  "en": "Collapse",
+  "at": "scam-detail.html?id=investment"
+ },
+ "qfquyz": {
+  "en": "The app/site disappears with the corpus; groups dissolve; handlers reappear later with a 'recovery agent' scam.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1slm5l0": {
+  "en": "Secunderabad, Telangana • EOW case pattern",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1jlj7ky": {
+  "en": "Havildar invests retirement corpus in fake forex app",
+  "at": "scam-detail.html?id=investment"
+ },
+ "txycu6": {
+  "en": "Six months from retirement, a havildar moved his savings into a 'military friendly' forex app recommended in a veterans' group. The dashboard showed {0}% growth until withdrawal day. <1>Loss: ₹{1} lakh.</1>",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1x4pacd": {
+  "en": "Jodhpur, Rajasthan • Cyber PS pattern",
+  "at": "scam-detail.html?id=investment"
+ },
+ "19j9zv2": {
+  "en": "Unit WhatsApp group seeded with crypto 'mentor'",
+  "at": "scam-detail.html?id=investment"
+ },
+ "u7uq27": {
+  "en": "A mentor added to a station WhatsApp group signed up nine families for a staking scheme with {0}% daily returns. Payouts stopped in week five. <1>Loss: ₹{1} lakh (combined).</1>",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1sy8h1m": {
+  "en": "No legitimate scheme guarantees fixed high returns. SEBI-registered products never promise 'daily profit'.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "bzg338": {
+  "en": "Check any advisor at sebi.gov.in and any NBFC at rbi.org.in before paying a rupee.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "g9sppx": {
+  "en": "Never invest via APKs or links shared in chat groups; screenshots of profit are effortless to fake.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "110h2k4": {
+  "en": "Fees demanded to release your own money are always fraud — stop paying, start reporting.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1ughm9y": {
+  "en": "Keep DSOP/AGIF/retirement corpus in regulated instruments; consult your unit's financial counselling cell.",
+  "at": "scam-detail.html?id=investment"
+ },
+ "r8lmdq": {
+  "en": "Investment &amp; Crypto Ponzi Pitches — Shield Force",
+  "at": "scam-detail.html?id=investment"
+ },
+ "1p09lq4": {
+  "en": "Stolen identity kit",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "4dnd8x": {
+  "en": "Fraudsters lift photos of real officers from social media and build convincing profiles with rank, unit and uniform.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "1t4qj90": {
+  "en": "Unbeatable offer",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "1eecn64": {
+  "en": "They advertise 'CSD-rate' cars, bikes or liquor quotas, or pose as buyers/sellers on resale apps with military discipline in their language.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "gk2xz1": {
+  "en": "Fee ladder",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "ky7nw1": {
+  "en": "Token advance, then transport charge, gate pass fee, insurance, 'GST refund deposit' — each payment unlocks a new fee.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "kjr4p": {
+  "en": "Pressure &amp; props",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "fe3h8s": {
+  "en": "Fake gate passes, CSD invoices and ID cards arrive on WhatsApp; calls come from 'the MT office' urging quick payment.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "1mfzo2g": {
+  "en": "Ghosting",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "wrl5q8": {
+  "en": "After the largest instalment, numbers go dead. Victims hesitate to report because they believed they were buying informally.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "ix8v30": {
+  "en": "Lucknow, Uttar Pradesh • Police FIR pattern",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "18ahrmd": {
+  "en": "Teacher pays 'Colonel' for canteen car quota",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "1cnge8u": {
+  "en": "A civilian teacher paid five instalments for a 'CSD Innova at {0}% off' to a fraudster using a serving officer's photos. The real officer learned of it when police traced his misused identity. <1>Loss: ₹{1} lakh.</1>",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "54k7kb": {
+  "en": "Guwahati, Assam • Cyber cell pattern",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "dzftt6": {
+  "en": "Naik's family pays advance for 'surplus auction' bike",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "cv9hrt": {
+  "en": "A page advertising 'army auction bikes' collected registration and delivery fees from dozens of families, including a naik's brother. <1>Loss: ₹{0}.</1>",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "ncgbmg": {
+  "en": "CSD/canteen facilities are non-transferable and never sold via WhatsApp or Facebook — every such offer is fraud.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "nf80r8": {
+  "en": "The Army never auctions vehicles through social media pages or OLX profiles.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "1phgcph": {
+  "en": "Video-call verification can be spoofed; verify through official unit lines, not numbers the seller gives.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "1muvoxx": {
+  "en": "Advance-fee ladders (fee after fee to 'release' goods) are a certain fraud signature — stop at the first fee.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "xqvkrz": {
+  "en": "Report identity misuse of serving personnel to unit intelligence staff and cybercrime.gov.in.",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "m2bqku": {
+  "en": "Officer Impersonation &amp; Advance-Fee Deals — Shield Force",
+  "at": "scam-detail.html?id=impersonation"
+ },
+ "j4op6h": {
+  "en": "Data-driven targeting",
+  "at": "scam-detail.html?id=pension"
+ },
+ "d2ll10": {
+  "en": "Fraudsters use leaked pensioner lists to call veterans by name, rank and PPO number — instant credibility.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "8uynze": {
+  "en": "Fear script",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1na8jti": {
+  "en": "'Your pension stops today unless life certificate / KYC is updated now.' Elderly pensioners panic.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "tuxywl": {
+  "en": "Remote capture",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1v1bkq7": {
+  "en": "Victims are talked into sharing OTPs, installing screen-share apps, or filling bank details on fake SPARSH pages.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1ucu7f0": {
+  "en": "Arrears variant",
+  "at": "scam-detail.html?id=pension"
+ },
+ "12apwv6": {
+  "en": "'OROP arrears of ₹{0} lakh sanctioned — pay {1}% processing fee to release.' The fee is repeated and raised.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "3jotk6": {
+  "en": "Silent drain",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1rnkitu": {
+  "en": "Debits are spread across days so the pensioner notices late; embarrassment then delays reporting further.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "18dg3g5": {
+  "en": "Patna, Bihar • DLSA-reported pattern",
+  "at": "scam-detail.html?id=pension"
+ },
+ "13cbyq6": {
+  "en": "Veer nari loses family pension to 'PCDA officer'",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1upcgms": {
+  "en": "A war widow received a call quoting her exact PPO details. Guided through 'verification' on a screen-share app, her family pension account was emptied over two evenings. <1>Loss: ₹{0} lakh.</1>",
+  "at": "scam-detail.html?id=pension"
+ },
+ "owou2e": {
+  "en": "Bhopal, Madhya Pradesh • Cyber PS pattern",
+  "at": "scam-detail.html?id=pension"
+ },
+ "r3rors": {
+  "en": "Retired Subedar pays fees for phantom OROP arrears",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1wngehb": {
+  "en": "Promised ₹{0} lakh arrears, he paid 'processing', 'GST' and 'RBI clearance' charges across three weeks before a bank manager intervened. <1>Loss: ₹{1}.</1>",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1k9u3dy": {
+  "en": "SPARSH/PCDA/record offices never call for OTPs, fees or bank passwords. Pension release never needs a payment.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "16j1a3f": {
+  "en": "Do life certificates only via Jeevan Pramaan, your bank branch, or the SPARSH portal you typed yourself.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "ju935s": {
+  "en": "Never install AnyDesk/TeamViewer-type apps at a caller's request.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "14ct2yv": {
+  "en": "Set a family rule: any pension call = hang up, call back on numbers from your PPO/bank documents.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "l14kf": {
+  "en": "Check the veteran pension fraud alert in our Reports section and share it in your ex-servicemen league.",
+  "at": "scam-detail.html?id=pension"
+ },
+ "3swezx": {
+  "en": "Pension, Arrears &amp; SPARSH Fraud — Shield Force",
+  "at": "scam-detail.html?id=pension"
+ },
+ "1k5h657": {
+  "en": "Emotional trigger",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1sxuno7": {
+  "en": "After any incident in the news, fake pages appear collecting for 'martyr's daughter's education' or 'army welfare fund'.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "10ghpsd": {
+  "en": "Borrowed legitimacy",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "gt9kf6": {
+  "en": "They use real photos, tricolour branding, and names like 'Indian Army Welfare Trust' with UPI handles of private individuals.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "mujt2r": {
+  "en": "Urgency &amp; virality",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1q8utlo": {
+  "en": "Donation appeals ride WhatsApp forwards; small amounts (₹{0}–₹{1}) from thousands of donors avoid suspicion.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "wbmnz9": {
+  "en": "Family-targeted variant",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "9p1839": {
+  "en": "Serving families are told their own welfare-fund 'membership lapsed' and renewal fees are due via UPI.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "2wk1gt": {
+  "en": "Disappearance",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1axkuga": {
+  "en": "Handles rotate every few weeks; money moves through mule accounts within hours.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1px97ki": {
+  "en": "New Delhi • I{0}C takedown pattern",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "2kpocp": {
+  "en": "Viral appeal for 'martyr's medical fund' traced to private mule account",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1xrmlpe": {
+  "en": "A widely forwarded appeal with a soldier's photo collected lakhs in micro-donations. The UPI handle belonged to a rented mule account; none of it reached any defence family. <1>Loss: ₹{0} lakh (crowd-sourced).</1>",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "r06drn": {
+  "en": "Jalandhar, Punjab • Station advisory pattern",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "667v6t": {
+  "en": "Families billed for fake 'AWWA membership renewal'",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "pydd0b": {
+  "en": "Spouses received messages that their welfare association membership had lapsed, with a QR for renewal. Several paid before the station issued a denial. <1>Loss: ₹{0}–₹{1} per family.</1>",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "3r4rfo": {
+  "en": "Donate only via official channels: the National Defence Fund and Armed Forces Battle Casualties Welfare Fund have government-published account details (kar sewa via ndf.gov.in / Ministry of Defence).",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1pv6veu": {
+  "en": "Personal UPI IDs (name@bank) collecting 'welfare funds' are fraud — genuine funds use institutional accounts.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1vjqyid": {
+  "en": "Welfare associations never demand renewal via WhatsApp QR codes.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "11pgqrk": {
+  "en": "Verify appeals with your unit's welfare officer before donating or forwarding.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "1uzajh4": {
+  "en": "Report fake pages to the platform and on cybercrime.gov.in — takedowns stop the next thousand donors.",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "9iunqo": {
+  "en": "Fake Welfare Funds &amp; Martyr Charity Fraud — Shield Force",
+  "at": "scam-detail.html?id=welfare"
+ },
+ "rfgzo2": {
+  "en": "Document leakage",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "krm12s": {
+  "en": "ID copies given for SIMs, rentals or 'canteen offers' — or harvested by fake KYC apps — circulate in fraud markets.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1k4f48q": {
+  "en": "Instant loan abuse",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "2xlct8": {
+  "en": "Fraudsters take app-based loans in your name, or approve tiny loans TO you that balloon with hidden fees.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "12m4ila": {
+  "en": "Permission hijack",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "bz208f": {
+  "en": "Predatory loan APKs read your contacts and gallery on install.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1jdas6k": {
+  "en": "Extortion phase",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1mkfmeg": {
+  "en": "Recovery agents morph photos and threaten to shame you before your unit, family and contact list.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1qvx6ud": {
+  "en": "Credit wreckage",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1o0zkzg": {
+  "en": "Unpaid fraudulent loans surface years later as CIBIL defaults against your name.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "7i5cz4": {
+  "en": "Meerut, Uttar Pradesh • Cyber PS pattern",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1twkwt8": {
+  "en": "Sepoy harassed over loan he never took",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1qwsl3w": {
+  "en": "After his ID was misused, recovery agents began calling a sepoy's contacts with morphed images. The unit's cyber cell helped file NCRP and platform complaints. <1>Loss: Reputational + ₹{0} extorted.</1>",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "agq36a": {
+  "en": "Nagpur, Maharashtra • RBI advisory pattern",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "n2rx9b": {
+  "en": "Instant-loan APK drains contacts of a defence family",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1g18sed": {
+  "en": "A ₹{0} 'instant loan' app charged ₹{1} 'repayment' in a week and then threatened the family using stolen gallery photos. <1>Loss: ₹{2} + extortion attempts.</1>",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1jb8hjf": {
+  "en": "Share ID copies only with 'For [purpose], [date]' written across them; never send originals on chat apps.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1hzpi6b": {
+  "en": "Use only RBI-regulated lenders; check the RBI 'sachet' portal for registered entities.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "zsxxf3": {
+  "en": "Never grant contacts/gallery permission to loan apps.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1m0ur8s": {
+  "en": "Check your credit report (CIBIL/Experian) twice a year for loans you never took.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "1cwuvfs": {
+  "en": "Being blackmailed? Do not pay. Preserve evidence, report on cybercrime.gov.in and to unit security staff.",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "g1ifse": {
+  "en": "Loan App Traps &amp; Identity Theft — Shield Force",
+  "at": "scam-detail.html?id=loan-identity"
+ },
+ "5axidz": {
+  "en": "Fear opening",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "11nlzo5": {
+  "en": "A call claims your Aadhaar/parcel/bank account is linked to money-laundering or a drug parcel; the call 'transfers' to police or CBI.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "16i515b": {
+  "en": "Uniformed video call",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "5g5rh4": {
+  "en": "A fake officer in uniform, with station backdrop and forged ID, conducts an 'interrogation' on video.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "3rou6f": {
+  "en": "Isolation order",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "10jr0mm": {
+  "en": "You are told you are under 'digital arrest': stay on camera, tell no one, don't disconnect — for hours or days.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "8b4n01": {
+  "en": "Verification transfer",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "1uz8jh6": {
+  "en": "To 'verify your funds are clean', you must transfer savings to a 'supervised RBI account' — money goes straight to mules.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "459fbi": {
+  "en": "Repeat squeeze",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "zyx0cv": {
+  "en": "More 'charges' surface until the victim breaks or funds end. Elderly parents of serving personnel are prime targets.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "rhwg61": {
+  "en": "Dehradun, Uttarakhand • I{0}C alert pattern",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "11x8539": {
+  "en": "Serving officer's parents held on video for nine hours",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "1ikydf9": {
+  "en": "Told their son's Aadhaar was linked to a laundering case, elderly parents transferred fixed deposits to 'safe custody' while kept on camera and forbidden from calling him. <1>Loss: ₹{0} lakh.</1>",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "9x3yaa": {
+  "en": "Bengaluru, Karnataka • Cyber PS pattern",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "pgbrkl": {
+  "en": "Nursing officer intimidated with fake CBI warrant",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "12w2unh": {
+  "en": "A forged 'CBI arrest warrant' PDF and a video interrogation pushed her to pay 'bail bond security' before a colleague intervened. <1>Loss: ₹{0} lakh.</1>",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "145gdh2": {
+  "en": "'Digital arrest' does not exist in Indian law. No agency arrests, interrogates or takes custody over video calls.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "rfxljo": {
+  "en": "Police/CBI/ED/customs never demand money transfers for 'verification' — that sentence alone confirms fraud.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "15gjmro": {
+  "en": "Break the isolation: hang up and call a family member, your unit, or {0}. Scripts collapse when you disconnect.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "1kv73sy": {
+  "en": "Real notices arrive in writing and can be verified at the nearest police station.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "3j62ax": {
+  "en": "Brief elderly parents specifically — they are the primary targets of this scam.",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "snf4jm": {
+  "en": "Digital Arrest &amp; Fake Police Extortion — Shield Force",
+  "at": "scam-detail.html?id=digital-arrest"
+ },
+ "154dtgv": {
+  "en": "<1><2/></1> Scams that copy it",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "thvg3a": {
+  "en": "<1><2/></1> Scan a message",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "11ruxq7": {
+  "en": "💎 Key benefits",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "ndaeg3": {
+  "en": "High-value life cover for serving personnel at low group premiums deducted from pay.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "43old5": {
+  "en": "Disability cover for invalidment from service, plus maturity benefit on retirement.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "1qbx0q": {
+  "en": "Extended insurance cover options after retirement for a defined period.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "tmuin4": {
+  "en": "House building and other loans to members at competitive rates.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "mlshxz": {
+  "en": "👥 Who is benefited",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "1i7lrsh": {
+  "en": "All serving Army personnel",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "7z88p0": {
+  "en": "Families / nominees of the insured",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "cydjo": {
+  "en": "Retiring personnel (maturity benefit)",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "azok4e": {
+  "en": "⚠️ Scam risks around this scheme",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "ujms4g": {
+  "en": "How fraudsters weaponise this scheme's name — and the rules that keep you safe.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "g1sefc": {
+  "en": "Fraud calls offering to 'update AGIF nominee online' to harvest OTPs and bank details.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "6s0gkw": {
+  "en": "Fake 'AGIF bonus released — pay processing fee' messages to retirees.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "18yuhrx": {
+  "en": "Bogus agents 'topping up' AGIF cover for cash — AGIF has no door-to-door or WhatsApp agents.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "1h1am7w": {
+  "en": "Verify everything only via official AGIF channels and your record office.",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "1aps549": {
+  "en": "🎓 Train against these frauds",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "1rmwfpc": {
+  "en": "📄 Download related PDF alerts",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "edlh3z": {
+  "en": "AGIF — Army Group Insurance Fund — Shield Force",
+  "at": "scheme-detail.html?id=agif"
+ },
+ "1gn5bvb": {
+  "en": "Government-guaranteed interest, compounded annually, free of market risk.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "8lhurq": {
+  "en": "Convenient subscriptions straight from monthly pay with flexible top-ups.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "1vn6m4w": {
+  "en": "Withdrawals/advances permitted for education, marriage, housing and medical needs.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "16vv9tq": {
+  "en": "Tax benefits on contributions and exempt interest under prevailing rules.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "1ovqvgv": {
+  "en": "Serving officers and jawans",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "1al18i6": {
+  "en": "Families relying on the retirement corpus",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "om85cr": {
+  "en": "Ponzi pitches specifically target DSOP withdrawals ('double your DSOP in {0} days').",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "1q4e4lk": {
+  "en": "Fraud 'financial advisors' circulate fake DSOP withdrawal forms to capture signatures and account data.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "43r4yl": {
+  "en": "Nobody outside the pay office needs your DSOP details — treat callers asking for balances as hostile.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "isfnqu": {
+  "en": "Route every withdrawal through your unit accounts section / PCDA(O) only.",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "1nscs5s": {
+  "en": "DSOP — Defence Services Officers' / Personnel Provident Fund — Shield Force",
+  "at": "scheme-detail.html?id=dsop"
+ },
+ "1nbk1t4": {
+  "en": "Pension credited directly by PCDA without bank intermediaries — fewer delays.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "14vx8ji": {
+  "en": "Self-service portal for pensioner data, PPO download and grievances.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "hjao6n": {
+  "en": "Annual identification possible digitally (Jeevan Pramaan) or at service centres (CSCs/DPDOs).",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "17p1hz": {
+  "en": "Transparent entitlement and arrears computation visible to the pensioner.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "ys514f": {
+  "en": "Defence pensioners",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "1w14ip3": {
+  "en": "Family pensioners / veer naris",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "1gx02hk": {
+  "en": "Next of kin managing elderly pensioners",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "1ji372o": {
+  "en": "The single most impersonated scheme: fake 'SPARSH officers' demand OTPs to 'prevent pension blockage'.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "10rjpiu": {
+  "en": "Phishing links mimicking sparsh.defencepension.gov.in harvest login credentials.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "12dh3ht": {
+  "en": "'Life certificate agents' on WhatsApp are fraud — use Jeevan Pramaan, banks or CSCs only.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "1h1aaly": {
+  "en": "SPARSH never calls for OTPs, fees or account 'verification' — hang up and call your record office.",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "r224l3": {
+  "en": "SPARSH — System for Pension Administration (Raksha) — Shield Force",
+  "at": "scheme-detail.html?id=sparsh"
+ },
+ "bzpkjq": {
+  "en": "Cashless treatment at ECHS polyclinics and vast network of empanelled hospitals.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "epfzdw": {
+  "en": "Covers spouse and eligible dependents including dependent parents in defined cases.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "1rku0jr": {
+  "en": "One-time contribution at retirement; no recurring premium thereafter.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "ic5min": {
+  "en": "Medicines, diagnostics and specialist referrals through the polyclinic system.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "2jh9yw": {
+  "en": "Ex-servicemen with pension",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "17tnd51": {
+  "en": "Spouses and eligible dependents",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "2wvpbw": {
+  "en": "War widows / veer naris",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "env89f": {
+  "en": "Fake 'ECHS card renewal' calls collecting fees via UPI — card services are done at polyclinics/station HQ.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "p97gbg": {
+  "en": "Fraud 'empanelled hospital helpdesks' demanding online deposits before admission.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "1in5q49": {
+  "en": "Data phished from fake 'ECHS {0}kb card upgrade' forms is reused for banking fraud.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "o6z3l0": {
+  "en": "Pay nothing online for ECHS services except through official channels — when in doubt, ask the polyclinic OIC.",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "nh9mzo": {
+  "en": "ECHS — Ex-Servicemen Contributory Health Scheme — Shield Force",
+  "at": "scheme-detail.html?id=echs"
+ },
+ "1w447zn": {
+  "en": "Monetary grants to families of fatal battle casualties and to the severely disabled.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "1i0igrh": {
+  "en": "Complements liberalised family pension, insurance and ex-gratia — not a replacement.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "1ki4bgr": {
+  "en": "Accepts voluntary citizen contributions through the official government portal.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "rgbrwd": {
+  "en": "Administered by the Ministry of Defence with published, auditable channels.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "11kawt2": {
+  "en": "Families of battle casualties",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "4qb3oe": {
+  "en": "Severely disabled battle casualties",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "ady7uv": {
+  "en": "Citizens who wish to contribute safely",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "8thfjw": {
+  "en": "The most abused NAME in charity fraud: fake pages collect 'martyr donations' into private UPI handles.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "41ydqk": {
+  "en": "Genuine contributions go only via the official MoD channel — never to name@bank UPI IDs.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "1ezgvbb": {
+  "en": "Families are sometimes charged 'file processing fees' by frauds to 'release' grants — grants are free.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "r2vgal": {
+  "en": "Verify every appeal with your Zila Sainik Welfare Office before donating.",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "s8inha": {
+  "en": "AFBCWF — Armed Forces Battle Casualties Welfare Fund — Shield Force",
+  "at": "scheme-detail.html?id=afbcwf"
+ },
+ "14g7dy2": {
+  "en": "Monthly scholarship for professional degree courses (engineering, medical, management etc.).",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "1pptc2v": {
+  "en": "Separate, higher rates for girl students; wide course eligibility.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "oas6g9": {
+  "en": "Application through the Kendriya Sainik Board / ksb.gov.in portal.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "n7pevo": {
+  "en": "Direct benefit transfer to the student's bank account.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "1e01eqq": {
+  "en": "Children of ex-servicemen / ex-Coast Guard",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "49cnny": {
+  "en": "Widows of ex-servicemen",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "1ntn7iw": {
+  "en": "Wards of battle casualties (priority)",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "1nidrrj": {
+  "en": "Fake 'scholarship facilitation agents' charge fees to file applications that are free on ksb.gov.in.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "z2zn54": {
+  "en": "Phishing mails announce 'PMSS selection — pay refundable caution deposit'.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "1xoxbbd": {
+  "en": "Portals mimicking KSB harvest student Aadhaar and bank data.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "145nsk2": {
+  "en": "KSB never asks for fees, OTPs or 'verification transfers' — applications are free and online.",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "1uzm98r": {
+  "en": "PMSS — Prime Minister's Scholarship Scheme — Shield Force",
+  "at": "scheme-detail.html?id=pmss"
+ },
+ "z8dqwz": {
+  "en": "Welfare and financial assistance programmes for widows and dependents.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "1snv74o": {
+  "en": "Skill development, education support and empowerment initiatives for spouses.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "vpwsqg": {
+  "en": "Support infrastructure at stations: creches, family counselling, emergency assistance.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "ep3ipi": {
+  "en": "Works alongside unit Family Welfare Organisations for outreach.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "69lzmr": {
+  "en": "Army spouses and families",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "iugaf6": {
+  "en": "Veer naris and widows",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "1on17yo": {
+  "en": "Differently-abled dependents",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "elxfsn": {
+  "en": "Fake 'AWWA membership renewal' QR codes circulated to families on WhatsApp.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "6brvxe": {
+  "en": "Fraud 'AWWA fund collections' after news events — AWWA does not crowd-fund via personal UPI.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "19o0wym": {
+  "en": "Imposters use AWWA's name to phish family details from newly posted-in spouses.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "x54ie0": {
+  "en": "Confirm any AWWA communication with your station's FWO before paying or sharing data.",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "1gy1cpn": {
+  "en": "AWWA — Army Wives Welfare Association — Shield Force",
+  "at": "scheme-detail.html?id=awwa"
+ },
+ "42gt83": {
+  "en": "Household goods, vehicles (via AFD portal) and consumables at concessional rates.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "no89of": {
+  "en": "Smart-card based entitlements for serving and retired personnel.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "1fe7uvh": {
+  "en": "Official AFD-CSD online portal (afd.csdindia.gov.in) for big-ticket items.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "1d8pdrs": {
+  "en": "Nationwide canteen network accessible on posting and after retirement.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "dosaa5": {
+  "en": "Ex-servicemen and their families",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "1wfh4ku": {
+  "en": "Eligible defence civilians",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "xwlkl7": {
+  "en": "'CSD quota for sale' on Facebook/WhatsApp is {0}% fraud — entitlements are non-transferable.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "qkf5fv": {
+  "en": "Fake AFD portals with lookalike URLs take 'booking deposits' for cars and bikes.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "1r7isqm": {
+  "en": "Fraudsters posing as 'canteen managers' offer out-of-turn liquor/car quotas for advance fees.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "gkfp2q": {
+  "en": "Use only afd.csdindia.gov.in typed by yourself, and pay only through the portal's own gateway.",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "1nplfpi": {
+  "en": "CSD — Canteen Stores Department Facilities — Shield Force",
+  "at": "scheme-detail.html?id=csd"
+ },
+ "1xg1p7w": {
+  "en": "Printable guides for briefings, notice boards and the family. <1>💻 optimised for your <2/> (<3/>) — <4/>.</1>",
+  "at": "reports.html"
+ },
+ "zeqr0u": {
+  "en": "laptop/desktop",
+  "at": "reports.html"
+ },
+ "xk2o0w": {
+  "en": "files save to your Downloads folder",
+  "at": "reports.html"
+ },
+ "ogehoc": {
+  "en": "⬇ Download PDF",
+  "at": "reports.html"
+ },
+ "1cs7e3v": {
+  "en": "👁 Preview",
+  "at": "reports.html"
+ },
+ "1uah17p": {
+  "en": "📦 Want the full kit?",
+  "at": "reports.html"
+ },
+ "14zqege": {
+  "en": "Download all five documents one after another — ideal before a family welfare briefing.",
+  "at": "reports.html"
+ },
+ "1vft1vy": {
+  "en": "⬇ Download all {0} PDFs",
+  "at": "reports.html"
+ },
+ "164cg0c": {
+  "en": "Add it to your home screen — tap for how",
+  "at": "more.html"
+ },
+ "zpr98u": {
+  "en": "<1>₹</1>-{0}<2> Cr</2>",
+  "at": "index.html"
+ },
+ "1pudwi3": {
+  "en": "<1>₹</1>-{0}<2> L</2>",
+  "at": "index.html"
+ },
+ "clpz79": {
+  "en": "<1>₹</1>{0}<2> Cr</2>",
+  "at": "index.html"
+ },
+ "j3qa2o": {
+  "en": "Cr",
+  "at": "index.html"
+ },
+ "rwhxdq": {
+  "en": "<1>₹</1>{0}<2> L</2>",
+  "at": "index.html"
+ },
+ "1js78h7": {
+  "en": "L",
+  "at": "index.html"
+ },
+ "1cmrkq8": {
+  "en": "📲 UPI &amp; QR Fraud Defence",
+  "at": "training.html?module=upi"
+ },
+ "1ua8odo": {
+  "en": "A buyer on OLX sends you a QR code and says 'scan it and enter your UPI PIN to receive the advance payment'. What is true?",
+  "at": "training.html?module=upi"
+ },
+ "1ie980c": {
+  "en": "A",
+  "at": "training.html?module=upi"
+ },
+ "18yr4s2": {
+  "en": "Scanning + PIN will credit the advance to my account",
+  "at": "training.html?module=upi"
+ },
+ "1j88139": {
+  "en": "B",
+  "at": "training.html?module=upi"
+ },
+ "18lqlbv": {
+  "en": "Receiving money never requires scanning a QR or entering a PIN",
+  "at": "training.html?module=upi"
+ },
+ "1iy8fea": {
+  "en": "C",
+  "at": "training.html?module=upi"
+ },
+ "1hq1sx1": {
+  "en": "It's safe if his profile photo shows an army uniform",
+  "at": "training.html?module=upi"
+ },
+ "1hkaexf": {
+  "en": "D",
+  "at": "training.html?module=upi"
+ },
+ "11u3u4u": {
+  "en": "It's safe for amounts under ₹{0}",
+  "at": "training.html?module=upi"
+ },
+ "1g5u0ke": {
+  "en": "<1>✅ Correct.</1> A UPI PIN authorises money going OUT of your account. There is no flow in which receiving money needs your PIN — this single rule defeats the entire QR reversal scam.",
+  "at": "training.html?module=upi"
+ },
+ "1dpps5q": {
+  "en": "Next question ⟶",
+  "at": "training.html?module=upi"
+ },
+ "1kderty": {
+  "en": "You receive a UPI 'collect request' of ₹{0} from 'CSD-REFUND@ybl'. You never asked for a refund. You should:",
+  "at": "training.html?module=upi"
+ },
+ "c1vxh9": {
+  "en": "Approve it — refunds are credited this way",
+  "at": "training.html?module=upi"
+ },
+ "tpebw7": {
+  "en": "Decline it and report the handle in your UPI app",
+  "at": "training.html?module=upi"
+ },
+ "uifq": {
+  "en": "Approve but change your PIN afterwards",
+  "at": "training.html?module=upi"
+ },
+ "1un9moy": {
+  "en": "Forward it to friends to check",
+  "at": "training.html?module=upi"
+ },
+ "rrjzdj": {
+  "en": "<1>✅ Correct.</1> Approving a collect request PAYS the requester. Refunds arrive as credits without any approval or PIN. Decline, report the handle, and block.",
+  "at": "training.html?module=upi"
+ },
+ "9ar8bx": {
+  "en": "The 'army officer' buyer says the first transfer failed and asks you to scan again 'to reverse it'. This pattern means:",
+  "at": "training.html?module=upi"
+ },
+ "1bda681": {
+  "en": "A genuine network error",
+  "at": "training.html?module=upi"
+ },
+ "u6a5wn": {
+  "en": "The bank needs three attempts to settle",
+  "at": "training.html?module=upi"
+ },
+ "ispukb": {
+  "en": "Each scan is a fresh debit — it is the core of the scam",
+  "at": "training.html?module=upi"
+ },
+ "ia1dz6": {
+  "en": "UPI daily limits were hit",
+  "at": "training.html?module=upi"
+ },
+ "goboej": {
+  "en": "<1>✅ Correct.</1> The 'failed transaction, try again' line is scripted. Every repeat scan with PIN is another successful debit from your account.",
+  "at": "training.html?module=upi"
+ },
+ "188zj9c": {
+  "en": "The safest way to receive payment from an online buyer is:",
+  "at": "training.html?module=upi"
+ },
+ "1a553h5": {
+  "en": "Share your UPI QR/ID and wait for credit to appear in YOUR bank app",
+  "at": "training.html?module=upi"
+ },
+ "1cbxtxe": {
+  "en": "Scan whatever QR the buyer sends",
+  "at": "training.html?module=upi"
+ },
+ "1i246u3": {
+  "en": "Share OTP so the buyer can 'push' money",
+  "at": "training.html?module=upi"
+ },
+ "psg9ih": {
+  "en": "Accept a payment screenshot as confirmation",
+  "at": "training.html?module=upi"
+ },
+ "edxddk": {
+  "en": "<1>✅ Correct.</1> Give your UPI ID or QR and verify the credit inside your own banking app. Screenshots are trivially faked; OTPs and scanning their QR move money the wrong way.",
+  "at": "training.html?module=upi"
+ },
+ "hhe9qj": {
+  "en": "Money just left your account in a QR scam. Your FIRST call should be to:",
+  "at": "training.html?module=upi"
+ },
+ "1bx1ojb": {
+  "en": "The buyer, demanding a reversal",
+  "at": "training.html?module=upi"
+ },
+ "1g2f1p0": {
+  "en": "{0} — the national cyber fraud helpline",
+  "at": "training.html?module=upi"
+ },
+ "qcdf9i": {
+  "en": "Your relative who works in a bank",
+  "at": "training.html?module=upi"
+ },
+ "khfaku": {
+  "en": "The resale app's customer care",
+  "at": "training.html?module=upi"
+ },
+ "15p8fz3": {
+  "en": "<1>✅ Correct.</1> {0} triggers the Citizen Financial Cyber Fraud Reporting System which can freeze funds while they are still in transit — that's why the first {1} minutes are the Golden Window.",
+  "at": "training.html?module=upi"
+ },
+ "huk4zb": {
+  "en": "See result ⟶",
+  "at": "training.html?module=upi"
+ },
+ "13cn9g1": {
+  "en": "Done",
+  "at": "training.html?module=upi"
+ },
+ "1ub0g43": {
+  "en": "Perfect drill. This scam will never touch you.",
+  "at": "training.html?module=upi"
+ },
+ "16bs5hd": {
+  "en": "↻ Retrain module",
+  "at": "training.html?module=upi"
+ },
+ "x7g20w": {
+  "en": "📖 Study the intel briefing",
+  "at": "training.html?module=upi"
+ },
+ "620e9h": {
+  "en": "All modules",
+  "at": "training.html?module=upi"
+ },
+ "1tsf013": {
+  "en": "★ Mastered",
+  "at": "training.html?module=phishing"
+ },
+ "uuergu": {
+  "en": "Best score: <1>{0}</1>",
+  "at": "training.html?module=phishing"
+ },
+ "53fdjk": {
+  "en": "Retrain ⟶",
+  "at": "training.html?module=phishing"
+ },
+ "1kelhjb": {
+  "en": "🔐 OTP, KYC &amp; Link Phishing",
+  "at": "training.html?module=phishing"
+ },
+ "1tuyonz": {
+  "en": "An SMS says your bank KYC expires TODAY with a link to update. The genuinely safe action is:",
+  "at": "training.html?module=phishing"
+ },
+ "1r4rquy": {
+  "en": "Click the link but only fill non-financial fields",
+  "at": "training.html?module=phishing"
+ },
+ "160kbbp": {
+  "en": "Ignore links; open the bank's app or type its website yourself, or visit the branch",
+  "at": "training.html?module=phishing"
+ },
+ "1gzmd4v": {
+  "en": "Call the number in the SMS to confirm first",
+  "at": "training.html?module=phishing"
+ },
+ "gaztb9": {
+  "en": "Forward the link to family to check",
+  "at": "training.html?module=phishing"
+ },
+ "syqw9i": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Never navigate from the message. Reaching your bank via its official app, a self-typed URL, or the branch bypasses every cloned page the scammer can build.",
+  "at": "training.html?module=phishing"
+ },
+ "gjbyn2": {
+  "en": "Which of these will your bank, SPARSH or telecom provider legitimately ask for on a call?",
+  "at": "training.html?module=phishing"
+ },
+ "twl0sh": {
+  "en": "The OTP just sent to you",
+  "at": "training.html?module=phishing"
+ },
+ "1x5w7u7": {
+  "en": "Your UPI PIN 'for verification'",
+  "at": "training.html?module=phishing"
+ },
+ "93z9u7": {
+  "en": "Your net-banking password",
+  "at": "training.html?module=phishing"
+ },
+ "1suwcnp": {
+  "en": "None of these — ever",
+  "at": "training.html?module=phishing"
+ },
+ "y5rji0": {
+  "en": "<1>❌ Not quite — the answer is D.</1> No legitimate institution asks for OTPs, PINs or passwords on any channel. The request itself is a complete fraud diagnosis.",
+  "at": "training.html?module=phishing"
+ },
+ "o6monm": {
+  "en": "A WhatsApp message offers an APK file: 'SBI-KYC-Update.apk'. Installing it would likely:",
+  "at": "training.html?module=phishing"
+ },
+ "1bkfcha": {
+  "en": "Update your KYC",
+  "at": "training.html?module=phishing"
+ },
+ "5u7zq5": {
+  "en": "Give attackers access to your SMS (and thus OTPs)",
+  "at": "training.html?module=phishing"
+ },
+ "1mxmgsj": {
+  "en": "Only work on rooted phones",
+  "at": "training.html?module=phishing"
+ },
+ "123539u": {
+  "en": "Be blocked automatically by UPI apps",
+  "at": "training.html?module=phishing"
+ },
+ "4jh9ll": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Malicious APKs request SMS permissions to intercept OTPs, letting fraudsters complete transfers silently. Banks never distribute apps over chat.",
+  "at": "training.html?module=phishing"
+ },
+ "1mnauy": {
+  "en": "Your phone suddenly shows 'No Service' for hours, and you weren't expecting it. In a fraud context this can indicate:",
+  "at": "training.html?module=phishing"
+ },
+ "1cru6f7": {
+  "en": "Normal tower maintenance, ignore it",
+  "at": "training.html?module=phishing"
+ },
+ "1nlzw01": {
+  "en": "A possible SIM swap — contact your operator AND bank immediately",
+  "at": "training.html?module=phishing"
+ },
+ "vgqbtd": {
+  "en": "Your phone needs a restart, nothing more",
+  "at": "training.html?module=phishing"
+ },
+ "iqwuzl": {
+  "en": "Airplane mode toggled itself",
+  "at": "training.html?module=phishing"
+ },
+ "4x3bwn": {
+  "en": "<1>❌ Not quite — the answer is B.</1> In a SIM-swap attack your number moves to the fraudster's SIM, and OTPs follow it. Rapid reporting to operator and bank can stop transfers.",
+  "at": "training.html?module=phishing"
+ },
+ "m7e17f": {
+  "en": "The safest structure for a defence family's accounts is:",
+  "at": "training.html?module=phishing"
+ },
+ "l6vvn4": {
+  "en": "All money in one account for simplicity",
+  "at": "training.html?module=phishing"
+ },
+ "954jg1": {
+  "en": "Salary/pension isolated; a separate small-balance account linked to UPI",
+  "at": "training.html?module=phishing"
+ },
+ "si4nt7": {
+  "en": "UPI linked to the pension account for convenience",
+  "at": "training.html?module=phishing"
+ },
+ "mrqmgy": {
+  "en": "Sharing one UPI PIN across the family",
+  "at": "training.html?module=phishing"
+ },
+ "1qprwwt": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Compartmentalisation limits damage: if the UPI-linked account is compromised, the exposure is the small balance, not the salary or pension corpus.",
+  "at": "training.html?module=phishing"
+ },
+ "1rdefpy": {
+  "en": "This scam family would still hurt you — study the briefing and come back.",
+  "at": "training.html?module=phishing"
+ },
+ "1ib3k8l": {
+  "en": "📈 Investment &amp; Ponzi Awareness",
+  "at": "training.html?module=investment"
+ },
+ "hwvdwc": {
+  "en": "A Telegram 'mentor' offers {0}% guaranteed DAILY returns on a trading app. {1}% daily compounds to roughly:",
+  "at": "training.html?module=investment"
+ },
+ "1vnijiq": {
+  "en": "About {0}% a year — plausible",
+  "at": "training.html?module=investment"
+ },
+ "pudpoi": {
+  "en": "About {0}x a year — aggressive but possible",
+  "at": "training.html?module=investment"
+ },
+ "qkbgiq": {
+  "en": "Over {0}% a year — mathematically a fraud",
+  "at": "training.html?module=investment"
+ },
+ "16s4y4y": {
+  "en": "Depends on the market",
+  "at": "training.html?module=investment"
+ },
+ "7kv0ep": {
+  "en": "<1>❌ Not quite — the answer is C.</1> ({0})^{1} ≈ {2}x. Any 'guaranteed daily percentage' is arithmetic proof of a Ponzi — real markets cannot and do not pay this.",
+  "at": "training.html?module=investment"
+ },
+ "1vv4mi2": {
+  "en": "Your first small deposit in a new investment app 'earned' {0}% and withdrawal worked. This most likely means:",
+  "at": "training.html?module=investment"
+ },
+ "7unrkw": {
+  "en": "The platform is genuine",
+  "at": "training.html?module=investment"
+ },
+ "1egc680": {
+  "en": "You got lucky timing",
+  "at": "training.html?module=investment"
+ },
+ "1y2mke1": {
+  "en": "It's the classic seeding phase — small payouts funded by other victims to bait a big deposit",
+  "at": "training.html?module=investment"
+ },
+ "tqvm8a": {
+  "en": "The app has low fees",
+  "at": "training.html?module=investment"
+ },
+ "kf2cse": {
+  "en": "<1>❌ Not quite — the answer is C.</1> Letting early small withdrawals succeed is deliberate. It converts scepticism into confidence just before the victim commits serious money.",
+  "at": "training.html?module=investment"
+ },
+ "1nt2g2w": {
+  "en": "Before investing through any advisor or platform, the correct verification is:",
+  "at": "training.html?module=investment"
+ },
+ "hypjf7": {
+  "en": "Check their Telegram subscriber count",
+  "at": "training.html?module=investment"
+ },
+ "1thl698": {
+  "en": "Check SEBI registration (sebi.gov.in) / RBI lists for the entity",
+  "at": "training.html?module=investment"
+ },
+ "1xpy4wg": {
+  "en": "Ask for profit screenshots",
+  "at": "training.html?module=investment"
+ },
+ "mndkr0": {
+  "en": "Try a small amount first",
+  "at": "training.html?module=investment"
+ },
+ "1qi8ecx": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Registration with SEBI/RBI is verifiable in seconds on official sites. Subscriber counts, screenshots and 'test amounts' are all manufactured by the scam itself.",
+  "at": "training.html?module=investment"
+ },
+ "dumnyw": {
+  "en": "When you try to withdraw, the app demands {0}% 'tax' paid separately first. You should:",
+  "at": "training.html?module=investment"
+ },
+ "1wbaz2m": {
+  "en": "Pay it — tax is normal on profits",
+  "at": "training.html?module=investment"
+ },
+ "8ijdl1": {
+  "en": "Negotiate a lower fee",
+  "at": "training.html?module=investment"
+ },
+ "gk553t": {
+  "en": "Stop paying entirely and report — fees to release your own money are always fraud",
+  "at": "training.html?module=investment"
+ },
+ "9lcagn": {
+  "en": "Pay via a friend's account",
+  "at": "training.html?module=investment"
+ },
+ "m048s1": {
+  "en": "<1>❌ Not quite — the answer is C.</1> Real platforms deduct taxes/fees FROM your balance. Demanding fresh money to 'release' funds is the extraction phase — every rupee paid now is also lost.",
+  "at": "training.html?module=investment"
+ },
+ "1bdm7nk": {
+  "en": "The safest home for a retirement corpus (DSOP/AGIF maturity) is:",
+  "at": "training.html?module=investment"
+ },
+ "mmfyyy": {
+  "en": "A crypto staking pool a course-mate vouches for",
+  "at": "training.html?module=investment"
+ },
+ "174uswy": {
+  "en": "Regulated instruments (bank FDs, government schemes, SEBI-regulated funds) after unit financial counselling",
+  "at": "training.html?module=investment"
+ },
+ "pgwlr9": {
+  "en": "A private 'army welfare investment club'",
+  "at": "training.html?module=investment"
+ },
+ "aswamc": {
+  "en": "An app with a military-themed name",
+  "at": "training.html?module=investment"
+ },
+ "1hipt1z": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Regulated instruments carry deposit insurance, disclosure rules and legal recourse. Military-flavoured branding is a targeting technique, not a safety signal.",
+  "at": "training.html?module=investment"
+ },
+ "zyfohh": {
+  "en": "{0} of {1} modules completed",
+  "at": "learn.html"
+ },
+ "1s6pdoi": {
+  "en": "🎖️ Impersonation &amp; Digital Arrest",
+  "at": "training.html?module=impersonation"
+ },
+ "a78532": {
+  "en": "A Facebook page offers 'CSD quota Innova, {0}% off, open to civilians, book with ₹{1}'. What's certain?",
+  "at": "training.html?module=impersonation"
+ },
+ "ab0i9": {
+  "en": "It's a genuine surplus sale",
+  "at": "training.html?module=impersonation"
+ },
+ "1w5da5v": {
+  "en": "It's fraud — CSD entitlements are non-transferable and never sold via social media",
+  "at": "training.html?module=impersonation"
+ },
+ "1xnmm50": {
+  "en": "It's real if they show a canteen smart card",
+  "at": "training.html?module=impersonation"
+ },
+ "p1vddz": {
+  "en": "It's real if the page has many followers",
+  "at": "training.html?module=impersonation"
+ },
+ "2dd4ca": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Canteen entitlements cannot legally be transferred or resold, and CSD/AFD sells vehicles only via its official portal to entitled personnel. Every social-media 'quota sale' is fraud.",
+  "at": "training.html?module=impersonation"
+ },
+ "1758il2": {
+  "en": "A video caller in police uniform says you are under 'digital arrest' and must stay on camera. Under Indian law, digital arrest is:",
+  "at": "training.html?module=impersonation"
+ },
+ "q7nm4g": {
+  "en": "A provision of the new criminal codes",
+  "at": "training.html?module=impersonation"
+ },
+ "1f1s45c": {
+  "en": "Used only by CBI for cyber offences",
+  "at": "training.html?module=impersonation"
+ },
+ "179qg2c": {
+  "en": "Not a real legal concept at all — the phrase itself proves fraud",
+  "at": "training.html?module=impersonation"
+ },
+ "1f3u9d2": {
+  "en": "Applicable only with a magistrate's order",
+  "at": "training.html?module=impersonation"
+ },
+ "1foszrv": {
+  "en": "<1>❌ Not quite — the answer is C.</1> No Indian law provides for 'digital arrest'. No agency interrogates or detains people over video calls, and none takes money for 'verification'.",
+  "at": "training.html?module=impersonation"
+ },
+ "1wmg05p": {
+  "en": "The 'CBI officer' says: transfer your savings to an 'RBI supervised account' to verify they're clean. Real agencies:",
+  "at": "training.html?module=impersonation"
+ },
+ "jyaad4": {
+  "en": "Do this for serious cases",
+  "at": "training.html?module=impersonation"
+ },
+ "1s8m13u": {
+  "en": "Use court-monitored accounts this way",
+  "at": "training.html?module=impersonation"
+ },
+ "bhdabf": {
+  "en": "Never ask for money transfers — the demand itself is the crime happening",
+  "at": "training.html?module=impersonation"
+ },
+ "xnmyf4": {
+  "en": "Only do it with written notice",
+  "at": "training.html?module=impersonation"
+ },
+ "n8hvee": {
+  "en": "<1>❌ Not quite — the answer is C.</1> No investigation in India involves transferring your money 'for verification'. That sentence is the extraction step of the scam.",
+  "at": "training.html?module=impersonation"
+ },
+ "1xbflt3": {
+  "en": "The single most effective move when trapped in a digital-arrest call is:",
+  "at": "training.html?module=impersonation"
+ },
+ "10nia91": {
+  "en": "Negotiate for time",
+  "at": "training.html?module=impersonation"
+ },
+ "7nfwoq": {
+  "en": "Demand their badge number",
+  "at": "training.html?module=impersonation"
+ },
+ "1nd2ozz": {
+  "en": "Disconnect and immediately call a family member, your unit or {0}",
+  "at": "training.html?module=impersonation"
+ },
+ "169le7k": {
+  "en": "Record the call and keep listening",
+  "at": "training.html?module=impersonation"
+ },
+ "1vajqd7": {
+  "en": "<1>❌ Not quite — the answer is C.</1> The scam runs on isolation. Disconnecting breaks the spell; one call to family, unit or {0} collapses the script instantly.",
+  "at": "training.html?module=impersonation"
+ },
+ "1c8vek0": {
+  "en": "Someone is using a serving officer's photos to run deals online. Beyond warning contacts, the misuse should be reported to:",
+  "at": "training.html?module=impersonation"
+ },
+ "lnql9e": {
+  "en": "Only the social platform",
+  "at": "training.html?module=impersonation"
+ },
+ "1ael29h": {
+  "en": "The platform, cybercrime.gov.in, and the unit's security/intelligence staff",
+  "at": "training.html?module=impersonation"
+ },
+ "127iqnn": {
+  "en": "Nobody — it fades on its own",
+  "at": "training.html?module=impersonation"
+ },
+ "1mrtb1u": {
+  "en": "The officer's bank",
+  "at": "training.html?module=impersonation"
+ },
+ "1pnss15": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Platform takedown stops the current page; NCRP creates a legal record; unit security staff can issue advisories protecting the wider community.",
+  "at": "training.html?module=impersonation"
+ },
+ "1go1c8t": {
+  "en": "🧓 Pension &amp; Veteran Protection",
+  "at": "training.html?module=pension"
+ },
+ "11qjyqf": {
+  "en": "A caller quotes your exact PPO number and rank, claiming to be from SPARSH. Knowing your data proves:",
+  "at": "training.html?module=pension"
+ },
+ "11x5s6b": {
+  "en": "He is a genuine PCDA official",
+  "at": "training.html?module=pension"
+ },
+ "56jznq": {
+  "en": "Your data has leaked — nothing more; verification still means calling official numbers yourself",
+  "at": "training.html?module=pension"
+ },
+ "6gv67f": {
+  "en": "The call is safe if he doesn't ask for money",
+  "at": "training.html?module=pension"
+ },
+ "5vdwr6": {
+  "en": "SPARSH outsources verification calls",
+  "at": "training.html?module=pension"
+ },
+ "1rvyd9s": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Pensioner data circulates in fraud markets. Possession of your details establishes a leak, not legitimacy — SPARSH/PCDA make no outbound OTP or fee calls.",
+  "at": "training.html?module=pension"
+ },
+ "1u7jmi3": {
+  "en": "The legitimate ways to complete a pensioner's annual life certificate include:",
+  "at": "training.html?module=pension"
+ },
+ "19pgg5g": {
+  "en": "Sharing OTP with a caller who files it for you",
+  "at": "training.html?module=pension"
+ },
+ "e2rzgr": {
+  "en": "A WhatsApp 'agent' who charges ₹{0}",
+  "at": "training.html?module=pension"
+ },
+ "5ncrwx": {
+  "en": "Jeevan Pramaan (digital), your bank branch, or authorised centres (CSC/DPDO)",
+  "at": "training.html?module=pension"
+ },
+ "rukpoa": {
+  "en": "Emailing your Aadhaar and passbook photos",
+  "at": "training.html?module=pension"
+ },
+ "conu7w": {
+  "en": "<1>❌ Not quite — the answer is C.</1> Only official channels exist: Jeevan Pramaan digital certification, the bank, or authorised service centres. Anyone else offering to 'do it for you' remotely is phishing.",
+  "at": "training.html?module=pension"
+ },
+ "1gefcc9": {
+  "en": "'OROP arrears of ₹{0} lakh sanctioned — pay {1}% processing fee to release.' Government arrears:",
+  "at": "training.html?module=pension"
+ },
+ "ftcnxs": {
+  "en": "Sometimes need small processing fees",
+  "at": "training.html?module=pension"
+ },
+ "14jffz8": {
+  "en": "Need fees only above ₹{0} lakh",
+  "at": "training.html?module=pension"
+ },
+ "j08f8v": {
+  "en": "Are credited directly with no fee, ever — the fee demand is the fraud",
+  "at": "training.html?module=pension"
+ },
+ "w687dh": {
+  "en": "Need fees unless you visit the office",
+  "at": "training.html?module=pension"
+ },
+ "oi3nk8": {
+  "en": "<1>❌ Not quite — the answer is C.</1> Entitlements are credited to the pension account directly. There is no fee, no UPI payment and no 'release charge' in any government arrears process.",
+  "at": "training.html?module=pension"
+ },
+ "zmb1gc": {
+  "en": "A caller asks an elderly pensioner to install 'AnyDesk' to 'fix SPARSH profile'. That app would:",
+  "at": "training.html?module=pension"
+ },
+ "iqustr": {
+  "en": "Update the profile faster",
+  "at": "training.html?module=pension"
+ },
+ "11jj6rv": {
+  "en": "Give the caller full remote view/control of the phone — including banking apps",
+  "at": "training.html?module=pension"
+ },
+ "1jceozd": {
+  "en": "Work only on computers",
+  "at": "training.html?module=pension"
+ },
+ "7l53ae": {
+  "en": "Be safe if deleted afterwards",
+  "at": "training.html?module=pension"
+ },
+ "ir0d1l": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Screen-sharing tools hand over live control: the fraudster watches PINs being typed and operates banking apps. Legitimate support never requires them.",
+  "at": "training.html?module=pension"
+ },
+ "q21y29": {
+  "en": "The best household protocol for pension-related calls is:",
+  "at": "training.html?module=pension"
+ },
+ "1chbdwp": {
+  "en": "Engage and gather information about the caller",
+  "at": "training.html?module=pension"
+ },
+ "14wn2ts": {
+  "en": "Hang up; call back only on numbers from PPO/bank documents; involve a family member",
+  "at": "training.html?module=pension"
+ },
+ "1sxgn25": {
+  "en": "Answer only calls after {0} pm",
+  "at": "training.html?module=pension"
+ },
+ "jdvau7": {
+  "en": "Give information but never OTPs",
+  "at": "training.html?module=pension"
+ },
+ "8htgni": {
+  "en": "<1>❌ Not quite — the answer is B.</1> A fixed drill removes in-the-moment judgement: disconnect, redial official numbers yourself, and loop in family. Even partial information (balances, PPO data) fuels the next attack.",
+  "at": "training.html?module=pension"
+ },
+ "1l0hy80": {
+  "en": "🤝 Welfare Fund &amp; Charity Fraud",
+  "at": "training.html?module=welfare"
+ },
+ "1j2oxvw": {
+  "en": "A viral appeal collects for a martyr's family into UPI ID 'rahulk{0}@ybl'. The strongest fraud signal is:",
+  "at": "training.html?module=welfare"
+ },
+ "vcor46": {
+  "en": "The emotional language",
+  "at": "training.html?module=welfare"
+ },
+ "1gtmhhk": {
+  "en": "A personal name@bank UPI handle collecting institutional charity",
+  "at": "training.html?module=welfare"
+ },
+ "fsos91": {
+  "en": "The soldier's photo quality",
+  "at": "training.html?module=welfare"
+ },
+ "10qemmi": {
+  "en": "The forward count",
+  "at": "training.html?module=welfare"
+ },
+ "hzrbeh": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Genuine funds (NDF, AFBCWF) use institutional government accounts with published details — never an individual's UPI handle. The handle type alone settles it.",
+  "at": "training.html?module=welfare"
+ },
+ "1ya5mls": {
+  "en": "The safe destination for contributions to battle casualty families is:",
+  "at": "training.html?module=welfare"
+ },
+ "il2pe0": {
+  "en": "Any account a WhatsApp forward names",
+  "at": "training.html?module=welfare"
+ },
+ "z1cdb9": {
+  "en": "The official government channel for AFBCWF / National Defence Fund",
+  "at": "training.html?module=welfare"
+ },
+ "6c6fyd": {
+  "en": "A collection drive by an unknown NGO page",
+  "at": "training.html?module=welfare"
+ },
+ "1ar9qxn": {
+  "en": "Crypto donations for speed",
+  "at": "training.html?module=welfare"
+ },
+ "yxoepv": {
+  "en": "<1>❌ Not quite — the answer is B.</1> The Armed Forces Battle Casualties Welfare Fund and National Defence Fund publish official contribution channels on government portals. Everything else needs verification before a rupee moves.",
+  "at": "training.html?module=welfare"
+ },
+ "8o4iqq": {
+  "en": "Your spouse gets a WhatsApp QR to 'renew AWWA membership within {0} hours'. Reality check:",
+  "at": "training.html?module=welfare"
+ },
+ "1kgibl5": {
+  "en": "AWWA renews memberships only this way now",
+  "at": "training.html?module=welfare"
+ },
+ "xx69iz": {
+  "en": "Welfare associations don't demand QR payments on WhatsApp — verify with the station FWO first",
+  "at": "training.html?module=welfare"
+ },
+ "1g7rije": {
+  "en": "Paying small amounts is harmless",
+  "at": "training.html?module=welfare"
+ },
+ "1eycz2n": {
+  "en": "It's fine if the QR shows the AWWA logo",
+  "at": "training.html?module=welfare"
+ },
+ "c2is5h": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Logos and letterheads are trivially forged. Any welfare-body payment demand over chat is verified with the Family Welfare Organisation before any payment.",
+  "at": "training.html?module=welfare"
+ },
+ "uhn0ub": {
+  "en": "Why do charity fraudsters prefer thousands of small (₹{0}–₹{1}) donations?",
+  "at": "training.html?module=welfare"
+ },
+ "6vukhm": {
+  "en": "Small amounts avoid bank scrutiny and victim suspicion while summing to lakhs",
+  "at": "training.html?module=welfare"
+ },
+ "2nbg3w": {
+  "en": "UPI blocks large transfers",
+  "at": "training.html?module=welfare"
+ },
+ "1tcn7ln": {
+  "en": "Small donors don't file complaints",
+  "at": "training.html?module=welfare"
+ },
+ "1hy50e8": {
+  "en": "Tax rules favour small amounts",
+  "at": "training.html?module=welfare"
+ },
+ "1resrv4": {
+  "en": "<1>❌ Not quite — the answer is A.</1> Micro-donations fly under fraud-monitoring thresholds and feel too small to report — but scaled across a viral forward they total lakhs, moved through mule accounts in hours.",
+  "at": "training.html?module=welfare"
+ },
+ "o2b4ii": {
+  "en": "Before forwarding any donation appeal to your contacts, the responsible step is:",
+  "at": "training.html?module=welfare"
+ },
+ "1n4br7m": {
+  "en": "Add a disclaimer and forward",
+  "at": "training.html?module=welfare"
+ },
+ "dyoxv": {
+  "en": "Verify the fund with official sources / unit welfare officer — an unverified forward makes you the scammer's distributor",
+  "at": "training.html?module=welfare"
+ },
+ "p1uj3n": {
+  "en": "Forward only to family",
+  "at": "training.html?module=welfare"
+ },
+ "10k7huu": {
+  "en": "Donate a token amount first",
+  "at": "training.html?module=welfare"
+ },
+ "cqyh61": {
+  "en": "<1>❌ Not quite — the answer is B.</1> Every forward multiplies the fraud's reach with YOUR credibility attached. Verification before amplification is the discipline that starves these campaigns.",
+  "at": "training.html?module=welfare"
+ },
+ "1vcks69": {
+  "en": "<1>✅ Correct.</1> Never navigate from the message. Reaching your bank via its official app, a self-typed URL, or the branch bypasses every cloned page the scammer can build.",
+  "at": "training.html?module=phishing"
+ },
+ "av8z7": {
+  "en": "<1>✅ Correct.</1> No legitimate institution asks for OTPs, PINs or passwords on any channel. The request itself is a complete fraud diagnosis.",
+  "at": "training.html?module=phishing"
+ },
+ "ah5x74": {
+  "en": "<1>✅ Correct.</1> Malicious APKs request SMS permissions to intercept OTPs, letting fraudsters complete transfers silently. Banks never distribute apps over chat.",
+  "at": "training.html?module=phishing"
+ },
+ "1lvl408": {
+  "en": "<1>✅ Correct.</1> In a SIM-swap attack your number moves to the fraudster's SIM, and OTPs follow it. Rapid reporting to operator and bank can stop transfers.",
+  "at": "training.html?module=phishing"
+ },
+ "lpcqps": {
+  "en": "Strong defence — one more pass for mastery.",
+  "at": "training.html?module=phishing"
+ },
+ "bgdh5x": {
+  "en": "In progress",
+  "at": "training.html?module=investment"
+ },
+ "v2hgu3": {
+  "en": "<1>✅ Correct.</1> ({0})^{1} ≈ {2}x. Any 'guaranteed daily percentage' is arithmetic proof of a Ponzi — real markets cannot and do not pay this.",
+  "at": "training.html?module=investment"
+ },
+ "1d0ehjg": {
+  "en": "<1>✅ Correct.</1> Letting early small withdrawals succeed is deliberate. It converts scepticism into confidence just before the victim commits serious money.",
+  "at": "training.html?module=investment"
+ },
+ "1f8dcwy": {
+  "en": "<1>✅ Correct.</1> Registration with SEBI/RBI is verifiable in seconds on official sites. Subscriber counts, screenshots and 'test amounts' are all manufactured by the scam itself.",
+  "at": "training.html?module=investment"
+ },
+ "1tqxcjs": {
+  "en": "Good base. Re-read the intel and retrain.",
+  "at": "training.html?module=investment"
+ },
+ "15we66b": {
+  "en": "<1>✅ Correct.</1> Canteen entitlements cannot legally be transferred or resold, and CSD/AFD sells vehicles only via its official portal to entitled personnel. Every social-media 'quota sale' is fraud.",
+  "at": "training.html?module=impersonation"
+ },
+ "1c19bix": {
+  "en": "<1>✅ Correct.</1> No Indian law provides for 'digital arrest'. No agency interrogates or detains people over video calls, and none takes money for 'verification'.",
+  "at": "training.html?module=impersonation"
+ },
+ "20ek4s": {
+  "en": "<1>✅ Correct.</1> No investigation in India involves transferring your money 'for verification'. That sentence is the extraction step of the scam.",
+  "at": "training.html?module=impersonation"
+ },
+ "12swmsd": {
+  "en": "<1>✅ Correct.</1> The scam runs on isolation. Disconnecting breaks the spell; one call to family, unit or {0} collapses the script instantly.",
+  "at": "training.html?module=impersonation"
+ },
+ "1dnjk76": {
+  "en": "<1>✅ Correct.</1> Platform takedown stops the current page; NCRP creates a legal record; unit security staff can issue advisories protecting the wider community.",
+  "at": "training.html?module=impersonation"
+ },
+ "1n15y2u": {
+  "en": "All {0} modules completed — retake any to beat your score",
+  "at": "learn.html"
+ },
+ "l4y3kg": {
+  "en": "A call, SMS, WhatsApp or app chat opens with either fear (blocked account, police case) or reward (buyer at full price, arrears, lottery). The script is tested on thousands; the opening line is engineered to make you respond, not think.",
+  "at": "fraud-anatomy.html"
+ },
+ "1q7xjje": {
+  "en": "🛡 <1><2>Protect yourself:</2> Unknown number + money topic = end the conversation. Verify independently on official numbers you look up yourself.</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "xht3h6": {
+  "en": "Props arrive: uniform photos, ID cards, letterheads, office background noise, your own leaked details read back to you ('your PPO number is...'). Authority, urgency and emotion are stacked until doubt feels rude.",
+  "at": "fraud-anatomy.html"
+ },
+ "rvp6dl": {
+  "en": "🛡 <1><2>Protect yourself:</2> Props are not proof. Knowing your data proves a leak, not legitimacy. Real officials welcome verification; scripts resist it.</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "qndtxs": {
+  "en": "The action request lands: share the OTP, scan the QR, install the app, pay the small 'fee'. It is deliberately small or 'refundable' — the point is to get the first compliance, which makes the second ask easier.",
+  "at": "fraud-anatomy.html"
+ },
+ "1orququ": {
+  "en": "🛡 <1><2>Protect yourself:</2> The hook always violates one rule: OTP/PIN out, QR-to-receive, fee-to-get-money, APK installs. One violation = fraud, full stop.</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "ydxt4p": {
+  "en": "Money moves in minutes through layered mule accounts and crypto. 'Failed transactions', new 'taxes' and 'clearance fees' extract more. Victims are kept on the line so they can't consult anyone or call {0}.",
+  "at": "fraud-anatomy.html"
+ },
+ "1k2tnvj": {
+  "en": "🛡 <1><2>Protect yourself:</2> The moment money leaves: disconnect, call {0} inside the Golden Window, then bank + cybercrime.gov.in. Every minute matters.</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "1jezlqu": {
+  "en": "SIMs die, handles rotate, pages vanish. Victim data is resold — including to 'recovery agents' who charge fees to recover the lost money and defraud victims a second time. Unreported cases keep the machinery invisible.",
+  "at": "fraud-anatomy.html"
+ },
+ "e51l9": {
+  "en": "🛡 <1><2>Protect yourself:</2> Report even attempts on cybercrime.gov.in. Never pay 'recovery agents'. Reporting is intelligence that protects the next family.</1>",
+  "at": "fraud-anatomy.html"
+ },
+ "1f5hld5": {
+  "en": "⏸ Stop auto-play",
+  "at": "fraud-anatomy.html"
+ },
+ "1gnhwdd": {
+  "en": "⚠ Paste a message first (at least a sentence).",
+  "at": "ai-analyzer.html"
+ },
+ "oww4xd": {
+  "en": "Exemplar loaded — hit <1>Run Shield Scan</1>",
+  "at": "ai-analyzer.html"
+ },
+ "ciem5g": {
+  "en": "Run Shield Scan",
+  "at": "ai-analyzer.html"
+ },
+ "5rpunj": {
+  "en": "RISK SCORE / {0}",
+  "at": "ai-analyzer.html"
+ },
+ "i2zu6q": {
+  "en": "FRAUD — DO NOT ENGAGE",
+  "at": "ai-analyzer.html"
+ },
+ "1mabu69": {
+  "en": "Payment credential harvesting",
+  "at": "ai-analyzer.html"
+ },
+ "1m1g6yd": {
+  "en": "Matched: “<1/>” — PINs, CVVs and passwords authorise outgoing transactions. Any message requesting them is fraud, full stop.",
+  "at": "ai-analyzer.html"
+ },
+ "14k8yum": {
+  "en": "QR-scan payment flow",
+  "at": "ai-analyzer.html"
+ },
+ "1jqf9zo": {
+  "en": "Matched: “<1/>” — Scanning a QR + entering a PIN sends money OUT. Receiving money never requires scanning anything.",
+  "at": "ai-analyzer.html"
+ },
+ "1a3lq0q": {
+  "en": "'Receive money' framing",
+  "at": "ai-analyzer.html"
+ },
+ "1y2wow7": {
+  "en": "Matched: “<1/>” — Framing an outgoing action as 'receiving' payment is the core inversion of UPI reversal fraud.",
+  "at": "ai-analyzer.html"
+ },
+ "kmbzhc": {
+  "en": "Matched: “<1/>” — Deadlines in minutes or hours exist to stop you thinking or consulting anyone. Real institutions give written notice and time.",
+  "at": "ai-analyzer.html"
+ },
+ "1dyxtjt": {
+  "en": "Military identity prop",
+  "at": "ai-analyzer.html"
+ },
+ "173ih8p": {
+  "en": "Matched: “<1/>” — Rank-and-posting stories are the classic trust prop of army-impersonation fraud. Real buyers don't flash rank; real officials are verifiable on unit lines.",
+  "at": "ai-analyzer.html"
+ },
+ "1nyk9zq": {
+  "en": "Refuses to meet in person",
+  "at": "ai-analyzer.html"
+ },
+ "u72awd": {
+  "en": "Matched: “<1/>” — Refusal to inspect goods or meet face-to-face sets up the online payment trick.",
+  "at": "ai-analyzer.html"
+ },
+ "1sdaift": {
+  "en": "Report on cybercrime.gov.in ↗",
+  "at": "ai-analyzer.html"
+ },
+ "18tncow": {
+  "en": "📞 Call {0}",
+  "at": "ai-analyzer.html"
+ },
+ "ei543j": {
+  "en": "LOW RISK — STAY ALERT",
+  "at": "ai-analyzer.html"
+ },
+ "1823cz8": {
+  "en": "KYC pretext",
+  "at": "ai-analyzer.html"
+ },
+ "1q94u3b": {
+  "en": "Matched: “<1/>” — 'KYC expiry' is the most common phishing pretext in India. KYC is done through your bank's own app/branch, never via links or calls.",
+  "at": "ai-analyzer.html"
+ },
+ "zqf4sw": {
+  "en": "NO KNOWN SIGNATURES",
+  "at": "ai-analyzer.html"
+ },
+ "yamxby": {
+  "en": "No known fraud signatures matched",
+  "at": "ai-analyzer.html"
+ },
+ "y01916": {
+  "en": "Stay alert anyway: new scripts appear constantly. Verify sender identity via official channels before acting on any request involving money or data.",
+  "at": "ai-analyzer.html"
+ },
+ "1ash14a": {
+  "en": "Veer nari (family pension)",
+  "at": "index.html"
+ },
+ "eiycn0": {
+  "en": "Defence civilian employee",
+  "at": "index.html"
+ },
+ "yr6ej4": {
+  "en": "State Cyber Cell bulletin",
+  "at": "index.html"
+ },
+ "1pw8q1w": {
+  "en": "Nagpur",
+  "at": "index.html"
+ },
+ "svmsw7": {
+  "en": "Maharashtra",
+  "at": "index.html"
+ },
+ "1xfh1qy": {
+  "en": "📈 Crypto 'mentor' vanishes with unit group's corpus",
+  "at": "index.html"
+ },
+ "11c7yk1": {
+  "en": "Havildar's spouse",
+  "at": "index.html"
+ },
+ "6wilmx": {
+  "en": "West Bengal",
+  "at": "index.html"
+ },
+ "hkhxoy": {
+  "en": "Serving jawan",
+  "at": "index.html"
+ },
+ "1q0krvj": {
+  "en": "Pune",
+  "at": "index.html"
+ },
+ "jps7oz": {
+  "en": "DEC",
+  "at": "index.html"
+ },
+ "7yt78d": {
+  "en": "Delhi",
+  "at": "index.html"
+ },
+ "k4tngv": {
+  "en": "Serving NCO's parent",
+  "at": "index.html"
+ },
+ "1wtknx4": {
+  "en": "Telangana",
+  "at": "index.html"
+ },
+ "1juinad": {
+  "en": "📲 QR reversal fraud on furniture sale",
+  "at": "index.html"
+ },
+ "imsnuv": {
+  "en": "Station HQ circular",
+  "at": "index.html"
+ },
+ "1072q6x": {
+  "en": "🔐 SIM swap follows fake telecom verification call",
+  "at": "index.html"
+ },
+ "1ndi1t3": {
+  "en": "Patna",
+  "at": "index.html"
+ },
+ "1fm15dj": {
+  "en": "Bihar",
+  "at": "index.html"
+ },
+ "1cw7d6w": {
+  "en": "🪪 Loan APK extorts family with morphed photos",
+  "at": "index.html"
+ },
+ "d4vnm0": {
+  "en": "🤝 Martyr charity appeal traced to mule account",
+  "at": "index.html"
+ },
+ "148512d": {
+  "en": "Bhopal",
+  "at": "threat-map.html"
+ },
+ "bzobts": {
+  "en": "Amritsar",
+  "at": "threat-map.html"
+ },
+ "1ly99p0": {
+  "en": "<1></1>Loan App Traps &amp; Identity Theft <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "z28xdp": {
+  "en": "Punjab",
+  "at": "threat-map.html"
+ },
+ "17iie5i": {
+  "en": "🪪 Loan App Traps &amp; Identity Theft",
+  "at": "threat-map.html"
+ },
+ "1twnure": {
+  "en": "<1/> targeted near <2><3/>, <4/></2> — pattern intercepted {0} min into the hour. Source: <5/>.",
+  "at": "threat-map.html"
+ },
+ "b1um7c": {
+  "en": "Madhya Pradesh",
+  "at": "threat-map.html"
+ },
+ "1xjll3l": {
+  "en": "Reported loss",
+  "at": "threat-map.html"
+ },
+ "1c0d5xn": {
+  "en": "Golden-window action",
+  "at": "threat-map.html"
+ },
+ "a9blmq": {
+  "en": "Reported late",
+  "at": "threat-map.html"
+ },
+ "1jsno3p": {
+  "en": "Report ⟶",
+  "at": "threat-map.html"
+ },
+ "abnn0r": {
+  "en": "Funds freeze initiated",
+  "at": "threat-map.html"
+ },
+ "tanzb8": {
+  "en": "Assam",
+  "at": "index.html"
+ },
+ "apxeum": {
+  "en": "JAN",
+  "at": "index.html"
+ },
+ "ng3wje": {
+  "en": "Tamil Nadu",
+  "at": "index.html"
+ },
+ "4dp3te": {
+  "en": "🔐 Cloned bank page captures OTP, savings hit",
+  "at": "index.html"
+ },
+ "hwcrau": {
+  "en": "Jaipur",
+  "at": "threat-map.html"
+ },
+ "fnxt7l": {
+  "en": "<1></1>OTP, KYC &amp; SIM-Swap Phishing <2>{0}</2>",
+  "at": "threat-map.html"
+ },
+ "gpqfjf": {
+  "en": "Gujarat",
+  "at": "index.html"
+ },
+ "5esnsz": {
+  "en": "Karnataka",
+  "at": "index.html"
+ },
+ "jxtv42": {
+  "en": "FEB",
+  "at": "index.html"
+ },
+ "pxcfde": {
+  "en": "🧓 'OROP arrears' processing-fee fraud on veteran",
+  "at": "index.html"
+ },
+ "9j42cr": {
+  "en": "MAR",
+  "at": "index.html"
+ },
+ "rne3le": {
+  "en": "APR",
+  "at": "index.html"
+ },
+ "7l6uhy": {
+  "en": "MAY",
+  "at": "index.html"
+ },
+ "anzq1u": {
+  "en": "JUN",
+  "at": "index.html"
+ },
+ "a40inw": {
+  "en": "JUL",
+  "at": "index.html"
+ },
+ "zoqwlw": {
+  "en": "AUG",
+  "at": "index.html"
+ },
+ "ld6w4v": {
+  "en": "SEP",
+  "at": "index.html"
+ },
+ "1v6kq5l": {
+  "en": "OCT",
+  "at": "index.html"
+ },
+ "1w98x5d": {
+  "en": "Printable guides for briefings, notice boards and the family. <1>📲 optimised for your <2/> (<3/>) — <4/>.</1>",
+  "at": "reports.html"
+ },
+ "x2rmpb": {
+  "en": "phone",
+  "at": "reports.html"
+ },
+ "2o0qlv": {
+  "en": "files land in your Downloads / Files app",
+  "at": "reports.html"
+ },
+ "fkex46": {
+  "en": "Open this page in <1>Safari</1>.",
+  "at": "more.html"
+ },
+ "jd2jlv": {
+  "en": "Tap the <1>Share</1> button <2/> in the toolbar.",
+  "at": "more.html"
+ },
+ "i5u4bf": {
+  "en": "Choose <1>Add to Home Screen</1>, then <2>Add</2>.",
+  "at": "more.html"
+ },
+ "evm2xa": {
+  "en": "Printable guides for briefings, notice boards and the family. <1>📱 optimised for your <2/> (<3/>) — <4/>.</1>",
+  "at": "reports.html"
+ },
+ "8qzxgx": {
+  "en": "tablet",
+  "at": "reports.html"
+ },
+ "8neyh8": {
+  "en": "Open your browser's menu (<1>⋮</1> or <2>⋯</2>).",
+  "at": "more.html"
+ },
+ "1uwx2f2": {
+  "en": "Choose <1>Install app</1> or <2>Add to Home screen</2>.",
+  "at": "more.html"
+ },
+ "5gug0e": {
+  "en": "Confirm — Shield Force appears with your other apps.",
+  "at": "more.html"
+ },
+ "dd9tki": {
+  "en": "Reset training progress? Your saved quiz scores on this device will be cleared.",
+  "at": "more.html"
+ },
+ "1dhc7yt": {
+  "en": "Training progress reset",
+  "at": "more.html"
+ },
+ "1xkbte2": {
+  "en": "✓ Copied",
+  "at": "contact.html"
+ },
+ "d4me23": {
+  "en": "Copied <1>vihaanssuvarna@gmail.com</1>",
+  "at": "contact.html"
+ },
+ "1pvwj8j": {
+  "en": "⬇ Starting {0} downloads — allow multiple downloads if your browser asks.",
+  "at": "reports.html"
+ },
+ "1myk1vz": {
+  "en": "Couldn't copy — the address is selected, press Ctrl/Cmd+C",
+  "at": "index.html"
+ },
+ "ipklbm": {
+  "en": "Select and copy manually",
+  "at": "index.html"
+ },
+ "1iv36vr": {
+  "en": "🛰 Training grid rotated to this hour's scenarios",
+  "at": "index.html"
+ },
+ "1ozoxfs": {
+  "en": "Installing Shield Force…",
+  "at": "index.html"
+ },
+ "t1cw1t": {
+  "en": "Installed",
+  "at": "index.html"
+ },
+ "36oj62": {
+  "en": "You're using Shield Force as an app — it works offline",
+  "at": "index.html"
+ },
+ "1qvchxx": {
+  "en": "Add it to your home screen — works fully offline",
+  "at": "index.html"
+ },
+ "1e8gegw": {
+  "en": "Install",
+  "at": "index.html"
+ }
+}

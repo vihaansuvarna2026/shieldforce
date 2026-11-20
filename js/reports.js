@@ -31,7 +31,7 @@
   const dev = detectDevice();
   document.getElementById("device-note").innerHTML = NATIVE
     ? "🌐 PDFs open in your browser — save or print them from there (needs internet)."
-    : `${dev.icon} optimised for your ${dev.kind} (${dev.os}) — ${dev.tip}.`;
+    : `${dev.icon} optimised for your <span data-v>${dev.kind}</span> (<span data-v translate="no">${dev.os}</span>) — <span data-v>${dev.tip}</span>.`;
 
   /* report cards */
   const buttons = (r) => NATIVE

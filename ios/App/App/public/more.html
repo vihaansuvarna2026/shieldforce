@@ -25,6 +25,7 @@
     .about .wordmark { font-size: 1.2rem; }
     .about p { color: var(--mut); font-size: .76rem; margin-top: 8px; }
   </style>
+  <script src="js/i18n.js"></script>
   <script src="js/vt.js"></script>
 </head>
 <body data-page="more" data-screen="more">
@@ -36,6 +37,11 @@
   <section class="wrap">
     <p class="list-title" id="install">App</p>
     <div class="list">
+      <button class="list-item" type="button" data-lang-open>
+        <span class="li-ico teal" data-icon="globe"></span>
+        <span class="li-body"><b>Language</b><span id="m-lang" translate="no">English</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </button>
       <button class="list-item" type="button" id="m-install">
         <span class="li-ico teal" data-icon="install"></span>
         <span class="li-body"><b id="m-install-t">Install Shield Force</b><span id="m-install-s">Open it from your home screen — works fully offline</span></span>
@@ -69,6 +75,11 @@
       <a class="list-item" href="contact.html">
         <span class="li-ico" data-icon="mail"></span>
         <span class="li-body"><b>Contact &amp; support</b><span>Questions, corrections, official channels</span></span>
+        <span class="li-chev" data-icon="chev"></span>
+      </a>
+      <a class="list-item" id="m-translation" href="mailto:vihaanssuvarna@gmail.com?subject=Shield%20Force%20translation%20error">
+        <span class="li-ico" data-icon="globe"></span>
+        <span class="li-body"><b>Report a translation error</b><span>Translations were made with AI help — tell us what reads wrong</span></span>
         <span class="li-chev" data-icon="chev"></span>
       </a>
     </div>

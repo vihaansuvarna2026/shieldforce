@@ -34,7 +34,8 @@
       flags.push({ id, ...part });
       return `<mark class="rf" data-f="${id}">${part.t}</mark>`;
     }).join("");
-    msgBox.innerHTML = `<div class="from">FROM: ${ex.from}</div>${html}`;
+    // the message is one sentence-level unit, so it translates whole with its highlights
+    msgBox.innerHTML = `<div class="from">FROM: <span data-v translate="no">${ex.from}</span></div><span class="msg-text">${html}</span>`;
     flagBox.innerHTML = flags.map((f, j) => `
       <div class="rf-item" data-f="${f.id}" style="animation:flagIn .4s ${j * 0.08}s ease backwards">
         <span class="k">🚩 ${String(f.id + 1).padStart(2, "0")}</span>

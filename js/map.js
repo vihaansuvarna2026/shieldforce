@@ -87,7 +87,9 @@
       g.setAttribute("class", "map-marker");
       g.setAttribute("tabindex", "0");
       g.setAttribute("role", "button");
-      g.setAttribute("aria-label", `Incident in ${inc.city.name}: ${inc.scam.name}`);
+      g.setAttribute("translate", "no");   // its label is translated as a whole by SFI.t below
+      g.setAttribute("aria-label", window.SFI ? SFI.t("Incident in {city}: {scam}", { city: inc.city.name, scam: inc.scam.name })
+        : `Incident in ${inc.city.name}: ${inc.scam.name}`);
       g.innerHTML = `
         <circle class="hit" cx="${inc.city.x}" cy="${inc.city.y}" r="24" fill="transparent"/>
         <circle class="pulse" cx="${inc.city.x}" cy="${inc.city.y}" r="9" fill="none" stroke="${col}" stroke-width="2" style="animation-delay:${(i % 5) * .4}s"/>
@@ -111,7 +113,7 @@
     popup.className = "map-pop";
     popup.innerHTML = `
       <h4><span>${inc.scam.icon} ${inc.scam.name}</span><span class="x" role="button" aria-label="Close">✕</span></h4>
-      <p>${inc.victim} targeted near <b style="color:var(--blue)">${inc.city.name}, ${inc.city.state}</b> — pattern intercepted ${inc.minsAgo} min into the hour. Source: ${inc.source}.</p>
+      <p><span data-v>${inc.victim}</span> targeted near <b style="color:var(--blue)"><span data-v>${inc.city.name}</span>, <span data-v>${inc.city.state}</span></b> — pattern intercepted ${inc.minsAgo} min into the hour. Source: <span data-v>${inc.source}</span>.</p>
       <div class="row"><span>Reported loss</span><b>₹${inc.loss.toLocaleString("en-IN")}</b></div>
       <div class="row"><span>Golden-window action</span><b style="color:${inc.frozen ? "var(--teal)" : "var(--red)"}">${inc.frozen ? "Funds freeze initiated" : "Reported late"}</b></div>
       <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
@@ -167,7 +169,7 @@
       renderSide(inc);
       const last = new Date(seed * HOUR);
       document.getElementById("map-last").textContent =
-        last.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" });
+        last.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
       if (window.SFX && seedInitDone) SFX.toast("🛰 Training grid rotated to this hour's scenarios");
     }
     seedInitDone = true;

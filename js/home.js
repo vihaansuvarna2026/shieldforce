@@ -46,8 +46,8 @@
       <div class="case-date"><b>${c.day}</b><span>${c.mon}</span></div>
       <div class="case-body">
         <h4>${scam.icon} ${c.tpl.t}</h4>
-        <p>${c.victim} · approx. ₹${c.loss.toLocaleString("en-IN")} · ${c.source}</p>
-        <span class="case-loc">📍 ${c.city.name}, ${c.city.state}</span>
+        <p><span data-v>${c.victim}</span> · approx. ₹${c.loss.toLocaleString("en-IN")} · <span data-v>${c.source}</span></p>
+        <span class="case-loc">📍 <span data-v>${c.city.name}</span>, <span data-v>${c.city.state}</span></span>
       </div>
       <span class="case-chev">${chev}</span>
     </a>`;

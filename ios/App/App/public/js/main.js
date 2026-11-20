@@ -31,7 +31,8 @@
     info:    '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
     share:   '<path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8"/>',
     pulse:   '<path d="M3 12h4l3-8 4 16 3-8h4"/>',
-    close:   '<path d="M6 6l12 12M18 6 6 18"/>'
+    close:   '<path d="M6 6l12 12M18 6 6 18"/>',
+    globe:   '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'
   };
   function icon(name) {
     return `<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ` +
@@ -105,8 +106,10 @@
     const left = screen.root
       ? (stem === "index" ? `<a class="ab-brand" href="${base}index.html" aria-label="Shield Force home">${LOGO}</a>` : "")
       : `<button class="ab-back" type="button" aria-label="Back">${icon("back")}</button>`;
-    const right = screen.root && stem !== "404"
-      ? `<a class="ab-btn" href="${base}more.html" aria-label="More">${icon("more")}</a>` : "";
+    // every screen gets the language button, so it can always be found
+    const langBtn = window.SFI ? SFI.button() : "";
+    const right = langBtn + (screen.root && stem !== "404"
+      ? `<a class="ab-btn" href="${base}more.html" aria-label="More">${icon("more")}</a>` : "");
 
     body.insertAdjacentHTML("afterbegin", `
       <header id="appbar" class="${screen.root ? "is-root" : "is-push"}">
@@ -115,7 +118,7 @@
         <div class="ab-right">${right}</div>
       </header>
       <nav id="tabbar" aria-label="Main">
-        <a class="tb-brand" href="${base}index.html" aria-label="Shield Force home"><b>S</b><em>F</em></a>
+        <a class="tb-brand" href="${base}index.html" aria-label="Shield Force home"><b translate="no">S</b><em translate="no">F</em></a>
         ${tabs}
       </nav>`);
 
@@ -131,9 +134,13 @@
           <div class="splash-load">
             <div class="splash-mark" aria-hidden="true">${LOGO}</div>
             <div class="splash-bar"><div class="splash-bar-fill"></div></div>
-            <p class="splash-status">Initializing Shield Grid…</p>
+            <p class="splash-status">Starting Shield Force…</p>
           </div>
           <div class="splash-gate" role="dialog" aria-modal="true" aria-labelledby="splash-gate-h">
+            ${window.SFI && SFI.multi ? `<div class="gate-lang">
+              <div class="gate-lang-h">${SFI.globe}<span translate="no" dir="ltr">${SFI.word.filter((w, i) => SFI.word.indexOf(w) === i).join(" · ")}</span></div>
+              <div class="gate-lang-chips">${SFI.chips()}</div>
+            </div>` : ""}
             <span class="kicker">Before you begin</span>
             <h2 id="splash-gate-h">Welcome to Shield Force</h2>
             <ul class="splash-points">

@@ -13,7 +13,9 @@
     "icons": "node scripts/make-icons.mjs",
     "store-assets": "node scripts/build-www.mjs && node scripts/make-store-assets.mjs",
     "desktop": "node scripts/build-www.mjs && node -e \"const f=require('fs');f.rmSync('store-kit/desktop/site',{recursive:true,force:true});f.cpSync('www','store-kit/desktop/site',{recursive:true})\"",
-    "check": "node scripts/build-www.mjs && node scripts/ci/web-check.mjs"
+    "check": "node scripts/build-www.mjs && node scripts/ci/web-check.mjs",
+    "i18n:extract": "node scripts/build-www.mjs && node scripts/i18n/extract.mjs",
+    "i18n:build": "node scripts/i18n/build.mjs --allow-missing"
   },
   "dependencies": {
     "@capacitor/android": "8.5.3",

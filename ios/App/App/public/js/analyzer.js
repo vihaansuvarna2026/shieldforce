@@ -126,7 +126,7 @@
           <div class="flag" style="animation-delay:${0.15 + i * 0.09}s">
             <span class="fi">🚩</span>
             <span><b>${f.title}</b>
-            <span>Matched: “${escapeHtml(f.sample.slice(0, 60))}${f.sample.length > 60 ? "…" : ""}” — ${f.why}</span></span>
+            <span>Matched: “<span data-v translate="no">${escapeHtml(f.sample.slice(0, 60))}${f.sample.length > 60 ? "…" : ""}</span>” — ${f.why}</span></span>
           </div>`).join("")}
         ${good.map((g, i) => `
           <div class="flag ok" style="animation-delay:${0.15 + (flags.length + i) * 0.09}s">
