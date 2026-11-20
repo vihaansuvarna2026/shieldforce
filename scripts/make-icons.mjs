@@ -94,17 +94,17 @@ async function draw(file, w, h, opts = {}) {
   console.log(`${file}  ${w}x${h}`);
 }
 
-const ICON = { width: 0.6 };
-const FOREGROUND = { shape: "none", width: 0.46 };   // fits Android's 66dp safe circle in 108dp
+const ICON = { width: 0.78 };
+const FOREGROUND = { shape: "none", width: 0.49 };   // fits Android's 66dp safe circle in 108dp
 
 // Web app / PWA
 await draw("assets/icons/icon-192.png", 192, 192, { shape: "rounded", ...ICON });
 await draw("assets/icons/icon-512.png", 512, 512, { shape: "rounded", ...ICON });
-await draw("assets/icons/icon-maskable-512.png", 512, 512, { width: 0.5 });
+await draw("assets/icons/icon-maskable-512.png", 512, 512, { width: 0.62 });
 await draw("assets/icons/icon-180.png", 180, 180, ICON);
 await draw("assets/icons/icon-1024-appstore.png", 1024, 1024, ICON);
 writeFileSync(join(root, "assets/icons/favicon.svg"),
-  svg(48, 48, { shape: "rounded", width: 0.66 }).replace(' width="48" height="48"', "") + "\n");
+  svg(48, 48, { shape: "rounded", width: 0.8 }).replace(' width="48" height="48"', "") + "\n");
 
 // iOS app (Xcode asset catalog): one 1024 icon, opaque; launch image cropped to fill
 const IOS = "ios/App/App/Assets.xcassets";
@@ -115,8 +115,8 @@ for (const n of ["", "-1", "-2"]) await draw(`${IOS}/Splash.imageset/splash-2732
 const RES = "android/app/src/main/res";
 const DENSITY = { mdpi: 1, hdpi: 1.5, xhdpi: 2, xxhdpi: 3, xxxhdpi: 4 };
 for (const [d, k] of Object.entries(DENSITY)) {
-  await draw(`${RES}/mipmap-${d}/ic_launcher.png`, 48 * k, 48 * k, { shape: "rounded", inset: 2 * k, width: 0.58 });
-  await draw(`${RES}/mipmap-${d}/ic_launcher_round.png`, 48 * k, 48 * k, { shape: "circle", inset: 2 * k, width: 0.56 });
+  await draw(`${RES}/mipmap-${d}/ic_launcher.png`, 48 * k, 48 * k, { shape: "rounded", inset: 2 * k, width: 0.74 });
+  await draw(`${RES}/mipmap-${d}/ic_launcher_round.png`, 48 * k, 48 * k, { shape: "circle", inset: 2 * k, width: 0.68 });
   await draw(`${RES}/mipmap-${d}/ic_launcher_foreground.png`, 108 * k, 108 * k, FOREGROUND);
   await draw(`${RES}/mipmap-${d}/ic_launcher_monochrome.png`, 108 * k, 108 * k, { ...FOREGROUND, mono: true });
 }
@@ -133,7 +133,7 @@ const KIT = "store-kit/icons";
 for (const s of [20, 29, 40, 58, 60, 76, 80, 87, 120, 152, 167, 180]) await draw(`${KIT}/ios/AppIcon-${s}.png`, s, s, ICON);
 await draw(`${KIT}/ios/AppIcon-1024-AppStore.png`, 1024, 1024, ICON);
 await draw(`${KIT}/android/play-store-icon-512.png`, 512, 512, ICON);
-for (const [d, k] of Object.entries(DENSITY)) await draw(`${KIT}/android/mipmap-${d}-${48 * k}.png`, 48 * k, 48 * k, { shape: "rounded", inset: 2 * k, width: 0.58 });
+for (const [d, k] of Object.entries(DENSITY)) await draw(`${KIT}/android/mipmap-${d}-${48 * k}.png`, 48 * k, 48 * k, { shape: "rounded", inset: 2 * k, width: 0.74 });
 await draw(`${KIT}/android/adaptive-foreground-432.png`, 432, 432, FOREGROUND);
 
 // Windows / macOS / Linux desktop build (electron-builder makes .ico and .icns from it);
