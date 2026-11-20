@@ -11,3 +11,4 @@ www/
 *.cer
 keystore.properties
 upload-key*
+i18n-work/
