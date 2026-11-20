@@ -25,6 +25,10 @@ const TARGETS = [
   ["google-play/screenshots/tablet-7in",  612, 1088, 2],   // 1224 × 2176  (9:16)
   ["google-play/screenshots/tablet-10in",1280,  720, 2],   // 2560 × 1440  (16:9)
   ["google-play/screenshots/chromebook", 1280,  720, 1.5], // 1920 × 1080  (16:9)
+  // foldables: Play wants an unfolded 1:1, an unfolded 4:3 and the outer screen at 10:16
+  ["google-play/screenshots/foldable",    884,  884, 2,   ["1-home", "4-briefing"]],  // 1768 × 1768  (1:1)
+  ["google-play/screenshots/foldable",   1024,  768, 2,   ["2-scan", "5-training"]],  // 2048 × 1536  (4:3)
+  ["google-play/screenshots/foldable",    400,  640, 3,   ["3-intel", "6-emergency"]], // 1200 × 1920  (10:16)
   ["app-store/screenshots/iphone-6.9in",  440,  956, 3],   // 1320 × 2868
   ["app-store/screenshots/ipad-13in",    1032, 1376, 2]    // 2064 × 2752
 ];
@@ -71,8 +75,11 @@ const BASE = `http://127.0.0.1:${server.address().port}/`;
 const browser = await pw.chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 const save = (file, png) => { mkdirSync(dirname(file), { recursive: true }); writeFileSync(file, pngToRGB(png)); };
 
-for (const old of ["screenshots", "google-play/screenshots", "app-store/screenshots"]) rmSync(join(KIT, old), { recursive: true, force: true });
-for (const [folder, w, h, dpr] of TARGETS) {
+// ONLY=<text> regenerates just the folders whose path contains it, leaving the rest alone
+const ONLY = process.env.ONLY;
+if (!ONLY) for (const old of ["screenshots", "google-play/screenshots", "app-store/screenshots"]) rmSync(join(KIT, old), { recursive: true, force: true });
+for (const [folder, w, h, dpr, only] of TARGETS) {
+  if (ONLY && !folder.includes(ONLY)) continue;
   const touch = !folder.endsWith("chromebook");
   const ctx = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr,
     isMobile: touch, hasTouch: touch, serviceWorkers: "block" });
@@ -83,16 +90,18 @@ for (const [folder, w, h, dpr] of TARGETS) {
   });
   const page = await ctx.newPage();
   const go = async (screen) => { await page.goto(BASE + screen, { waitUntil: "networkidle" }); await page.waitForTimeout(400); };
-  for (const [name, show] of SHOTS) {
+  const shots = only ? SHOTS.filter(([name]) => only.includes(name)) : SHOTS;
+  for (const [name, show] of shots) {
     await show(page, go);
     await page.waitForTimeout(1100);
     save(join(KIT, folder, `${name}.png`), await page.screenshot());
   }
   await ctx.close();
-  console.log(`${folder}: ${SHOTS.length} × ${Math.round(w * dpr)}x${Math.round(h * dpr)}`);
+  console.log(`${folder}: ${shots.length} × ${Math.round(w * dpr)}x${Math.round(h * dpr)}`);
 }
 
 // Google Play listing graphics
+if (!ONLY) {
 const fg = await browser.newPage({ viewport: { width: 1024, height: 500 } });
 await fg.goto(pathToFileURL(join(KIT, "source", "feature-graphic.html")).href);
 await fg.waitForTimeout(500);
@@ -100,6 +109,7 @@ save(join(KIT, "google-play", "feature-graphic-1024x500.png"), await fg.screensh
 copyFileSync(join(KIT, "icons", "android", "play-store-icon-512.png"), join(KIT, "google-play", "app-icon-512.png"));
 copyFileSync(join(KIT, "icons", "ios", "AppIcon-1024-AppStore.png"), join(KIT, "app-store", "app-icon-1024.png"));
 console.log("google-play: feature graphic 1024x500, app icon 512x512; app-store: app icon 1024x1024");
+}
 
 await browser.close();
 server.close();
