@@ -36,7 +36,11 @@
   </noscript>
 
   <script>
-    if ("serviceWorker" in navigator) {
+    // The service worker exists to make the *web* build installable and
+    // offline-capable. Inside the Android app every asset is already on the
+    // device, served from the APK, so registering it there would only add a
+    // second cache that can go stale across app updates.
+    if ("serviceWorker" in navigator && location.hostname !== "appassets.androidplatform.net") {
       window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
     }
   </script>

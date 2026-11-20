@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mirrors theme_color and background_color in manifest.webmanifest, so
+         the native chrome and the web app cannot drift out of step. -->
+    <color name="brand_blue">#3B82F6</color>
+    <color name="app_background">#F1F7FF</color>
+    <color name="icon_background">#3B82F6</color>
+</resources>

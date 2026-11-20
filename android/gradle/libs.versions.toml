@@ -1,0 +1,17 @@
+[versions]
+# Android Gradle Plugin. compileSdk 36 needs AGP 8.9 or newer; 8.13 pairs with
+# the Gradle 8.14 in gradle-wrapper.properties.
+agp = "8.13.0"
+appcompat = "1.7.0"
+webkit = "1.12.1"
+splashscreen = "1.0.1"
+activity = "1.9.3"
+
+[libraries]
+androidx-appcompat    = { group = "androidx.appcompat", name = "appcompat",       version.ref = "appcompat" }
+androidx-webkit       = { group = "androidx.webkit",    name = "webkit",          version.ref = "webkit" }
+androidx-splashscreen = { group = "androidx.core",      name = "core-splashscreen", version.ref = "splashscreen" }
+androidx-activity     = { group = "androidx.activity",  name = "activity",        version.ref = "activity" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
