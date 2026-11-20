@@ -311,7 +311,7 @@
           <ul class="ls-list">${items}</ul>
           <p class="ls-empty" hidden>No matching language</p>
           <p class="ls-note">Translations were made with AI help and are being checked by native speakers.
-            <a href="mailto:vihaanssuvarna@gmail.com?subject=${encodeURIComponent("Shield Force translation error (" + meta[1] + ")")}">Report a translation error</a></p>
+            <a href="mailto:moneyville.game@gmail.com?subject=${encodeURIComponent("Shield Force translation error (" + meta[1] + ")")}">Report a translation error</a></p>
         </div>
       </div>`);
     const sheet = document.getElementById("lang-sheet");

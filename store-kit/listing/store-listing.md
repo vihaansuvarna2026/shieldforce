@@ -93,7 +93,7 @@ In a real emergency call 1930 or report at cybercrime.gov.in.
 ## Contact details
 | Field | Value |
 |---|---|
-| Support email (both stores) | vihaanssuvarna@gmail.com |
+| Support email (both stores) | moneyville.game@gmail.com |
 | Support URL (Apple, required) | `https://shieldforce.netlify.app/contact.html` |
 | Marketing / website URL | `https://shieldforce.netlify.app/` |
 | Privacy policy URL (both, required) | `https://shieldforce.netlify.app/privacy.html` |

@@ -11,7 +11,7 @@ const SCREENS = ["index.html", "scam-intel.html", "threat-map.html", "ai-analyze
 // text that only appears in situations a browser test can't reach (an installed web app,
 // a clipboard refusal, an hour ticking over while the map is open…)
 const EXTRA = [
-  "Copied <b>vihaanssuvarna@gmail.com</b>",
+  "Copied <b>moneyville.game@gmail.com</b>",
   "Couldn't copy — the address is selected, press Ctrl/Cmd+C",
   "✓ Copied", "Select and copy manually", "📋 Copy address",
   "🛰 Training grid rotated to this hour's scenarios",

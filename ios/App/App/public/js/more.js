@@ -15,7 +15,7 @@
     document.getElementById("m-translation")?.remove();
   } else {
     document.getElementById("m-lang").textContent = SFI.current[2];
-    document.getElementById("m-translation").href = "mailto:vihaanssuvarna@gmail.com?subject=" +
+    document.getElementById("m-translation").href = "mailto:moneyville.game@gmail.com?subject=" +
       encodeURIComponent(`Shield Force translation error (${SFI.current[1]})`) +
       "&body=" + encodeURIComponent("Screen:\nWhat it says:\nWhat it should say:\n");
   }

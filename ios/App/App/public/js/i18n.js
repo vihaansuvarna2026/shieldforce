@@ -38,14 +38,17 @@
   // Languages whose translation is complete; only these are offered. Written by
   // scripts/i18n/build.mjs — a language appears in the app once every text is translated.
   const READY = ["en"];
-  const LIVE = LANGS.filter((l) => READY.includes(l[0]));
-  const MULTI = LIVE.length > 1;
 
   const KEY = "sf_lang";
   const store = {
     get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage off */ } }
   };
+  const COLLECT = store.get("sf_i18n_collect") === "1";   // tools: record every English text unit
+  const AUDIT = store.get("sf_i18n_audit") === "1";       // tools: record text with no translation
+  // the translation tools see every language, finished or not
+  const LIVE = COLLECT || AUDIT ? LANGS : LANGS.filter((l) => READY.includes(l[0]));
+  const MULTI = LIVE.length > 1;
   const known = (c) => LIVE.some((l) => l[0] === c);
   function fromPhone() {
     for (const l of navigator.languages || [navigator.language || ""]) {
@@ -62,8 +65,6 @@
   html.lang = lang;
   html.dir = meta[3];
 
-  const COLLECT = store.get("sf_i18n_collect") === "1";   // tools: record every English text unit
-  const AUDIT = store.get("sf_i18n_audit") === "1";       // tools: record text with no translation
   const here = document.currentScript && document.currentScript.src;
   const DICT_URL = (code) => new URL("i18n/" + code + ".js", here || location.href).href;
 
@@ -310,7 +311,7 @@
           <ul class="ls-list">${items}</ul>
           <p class="ls-empty" hidden>No matching language</p>
           <p class="ls-note">Translations were made with AI help and are being checked by native speakers.
-            <a href="mailto:vihaanssuvarna@gmail.com?subject=${encodeURIComponent("Shield Force translation error (" + meta[1] + ")")}">Report a translation error</a></p>
+            <a href="mailto:moneyville.game@gmail.com?subject=${encodeURIComponent("Shield Force translation error (" + meta[1] + ")")}">Report a translation error</a></p>
         </div>
       </div>`);
     const sheet = document.getElementById("lang-sheet");
