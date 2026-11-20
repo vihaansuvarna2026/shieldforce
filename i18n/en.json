@@ -1875,24 +1875,28 @@
   "en": "This is a translation provided for your convenience. If it differs from the English version, the English version applies.",
   "at": "privacy.html"
  },
- "irgjk5": {
-  "en": "Last updated: {0} October {1}",
+ "e1h3vr": {
+  "en": "Last updated: {0} November {1}",
+  "at": "privacy.html"
+ },
+ "10csb3v": {
+  "en": "This policy applies to the <1>Shield Force</1> app for Android (Google Play, package <2/>), the Shield Force app for iPhone and iPad (App Store), and the Shield Force website. It explains what happens to information about you and your device when you use any of them. The short answer is that <3>nothing is collected, nothing is shared and nothing leaves your device</3>.",
   "at": "privacy.html"
  },
  "1qidl1x": {
   "en": "{0}. Who we are",
   "at": "privacy.html"
  },
- "nj67s8": {
-  "en": "Shield Force is a community awareness initiative that helps Indian Armed Forces personnel, veterans and their families recognise and avoid financial fraud. It is <1>not an official Government of India or Ministry of Defence service</1>. Questions about this policy can be sent to <2>vihaanssuvarna@gmail.com</2> (see our <3>Contact page</3>).",
+ "13jaq80": {
+  "en": "Shield Force is a community awareness initiative that helps Indian Armed Forces personnel, veterans and their families recognise and avoid financial fraud. It is developed and published by the independent Shield Force developer shown on the app's store page, and it is <1>not an official Government of India or Ministry of Defence service</1>. Privacy contact: <2>vihaanssuvarna@gmail.com</2> (see also our <3>Contact page</3>).",
   "at": "privacy.html"
  },
  "1457sdz": {
   "en": "{0}. Data we collect",
   "at": "privacy.html"
  },
- "gekta6": {
-  "en": "<1>None.</1> Shield Force has no backend server, no user accounts and no analytics or advertising software of any kind. The app runs entirely as code inside your browser or the installed app shell on your device.",
+ "15ecnlt": {
+  "en": "<1>None.</1> Shield Force does not collect, receive, store on a server, or transmit any personal or sensitive information about you. It has no backend server, no user accounts, no sign-in, and no analytics, advertising, tracking or crash-reporting software of any kind. The app runs entirely as code on your device.",
   "at": "privacy.html"
  },
  "1ej7vq9": {
@@ -1911,36 +1915,68 @@
   "en": "This has a practical consequence worth stating plainly: <1>there is no store of user data here that could be breached, sold, subpoenaed, or leaked</1>, because it does not exist. We cannot hand over information about you to anyone, including ourselves.",
   "at": "privacy.html"
  },
- "1yihzx2": {
-  "en": "{0}. The Shield AI message scanner",
+ "1x3trqa": {
+  "en": "{0}. Device information and identifiers",
   "at": "privacy.html"
  },
- "1v39a3m": {
-  "en": "When you paste a message into the <1>Shield AI Analyzer</1>, that text is scored entirely by JavaScript running on your own device against a local list of fraud patterns. <2>The message is never uploaded, logged or sent to any server</2> — it is discarded the moment you navigate away or clear the field.",
+ "3rk77x": {
+  "en": "Shield Force does <1>not</1> read, collect or use any device identifier — not the IMEI, IMSI, SIM serial number, phone number, Android ID, advertising ID (AAID/IDFA), MAC address or any other identifier — and does not fingerprint your device. It does not access your location, contacts, call logs, SMS, photos, camera or microphone. Because it collects no identifiers and no personal data, it never links one to another.",
+  "at": "privacy.html"
+ },
+ "zm7uro": {
+  "en": "{0}. The message scanner (“Shield AI”)",
+  "at": "privacy.html"
+ },
+ "16na27h": {
+  "en": "When you paste a message into the <1>message scanner</1>, that text is checked entirely on your own device against a built-in list of fraud patterns. The scanner is a set of rules inside the app; it does <2>not</2> use any third-party or online AI service. <3>The message is never uploaded, logged, stored or sent anywhere</3> — it is discarded the moment you leave the screen or clear the field.",
   "at": "privacy.html"
  },
  "fscqyn": {
   "en": "{0}. What stays on your device",
   "at": "privacy.html"
  },
- "16mrlft": {
-  "en": "A small amount of information is saved in the app's local storage on your device, purely so the app remembers your progress between visits. It is never sent to us or anyone else and is not visible to us. The only copy that can exist elsewhere is inside your phone's own encrypted device backup (iCloud or Google), if you have backups switched on:",
+ "xhvw2h": {
+  "en": "A small amount of information is saved in the app's local storage on your device, purely so the app remembers your progress and settings between visits. It is never sent to us or anyone else and is not visible to us. The only copy that can exist elsewhere is inside your phone's own encrypted device backup (iCloud or Google), if you have backups switched on:",
   "at": "privacy.html"
  },
  "s6irvs": {
   "en": "<1>Training scores</1> — your best result on each quiz module, so progress isn't lost.",
   "at": "privacy.html"
  },
- "pz23al": {
-  "en": "<1>Interface preferences</1> — things like whether you've dismissed a banner.",
+ "wst80h": {
+  "en": "<1>App settings</1> — such as that you have accepted the terms, your language choice, and whether you've dismissed a banner.",
   "at": "privacy.html"
  },
- "1gxdtnz": {
-  "en": "You can clear your quiz scores with <1>More → Reset training progress</1>, and erase all of it at any time by clearing site data / app storage for Shield Force in your browser or device settings, or by uninstalling the app.",
+ "16kyco": {
+  "en": "{0}. Sharing and selling",
   "at": "privacy.html"
  },
- "1bl98m9": {
-  "en": "{0}. Offline support &amp; caching",
+ "yvomvx": {
+  "en": "We do <1>not</1> share, sell, rent, trade or disclose any user data to anyone — no advertisers, data brokers, analytics or AI companies, partners or government bodies — because we do not have any. There are no categories of third parties with whom we share user data.",
+  "at": "privacy.html"
+ },
+ "1l6wak1": {
+  "en": "{0}. Third-party code in the app",
+  "at": "privacy.html"
+ },
+ "szm8wc": {
+  "en": "The store apps are built with <1>Capacitor</1>, an open-source app framework, together with the standard Android and Apple system components. None of this code collects, stores or sends data about you or your device. The app contains no advertising, analytics, tracking, social-login, crash-reporting or AI software development kits (SDKs).",
+  "at": "privacy.html"
+ },
+ "10zgu48": {
+  "en": "{0}. Internet use and permissions",
+  "at": "privacy.html"
+ },
+ "1xfftpv": {
+  "en": "Everything in the app — every screen, the scanner and the training — works offline from the first launch. The app's own code makes no network requests. The Android app includes the standard internet permission that Android's built-in web view requires; it is used only when <1>you</1> choose to open an outside link, such as a government website or one of the PDF field guides, which then open in your phone's browser.",
+  "at": "privacy.html"
+ },
+ "k74vm1": {
+  "en": "Shield Force does not request access to your contacts, camera, microphone, location, photos, files or notifications. The only device capability it uses is local storage, described in section {0}.",
+  "at": "privacy.html"
+ },
+ "hkuzyd": {
+  "en": "{0}. Offline support &amp; caching (website)",
   "at": "privacy.html"
  },
  "qa0dmt": {
@@ -1951,16 +1987,32 @@
   "en": "{0}. Hosting and app stores",
   "at": "privacy.html"
  },
- "1i86zso": {
-  "en": "<1>The app-store versions</1> of Shield Force carry every screen inside the app on your device. They make no network requests of their own, so nothing about you is sent anywhere when you use them.",
+ "1rpuy84": {
+  "en": "<1>The app-store versions</1> of Shield Force carry every screen inside the app on your device, so nothing about you is sent anywhere when you use them.",
   "at": "privacy.html"
  },
  "1s4x9pc": {
   "en": "<1>If you use Shield Force as a website</1>, the company that hosts it (Netlify) receives the standard technical details that every website visit involves — such as your IP address, browser type and the page requested — in order to deliver the pages and protect against abuse. Those logs are held by the host under its own privacy policy; Shield Force does not use them to identify or track anyone.",
   "at": "privacy.html"
  },
- "u4n6bt": {
-  "en": "Apple and Google may provide us with anonymous, aggregated statistics such as total downloads. These are produced by the stores, not by the app, and contain no personal data.",
+ "1ujq05": {
+  "en": "Google and Apple may provide us with anonymous, aggregated statistics such as total downloads. These are produced by the stores under their own privacy policies, not by the app, and contain no personal data.",
+  "at": "privacy.html"
+ },
+ "10whg3d": {
+  "en": "{0}. Security",
+  "at": "privacy.html"
+ },
+ "h9wqjj": {
+  "en": "The best protection for personal data is not to collect it, which is how Shield Force is built. What the app saves stays in its private storage on your device, protected by your phone's own security (screen lock and encryption). The website is served only over encrypted HTTPS.",
+  "at": "privacy.html"
+ },
+ "1juge70": {
+  "en": "{0}. Keeping and deleting your data",
+  "at": "privacy.html"
+ },
+ "5eob9x": {
+  "en": "We keep no data about you, so there is nothing to delete on our side and no account to close. The settings and scores on your device stay there until you remove them: clear your quiz scores with <1>More → Reset training progress</1>, or erase everything by clearing Shield Force's storage in your phone or browser settings, or by uninstalling the app. If you write to us with a question or a deletion request, we will confirm by email that we hold no data about you.",
   "at": "privacy.html"
  },
  "huh4qk": {
@@ -1971,28 +2023,28 @@
   "en": "Screens such as Emergency and Contact link out to official government resources — <1>cybercrime.gov.in</1>, <2>Sanchar Saathi</2>, <3>SPARSH</3> and <4>KSB</4> — and to the national helpline via <5/>. Those destinations are outside our control and have their own privacy practices.",
   "at": "privacy.html"
  },
- "1gqwkih": {
-  "en": "{0}. Permissions",
-  "at": "privacy.html"
- },
- "1u1l064": {
-  "en": "Shield Force does not request access to your contacts, camera, microphone, location, photos or notifications. The only device capability it uses is local storage, described in section {0}.",
-  "at": "privacy.html"
- },
  "fuxz8m": {
   "en": "{0}. Children's privacy",
   "at": "privacy.html"
  },
- "k4gw3a": {
-  "en": "Shield Force is educational content aimed at adult service members, veterans and family members. It does not knowingly collect data from anyone, so no age-specific handling is required — nothing is collected from any visitor regardless of age.",
+ "v5sn41": {
+  "en": "Shield Force is educational content aimed at adult service members, veterans and family members. It does not knowingly collect data from anyone, so no age-specific handling is required — nothing is collected from any user regardless of age.",
+  "at": "privacy.html"
+ },
+ "ob79zb": {
+  "en": "{0}. Your rights",
+  "at": "privacy.html"
+ },
+ "1kzwupu": {
+  "en": "Data-protection laws such as India's Digital Personal Data Protection Act, {0} give you rights over personal data that an organisation holds about you. Shield Force holds none, but you are always welcome to ask us about it at the address below.",
   "at": "privacy.html"
  },
  "1tk7zsr": {
   "en": "{0}. Changes to this policy",
   "at": "privacy.html"
  },
- "hi68uw": {
-  "en": "If this policy changes — for example if a future version adds optional analytics — this page will be updated and the \"Last updated\" date above will change accordingly. Continued use of the app after an update constitutes acceptance of the revised policy.",
+ "1rp5daz": {
+  "en": "If this policy changes — for example if a future version added a feature that handles data — this page will be updated before the change takes effect and the “Last updated” date above will change. Material changes will also be noted in the app's store listing.",
   "at": "privacy.html"
  },
  "mpqt15": {
@@ -4299,64 +4351,12 @@
   "en": "RISK SCORE / {0}",
   "at": "ai-analyzer.html"
  },
- "i2zu6q": {
-  "en": "FRAUD — DO NOT ENGAGE",
-  "at": "ai-analyzer.html"
- },
- "1mabu69": {
-  "en": "Payment credential harvesting",
-  "at": "ai-analyzer.html"
- },
- "1m1g6yd": {
-  "en": "Matched: “<1/>” — PINs, CVVs and passwords authorise outgoing transactions. Any message requesting them is fraud, full stop.",
-  "at": "ai-analyzer.html"
- },
- "14k8yum": {
-  "en": "QR-scan payment flow",
-  "at": "ai-analyzer.html"
- },
- "1jqf9zo": {
-  "en": "Matched: “<1/>” — Scanning a QR + entering a PIN sends money OUT. Receiving money never requires scanning anything.",
-  "at": "ai-analyzer.html"
- },
- "1a3lq0q": {
-  "en": "'Receive money' framing",
-  "at": "ai-analyzer.html"
- },
- "1y2wow7": {
-  "en": "Matched: “<1/>” — Framing an outgoing action as 'receiving' payment is the core inversion of UPI reversal fraud.",
+ "ei543j": {
+  "en": "LOW RISK — STAY ALERT",
   "at": "ai-analyzer.html"
  },
  "kmbzhc": {
   "en": "Matched: “<1/>” — Deadlines in minutes or hours exist to stop you thinking or consulting anyone. Real institutions give written notice and time.",
-  "at": "ai-analyzer.html"
- },
- "1dyxtjt": {
-  "en": "Military identity prop",
-  "at": "ai-analyzer.html"
- },
- "173ih8p": {
-  "en": "Matched: “<1/>” — Rank-and-posting stories are the classic trust prop of army-impersonation fraud. Real buyers don't flash rank; real officials are verifiable on unit lines.",
-  "at": "ai-analyzer.html"
- },
- "1nyk9zq": {
-  "en": "Refuses to meet in person",
-  "at": "ai-analyzer.html"
- },
- "u72awd": {
-  "en": "Matched: “<1/>” — Refusal to inspect goods or meet face-to-face sets up the online payment trick.",
-  "at": "ai-analyzer.html"
- },
- "1sdaift": {
-  "en": "Report on cybercrime.gov.in ↗",
-  "at": "ai-analyzer.html"
- },
- "18tncow": {
-  "en": "📞 Call {0}",
-  "at": "ai-analyzer.html"
- },
- "ei543j": {
-  "en": "LOW RISK — STAY ALERT",
   "at": "ai-analyzer.html"
  },
  "1823cz8": {
@@ -4379,12 +4379,44 @@
   "en": "Stay alert anyway: new scripts appear constantly. Verify sender identity via official channels before acting on any request involving money or data.",
   "at": "ai-analyzer.html"
  },
+ "1juinad": {
+  "en": "📲 QR reversal fraud on furniture sale",
+  "at": "index.html"
+ },
  "1ash14a": {
   "en": "Veer nari (family pension)",
   "at": "index.html"
  },
- "eiycn0": {
-  "en": "Defence civilian employee",
+ "imsnuv": {
+  "en": "Station HQ circular",
+  "at": "index.html"
+ },
+ "6wilmx": {
+  "en": "West Bengal",
+  "at": "index.html"
+ },
+ "1cw7d6w": {
+  "en": "🪪 Loan APK extorts family with morphed photos",
+  "at": "index.html"
+ },
+ "11c7yk1": {
+  "en": "Havildar's spouse",
+  "at": "index.html"
+ },
+ "z28xdp": {
+  "en": "Punjab",
+  "at": "index.html"
+ },
+ "148512d": {
+  "en": "Bhopal",
+  "at": "index.html"
+ },
+ "b1um7c": {
+  "en": "Madhya Pradesh",
+  "at": "index.html"
+ },
+ "hkhxoy": {
+  "en": "Serving jawan",
   "at": "index.html"
  },
  "yr6ej4": {
@@ -4393,102 +4425,38 @@
  },
  "1pw8q1w": {
   "en": "Nagpur",
-  "at": "index.html"
- },
- "svmsw7": {
-  "en": "Maharashtra",
-  "at": "index.html"
- },
- "1xfh1qy": {
-  "en": "📈 Crypto 'mentor' vanishes with unit group's corpus",
-  "at": "index.html"
- },
- "11c7yk1": {
-  "en": "Havildar's spouse",
-  "at": "index.html"
- },
- "6wilmx": {
-  "en": "West Bengal",
-  "at": "index.html"
- },
- "hkhxoy": {
-  "en": "Serving jawan",
-  "at": "index.html"
+  "at": "threat-map.html"
  },
  "1q0krvj": {
   "en": "Pune",
-  "at": "index.html"
- },
- "jps7oz": {
-  "en": "DEC",
-  "at": "index.html"
- },
- "7yt78d": {
-  "en": "Delhi",
-  "at": "index.html"
- },
- "k4tngv": {
-  "en": "Serving NCO's parent",
-  "at": "index.html"
- },
- "1wtknx4": {
-  "en": "Telangana",
-  "at": "index.html"
- },
- "1juinad": {
-  "en": "📲 QR reversal fraud on furniture sale",
-  "at": "index.html"
- },
- "imsnuv": {
-  "en": "Station HQ circular",
-  "at": "index.html"
- },
- "1072q6x": {
-  "en": "🔐 SIM swap follows fake telecom verification call",
-  "at": "index.html"
+  "at": "threat-map.html"
  },
  "1ndi1t3": {
   "en": "Patna",
-  "at": "index.html"
- },
- "1fm15dj": {
-  "en": "Bihar",
-  "at": "index.html"
- },
- "1cw7d6w": {
-  "en": "🪪 Loan APK extorts family with morphed photos",
-  "at": "index.html"
- },
- "d4vnm0": {
-  "en": "🤝 Martyr charity appeal traced to mule account",
-  "at": "index.html"
- },
- "148512d": {
-  "en": "Bhopal",
   "at": "threat-map.html"
  },
- "bzobts": {
-  "en": "Amritsar",
+ "fnxt7l": {
+  "en": "<1></1>OTP, KYC &amp; SIM-Swap Phishing <2>{0}</2>",
   "at": "threat-map.html"
  },
  "1ly99p0": {
   "en": "<1></1>Loan App Traps &amp; Identity Theft <2>{0}</2>",
   "at": "threat-map.html"
  },
- "z28xdp": {
-  "en": "Punjab",
+ "svmsw7": {
+  "en": "Maharashtra",
   "at": "threat-map.html"
  },
- "17iie5i": {
-  "en": "🪪 Loan App Traps &amp; Identity Theft",
+ "16qbzdx": {
+  "en": "🚨 Digital Arrest &amp; Fake Police Extortion",
   "at": "threat-map.html"
  },
  "1twnure": {
   "en": "<1/> targeted near <2><3/>, <4/></2> — pattern intercepted {0} min into the hour. Source: <5/>.",
   "at": "threat-map.html"
  },
- "b1um7c": {
-  "en": "Madhya Pradesh",
+ "7yt78d": {
+  "en": "Delhi",
   "at": "threat-map.html"
  },
  "1xjll3l": {
@@ -4507,48 +4475,100 @@
   "en": "Report ⟶",
   "at": "threat-map.html"
  },
- "abnn0r": {
-  "en": "Funds freeze initiated",
+ "1xjr5wn": {
+  "en": "🎖️ Officer Impersonation &amp; Advance-Fee Deals",
   "at": "threat-map.html"
  },
- "tanzb8": {
-  "en": "Assam",
+ "c9m7wx": {
+  "en": "🤝 Fake Welfare Funds &amp; Martyr Charity Fraud",
+  "at": "threat-map.html"
+ },
+ "1xfh1qy": {
+  "en": "📈 Crypto 'mentor' vanishes with unit group's corpus",
   "at": "index.html"
  },
- "apxeum": {
-  "en": "JAN",
+ "k4tngv": {
+  "en": "Serving NCO's parent",
   "at": "index.html"
  },
- "ng3wje": {
-  "en": "Tamil Nadu",
+ "eiycn0": {
+  "en": "Defence civilian employee",
   "at": "index.html"
  },
  "4dp3te": {
   "en": "🔐 Cloned bank page captures OTP, savings hit",
   "at": "index.html"
  },
+ "1fm15dj": {
+  "en": "Bihar",
+  "at": "index.html"
+ },
+ "jps7oz": {
+  "en": "DEC",
+  "at": "index.html"
+ },
+ "ng3wje": {
+  "en": "Tamil Nadu",
+  "at": "index.html"
+ },
  "hwcrau": {
   "en": "Jaipur",
-  "at": "threat-map.html"
- },
- "fnxt7l": {
-  "en": "<1></1>OTP, KYC &amp; SIM-Swap Phishing <2>{0}</2>",
-  "at": "threat-map.html"
- },
- "gpqfjf": {
-  "en": "Gujarat",
   "at": "index.html"
  },
  "5esnsz": {
   "en": "Karnataka",
   "at": "index.html"
  },
- "jxtv42": {
-  "en": "FEB",
-  "at": "index.html"
- },
  "pxcfde": {
   "en": "🧓 'OROP arrears' processing-fee fraud on veteran",
+  "at": "index.html"
+ },
+ "bzobts": {
+  "en": "Amritsar",
+  "at": "threat-map.html"
+ },
+ "abnn0r": {
+  "en": "Funds freeze initiated",
+  "at": "threat-map.html"
+ },
+ "q6tgwv": {
+  "en": "📈 Investment &amp; Crypto Ponzi Pitches",
+  "at": "threat-map.html"
+ },
+ "gpqfjf": {
+  "en": "Gujarat",
+  "at": "threat-map.html"
+ },
+ "17iie5i": {
+  "en": "🪪 Loan App Traps &amp; Identity Theft",
+  "at": "threat-map.html"
+ },
+ "1wtknx4": {
+  "en": "Telangana",
+  "at": "threat-map.html"
+ },
+ "fbt113": {
+  "en": "📲 Fake UPI / QR Reversal Fraud",
+  "at": "threat-map.html"
+ },
+ "d4vnm0": {
+  "en": "🤝 Martyr charity appeal traced to mule account",
+  "at": "index.html"
+ },
+ "apxeum": {
+  "en": "JAN",
+  "at": "index.html"
+ },
+ "1072q6x": {
+  "en": "🔐 SIM swap follows fake telecom verification call",
+  "at": "index.html"
+ },
+ "tanzb8": {
+  "en": "Assam",
+  "at": "index.html"
+ },
+ "jxtv42": {
+  "en": "FEB",
   "at": "index.html"
  },
  "9j42cr": {
