@@ -12,7 +12,8 @@
     "open:ios": "cap open ios",
     "icons": "node scripts/make-icons.mjs",
     "store-assets": "node scripts/build-www.mjs && node scripts/make-store-assets.mjs",
-    "desktop": "node scripts/build-www.mjs && node -e \"const f=require('fs');f.rmSync('store-kit/desktop/site',{recursive:true,force:true});f.cpSync('www','store-kit/desktop/site',{recursive:true})\""
+    "desktop": "node scripts/build-www.mjs && node -e \"const f=require('fs');f.rmSync('store-kit/desktop/site',{recursive:true,force:true});f.cpSync('www','store-kit/desktop/site',{recursive:true})\"",
+    "check": "node scripts/build-www.mjs && node scripts/ci/web-check.mjs"
   },
   "dependencies": {
     "@capacitor/android": "8.5.3",

@@ -2,7 +2,7 @@
    The shell is precached so the app opens instantly; everything else is warmed in
    the background right after, so the whole app works offline within seconds of the
    first launch. No external service is involved at any point. */
-const CACHE = "shieldforce-v9";
+const CACHE = "shieldforce-v10";
 
 /* What the Home screen needs to open. Kept small so first launch is fast. */
 const SHELL = [
@@ -10,6 +10,7 @@ const SHELL = [
   "css/core.css",
   "css/responsive.css",
   "css/pages/home.css",
+  "js/vt.js",
   "js/main.js",
   "js/home.js",
   "js/data-scams.js",

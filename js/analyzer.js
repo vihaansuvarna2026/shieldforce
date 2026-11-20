@@ -11,15 +11,17 @@
     safe: `Dear Sir/Madam, this is a reminder from your unit's Family Welfare Organisation that the next fraud-awareness briefing is on Saturday at 1100h in the station auditorium. Families are requested to attend. For queries, contact the FWO office through the exchange. No payment or registration is required.`
   };
 
-  /* signature bank: [regex, weight, flagTitle, explanation] */
+  /* signature bank: [regex, weight, flagTitle, explanation, weak]
+     A weak hint ("tonight", "blocked", "fast") is ordinary on its own, so it only counts
+     when the message also carries another sign of fraud. */
   const SIGS = [
     [/\b(otp|one[- ]?time password)\b/i, 30, "OTP request or OTP-centric flow", "No bank, army office, SPARSH or telecom company ever asks for an OTP. An OTP mentioned as something to share/confirm is a decisive fraud marker."],
     [/\b(upi pin|mpin|atm pin|cvv|password)\b/i, 30, "Payment credential harvesting", "PINs, CVVs and passwords authorise outgoing transactions. Any message requesting them is fraud, full stop."],
     [/scan.{0,24}(qr|code)|qr.{0,16}(scan|code)/i, 24, "QR-scan payment flow", "Scanning a QR + entering a PIN sends money OUT. Receiving money never requires scanning anything."],
-    [/\b(receive|get|collect).{0,32}(advance|payment|money|amount|refund)/i, 12, "'Receive money' framing", "Framing an outgoing action as 'receiving' payment is the core inversion of UPI reversal fraud."],
-    [/\b(urgent|immediately|right now|within \d+ (min|hour)|fast|jaldi|today only|tonight|last chance|expires?)\b/i, 14, "Manufactured urgency", "Deadlines in minutes or hours exist to stop you thinking or consulting anyone. Real institutions give written notice and time."],
-    [/\b(blocked?|suspend(ed)?|deactivat|freez|stopped|expire)\b/i, 12, "Threat of blocking / suspension", "'Account blocked today' is a fear lever. Banks and SPARSH never cut services the same day over a message."],
-    [/\b(do not (tell|share|inform|disclose)|don'?t tell|confidential|secret|tell no one|do not verify)\b/i, 18, "Secrecy / isolation demand", "Forbidding you from consulting family, bank or unit is a control tactic used in digital-arrest and pension fraud."],
+    [/\b(receive|get|collect).{0,32}(advance|payment|money|amount|refund)/i, 12, "'Receive money' framing", "Framing an outgoing action as 'receiving' payment is the core inversion of UPI reversal fraud.", true],
+    [/\b(urgent|immediately|right now|within \d+ (min|hour)|fast|jaldi|today only|tonight|last chance|expires?)\b/i, 14, "Manufactured urgency", "Deadlines in minutes or hours exist to stop you thinking or consulting anyone. Real institutions give written notice and time.", true],
+    [/\b(blocked?|suspend(ed)?|deactivat|freez|stopped|expire)\b/i, 12, "Threat of blocking / suspension", "'Account blocked today' is a fear lever. Banks and SPARSH never cut services the same day over a message.", true],
+    [/\b(do not (tell|inform|disclose)|don'?t tell|confidential|secret|tell no one|do not verify)\b/i, 18, "Secrecy / isolation demand", "Forbidding you from consulting family, bank or unit is a control tactic used in digital-arrest and pension fraud."],
     [/\b(guarantee[d]?|assured|100%|zero risk|risk[- ]free|double your|no risk)\b/i, 18, "Guaranteed returns / zero risk", "Guaranteed profit claims are the arithmetic signature of Ponzi fraud — regulated products never promise this."],
     [/\b(\d+(\.\d+)?%\s*(daily|per day|weekly))\b/i, 20, "Impossible return rate", "Daily/weekly percentage returns compound to absurd annual figures — mathematical proof of a scam."],
     [/\b(lottery|jackpot|prize|winner|lucky draw|selected)\b/i, 16, "Unsolicited prize / lottery", "You cannot win a lottery you never entered. Prize bait exists to extract 'processing fees'."],
@@ -29,8 +31,8 @@
     [/\.apk\b/i, 26, "APK file installation", "Sideloaded APKs can read your SMS and intercept OTPs. Banks and government bodies never distribute apps over chat."],
     [/\b(anydesk|teamviewer|screen ?share|quick ?support)\b/i, 26, "Remote-access app request", "Screen-share tools give callers live control of your phone and visibility of your PINs. Legitimate support never needs them."],
     [/\b(major|colonel|captain|brigadier|jco|havildar|subedar)\b.{0,80}\b(posted|posting|border|forward area|field area|duty)\b/i, 18, "Military identity prop", "Rank-and-posting stories are the classic trust prop of army-impersonation fraud. Real buyers don't flash rank; real officials are verifiable on unit lines."],
-    [/\b(cannot (come|meet)|can'?t meet|unable to meet|not able to come)\b/i, 12, "Refuses to meet in person", "Refusal to inspect goods or meet face-to-face sets up the online payment trick."],
-    [/\b(army welfare|welfare (fund|trust)|shaheed|martyr|veer nari)\b/i, 12, "Welfare / martyr emotional bait", "Charity fraud borrows the credibility of soldier welfare. Genuine funds use institutional accounts, never personal UPI handles."],
+    [/\b(cannot (come|meet)|can'?t meet|unable to meet|not able to come)\b/i, 12, "Refuses to meet in person", "Refusal to inspect goods or meet face-to-face sets up the online payment trick.", true],
+    [/\b(army welfare|welfare (fund|trust)|shaheed|martyr|veer nari)\b/i, 12, "Welfare / martyr emotional bait", "Charity fraud borrows the credibility of soldier welfare. Genuine funds use institutional accounts, never personal UPI handles.", true],
     [/[a-z0-9._]{2,}@(ybl|paytm|okaxis|oksbi|okhdfcbank|okicici|apl|ibl|axl)\b/i, 14, "Personal UPI handle for institutional payment", "Institutions never collect via name@bank personal UPI IDs. A personal handle collecting 'official' money is a mule account."],
     [/\b(digital arrest|video call.{0,30}(police|cbi|interrogat)|stay on (the )?(call|camera|line))\b/i, 30, "'Digital arrest' script", "Digital arrest does not exist in Indian law. No agency detains or interrogates over video calls, and none takes money for 'verification'."],
     [/\b(cbi|police|customs|narcotics|ed|income tax)\b.{0,60}\b(case|warrant|arrest|parcel|laundering|illegal)\b/i, 18, "Law-enforcement intimidation", "Fear of police action is the opening move of extortion scripts. Real notices arrive in writing and are verifiable at a police station."],
@@ -39,15 +41,15 @@
     [/\b(aadhaar|pan card|account number|ifsc)\b.{0,40}\b(send|share|confirm|verify|update)\b/i, 14, "Identity data harvesting", "Collecting ID and account details over chat feeds identity theft and loan fraud."],
     [/\b(sparsh|pension|ppo|life certificate|jeevan pramaan)\b.{0,60}\b(block|stop|fail|expire|verify|update|otp|fee)\b/i, 20, "Pension-system impersonation", "SPARSH/PCDA never call or message for OTPs, fees or 'reactivation'. Pension processes are free and run through official portals."],
     [/\b(csd|canteen)\b.{0,50}\b(quota|discount|sale|offer|booking)\b/i, 16, "CSD quota bait", "Canteen entitlements are non-transferable and never sold through messages or social media."],
-    [/\b(forward (this|to)|share (in|to) \d+ group)/i, 10, "Viral forwarding pressure", "Messages engineering their own spread recruit YOU as the scammer's distribution network."],
-    [/\b(screenshot|payment proof)\b/i, 8, "Screenshot as payment proof", "Payment screenshots are trivially faked. Only a credit visible in your own bank app is proof."],
-    [/\b(only \d+ (slots?|seats?)|limited (slots?|offer|period))\b/i, 10, "Artificial scarcity", "Fake scarcity ('7 slots left') manufactures the same rushed decision as a deadline."]
+    [/\b(forward (this|to)|share (in|to) \d+ group)/i, 10, "Viral forwarding pressure", "Messages engineering their own spread recruit YOU as the scammer's distribution network.", true],
+    [/\b(screenshot|payment proof)\b/i, 8, "Screenshot as payment proof", "Payment screenshots are trivially faked. Only a credit visible in your own bank app is proof.", true],
+    [/\b(only \d+ (slots?|seats?)|limited (slots?|offer|period))\b/i, 10, "Artificial scarcity", "Fake scarcity ('7 slots left') manufactures the same rushed decision as a deadline.", true]
   ];
 
   const POSITIVE = [
     [/\b(no payment.{0,30}required|is free|free of (cost|charge))\b/i, "States that no payment is needed"],
     [/\b(through the exchange|official channels|record office|unit|fwo|adjutant)\b/i, "Routes via verifiable official channels"],
-    [/\b(do not share (your )?otp|never share)\b/i, "Warns against sharing credentials"]
+    [/\b(do not|don'?t|never) share (it|this|the code|the otp|your otp|otp|your pin|pin)\b/i, "Warns you never to share the code"]
   ];
 
   const ta = document.getElementById("ai-text");
@@ -79,15 +81,19 @@
     setTimeout(() => {
       resultBox.classList.remove("scanning");
       render(analyze(text));
-    }, 1150);
+    }, 550);   // the analysis itself is instant; this short pause just shows the scan
   });
 
   function analyze(text) {
     let score = 0;
     const flags = [];
-    for (const [re, w, title, why] of SIGS) {
+    const hits = [];
+    for (const [re, w, title, why, weak] of SIGS) {
       const m = text.match(re);
-      if (m) { score += w; flags.push({ title, why, sample: m[0] }); }
+      if (m) hits.push({ w, title, why, weak, sample: m[0] });
+    }
+    for (const h of hits.length > 1 ? hits : hits.filter((x) => !x.weak)) {
+      score += h.w; flags.push({ title: h.title, why: h.why, sample: h.sample });
     }
     const good = [];
     for (const [re, note] of POSITIVE) {
@@ -101,6 +107,7 @@
   function render({ score, flags, good }) {
     const verdict = score >= 60 ? ["FRAUD — DO NOT ENGAGE", "v-danger", "#ff4d5e"]
       : score >= 30 ? ["SUSPICIOUS — VERIFY FIRST", "v-warn", "#ffa53e"]
+      : flags.length ? ["LOW RISK — STAY ALERT", "v-safe", "#2ee6a8"]
       : ["NO KNOWN SIGNATURES", "v-safe", "#2ee6a8"];
     const C = 2 * Math.PI * 84;
     out.innerHTML = `

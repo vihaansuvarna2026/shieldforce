@@ -1,10 +1,14 @@
 # Builds the Android and iOS apps on GitHub's machines and tests them.
 #
 #  • web      — builds www/ and checks the copy committed inside the Xcode project is current
+#  • web      — also runs scripts/ci/web-check.mjs: every screen on 10 sizes, offline use,
+#               the scanner, navigation and a speed budget on a slowed-down phone
 #  • android  — debug APK (install on a phone to try it) and the release AAB for Google Play.
 #               The AAB is signed only when the upload-key secrets are set (see
 #               store-kit/SUBMISSION-RUNBOOK.md); the key itself never enters the repository.
-#  • android-emulator — installs the APK on an emulator and walks through the app
+#               Both files are also published to the play-build branch.
+#  • android-emulator — installs the APK on an emulator and walks through the app, including
+#               a cold start and the scanner in airplane mode
 #  • ios      — compiles for real iPhones/iPads (unsigned) and launches it in the Simulator.
 #               Signing and the App Store upload happen in Xcode on a Mac.
 name: Build apps
@@ -41,10 +45,18 @@ jobs:
             echo "::error::The web app inside ios/ is out of date. Run 'npm run sync' and commit."
             exit 1
           fi
+      - name: Install the browser for the checks
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Check every screen, offline use, the scanner and speed
+        run: node scripts/ci/web-check.mjs
 
   android:
     name: Android build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # to publish the build to the play-build branch
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -89,6 +101,19 @@ jobs:
           name: shieldforce-android-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
+      - name: Publish the build to the play-build branch
+        if: github.event_name != 'pull_request'
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          out="$RUNNER_TEMP/play-build" && mkdir -p "$out"
+          cp android/app/build/outputs/bundle/release/app-release.aab android/app/build/outputs/apk/debug/app-debug.apk "$out/"
+          printf 'Shield Force Android build %s\nSource commit: %s\nversionCode: %s\n' "$GITHUB_RUN_NUMBER" "$GITHUB_SHA" "$GITHUB_RUN_NUMBER" > "$out/BUILD.txt"
+          cd "$out" && git init -q -b play-build && git add .
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -qm "Android build $GITHUB_RUN_NUMBER from ${GITHUB_SHA::7}"
+          git push -qf "https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git" play-build
+
       - uses: actions/upload-artifact@v4
         with:
           name: shieldforce-android-aab

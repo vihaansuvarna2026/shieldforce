@@ -92,7 +92,6 @@
   function storageSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage disabled */ } }
   function sessionGet(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
   function sessionSet(k, v) { try { sessionStorage.setItem(k, v); } catch (e) { /* ignore */ } }
-  function sessionDel(k) { try { sessionStorage.removeItem(k); } catch (e) { /* ignore */ } }
 
   /* ---------------- chrome injection ---------------- */
   function inject() {
@@ -193,17 +192,7 @@
       else sessionSet(VT_KEY, "push");
     });
 
-    // Fires on the arriving screen just before its first frame.
-    addEventListener("pagereveal", (e) => {
-      let type = sessionGet(VT_KEY);
-      sessionDel(VT_KEY);
-      if (!e.viewTransition) return;
-      try {
-        if (!type && window.navigation && navigation.activation &&
-            navigation.activation.navigationType === "traverse") type = "pop";
-        if (type) e.viewTransition.types.add(type);
-      } catch (err) { /* types unsupported: default cross-fade still runs */ }
-    });
+    // js/vt.js (loaded in <head>) applies the direction when the next screen appears
   }
 
   /* app bar: hairline when content scrolls under it, and the screen title fades in
@@ -326,8 +315,12 @@
     addEventListener("pointerleave", () => { mouse.x = mouse.y = -9999; });
 
     const LINK = 120;
-    let rafId = 0;
-    function tick() {
+    let rafId = 0, last = 0;
+    function tick(now = 0) {
+      rafId = requestAnimationFrame(tick);
+      // the drift is slow, so 30 frames a second looks the same and halves the work
+      if (now - last < 32) return;
+      last = now;
       cx.clearRect(0, 0, W, H);
       for (const p of pts) {
         const dx = p.x - mouse.x, dy = p.y - mouse.y;
@@ -352,7 +345,6 @@
           }
         }
       }
-      rafId = requestAnimationFrame(tick);
     }
     tick();
     // don't burn battery animating a screen nobody is looking at

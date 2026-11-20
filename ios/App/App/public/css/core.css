@@ -92,18 +92,15 @@ button { font-family: inherit; color: inherit; }
   position: fixed; inset: 0; z-index: -2;
   width: 100vw; height: 100vh; pointer-events: none;
 }
-.orb {
-  position: fixed; border-radius: 50%; filter: blur(90px);
-  opacity: 0.5; z-index: -1; pointer-events: none;
-  animation: orbFloat 18s ease-in-out infinite alternate;
-}
-.orb-a { width: 420px; height: 420px; background: rgba(77,159,255,.14); top: -120px; right: -80px; }
-.orb-b { width: 380px; height: 380px; background: rgba(255,165,62,.10); bottom: -140px; left: -100px; animation-delay: -6s; }
-.orb-c { width: 300px; height: 300px; background: rgba(46,230,168,.09); top: 45%; left: 60%; animation-delay: -12s; }
-@keyframes orbFloat {
-  from { transform: translate3d(0,0,0) scale(1); }
-  to   { transform: translate3d(-60px, 50px, 0) scale(1.15); }
-}
+/* Soft colour glows behind every screen. Painted once as gradients: a blurred, animated
+   layer looked the same but made phones redraw the whole screen every frame. */
+.orb { position: fixed; border-radius: 50%; z-index: -1; pointer-events: none; }
+.orb-a { width: 600px; height: 600px; top: -210px; right: -170px;
+  background: radial-gradient(closest-side, rgba(77,159,255,.07), rgba(77,159,255,.035) 55%, rgba(77,159,255,0)); }
+.orb-b { width: 560px; height: 560px; bottom: -230px; left: -190px;
+  background: radial-gradient(closest-side, rgba(255,165,62,.05), rgba(255,165,62,.025) 55%, rgba(255,165,62,0)); }
+.orb-c { width: 480px; height: 480px; top: calc(45% - 90px); left: calc(60% - 90px);
+  background: radial-gradient(closest-side, rgba(46,230,168,.045), rgba(46,230,168,.022) 55%, rgba(46,230,168,0)); }
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background-image:
@@ -249,7 +246,6 @@ h1.page-title {
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
   padding: 20px;
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   position: relative; overflow: hidden;
   transition: transform .2s var(--ease), box-shadow .3s ease, border-color .3s ease, background .2s ease;
 }
@@ -355,7 +351,7 @@ h1.page-title {
 .list-title:first-child { margin-top: 6px; }
 .list {
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg);
-  overflow: hidden; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
 }
 .list-item {
   display: flex; align-items: center; gap: 14px; width: 100%;

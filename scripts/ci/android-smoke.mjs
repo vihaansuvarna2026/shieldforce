@@ -102,6 +102,38 @@ await open("emergency.html");
 check(await page2.locator('a[href^="tel:1930"]').count() > 0, "1930 helpline is a tap-to-call link");
 await shot("5-sos");
 
+// no internet at all: airplane mode, a cold start, every main screen, and the scanner
+await device.shell("cmd connectivity airplane-mode enable");
+await device.shell("svc wifi disable");
+await device.shell("svc data disable");
+await wait(2500);
+const ping = (await device.shell("ping -c 1 -W 2 8.8.8.8 >/dev/null 2>&1 && echo ONLINE || echo OFFLINE")).toString().trim();
+console.log("network:", ping);
+check(ping === "OFFLINE", "phone is offline for the next checks");
+await device.shell(`am force-stop ${PKG}`);
+await device.shell(`am start -W -n ${PKG}/.MainActivity`);
+const page3 = await (await device.webView({ pkg: PKG }, { timeout: 60000 })).page();
+page3.on("pageerror", (e) => errors.push(e.message));
+page3.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
+await page3.waitForLoadState("load"); await wait(1500);
+const content = () => page3.evaluate(() => document.querySelector("main")?.innerText.length || 0);
+check(await content() > 200, "offline: the app opens with Home fully loaded");
+const empty = [];
+for (const s of ["scam-intel.html", "scam-detail.html?id=digital-arrest", "ai-analyzer.html", "learn.html",
+  "training.html?module=upi", "fraud-anatomy.html", "detection.html", "schemes.html", "threat-map.html", "emergency.html", "more.html"]) {
+  await page3.goto(new URL(s, page3.url()).href); await wait(700);
+  if (await content() < 80) empty.push(s);
+}
+check(empty.length === 0, `offline: every screen loads${empty.length ? " (empty: " + empty.join(", ") + ")" : ""}`);
+await page3.goto(new URL("ai-analyzer.html", page3.url()).href); await wait(700);
+await page3.fill("#ai-text", "Dear pensioner, your SPARSH account will be BLOCKED today. Click http://sparsh-update.xyz and share the OTP to avoid suspension.");
+await page3.click("#ai-run");
+await page3.waitForSelector("#ai-output .gauge-num", { timeout: 10000 }).catch(() => {});
+const score = +(await page3.textContent("#ai-output .gauge-num").catch(() => "0"));
+console.log("offline scan score:", score);
+check(score >= 60, "offline: the scanner flags a scam message as fraud");
+await shot("6-offline-scan");
+
 check(errors.length === 0, `no script errors${errors.length ? ": " + errors.join(" | ") : ""}`);
 await device.close();
 console.log(failed ? `${failed} check(s) failed` : "all checks passed");

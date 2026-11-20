@@ -51,6 +51,7 @@ npm run build           # app → www/
 npm run sync            # build, then copy into android/ and ios/
 npm run open:android    # open in Android Studio
 npm run open:ios        # open in Xcode (on a Mac)
+npm run check           # test every screen, offline use, the scanner and speed (needs Playwright)
 npm run icons           # redraw every icon and splash screen (needs Playwright)
 npm run store-assets    # re-capture every store screenshot + feature graphic (needs Playwright)
 npm run desktop         # copy the app into store-kit/desktop/ for a Windows/Mac installer
@@ -64,11 +65,14 @@ To try the web version locally: `npm run build`, then serve `www/` with any stat
 
 Every push runs `.github/workflows/apps.yml`:
 
-- **Web app** — builds `www/` and fails if the copy inside `ios/` is out of date.
+- **Web app** — builds `www/`, fails if the copy inside `ios/` is out of date, and runs
+  `scripts/ci/web-check.mjs`: every screen on 10 sizes, first-run terms, navigation, the scanner
+  with the network off, offline use, no outside requests, and a speed budget on a phone slowed 4×.
 - **Android build** — debug APK plus the release AAB for Google Play (signed when the upload-key
   secrets are set; see the runbook). Both are downloadable from the run.
 - **Android emulator test** — installs the APK and checks the terms gate, tabs, system Back,
-  safe areas, PDF hand-off, the 1930 dialler and that no script errors occur.
+  safe areas, PDF hand-off, the 1930 dialler, a cold start and the scanner in airplane mode, and
+  that no script errors occur.
 - **iOS build** — compiles for devices and launches the app in the iPhone and iPad Simulators.
 
 ## Native behaviour
