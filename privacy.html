@@ -30,20 +30,30 @@
   <section class="section">
     <div class="wrap">
       <div class="card legal">
-        <p class="updated">Last updated: 10 October 2026</p>
+        <p class="updated">Last updated: 20 November 2026</p>
+        <p>
+          This policy applies to the <b>Shield Force</b> app for Android (Google Play, package
+          <code>in.shieldforce.app</code>), the Shield Force app for iPhone and iPad (App Store), and
+          the Shield Force website. It explains what happens to information about you and your device
+          when you use any of them. The short answer is that <b>nothing is collected, nothing is
+          shared and nothing leaves your device</b>.
+        </p>
 
         <h2>1. Who we are</h2>
         <p>
           Shield Force is a community awareness initiative that helps Indian Armed Forces personnel,
-          veterans and their families recognise and avoid financial fraud. It is <b>not an official
-          Government of India or Ministry of Defence service</b>. Questions about this policy can be
-          sent to <a href="mailto:vihaanssuvarna@gmail.com">vihaanssuvarna@gmail.com</a> (see our <a href="contact.html">Contact page</a>).
+          veterans and their families recognise and avoid financial fraud. It is developed and
+          published by the independent Shield Force developer shown on the app's store page, and it
+          is <b>not an official Government of India or Ministry of Defence service</b>.
+          Privacy contact: <a href="mailto:vihaanssuvarna@gmail.com">vihaanssuvarna@gmail.com</a>
+          (see also our <a href="contact.html">Contact page</a>).
         </p>
 
         <h2>2. Data we collect</h2>
-        <p><b>None.</b> Shield Force has no backend server, no user accounts and no analytics or
-        advertising software of any kind. The app runs entirely as code inside your browser or the
-        installed app shell on your device.</p>
+        <p><b>None.</b> Shield Force does not collect, receive, store on a server, or transmit any
+        personal or sensitive information about you. It has no backend server, no user accounts, no
+        sign-in, and no analytics, advertising, tracking or crash-reporting software of any kind. The
+        app runs entirely as code on your device.</p>
 
         <h2>3. There is no database</h2>
         <p>
@@ -63,43 +73,79 @@
           We cannot hand over information about you to anyone, including ourselves.
         </p>
 
-        <h2>4. The Shield AI message scanner</h2>
+        <h2>4. Device information and identifiers</h2>
         <p>
-          When you paste a message into the <a href="ai-analyzer.html">Shield AI Analyzer</a>, that
-          text is scored entirely by JavaScript running on your own device against a local list of
-          fraud patterns. <b>The message is never uploaded, logged or sent to any server</b> — it is
-          discarded the moment you navigate away or clear the field.
+          Shield Force does <b>not</b> read, collect or use any device identifier — not the IMEI,
+          IMSI, SIM serial number, phone number, Android ID, advertising ID (AAID/IDFA), MAC address
+          or any other identifier — and does not fingerprint your device. It does not access your
+          location, contacts, call logs, SMS, photos, camera or microphone. Because it collects no
+          identifiers and no personal data, it never links one to another.
         </p>
 
-        <h2>5. What stays on your device</h2>
+        <h2>5. The message scanner (“Shield AI”)</h2>
+        <p>
+          When you paste a message into the <a href="ai-analyzer.html">message scanner</a>, that text
+          is checked entirely on your own device against a built-in list of fraud patterns. The
+          scanner is a set of rules inside the app; it does <b>not</b> use any third-party or online
+          AI service. <b>The message is never uploaded, logged, stored or sent anywhere</b> — it is
+          discarded the moment you leave the screen or clear the field.
+        </p>
+
+        <h2>6. What stays on your device</h2>
         <p>
           A small amount of information is saved in the app's local storage on your device, purely so
-          the app remembers your progress between visits. It is never sent to us or anyone else and
-          is not visible to us. The only copy that can exist elsewhere is inside your phone's own
-          encrypted device backup (iCloud or Google), if you have backups switched on:
+          the app remembers your progress and settings between visits. It is never sent to us or
+          anyone else and is not visible to us. The only copy that can exist elsewhere is inside your
+          phone's own encrypted device backup (iCloud or Google), if you have backups switched on:
         </p>
         <ul>
           <li><b>Training scores</b> — your best result on each quiz module, so progress isn't lost.</li>
-          <li><b>Interface preferences</b> — things like whether you've dismissed a banner.</li>
+          <li><b>App settings</b> — such as that you have accepted the terms, your language choice,
+          and whether you've dismissed a banner.</li>
         </ul>
+
+        <h2>7. Sharing and selling</h2>
         <p>
-          You can clear your quiz scores with <b>More → Reset training progress</b>, and erase all of
-          it at any time by clearing site data / app storage for Shield Force in your browser or
-          device settings, or by uninstalling the app.
+          We do <b>not</b> share, sell, rent, trade or disclose any user data to anyone — no
+          advertisers, data brokers, analytics or AI companies, partners or government bodies —
+          because we do not have any. There are no categories of third parties with whom we share
+          user data.
         </p>
 
-        <h2>6. Offline support &amp; caching</h2>
+        <h2>8. Third-party code in the app</h2>
         <p>
-          On the website, Shield Force installs a service worker so pages, images and the downloadable PDF reports
-          keep working without an internet connection after your first visit. This is a standard web
-          technology for offline apps and does not collect or transmit any data about you.
+          The store apps are built with <b>Capacitor</b>, an open-source app framework, together with
+          the standard Android and Apple system components. None of this code collects, stores or
+          sends data about you or your device. The app contains no advertising, analytics, tracking,
+          social-login, crash-reporting or AI software development kits (SDKs).
         </p>
 
-        <h2>7. Hosting and app stores</h2>
+        <h2>9. Internet use and permissions</h2>
+        <p>
+          Everything in the app — every screen, the scanner and the training — works offline from
+          the first launch. The app's own code makes no network requests. The Android app includes
+          the standard internet permission that Android's built-in web view requires; it is used
+          only when <b>you</b> choose to open an outside link, such as a government website or one of
+          the PDF field guides, which then open in your phone's browser.
+        </p>
+        <p>
+          Shield Force does not request access to your contacts, camera, microphone, location,
+          photos, files or notifications. The only device capability it uses is local storage,
+          described in section&nbsp;6.
+        </p>
+
+        <h2>10. Offline support &amp; caching (website)</h2>
+        <p>
+          On the website, Shield Force installs a service worker so pages, images and the downloadable
+          PDF reports keep working without an internet connection after your first visit. This is a
+          standard web technology for offline apps and does not collect or transmit any data about
+          you.
+        </p>
+
+        <h2>11. Hosting and app stores</h2>
         <p>
           <b>The app-store versions</b> of Shield Force carry every screen inside the app on your
-          device. They make no network requests of their own, so nothing about you is sent anywhere
-          when you use them.
+          device, so nothing about you is sent anywhere when you use them.
         </p>
         <p>
           <b>If you use Shield Force as a website</b>, the company that hosts it (Netlify) receives the
@@ -109,11 +155,30 @@
           use them to identify or track anyone.
         </p>
         <p>
-          Apple and Google may provide us with anonymous, aggregated statistics such as total
-          downloads. These are produced by the stores, not by the app, and contain no personal data.
+          Google and Apple may provide us with anonymous, aggregated statistics such as total
+          downloads. These are produced by the stores under their own privacy policies, not by the
+          app, and contain no personal data.
         </p>
 
-        <h2>8. Third-party links</h2>
+        <h2>12. Security</h2>
+        <p>
+          The best protection for personal data is not to collect it, which is how Shield Force is
+          built. What the app saves stays in its private storage on your device, protected by your
+          phone's own security (screen lock and encryption). The website is served only over
+          encrypted HTTPS.
+        </p>
+
+        <h2>13. Keeping and deleting your data</h2>
+        <p>
+          We keep no data about you, so there is nothing to delete on our side and no account to
+          close. The settings and scores on your device stay there until you remove them: clear your
+          quiz scores with <b>More → Reset training progress</b>, or erase everything by clearing
+          Shield Force's storage in your phone or browser settings, or by uninstalling the app.
+          If you write to us with a question or a deletion request, we will confirm by email that we
+          hold no data about you.
+        </p>
+
+        <h2>14. Third-party links</h2>
         <p>
           Screens such as Emergency and Contact link out to official government resources —
           <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>,
@@ -124,28 +189,28 @@
           their own privacy practices.
         </p>
 
-        <h2>9. Permissions</h2>
-        <p>
-          Shield Force does not request access to your contacts, camera, microphone, location, photos
-          or notifications. The only device capability it uses is local storage, described in
-          section&nbsp;5.
-        </p>
-
-        <h2>10. Children's privacy</h2>
+        <h2>15. Children's privacy</h2>
         <p>
           Shield Force is educational content aimed at adult service members, veterans and family
           members. It does not knowingly collect data from anyone, so no age-specific handling is
-          required — nothing is collected from any visitor regardless of age.
+          required — nothing is collected from any user regardless of age.
         </p>
 
-        <h2>11. Changes to this policy</h2>
+        <h2>16. Your rights</h2>
         <p>
-          If this policy changes — for example if a future version adds optional analytics — this
-          page will be updated and the "Last updated" date above will change accordingly. Continued
-          use of the app after an update constitutes acceptance of the revised policy.
+          Data-protection laws such as India's Digital Personal Data Protection Act, 2023 give you
+          rights over personal data that an organisation holds about you. Shield Force holds none, but
+          you are always welcome to ask us about it at the address below.
         </p>
 
-        <h2>12. Contact</h2>
+        <h2>17. Changes to this policy</h2>
+        <p>
+          If this policy changes — for example if a future version added a feature that handles data
+          — this page will be updated before the change takes effect and the “Last updated” date above
+          will change. Material changes will also be noted in the app's store listing.
+        </p>
+
+        <h2>18. Contact</h2>
         <p>
           For privacy questions, data-deletion requests, or anything else, use our
           <a href="contact.html">Contact page</a> or email
