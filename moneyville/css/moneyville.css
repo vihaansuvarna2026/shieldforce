@@ -822,7 +822,8 @@ body {
    Mobile: the palette has to work harder here, because there is less room for
    whitespace to do the work. Tighter cards, stronger tints, bigger edges.
    ============================================================================= */
-@media (max-width: 640px) {
+@media (max-width: 640px),
+       (min-width: 768px) and (max-width: 904px) and (min-height: 600px) {
   .screen { padding-left: .7rem; padding-right: .7rem; }
   .stage {
     padding: .9rem .8rem;
@@ -1111,7 +1112,7 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
 /* =============================================================================
    iPad / tablet: a real app layout — sidebar + columns, not a long web page.
    ============================================================================= */
-@media (min-width: 820px) {
+@media (min-width: 768px) and (min-height: 600px) {
   /* One token for the rail's width: the header, the content offset and the
      toast centring all derive from it, so they cannot drift apart. */
   :root { --rail: 264px; }
@@ -1148,7 +1149,7 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
    ★ Phone: the same app, with a native bottom tab bar instead of a cramped
    header — the mobile counterpart of the iPad sidebar, so both read as one app.
    ============================================================================= */
-@media (max-width: 819px) {
+@media (max-width: 767px), (max-height: 599px) {
   .app-header {
     padding: .5rem .8rem;
     background: linear-gradient(180deg, #ffffff, #eaf6ff);
@@ -1191,7 +1192,7 @@ h1, h2, h3, h4 { letter-spacing: -.02em; }
    ★ iPad: larger type across the board — kids read this at arm's length on a
    tablet, so the whole scale steps up rather than a few headings.
    ============================================================================= */
-@media (min-width: 820px) {
+@media (min-width: 768px) and (min-height: 600px) {
   html { font-size: 125%; }               /* 20px base on tablet */
   .level-heading h1 { font-size: 2.1rem; }
   .intro-title { font-size: 2rem; }
@@ -1250,10 +1251,10 @@ body { overflow-wrap: break-word; }
    host ignores pointer events entirely; it also sits above the phone tab bar,
    and is centred over the CONTENT (not the sidebar) on tablets. */
 .toast-host { pointer-events: none; }
-@media (max-width: 819px) {
+@media (max-width: 767px), (max-height: 599px) {
   .toast-host { bottom: 5.75rem; }      /* clear of the bottom tab bar */
 }
-@media (min-width: 820px) {
+@media (min-width: 768px) and (min-height: 600px) {
   .toast-host { left: calc(50% + var(--rail) / 2); } /* centred over the content, not the rail */
 }
 
@@ -1429,7 +1430,7 @@ body { overflow-wrap: break-word; }
   .road-base { stroke-width:18px; } .road-top { stroke-width:13px; } .road-dash { stroke-width:2px; }
   .journey-deco .deco { font-size:1.25rem !important; }}
 /* Tablet: roomier, same map */
-@media (min-width: 820px) {
+@media (min-width: 768px) and (min-height: 600px) {
   .journey { height: 56rem; }
   .stop-disc { width:3.5rem; height:3.5rem; }
   .stop-num { font-size:1.45rem; }
