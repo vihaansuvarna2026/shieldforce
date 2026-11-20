@@ -105,6 +105,17 @@ In a real emergency call 1930 or report at cybercrime.gov.in.
 
 ---
 
+## Google Play Console — creating the app
+
+| Question | Answer |
+|---|---|
+| App name | **Shield Force** |
+| Default language | English (India) – en-IN |
+| App or game | **App** |
+| Free or paid | **Free** (a free app can never be changed to paid later) |
+| Package name (set by the upload, cannot change) | **`in.shieldforce.app`** |
+| Trader status (account details) | **Non-trader** — the app earns no money (no ads, purchases or subscriptions) and is published as a personal community project. Change it if that ever stops being true. |
+
 ## Google Play Console — "App content" answers
 
 | Section | Answer |

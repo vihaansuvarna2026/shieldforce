@@ -43,6 +43,12 @@ Check on your phone that `https://shieldforce.netlify.app/privacy.html` opens.
 
 ---
 
+> **Received `shieldforce-1.0.0-play.aab` and a `shieldforce-upload-key` folder from Claude?**
+> The upload file is already built, validated and signed with your key. Back up the key
+> folder (Step 3, point 3), skip to **Step 4b**, and in 4d upload that `.aab` file.
+> To let GitHub sign future versions automatically, add the four secrets listed in the key
+> folder's `KEY-INFO.txt` (see "Let GitHub sign the Play upload for you" below).
+
 ## Step 3 — Create your Android upload key (once, ever)
 
 Google signs the app for users; you sign each upload with your own *upload key*.
@@ -103,8 +109,12 @@ keyPassword=your password
 Each run numbers the build automatically, so every new upload is accepted as newer.
 
 ### 4b. Create the app
-Play Console → **Create app** → name **Shield Force**, language English (India), **App**,
-**Free**, accept the declarations.
+Play Console → **Create app** → name **Shield Force**, language English (India), **App**
+(not a game), **Free**, accept the declarations. The package name is **`in.shieldforce.app`**;
+Play reads it from the first upload and it can never change.
+
+In your account details, declare your **trader status** as **non-trader** (see
+`listing/store-listing.md`) before 1 February 2027.
 
 ### 4c. Fill in "App content" and the listing
 Use `listing/store-listing.md` — every form answer is in the "Google Play Console"
