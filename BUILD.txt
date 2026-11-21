@@ -1,0 +1,9 @@
+Shield Force Android build 30
+Source commit: f698387494fb09099eb7938b41b3b67c1f054b08
+package:     in.shieldforce.app
+versionCode: 30
+versionName: 1.0.0
+minSdk:      24
+targetSdk:   36
+permissions: android.permission.INTERNET in.shieldforce.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION 
+native libraries (.so): 0
