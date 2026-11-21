@@ -16,7 +16,7 @@ android {
     namespace = "in.shieldforce.app"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.Vihaan.ShieldForce"
+        applicationId "in.shieldforce.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // Play needs a higher versionCode for every upload; CI passes its run number.

@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Shield Force</string>
     <string name="title_activity_main">Shield Force</string>
-    <string name="package_name">com.Vihaan.ShieldForce</string>
+    <string name="package_name">in.shieldforce.app</string>
     <string name="custom_url_scheme">in.shieldforce.app</string>
 </resources>

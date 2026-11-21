@@ -110,7 +110,7 @@ Each run numbers the build automatically, so every new upload is accepted as new
 
 ### 4b. Create the app
 Play Console → **Create app** → name **Shield Force**, language English (India), **App**
-(not a game), **Free**, accept the declarations. The package name is **`com.Vihaan.ShieldForce`**;
+(not a game), **Free**, accept the declarations. The package name is **`in.shieldforce.app`**;
 Play reads it from the first upload and it can never change.
 
 In your account details, declare your **trader status** as **non-trader** (see
