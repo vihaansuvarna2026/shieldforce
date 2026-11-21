@@ -4,7 +4,7 @@
 import { _android as android } from "playwright";
 import { mkdirSync } from "node:fs";
 
-const PKG = "in.shieldforce.app";
+const PKG = "com.Vihaan.ShieldForce";
 const OUT = process.env.OUT || "smoke";
 mkdirSync(OUT, { recursive: true });
 
