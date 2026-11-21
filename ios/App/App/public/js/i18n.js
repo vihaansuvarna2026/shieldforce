@@ -37,7 +37,7 @@
 
   // Languages whose translation is complete; only these are offered. Written by
   // scripts/i18n/build.mjs — a language appears in the app once every text is translated.
-  const READY = ["en"];
+  const READY = ["en","hi","bn","mr","te","ta","gu","ur","kn","or","ml","pa","as","ne"];
 
   const KEY = "sf_lang";
   const store = {

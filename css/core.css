@@ -625,3 +625,6 @@ html[lang="ur"] h1, html[lang="ur"] h2, html[lang="ur"] h3, html[lang="ur"] h4, 
 /* translated legal pages carry a note that the English text is the binding one */
 html[lang="en"] .legal-note { display: none; }
 .legal-note { border: 1px solid var(--line-strong); border-radius: var(--r-md); padding: 12px 14px; color: var(--mut); font-size: .85rem; margin: 0 0 18px; }
+
+/* the logo always reads left to right, also in Urdu */
+.wordmark, .tb-brand { direction: ltr; unicode-bidi: isolate; }
