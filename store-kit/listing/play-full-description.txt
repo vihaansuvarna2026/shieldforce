@@ -1,0 +1,40 @@
+Shield Force is a free awareness and training app for the Indian Armed Forces community. It helps serving personnel, veterans, veer naris and their families spot the scams that target them and act fast if one gets through.
+
+NOT A GOVERNMENT APP
+Shield Force is an independent community initiative. It does not represent, and is not affiliated with or endorsed by, the Government of India, the Ministry of Defence, the Indian Armed Forces or any government body. Content is for education only. Statistics and map incidents are training examples, not official data. Always confirm details with the official sources listed below.
+
+WHAT'S INSIDE
+- Scam Scanner. Paste a suspicious SMS, WhatsApp or email and get an instant risk verdict with every red flag explained. It runs on your phone and your message is never uploaded.
+- Scam Intelligence. Eight scam types that target defence families, explained step by step with ways to stay safe.
+- Training Modules. Six short quizzes that teach you to recognise fraud.
+- Defence Schemes. AGIF, DSOP, SPARSH, ECHS, AFBCWF, PMSS, AWWA and CSD explained, each with a link to its official source, along with the scams that copy them.
+- Emergency Help. Call the 1930 cyber fraud helpline in one tap and follow six clear steps for the first hour after a fraud.
+- Official Sources. A list inside the app linking every government website the app refers to.
+- Threat Map, Fraud Anatomy, Detection Lab and printable PDF guides.
+
+14 LANGUAGES
+English, Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada, Odia, Malayalam, Punjabi, Assamese and Nepali.
+
+WORKS OFFLINE
+Everything works without internet. Only the PDF guides and official website links need a connection.
+
+PRIVACY
+No account, no tracking, no ads and no data collection.
+
+OFFICIAL SOURCES OF GOVERNMENT INFORMATION IN THIS APP
+- Cyber fraud helpline 1930 and complaint portal (Ministry of Home Affairs) https://cybercrime.gov.in
+- Indian Cyber Crime Coordination Centre, I4C https://i4c.mha.gov.in
+- National Crime Records Bureau https://ncrb.gov.in
+- Sanchar Saathi, Department of Telecommunications https://sancharsaathi.gov.in
+- Emergency number 112 https://112.gov.in
+- SPARSH defence pensions https://sparsh.defencepension.gov.in
+- ECHS health scheme https://echs.gov.in
+- DSOP fund, PCDA (Officers) https://pcdaopune.gov.in
+- Kendriya Sainik Board, PMSS and AFBCWF https://ksb.gov.in
+- Canteen Stores Department https://csdindia.gov.in
+- Indian Army, AGIF and AWWA https://indianarmy.nic.in
+- Ministry of Defence https://mod.gov.in
+- Reserve Bank of India https://rbi.org.in, complaints https://cms.rbi.org.in and Sachet https://sachet.rbi.org.in
+- SEBI https://www.sebi.gov.in
+
+If you have been scammed, call 1930 or report at https://cybercrime.gov.in
