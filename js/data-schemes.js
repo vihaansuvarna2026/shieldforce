@@ -6,7 +6,7 @@
 
   const schemes = [
     {
-      id: "agif", abbr: "AGIF", name: "Army Group Insurance Fund",
+      id: "agif", abbr: "AGIF", name: "Army Group Insurance Fund", source: "https://indianarmy.nic.in",
       category: "Insurance",
       tagline: "Compulsory life insurance cover for all ranks with disability and survivor benefits.",
       benefits: [
@@ -24,7 +24,7 @@
       ]
     },
     {
-      id: "dsop", abbr: "DSOP", name: "Defence Services Officers' / Personnel Provident Fund",
+      id: "dsop", abbr: "DSOP", name: "Defence Services Officers' / Personnel Provident Fund", source: "https://pcdaopune.gov.in",
       category: "Savings",
       tagline: "The soldier's compounding engine — a government-backed provident fund on defence pay.",
       benefits: [
@@ -42,7 +42,7 @@
       ]
     },
     {
-      id: "sparsh", abbr: "SPARSH", name: "System for Pension Administration (Raksha)",
+      id: "sparsh", abbr: "SPARSH", name: "System for Pension Administration (Raksha)", source: "https://sparsh.defencepension.gov.in",
       category: "Pension",
       tagline: "Direct-credit digital pension system for defence pensioners and family pensioners.",
       benefits: [
@@ -60,7 +60,7 @@
       ]
     },
     {
-      id: "echs", abbr: "ECHS", name: "Ex-Servicemen Contributory Health Scheme",
+      id: "echs", abbr: "ECHS", name: "Ex-Servicemen Contributory Health Scheme", source: "https://echs.gov.in",
       category: "Healthcare",
       tagline: "Cashless, comprehensive healthcare for ex-servicemen and dependents via polyclinics.",
       benefits: [
@@ -78,7 +78,7 @@
       ]
     },
     {
-      id: "afbcwf", abbr: "AFBCWF", name: "Armed Forces Battle Casualties Welfare Fund",
+      id: "afbcwf", abbr: "AFBCWF", name: "Armed Forces Battle Casualties Welfare Fund", source: "https://ksb.gov.in",
       category: "Welfare",
       tagline: "Government fund giving financial assistance to battle casualties and their families.",
       benefits: [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      id: "pmss", abbr: "PMSS", name: "Prime Minister's Scholarship Scheme",
+      id: "pmss", abbr: "PMSS", name: "Prime Minister's Scholarship Scheme", source: "https://ksb.gov.in",
       category: "Education",
       tagline: "Scholarships for children and widows of ex-servicemen for professional education.",
       benefits: [
@@ -114,7 +114,7 @@
       ]
     },
     {
-      id: "awwa", abbr: "AWWA", name: "Army Wives Welfare Association",
+      id: "awwa", abbr: "AWWA", name: "Army Wives Welfare Association", source: "https://indianarmy.nic.in",
       category: "Family Welfare",
       tagline: "Welfare, skilling and support network for army families, widows and differently-abled dependents.",
       benefits: [
@@ -132,7 +132,7 @@
       ]
     },
     {
-      id: "csd", abbr: "CSD", name: "Canteen Stores Department Facilities",
+      id: "csd", abbr: "CSD", name: "Canteen Stores Department Facilities", source: "https://csdindia.gov.in",
       category: "Entitlement",
       tagline: "Subsidised goods for serving personnel, veterans and families through unit-run canteens.",
       benefits: [

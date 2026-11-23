@@ -29,6 +29,7 @@
       <span class="tag tag-blue">${s.category}</span>
       <h1 style="margin:10px 0 8px">${s.name}</h1>
       <p class="sub">${s.tagline}</p>
+      <p class="sub" style="margin-top:8px">Official source: <a href="${s.source}" target="_blank" rel="noopener" translate="no" style="color:var(--teal)">${s.source.replace("https://", "")} ↗</a></p>
     </div>`;
 
   document.getElementById("s-benefits").innerHTML =
