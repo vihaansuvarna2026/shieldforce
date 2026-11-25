@@ -30,6 +30,7 @@ const TARGETS = [
   ["google-play/screenshots/foldable",   1024,  768, 2,   ["2-scan", "5-training"]],  // 2048 × 1536  (4:3)
   ["google-play/screenshots/foldable",    400,  640, 3,   ["3-intel", "6-emergency"]], // 1200 × 1920  (10:16)
   ["app-store/screenshots/iphone-6.9in",  440,  956, 3],   // 1320 × 2868
+  ["app-store/screenshots/iphone-6.3in",  402,  874, 3],   // 1206 × 2622
   ["app-store/screenshots/ipad-13in",    1032, 1376, 2]    // 2064 × 2752
 ];
 
