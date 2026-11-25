@@ -1,0 +1,9 @@
+Shield Force Android build 35
+Source commit: 7cb15fc25b788be3e79bf38bbc94acd1d3acc152
+package:     in.shieldforce.app
+versionCode: 35
+versionName: 1.0.0
+minSdk:      24
+targetSdk:   36
+permissions: android.permission.INTERNET in.shieldforce.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION 
+native libraries (.so): 0
